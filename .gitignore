@@ -23,6 +23,8 @@ DerivedData
 
 # Android/IntelliJ
 #
+android/
+android/*.hprof
 build/
 .idea
 .gradle
