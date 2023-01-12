@@ -1,5 +1,5 @@
-import {View, StyleSheet} from 'react-native';
-import React, {useState} from 'react';
+import {View, Text, StyleSheet} from 'react-native';
+import React, {useState, useEffect} from 'react';
 import Card from './Card';
 import PlaceholderBackCards from './PlaceholderBackCards';
 import Question from './Question';
@@ -8,8 +8,25 @@ import PlaceholderBackStaticCard from './PlaceholderBackStaticCard';
 import StartButton from './StartButton';
 import useGeneratedCards from './useGeneratedCards';
 
+import useGeneratedChapters from './useGeneratedChapters';
+import Chapter from './Chapter';
+
 export default function AnimatedStyleUpdateExample() {
-  const {getCardByIndex} = useGeneratedCards();
+  const {getChapterbyIndex} = useGeneratedChapters();
+  const [currentChapter, setCurrentChapter] = useState({});
+  const [currentChapterIndex, setCurrentChapterIndex] = useState(0);
+
+  const [firstChapCard, setFirstChapCard] = useState();
+
+  useEffect(() => {
+    setFirstChapCard("1a1681d447ac4562a19d1b10d9ecf137");
+  }, []);
+
+
+  //firstChap_card = "61c18699d09246ba82c75b1510188461";
+
+ /* const {getCardByIndex} = useGeneratedCards();
+  //const {getCardById} = useGeneratedCards();
   const [currentCard, setCurrentCard] = useState({});
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [currentMood, setCurrentMood] = useState({happy: [], sad: []});
@@ -18,15 +35,19 @@ export default function AnimatedStyleUpdateExample() {
   const [showAnimatedReverseCard, setShowAnimatedReverseCard] = useState(false);
   const [showReverseCard, setShowReverseCard] = useState(false);
   const [showCard, setShowCard] = useState(false);
-  const [showQuestion, setShowQuestion] = useState(false);
+  const [showQuestion, setShowQuestion] = useState(false);*/
+
+
+  //setFirstChapCard("1a1681d447ac4562a19d1b10d9ecf137");
+
 
   // TODO refactor those settimeouts
-  const showNextCard = (timeout) => {
+  /*const showNextCard = (timeout) => {
     setTimeout(() => {
       setShowCard(true);
       setTimeout(() => {
         setShowQuestion(true);
-      }, 100);
+      }, 10);
     }, timeout);
   };
 
@@ -52,7 +73,7 @@ export default function AnimatedStyleUpdateExample() {
     createNewCard();
     setTimeout(() => {
       setCurrentMood({happy: [], sad: []});
-    }, 200);
+    }, 50);
   };
 
   const onChooseRightAnswer = () => {
@@ -60,7 +81,7 @@ export default function AnimatedStyleUpdateExample() {
     createNewCard();
     setTimeout(() => {
       setCurrentMood({happy: [], sad: []});
-    }, 200);
+    }, 50);
   };
 
   const createNewCard = () => {
@@ -71,11 +92,13 @@ export default function AnimatedStyleUpdateExample() {
       setCurrentCardIndex(currentCardIndex + 1);
       setShowCard(false);
     }, 300);
-    showNextCard(700);
-  };
+    showNextCard(500);
+  };*/
 
   return (
-    <View style={styles.wrapper}>
+    //<Text>TESTEST</Text>
+    <Chapter firstCard={firstChapCard} />
+    /*<View style={styles.wrapper}>
       <View style={styles.topWrapper}>
         <PowerIndicators currentMood={currentMood} />
       </View>
@@ -98,7 +121,8 @@ export default function AnimatedStyleUpdateExample() {
         )}
       </View>
       <View style={styles.nameWrapper} />
-    </View>
+    </View>*/
+
   );
 }
 
@@ -125,7 +149,7 @@ const styles = StyleSheet.create({
   },
   topWrapper: {
     width: '100%',
-    height: 200,
+    height: 170,
     backgroundColor: '#ccc',
   },
 });
