@@ -19,7 +19,9 @@ export default function AnimatedStyleUpdateExample() {
   const [firstChapCard, setFirstChapCard] = useState();
 
   useEffect(() => {
-    setFirstChapCard("1a1681d447ac4562a19d1b10d9ecf137");
+    const ac = new AbortController(); //to avoid memory leak
+    setFirstChapCard("505dc8c39ed34f48ad448e8146dcb60e");
+    return () => ac.abort(); 
   }, []);
 
 

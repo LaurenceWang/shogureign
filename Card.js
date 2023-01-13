@@ -64,11 +64,11 @@ const Card = ({
   useEffect(() => {
     setShowCard(true);
     openAnimation.value = withDelay(
-      50,
+      80,
       withTiming(
         2,
         {
-          duration: 300,
+          duration: 600,
         },
         () => {
           runOnJS(setIsActive)(true);

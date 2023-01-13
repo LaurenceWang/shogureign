@@ -1,5 +1,5 @@
 import {View, StyleSheet} from 'react-native';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Card from './Card';
 import PlaceholderBackCards from './PlaceholderBackCards';
 import Question from './Question';
@@ -12,12 +12,13 @@ import useGeneratedChapters from './useGeneratedChapters';
 const Chapter = ({firstCard }) => {
 
 	//const {getChapterbyId} = useGeneratedChapters();
-	const {chapterCard, setChapterCard} = useState([]);
+	const {getChapterByIndex} = useGeneratedChapters();
+	const {getChapterByFirstCardId} = useGeneratedChapters();
 	const {getCardByIndex} = useGeneratedCards();
 	const {getCardById} = useGeneratedCards();
 	const {getChapterCardByIndex} = useGeneratedChapters();
 	
-
+	//const [chapFirstCard, setChapFirstCard] = useState({});
 	const [currentCard, setCurrentCard] = useState({});
 	const [currentCardIndex, setCurrentCardIndex] = useState(0);
 	const [currentMood, setCurrentMood] = useState({happy: [], sad: []});
@@ -27,7 +28,27 @@ const Chapter = ({firstCard }) => {
 	const [showReverseCard, setShowReverseCard] = useState(false);
 	const [showCard, setShowCard] = useState(false);
 	const [showQuestion, setShowQuestion] = useState(false);
+	const [chapterCard, setChapterCard] = useState([]);
+
+	useEffect(() => {
+		const ac = new AbortController(); //to avoid memory leak
+
+		if(firstCard){
+		const cards = getChapterByFirstCardId(firstCard).card;
+		setChapterCard([...cards]);
+		setCurrentCard(getCardById(firstCard));
+		setCurrentCardIndex(currentCardIndex);
+		//setChapFirstCard(firstCard);
+		}
+		return () => ac.abort(); 
+	}, [firstCard]);
 	
+
+	function updateChapterCard(index) {
+		chapterCard.slice(index);
+		setChapterCard([...chapterCard]);
+    }
+
 	const showNextCard = (timeout) => {
 		setTimeout(() => {
 		  setShowCard(true);
@@ -37,10 +58,17 @@ const Chapter = ({firstCard }) => {
 		}, timeout);
 	  };
 
-	  const onStartChapter = () => {
-		setCurrentCard(getCardById(firstCard));
-		setCurrentCardIndex(currentCardIndex);
+	  
+	 const onStartChapter = () => {
 
+		/*const cards = getChapterByFirstCardId(chapFirstCard).card;
+		setChapterCard([...cards]);
+		setCurrentCard(getCardById(firstCard));
+		setCurrentCardIndex(currentCardIndex);*/
+	
+
+		//const data = ["test", "test2"];
+		//setChapterCard([...data]);
 		//setCurrentCardIndex(currentCardIndex + 1);
 		setTimeout(() => {
 			setShowStartButton(false);
@@ -54,23 +82,6 @@ const Chapter = ({firstCard }) => {
 		  }, 2000);
 		  showNextCard(2500);
 	  };
-	
-	  /*const onStartGame = () => {
-		setCurrentCard(getCardByIndex(currentCardIndex));
-		setCurrentCardIndex(currentCardIndex + 1);
-	
-		setTimeout(() => {
-		  setShowStartButton(false);
-		  setShowAnimatedReverseCard(true);
-		}, 500);
-		setTimeout(() => {
-		  setShowReverseCard(true);
-		  setTimeout(() => {
-			setShowAnimatedReverseCard(false);
-		  }, 100);
-		}, 2000);
-		showNextCard(2500);
-	  };*/
 	
 	  const onChooseLeftAnswer = () => {
 		setCurrentMood(currentCard.onLeft);
@@ -92,12 +103,15 @@ const Chapter = ({firstCard }) => {
 		setShowQuestion(false);
 		setTimeout(() => {
 		  // let it fly away in peace for 300 ms
-		  setCurrentCard(getCardById(getChapterCardByIndex(0,currentCardIndex)));
+		  //setCurrentCard(getCardById(getChapterCardByIndex(0,currentCardIndex)));
+		  setCurrentCard(getCardById(chapterCard[currentCardIndex % chapterCard.length]));
+		  
 		  setCurrentCardIndex(currentCardIndex + 1);
 		  setShowCard(false);
-		}, 300);
-		showNextCard(500);
+		}, 100);
+		showNextCard(150);
 	  };
+
 
 	return (
 		
@@ -143,7 +157,7 @@ const styles = StyleSheet.create({
 	  alignItems: 'center',
 	},
 	questionWrapper: {
-	  height: 100,
+	  height: 140,
 	  justifyContent: 'center',
 	  alignItems: 'center',
 	},
