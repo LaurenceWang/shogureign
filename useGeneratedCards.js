@@ -87,10 +87,10 @@ export default function useGeneratedCards() {
       "onLeft": "",
       "rightText": "prendre le métro",
       "onRight": "",
-      "left_custom": "",
+      "left_custom": [{"chap1_choice_subway" : true}],
       "right_custom": "",
       "left_next_card": "",
-      "right_next_card": "",
+      "right_next_card": [{"chap1_street" : true}],
       "difficulté": "",
       "Kanji": "marcher (足) voiture(車) train(電車)",
       "background": "#ccc",
@@ -107,9 +107,9 @@ export default function useGeneratedCards() {
       "character": "sans",
       "condition": "",
       "question": "C’était peut être cher mais tu es arrivé sans encombre. Le chauffeur était vachement bavard mais tu n’as pas compris un mot et tu t’es contenté de hocher la tête … Ah ! Il serait temps de prendre quelques cours.",
-      "leftText": "",
+      "leftText": "ok",
       "onLeft": "",
-      "rightText": "",
+      "rightText": "cool",
       "onRight": "-20 A + 5 B",
       "left_custom": "",
       "right_custom": "",
@@ -166,7 +166,7 @@ export default function useGeneratedCards() {
       "difficulté": "",
       "Kanji": "",
       "background": "#ccc",
-      "image": "",
+      "image": "https://cdn-icons-png.flaticon.com/512/3313/3313514.png",
       "itemId": ""
     },
     {
@@ -190,7 +190,7 @@ export default function useGeneratedCards() {
       "difficulté": "",
       "Kanji": "",
       "background": "#ccc",
-      "image": "",
+      "image": "https://cdn-icons-png.flaticon.com/512/3313/3313514.png",
       "itemId": ""
     },
     {
@@ -214,7 +214,7 @@ export default function useGeneratedCards() {
       "difficulté": "",
       "Kanji": "",
       "background": "#ccc",
-      "image": "",
+      "image": "https://cdn-icons-png.flaticon.com/512/3313/3313514.png",
       "itemId": ""
     },
     {
@@ -279,8 +279,8 @@ export default function useGeneratedCards() {
       "onLeft": "",
       "rightText": "Je vais rester à la maison",
       "onRight": "",
-      "left_custom": "",
-      "right_custom": "",
+      "left_custom": [{"chap1_street" : true}],
+      "right_custom": [{"chap1_street" : false, "chap1_home" : true}],
       "left_next_card": "",
       "right_next_card": "",
       "difficulté": "",

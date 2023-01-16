@@ -9,6 +9,7 @@ import StartButton from './StartButton';
 import useGeneratedCards from './useGeneratedCards';
 import useGeneratedChapters from './useGeneratedChapters';
 import useGeneratedUnits from './useGeneratedUnits';
+import worldState from './worldState';
 
 const Chapter = ({firstCard }) => {
 
@@ -18,7 +19,7 @@ const Chapter = ({firstCard }) => {
 	const {getCardByIndex} = useGeneratedCards();
 	const {getCardById} = useGeneratedCards();
 	const {getChapterCardByIndex} = useGeneratedChapters();
-	
+	const {World} = worldState();
 
 	const {getUnitById} = useGeneratedUnits();
 	const {getUnitByIndex} = useGeneratedUnits();
@@ -51,12 +52,12 @@ const Chapter = ({firstCard }) => {
 		setCurrentCardIndex(currentCardIndex);
 		//setChapFirstCard(firstCard);
 		}*/
-		const units = getChapterByIndex(0).unit;
+		/*const units = getChapterByIndex(0).unit;
 		setChapterUnit([...units]);
 		const cards = getUnitById(units[0]).card;
 		setChapterCard([...cards]);
 		setCurrentCard(getCardById(cards[0]));
-		setCurrentCardIndex(currentCardIndex + 1);
+		setCurrentCardIndex(currentCardIndex + 1);*/
 
 		//setCurrentCard(getCardById("505dc8c39ed34f48ad448e8146dcb60e"));
 		return () => ac.abort(); 
@@ -70,7 +71,47 @@ const Chapter = ({firstCard }) => {
 		setChapterCard([...cards]);
     }
 
-	function updateCurrentUnit(){
+	function isEmpty(obj) {
+		return Object.keys(obj).length === 0;
+	}
+
+
+	function comparaison(obj1,obj2){
+
+			for(let i in obj2){
+			  if(obj1.hasOwnProperty(i)){
+				if(obj1[i]!==obj2[i]){
+				  return false;
+				}
+			  }
+			}
+			return true;
+	}
+
+	function updatePlayableUnits(){
+        let playableUnits = [];
+		let j = 0;
+
+		/*chapterUnit.forEach(element => {
+			let conditions = getUnitById(element).condition;
+			if(comparaison(conditions, World)){
+				playableUnits[j] = element;
+				j++;
+			}
+		})*/
+
+        for(let i=0; i<chapterUnit.length; i++){
+            let conditions = getUnitById(chapterUnit[i]).condition;
+			if(comparaison(conditions, World)){
+				playableUnits[j] = chapterUnit[i];
+				j++;
+			}
+        } 
+
+		setChapterUnit(...playableUnits);
+    }
+
+	function updateWorldState(){
 		
 	}
 
@@ -95,6 +136,15 @@ const Chapter = ({firstCard }) => {
 		//const data = ["test", "test2"];
 		//setChapterCard([...data]);
 		//setCurrentCardIndex(currentCardIndex + 1);
+		const units = getChapterByIndex(0).unit;
+		setChapterUnit([...units]);
+		const cards = getUnitById(units[0]).card;
+		setChapterCard([...cards]);
+		setCurrentCard(getCardById(cards[0]));
+		//if(currentCardIndex + 1 < chapterCard.length){
+			setCurrentUnitIndex(currentUnitIndex + 1);
+			setCurrentCardIndex(currentCardIndex + 1);
+		//}
 		setTimeout(() => {
 			setShowStartButton(false);
 			setShowAnimatedReverseCard(true);
@@ -131,12 +181,14 @@ const Chapter = ({firstCard }) => {
 		  //setCurrentCard(getCardById(getChapterCardByIndex(0,currentCardIndex)));
 		  //setCurrentCard(getCardById("36f2fddae5f4434da9bc76f0763a28c2"));
 		  setCurrentCard(getCardById(chapterCard[currentCardIndex % chapterCard.length]));
-		  if(currentCardIndex + 1 >= chapterCard.length){
+		  setCurrentCardIndex(currentCardIndex + 1);
+
+		  if(currentCardIndex + 2 > chapterCard.length && currentUnitIndex + 1 <= chapterUnit.length){
 			setCurrentUnitIndex(currentUnitIndex + 1)
+			//updatePlayableUnits();
 			updateChapterCard(currentUnitIndex);
 			setCurrentCardIndex(0);
 		  }
-		  setCurrentCardIndex(currentCardIndex + 1);
 		  setShowCard(false);
 		}, 100);
 		showNextCard(150);
@@ -204,5 +256,3 @@ const styles = StyleSheet.create({
   });
 
 export default Chapter;
-
-
