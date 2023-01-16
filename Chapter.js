@@ -92,23 +92,14 @@ const Chapter = ({firstCard }) => {
         let playableUnits = [];
 		let j = 0;
 
-		/*chapterUnit.forEach(element => {
+		chapterUnit.forEach(element => {
 			let conditions = getUnitById(element).condition;
 			if(comparaison(conditions, World)){
 				playableUnits[j] = element;
 				j++;
 			}
-		})*/
-
-        for(let i=0; i<chapterUnit.length; i++){
-            let conditions = getUnitById(chapterUnit[i]).condition;
-			if(comparaison(conditions, World)){
-				playableUnits[j] = chapterUnit[i];
-				j++;
-			}
-        } 
-
-		setChapterUnit(...playableUnits);
+		})
+		setChapterUnit(playableUnits);
     }
 
 	function updateWorldState(){
@@ -185,7 +176,7 @@ const Chapter = ({firstCard }) => {
 
 		  if(currentCardIndex + 2 > chapterCard.length && currentUnitIndex + 1 <= chapterUnit.length){
 			setCurrentUnitIndex(currentUnitIndex + 1)
-			//updatePlayableUnits();
+			updatePlayableUnits();
 			updateChapterCard(currentUnitIndex);
 			setCurrentCardIndex(0);
 		  }
