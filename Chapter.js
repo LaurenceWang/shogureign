@@ -9,6 +9,7 @@ import StartButton from './StartButton';
 import useGeneratedCards from './useGeneratedCards';
 import useGeneratedChapters from './useGeneratedChapters';
 import useGeneratedUnits from './useGeneratedUnits';
+import worldState from './worldState';
 
 const Chapter = ({firstCard }) => {
 
@@ -18,7 +19,7 @@ const Chapter = ({firstCard }) => {
 	const {getCardByIndex} = useGeneratedCards();
 	const {getCardById} = useGeneratedCards();
 	const {getChapterCardByIndex} = useGeneratedChapters();
-	
+	const {World} = worldState();
 
 	const {getUnitById} = useGeneratedUnits();
 	const {getUnitByIndex} = useGeneratedUnits();
@@ -70,7 +71,47 @@ const Chapter = ({firstCard }) => {
 		setChapterCard([...cards]);
     }
 
-	function updateCurrentUnit(){
+	function isEmpty(obj) {
+		return Object.keys(obj).length === 0;
+	}
+
+
+	function comparaison(obj1,obj2){
+
+			for(let i in obj2){
+			  if(obj1.hasOwnProperty(i)){
+				if(obj1[i]!==obj2[i]){
+				  return false;
+				}
+			  }
+			}
+			return true;
+	}
+
+	function updatePlayableUnits(){
+        let playableUnits = [];
+		let j = 0;
+
+		/*chapterUnit.forEach(element => {
+			let conditions = getUnitById(element).condition;
+			if(comparaison(conditions, World)){
+				playableUnits[j] = element;
+				j++;
+			}
+		})*/
+
+        for(let i=0; i<chapterUnit.length; i++){
+            let conditions = getUnitById(chapterUnit[i]).condition;
+			if(comparaison(conditions, World)){
+				playableUnits[j] = chapterUnit[i];
+				j++;
+			}
+        } 
+
+		setChapterUnit(...playableUnits);
+    }
+
+	function updateWorldState(){
 		
 	}
 
@@ -144,6 +185,7 @@ const Chapter = ({firstCard }) => {
 
 		  if(currentCardIndex + 2 > chapterCard.length && currentUnitIndex + 1 <= chapterUnit.length){
 			setCurrentUnitIndex(currentUnitIndex + 1)
+			//updatePlayableUnits();
 			updateChapterCard(currentUnitIndex);
 			setCurrentCardIndex(0);
 		  }
@@ -214,5 +256,3 @@ const styles = StyleSheet.create({
   });
 
 export default Chapter;
-
-

@@ -1,5 +1,5 @@
 export default function worldState() {
-	const World = [
+	const World = 
 
 		{
 			"chap1_choice_street": false,
@@ -8,10 +8,9 @@ export default function worldState() {
 			"chap1_street": false,
 			"arrive_home_completed": false,
 			"chap1_home": false,
-		},
-
-
-	];
+		}
+		
+	;
 
 
 
