@@ -8,6 +8,7 @@ import PlaceholderBackStaticCard from './PlaceholderBackStaticCard';
 import StartButton from './StartButton';
 import useGeneratedCards from './useGeneratedCards';
 import useGeneratedChapters from './useGeneratedChapters';
+import useGeneratedUnits from './useGeneratedUnits';
 
 const Chapter = ({firstCard }) => {
 
@@ -18,6 +19,16 @@ const Chapter = ({firstCard }) => {
 	const {getCardById} = useGeneratedCards();
 	const {getChapterCardByIndex} = useGeneratedChapters();
 	
+
+	const {getUnitById} = useGeneratedUnits();
+	const {getUnitByIndex} = useGeneratedUnits();
+	const {getUnitCardByIndex} = useGeneratedUnits();
+
+	const {getChapterUnit} = useGeneratedChapters();
+	const [chapterUnit, setChapterUnit] = useState([]);
+	const [unitCards, setUnitCards] = useState([]);
+	const [currentUnitIndex, setCurrentUnitIndex] = useState(0);
+
 	//const [chapFirstCard, setChapFirstCard] = useState({});
 	const [currentCard, setCurrentCard] = useState({});
 	const [currentCardIndex, setCurrentCardIndex] = useState(0);
@@ -33,21 +44,35 @@ const Chapter = ({firstCard }) => {
 	useEffect(() => {
 		const ac = new AbortController(); //to avoid memory leak
 
-		if(firstCard){
+		/*if(firstCard){
 		const cards = getChapterByFirstCardId(firstCard).card;
 		setChapterCard([...cards]);
 		setCurrentCard(getCardById(firstCard));
 		setCurrentCardIndex(currentCardIndex);
 		//setChapFirstCard(firstCard);
-		}
+		}*/
+		const units = getChapterByIndex(0).unit;
+		setChapterUnit([...units]);
+		const cards = getUnitById(units[0]).card;
+		setChapterCard([...cards]);
+		setCurrentCard(getCardById(cards[0]));
+		setCurrentCardIndex(currentCardIndex + 1);
+
+		//setCurrentCard(getCardById("505dc8c39ed34f48ad448e8146dcb60e"));
 		return () => ac.abort(); 
-	}, [firstCard]);
+	}, []);
 	
 
 	function updateChapterCard(index) {
-		chapterCard.slice(index);
-		setChapterCard([...chapterCard]);
+		//chapterCard.slice(index);
+		const cards = getUnitById(chapterUnit[index]).card;
+		//setChapterCard([...chapterCard]);
+		setChapterCard([...cards]);
     }
+
+	function updateCurrentUnit(){
+		
+	}
 
 	const showNextCard = (timeout) => {
 		setTimeout(() => {
@@ -104,8 +129,13 @@ const Chapter = ({firstCard }) => {
 		setTimeout(() => {
 		  // let it fly away in peace for 300 ms
 		  //setCurrentCard(getCardById(getChapterCardByIndex(0,currentCardIndex)));
+		  //setCurrentCard(getCardById("36f2fddae5f4434da9bc76f0763a28c2"));
 		  setCurrentCard(getCardById(chapterCard[currentCardIndex % chapterCard.length]));
-		  
+		  if(currentCardIndex + 1 >= chapterCard.length){
+			setCurrentUnitIndex(currentUnitIndex + 1)
+			updateChapterCard(currentUnitIndex);
+			setCurrentCardIndex(0);
+		  }
 		  setCurrentCardIndex(currentCardIndex + 1);
 		  setShowCard(false);
 		}, 100);
