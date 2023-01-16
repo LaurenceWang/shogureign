@@ -107,9 +107,9 @@ export default function useGeneratedCards() {
       "character": "sans",
       "condition": "",
       "question": "C’était peut être cher mais tu es arrivé sans encombre. Le chauffeur était vachement bavard mais tu n’as pas compris un mot et tu t’es contenté de hocher la tête … Ah ! Il serait temps de prendre quelques cours.",
-      "leftText": "",
+      "leftText": "ok",
       "onLeft": "",
-      "rightText": "",
+      "rightText": "cool",
       "onRight": "-20 A + 5 B",
       "left_custom": "",
       "right_custom": "",
@@ -166,7 +166,7 @@ export default function useGeneratedCards() {
       "difficulté": "",
       "Kanji": "",
       "background": "#ccc",
-      "image": "",
+      "image": "https://cdn-icons-png.flaticon.com/512/3313/3313514.png",
       "itemId": ""
     },
     {
@@ -190,7 +190,7 @@ export default function useGeneratedCards() {
       "difficulté": "",
       "Kanji": "",
       "background": "#ccc",
-      "image": "",
+      "image": "https://cdn-icons-png.flaticon.com/512/3313/3313514.png",
       "itemId": ""
     },
     {
@@ -214,7 +214,7 @@ export default function useGeneratedCards() {
       "difficulté": "",
       "Kanji": "",
       "background": "#ccc",
-      "image": "",
+      "image": "https://cdn-icons-png.flaticon.com/512/3313/3313514.png",
       "itemId": ""
     },
     {

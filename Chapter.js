@@ -51,12 +51,12 @@ const Chapter = ({firstCard }) => {
 		setCurrentCardIndex(currentCardIndex);
 		//setChapFirstCard(firstCard);
 		}*/
-		const units = getChapterByIndex(0).unit;
+		/*const units = getChapterByIndex(0).unit;
 		setChapterUnit([...units]);
 		const cards = getUnitById(units[0]).card;
 		setChapterCard([...cards]);
 		setCurrentCard(getCardById(cards[0]));
-		setCurrentCardIndex(currentCardIndex + 1);
+		setCurrentCardIndex(currentCardIndex + 1);*/
 
 		//setCurrentCard(getCardById("505dc8c39ed34f48ad448e8146dcb60e"));
 		return () => ac.abort(); 
@@ -95,6 +95,15 @@ const Chapter = ({firstCard }) => {
 		//const data = ["test", "test2"];
 		//setChapterCard([...data]);
 		//setCurrentCardIndex(currentCardIndex + 1);
+		const units = getChapterByIndex(0).unit;
+		setChapterUnit([...units]);
+		const cards = getUnitById(units[0]).card;
+		setChapterCard([...cards]);
+		setCurrentCard(getCardById(cards[0]));
+		//if(currentCardIndex + 1 < chapterCard.length){
+			setCurrentUnitIndex(currentUnitIndex + 1);
+			setCurrentCardIndex(currentCardIndex + 1);
+		//}
 		setTimeout(() => {
 			setShowStartButton(false);
 			setShowAnimatedReverseCard(true);
@@ -131,12 +140,13 @@ const Chapter = ({firstCard }) => {
 		  //setCurrentCard(getCardById(getChapterCardByIndex(0,currentCardIndex)));
 		  //setCurrentCard(getCardById("36f2fddae5f4434da9bc76f0763a28c2"));
 		  setCurrentCard(getCardById(chapterCard[currentCardIndex % chapterCard.length]));
-		  if(currentCardIndex + 1 >= chapterCard.length){
+		  setCurrentCardIndex(currentCardIndex + 1);
+
+		  if(currentCardIndex + 2 > chapterCard.length && currentUnitIndex + 1 <= chapterUnit.length){
 			setCurrentUnitIndex(currentUnitIndex + 1)
 			updateChapterCard(currentUnitIndex);
 			setCurrentCardIndex(0);
 		  }
-		  setCurrentCardIndex(currentCardIndex + 1);
 		  setShowCard(false);
 		}, 100);
 		showNextCard(150);
