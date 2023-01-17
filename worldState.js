@@ -14,9 +14,6 @@ export default function worldState() {
 	;
 
 
-
-
-
 	return {
 		World
 	};

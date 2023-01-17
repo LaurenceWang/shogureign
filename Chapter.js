@@ -131,6 +131,7 @@ const Chapter = ({firstCard }) => {
 
 		setChapterUnit(playableUnits);
     }
+	
 
 
 	function updateWorldState(id){

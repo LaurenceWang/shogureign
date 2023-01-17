@@ -27,7 +27,7 @@ export default function AnimatedStyleUpdateExample() {
 
   //firstChap_card = "61c18699d09246ba82c75b1510188461";
 
- /* const {getCardByIndex} = useGeneratedCards();
+  const {getCardByIndex} = useGeneratedCards();
   //const {getCardById} = useGeneratedCards();
   const [currentCard, setCurrentCard] = useState({});
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
@@ -37,14 +37,14 @@ export default function AnimatedStyleUpdateExample() {
   const [showAnimatedReverseCard, setShowAnimatedReverseCard] = useState(false);
   const [showReverseCard, setShowReverseCard] = useState(false);
   const [showCard, setShowCard] = useState(false);
-  const [showQuestion, setShowQuestion] = useState(false);*/
+  const [showQuestion, setShowQuestion] = useState(false);
 
 
   //setFirstChapCard("1a1681d447ac4562a19d1b10d9ecf137");
 
 
   // TODO refactor those settimeouts
-  /*const showNextCard = (timeout) => {
+  const showNextCard = (timeout) => {
     setTimeout(() => {
       setShowCard(true);
       setTimeout(() => {
@@ -95,11 +95,11 @@ export default function AnimatedStyleUpdateExample() {
       setShowCard(false);
     }, 300);
     showNextCard(500);
-  };*/
+  };
 
   return (
     //<Text>TESTEST</Text>
-    <Chapter firstCard={firstChapCard} />
+   <Chapter firstCard={firstChapCard} />
     /*<View style={styles.wrapper}>
       <View style={styles.topWrapper}>
         <PowerIndicators currentMood={currentMood} />
@@ -123,8 +123,8 @@ export default function AnimatedStyleUpdateExample() {
         )}
       </View>
       <View style={styles.nameWrapper} />
-    </View>*/
-
+    </View>
+          */
   );
 }
 
