@@ -8,13 +8,12 @@ import Animated, {
 import Images from './images/index';
 import ProgressBar from './ProgressBar';
 
-const PowerPerson = ({ base, isHappy, isSad }) => {
+const PowerPerson = ({ base, isHappy, isSad, value }) => {
   const heartAnimation = useSharedValue(0);
   const cloudAnimation = useSharedValue(0);
   const personSize = useSharedValue(1);
 
   const iconSize = 95;
-  const [value, setValue] = useState(50);
 
   let styles = getStyles(iconSize, value);
 

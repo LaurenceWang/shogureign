@@ -15,6 +15,10 @@ const Images = {
     popularity: {
       empty: require('./jauges/popularity_empty.png'),
       full: require('./jauges/popularity.png')
+    },
+    hygiene: {
+      empty: "",
+      full: require('./jauges/hygiene.png')
     }
   }
 };

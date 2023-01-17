@@ -2,7 +2,7 @@ import React from 'react';
 import { Animated, View, StyleSheet } from 'react-native';
 
 const ProgressBar = ({ value }) => {
-  const styles = getStyles(value);
+  const styles = getStyles((value >= 0) ? value : 0);
 
   return (
     <View className="power-pb" style={styles.pbBorder}>
