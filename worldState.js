@@ -17,15 +17,14 @@ export default function worldState() {
 	// ;
 
 	const {Units} = useGeneratedUnits();
-	//const {Cards} = useGeneratedCards();
+	const {Cards} = useGeneratedCards();
 	let World;
 	Units.forEach(element => {
 		World = {...World, ...element.condition, ...element.custom};
-		
 	});
-	// Cards.forEach(val =>{
-	// 	World = {...World, ...val.left_custom, ...val.right_custom};		
-	// });
+	Cards.forEach(val =>{
+		World = {...World, ...val.condition,...val.left_custom, ...val.right_custom};		
+	});  
 
 
 	return {
