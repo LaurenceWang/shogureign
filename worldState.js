@@ -2,6 +2,7 @@ export default function worldState() {
 	const World = 
 
 		{
+			"chap1_intro" : true,
 			"chap1_choice_street": false,
 			"chap1_choice_subway": false,
 			"chap1_choice_taxi": false,
