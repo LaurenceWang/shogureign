@@ -19,7 +19,10 @@ const Chapter = ({firstCard }) => {
 	const {getCardByIndex} = useGeneratedCards();
 	const {getCardById} = useGeneratedCards();
 	const {getChapterCardByIndex} = useGeneratedChapters();
-	const {World} = worldState();
+	let {World} = worldState();
+	let tmp = {};
+	const [currentWorld, setCurrentWorld] = useState(World);
+	
 
 	const {getUnitById} = useGeneratedUnits();
 	const {getUnitByIndex} = useGeneratedUnits();
@@ -62,6 +65,13 @@ const Chapter = ({firstCard }) => {
 		//setCurrentCard(getCardById("505dc8c39ed34f48ad448e8146dcb60e"));
 		return () => ac.abort(); 
 	}, []);
+
+	function initializeWorld(){
+		Object.keys(currentWorld).forEach((key) =>{ currentWorld[key] = false});
+		//setCurrentWorld((currentWorld) => currentWorld = {...World});
+		//console.log(World);
+		console.log(currentWorld);
+	}
 	
 
 	function updateChapterCard(index) {
@@ -90,33 +100,33 @@ const Chapter = ({firstCard }) => {
 
 	function updatePlayableUnits(){
         let playableUnits = [];
-		let j = 0;
 
 		chapterUnit.forEach(element => {
 			const conditions = getUnitById(element).condition;
-			if(comparaison(conditions, World)){
+			if(comparaison(conditions, currentWorld)){
 				playableUnits.push(element);
 			}
 		});
 
-		/*chapterUnit.forEach(element => {
-			let conditions = getUnitById(element).condition;
-			if(comparaison(conditions, World)){
-				playableUnits[j] = element;
-				j++;
-			}
-		})*/
-
-        /*for(let i=0; i<chapterUnit.length; i++){
-            let conditions = getUnitById(chapterUnit[i]).condition;
-			if(comparaison(conditions, World)){
-				playableUnits[j] = chapterUnit[i];
-				j++;
-			}
-        } */
-
 		setChapterUnit(playableUnits);
+		
     }
+
+	function updatePlayableCards(){
+		let playableCards = [];
+		
+		chapterCard.forEach(element => {
+			const conditions = getCardById(element).condition;
+			if(comparaison(conditions, cardWorld)){
+				playableCards.push(element);
+			}
+			
+		});
+
+		setChapterCard(playableCards);
+	}
+
+
 	
 
 	function updateWorldState(){
@@ -134,6 +144,17 @@ const Chapter = ({firstCard }) => {
 
 	  
 	 const onStartChapter = () => {
+
+		// const tmp = initializeWorld();
+
+		// setCurrentWorld(World);
+
+
+		initializeWorld();
+	
+		//Object.keys(currentWorld).forEach((key) =>{ temp[key] = false});
+		//setCurrentWorld((currentWorld) => currentWorld = {...World});
+		//console.log(World);
 
 		/*const cards = getChapterByFirstCardId(chapFirstCard).card;
 		setChapterCard([...cards]);
@@ -185,6 +206,7 @@ const Chapter = ({firstCard }) => {
 	  const createNewCard = () => {
 		setShowQuestion(false);
 		setTimeout(() => {
+		console.log(currentWorld);
 		  // let it fly away in peace for 300 ms
 		  //setCurrentCard(getCardById(getChapterCardByIndex(0,currentCardIndex)));
 		  //setCurrentCard(getCardById("36f2fddae5f4434da9bc76f0763a28c2"));
@@ -195,6 +217,7 @@ const Chapter = ({firstCard }) => {
 			setCurrentUnitIndex(currentUnitIndex + 1)
 			updatePlayableUnits();
 			updateChapterCard(currentUnitIndex);
+			//updatePlayableCards();
 			setCurrentCardIndex(0);
 		  }
 		  setShowCard(false);
