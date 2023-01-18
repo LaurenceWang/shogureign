@@ -156,5 +156,5 @@ export default function useGeneratedUnits() {
 	  getUnitCardByIndex,
 	  getUnitById,
 	};
-  }
+}
    

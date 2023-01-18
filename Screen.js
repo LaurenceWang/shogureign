@@ -44,58 +44,58 @@ export default function AnimatedStyleUpdateExample() {
 
 
   // TODO refactor those settimeouts
-  const showNextCard = (timeout) => {
-    setTimeout(() => {
-      setShowCard(true);
-      setTimeout(() => {
-        setShowQuestion(true);
-      }, 10);
-    }, timeout);
-  };
+  // const showNextCard = (timeout) => {
+  //   setTimeout(() => {
+  //     setShowCard(true);
+  //     setTimeout(() => {
+  //       setShowQuestion(true);
+  //     }, 10);
+  //   }, timeout);
+  // };
 
-  const onStartGame = () => {
-    setCurrentCard(getCardByIndex(currentCardIndex));
-    setCurrentCardIndex(currentCardIndex + 1);
+  // const onStartGame = () => {
+  //   setCurrentCard(getCardByIndex(currentCardIndex));
+  //   setCurrentCardIndex(currentCardIndex + 1);
 
-    setTimeout(() => {
-      setShowStartButton(false);
-      setShowAnimatedReverseCard(true);
-    }, 500);
-    setTimeout(() => {
-      setShowReverseCard(true);
-      setTimeout(() => {
-        setShowAnimatedReverseCard(false);
-      }, 100);
-    }, 2000);
-    showNextCard(2500);
-  };
+  //   setTimeout(() => {
+  //     setShowStartButton(false);
+  //     setShowAnimatedReverseCard(true);
+  //   }, 500);
+  //   setTimeout(() => {
+  //     setShowReverseCard(true);
+  //     setTimeout(() => {
+  //       setShowAnimatedReverseCard(false);
+  //     }, 100);
+  //   }, 2000);
+  //   showNextCard(2500);
+  // };
 
-  const onChooseLeftAnswer = () => {
-    setCurrentMood(currentCard.onLeft);
-    createNewCard();
-    setTimeout(() => {
-      setCurrentMood({happy: [], sad: []});
-    }, 50);
-  };
+  // const onChooseLeftAnswer = () => {
+  //   setCurrentMood(currentCard.onLeft);
+  //   createNewCard();
+  //   setTimeout(() => {
+  //     setCurrentMood({happy: [], sad: []});
+  //   }, 50);
+  // };
 
-  const onChooseRightAnswer = () => {
-    setCurrentMood(currentCard.onRight);
-    createNewCard();
-    setTimeout(() => {
-      setCurrentMood({happy: [], sad: []});
-    }, 50);
-  };
+  // const onChooseRightAnswer = () => {
+  //   setCurrentMood(currentCard.onRight);
+  //   createNewCard();
+  //   setTimeout(() => {
+  //     setCurrentMood({happy: [], sad: []});
+  //   }, 50);
+  // };
 
-  const createNewCard = () => {
-    setShowQuestion(false);
-    setTimeout(() => {
-      // let it fly away in peace for 300 ms
-      setCurrentCard(getCardByIndex(currentCardIndex));
-      setCurrentCardIndex(currentCardIndex + 1);
-      setShowCard(false);
-    }, 300);
-    showNextCard(500);
-  };
+  // const createNewCard = () => {
+  //   setShowQuestion(false);
+  //   setTimeout(() => {
+  //     // let it fly away in peace for 300 ms
+  //     setCurrentCard(getCardByIndex(currentCardIndex));
+  //     setCurrentCardIndex(currentCardIndex + 1);
+  //     setShowCard(false);
+  //   }, 300);
+  //   showNextCard(500);
+  // };
 
   return (
     //<Text>TESTEST</Text>
