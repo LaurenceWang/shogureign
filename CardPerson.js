@@ -5,7 +5,7 @@ const CardPerson = ({ image }) => {
   return (
     <>
       <View style={styles.wrapper}>
-        <Image source={{ uri: image }} style={styles.personImage} />
+        {image !== "" && <Image source={{ uri: image }} style={styles.personImage} />}
       </View>
     </>
   );

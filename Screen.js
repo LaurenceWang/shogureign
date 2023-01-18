@@ -1,5 +1,5 @@
 import { View, StyleSheet } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from './Card';
 import PlaceholderBackCards from './PlaceholderBackCards';
 import Question from './Question';
@@ -55,12 +55,14 @@ export default function AnimatedStyleUpdateExample() {
     const moods = { happy: [], sad: [] }
     const variations = { popularity: 0, money: 0, hygiene: 0, happiness: 0 }
 
+    // Empty effect
     if (!text)
       return {
         moods: moods,
         variations: variations
       };
 
+    // Parsing the card text
     let trimmedText = text.replace(/\s/g, "")
     const regexpWords = /[\+\-]\d+[ABHP]/g;
     const data = trimmedText.match(regexpWords).map((effectText) => effectParser(effectText));
@@ -83,7 +85,7 @@ export default function AnimatedStyleUpdateExample() {
     return {
       moods: moods,
       variations: variations
-    }
+    };
   }
 
   const statParser = (code) => {
@@ -118,19 +120,36 @@ export default function AnimatedStyleUpdateExample() {
     return { mood: mood, value: value, stat: stat }
   }
 
+  useEffect(() => {
+    stats = gameOverStats();
+    if (stats.length > 0) {
+      console.log(`Game over > you are not in your dream country anymore because of ${(currentStats[stats[0]] >= 100) ? "too much" : "no more"
+        } ${stats}`);
+    }
+  }, [currentStats]);
+
+  const gameOverStats = () => {
+    console.debug("Game over > Current stats: ");
+    console.debug(currentStats);
+    return Object.keys(currentStats).filter(k => currentStats[k] >= 100 || currentStats[k] <= 0);
+  }
+
+  // Common method in onChooseLeftAnswer & onChooseRightAnswer
   const updateStats = (moods, variations) => {
-    // setCurrentMood(currentCard.onLeft);
-    console.debug("updateStats > Moods :");
-    console.debug(moods);
-    setCurrentMood(moods);
-    setCurrentStats(
-      {
-        popularity: currentStats.popularity + variations.popularity,
-        money: currentStats.money + variations.money,
-        hygiene: currentStats.hygiene + variations.hygiene,
-        happiness: currentStats.happiness + variations.happiness
-      }
-    );
+    // Is there some change in stats?
+    if (moods != {}) {
+      console.debug("updateStats > Moods :");
+      console.debug(moods);
+      setCurrentMood(moods);
+      setCurrentStats(
+        {
+          popularity: currentStats.popularity + variations.popularity,
+          money: currentStats.money + variations.money,
+          hygiene: currentStats.hygiene + variations.hygiene,
+          happiness: currentStats.happiness + variations.happiness
+        }
+      );
+    }
 
     createNewCard();
     setTimeout(() => {
