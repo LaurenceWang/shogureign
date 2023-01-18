@@ -6,8 +6,8 @@ export default function useGeneratedUnits() {
 			"card": ["505dc8c39ed34f48ad448e8146dcb60e", "36f2fddae5f4434da9bc76f0763a28c2", "703186931b994813ac8e89a5c2197fd3",],
 			"Person": "",
 			"Status": "",
-			"condition":{},
-			"custom" : "",
+			"condition":{"chap1_intro" : false},
+			"custom" : {"chap1_intro" : true},
 			"background": ""
 		  },
 		  {
@@ -16,8 +16,8 @@ export default function useGeneratedUnits() {
 			"card": ["3bc4abad722545aabcd9a01e30aaabcd",],
 			"Person": "",
 			"Status": "",
-			"condition": {},
-			"custom" : "",
+			"condition": {"chap1_choice_subway" : false, "chap1_choice_taxi" : false, "chap1_street" : false, "arrive_home_completed" : false},
+			"custom" : {},
 			"background": ""
 		  },
 		  {
@@ -47,7 +47,7 @@ export default function useGeneratedUnits() {
 			"Person": "",
 			"Status": "",
 			"condition": {"chap1_street" : true},
-			"custom" : "",
+			"custom" : {},
 			"background": ""
 		  },
 		  {
@@ -57,7 +57,7 @@ export default function useGeneratedUnits() {
 			"Person": "",
 			"Status": "",
 			"condition":{"chap1_street" : true} ,
-			"custom" : "",
+			"custom" : {},
 			"background": ""
 		  },
 		  {
@@ -77,7 +77,7 @@ export default function useGeneratedUnits() {
 			"Person": "",
 			"Status": "",
 			"condition": {"arrive_home_completed" : true},
-			"custom" : "",
+			"custom" : {},
 			"background": ""
 		  },
 		  {
@@ -87,7 +87,7 @@ export default function useGeneratedUnits() {
 			"Person": "",
 			"Status": "",
 			"condition": {"arrive_home_completed" : true},
-			"custom" : "",
+			"custom" : {},
 			"background": ""
 		  },
 		  {
@@ -97,7 +97,7 @@ export default function useGeneratedUnits() {
 			"Person": "",
 			"Status": "",
 			"condition": {"arrive_home_completed" : true},
-			"custom" : "",
+			"custom" : {},
 			"background": ""
 		  },
 		  {
@@ -107,7 +107,7 @@ export default function useGeneratedUnits() {
 			"Person": "",
 			"Status": "",
 			"condition": {"arrive_home_completed" : true},
-			"custom" : "",
+			"custom" : {},
 			"background": ""
 		  },
 		  {
@@ -117,7 +117,7 @@ export default function useGeneratedUnits() {
 			"Person": "",
 			"Status": "",
 			"condition": {"arrive_home_completed" : true},
-			"custom" : "",
+			"custom" : {},
 			"background": ""
 		  },
 		  {
@@ -127,7 +127,7 @@ export default function useGeneratedUnits() {
 			"Person": "",
 			"Status": "",
 			"condition": {"arrive_home_completed" : true},
-			"custom" : "",
+			"custom" : {},
 			"background": ""
 		  },
 		
