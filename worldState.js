@@ -3,7 +3,7 @@ import useGeneratedCards from "./useGeneratedCards";
 
 
 export default function worldState() {
-	const World = 
+	//const World = 
 
 	// 	{
 	// 		//"chap1_choice_street": false,
@@ -14,7 +14,7 @@ export default function worldState() {
 	// 		//"chap1_home": false,
 	// 	}
 		
-	;
+	//;
 
 	const {Units} = useGeneratedUnits();
 	const {Cards} = useGeneratedCards();
