@@ -1,20 +1,20 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ImageBackground } from 'react-native';
 import FastImage from 'react-native-fast-image';
 
 const BackStatic = ({shadowOpacity = 0 }) => {
   return (
     <>
-      <View style={styles.wrapper}>
         <View style={[styles.shadow, { opacity: shadowOpacity }]} />
-        <View style={styles.triangleRight}>
+        {/* <ImageBackground source={'https://cdn-icons-png.flaticon.com/512/257/257701.png'} resizeMode="cover" style={styles.icon}></ImageBackground> */}
+        <View style={[styles.triangleLeft,]}>
       <FastImage
+          style={styles.icon}
           source={{
             uri: 'https://cdn-icons-png.flaticon.com/512/257/257701.png',
           }}
-        />
+        /> 
         </View>
-      </View>
     </>
   );
 };
@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#c0a2fc',
+    overflow:'hidden',
   },
   
   triangleLeft: {
@@ -42,9 +43,12 @@ const styles = StyleSheet.create({
     borderTopColor: 'transparent',
     borderRightColor: 'transparent',
     borderBottomColor: 'transparent',
-    borderLeftColor: 'green',
+    borderLeftColor: 'red',
     borderRadius: 35,
-    overflow: 'hidden',
+    //position : 'relative',
+    
+    //flex : 1,
+    //overflow:'hidden',
   },
 
   triangleRight: {
@@ -61,7 +65,6 @@ const styles = StyleSheet.create({
     borderBottomColor: 'transparent',
     borderLeftColor: 'transparent',
     borderRadius: 35,
-    overflow: 'hidden',
   },
 
   triangleUp: {
@@ -78,10 +81,15 @@ const styles = StyleSheet.create({
     borderBottomColor: 'red',
     borderLeftColor: 'green',
     borderRadius: 35,
-    overflow: 'hidden',
   },
   triangleDown: {
     width: 0,
+    height: 0,
+  },
+
+  icon: {
+    
+    /*width: 0,
     height: 0,
     backgroundColor: 'transparent',
     borderStyle: 'solid',
@@ -93,13 +101,15 @@ const styles = StyleSheet.create({
     borderRightColor: 'gold',
     borderBottomColor: 'red',
     borderLeftColor: 'green',
-    borderRadius: 35,
-    overflow: 'hidden',
-  },
+    borderRadius: 35,*/
+    zIndex : 10,
+    height : 120,
+    width : 120,
+    //position : 'absolute',
+    //left : 0,
+    marginLeft : -170,
+    marginTop : -60,
 
-  icon: {
-    height: 200,
-    width: 200,
   },
 
   shadow: {
