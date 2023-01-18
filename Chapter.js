@@ -19,8 +19,9 @@ const Chapter = ({firstCard }) => {
 	const {getCardByIndex} = useGeneratedCards();
 	const {getCardById} = useGeneratedCards();
 	const {getChapterCardByIndex} = useGeneratedChapters();
-	const [worldSt, setworldSt] = useState();
 	let {World} = worldState();
+	const [worldSt, setworldSt] = useState(World);
+	
 
 	const {getUnitById} = useGeneratedUnits();
 	const {getUnitByIndex} = useGeneratedUnits();
@@ -51,8 +52,8 @@ const Chapter = ({firstCard }) => {
 	
 	useEffect(() => {
 		//const ac = new AbortController(); //to avoid memory leak
-		
-		setworldSt(World);
+		initializeWorld();
+		//setworldSt(World);
 		/*const firstCond = {"chap1_intro" : true};
 		const newWorld = {...worldSt, firstCond};
 		setworldSt(newWorld);*/
@@ -70,7 +71,7 @@ const Chapter = ({firstCard }) => {
 
 	function initializeWorld(){
 		Object.keys(worldSt).forEach((key) =>{ worldSt[key] = false;});
-		worldSt.first_part = true;
+		worldSt.chap1_intro = true;
 	}
 
 
@@ -136,8 +137,7 @@ const Chapter = ({firstCard }) => {
 		})
 
 		setChapterUnit(playableUnits);
-    }
-	function updatePlayableCards(){
+
 		let playableCards = [];
 		
 		unitCards.forEach(element => {
@@ -149,7 +149,11 @@ const Chapter = ({firstCard }) => {
 		});
 
 		setUnitCards(playableCards);
-	}
+    }
+
+	/*function updatePlayableCards(){
+		
+	}*/
 
 	function updateWorldState(id){
 		//let customs = getUnitById(currentUnitId).custom;
@@ -188,7 +192,7 @@ const Chapter = ({firstCard }) => {
 	 const onStartChapter = () => {
 
 
-		initializeWorld();
+		//initializeWorld();
 		/*setworldSt(World);
 		//setWorld(worldState());
 		const units = getChapterByIndex(0).unit;
@@ -240,7 +244,8 @@ const Chapter = ({firstCard }) => {
 	  const createNewCard = () => {
 		setShowQuestion(false);
 		setTimeout(() => {
-		updatePlayableCards();
+
+		//updatePlayableCards();
 		
 		// if(nextCard !== ""){
 		// 	setCurrentCard(getCardById(nextCard));
