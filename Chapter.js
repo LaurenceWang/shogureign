@@ -67,7 +67,8 @@ const Chapter = ({firstCard }) => {
 	}, []);
 
 	function initializeWorld(){
-		Object.keys(currentWorld).forEach((key) =>{ currentWorld[key] = false});
+		Object.keys(currentWorld).forEach((key) =>{ currentWorld[key] = false;});
+		currentWorld.first_part = true;
 	}
 	
 
@@ -202,6 +203,8 @@ const Chapter = ({firstCard }) => {
 		  updatePlayableCards();
 		  setCurrentCard(getCardById(chapterCard[currentCardIndex % chapterCard.length]));
 		  setCurrentCardIndex(currentCardIndex + 1);
+
+		
 
 		  if(currentCardIndex + 2 > chapterCard.length && currentUnitIndex + 1 <= chapterUnit.length){
 			setCurrentUnitIndex(currentUnitIndex + 1)
