@@ -1,6 +1,7 @@
 import {View, StyleSheet} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import Card from './Card';
+import MultipleCard from './MultipleCard'
 import PlaceholderBackCards from './PlaceholderBackCards';
 import Question from './Question';
 import PowerIndicators from './PowerIndicators';
@@ -167,7 +168,7 @@ const Chapter = ({firstCard }) => {
         {showAnimatedReverseCard && <PlaceholderBackCards />}
         {showReverseCard && <PlaceholderBackStaticCard />}
         {showCard && (
-          <Card
+          <MultipleCard
             onChooseLeftAnswer={onChooseLeftAnswer}
             onChooseRightAnswer={onChooseRightAnswer}
             leftText={currentCard.leftText}
