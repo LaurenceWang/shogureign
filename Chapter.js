@@ -53,7 +53,8 @@ const Chapter = ({firstCard }) => {
 		const newWorld = {...worldSt, firstCond};
 		setworldSt(newWorld);*/
 		let units = getChapterByIndex(0).unit;
-		setChapterUnit([...units]);
+		//setChapterUnit([...units]);
+		updatePlayableUnits();
 		const cards = getUnitById(units[0]).card;
 		setChapterCard([...cards]);
 		setCurrentCard(getCardById(cards[0]));
@@ -72,34 +73,72 @@ const Chapter = ({firstCard }) => {
 			//updatePlayableUnits();
 		if(currentCardIndex + 1 >= chapterCard.length){
 
-			console.log("fin de l'unit");
+			//console.log("fin de l'unit");
 			const ran = Math.floor(Math.random() * chapterUnit.length);
 			console.log("ran : " + ran);
 			setCurrentUnitIndex(ran);
-			
+			setCurrentUnitId(chapterUnit[currentUnitIndex]);
+			console.log("current unit index end unit: " + chapterUnit[currentUnitIndex]);
 		}
 		}
 		//return () => ac.abort(); 
 	}, [chapterUnit]);
 
 
+	
+	useEffect(() => {
+		//const ac = new AbortController(); //to avoid memory leak
+		if(chapterCard && currentCardIndex && chapterUnit){
+			//updatePlayableUnits();
+
+			updateWorldState(chapterUnit[currentUnitIndex]);
+			updateChapterCard(currentUnitIndex);
+			setCurrentCardIndex(0);
+			
+		}
+		//return () => ac.abort(); 
+	}, [currentUnitIndex]);
 
 	useEffect(() => {
 		//const ac = new AbortController(); //to avoid memory leak
 		if(chapterCard && currentCardIndex && chapterUnit){
 			//updatePlayableUnits();
-			updateWorldState(chapterUnit[currentUnitIndex]);
-			updateChapterCard(currentUnitIndex);
-			setCurrentCardIndex(0);
-		
+
+		let curId = chapterUnit[currentUnitIndex];
+		const currentId = chapterUnit.indexOf(curId);
+		if (currentId > -1) { // only splice array when item is found
+		  chapterUnit.splice(currentId, 1); // 2nd parameter means remove one item only
 		}
+		}
+
+		console.log("chapter unit after use effect splice")
+		console.log(chapterUnit);
 		//return () => ac.abort(); 
-	}, [currentUnitIndex]);
+	}, [chapterCard]);
+	
+
+	/*useEffect(() => {
+		//const ac = new AbortController(); //to avoid memory leak
+		if(currentCardIndex && chapterUnit){
+			console.log(chapterUnit[currentUnitIndex])
+			const currentId = chapterUnit.indexOf(chapterUnit[currentUnitIndex]);
+			if (currentId > -1) { // only splice array when item is found
+		  	chapterUnit.splice(currentId, 1); // 2nd parameter means remove one item only
+			}
+			console.log("with splice :")
+			console.log(chapterUnit);
+		}
+
+	}, [chapterUnit]);*/
 	
 
 
 	function updateChapterCard(index) {
-		console.log("current unit index update chapter card: " + currentUnitIndex);
+		//console.log("current unit index update chapter card: " + currentUnitIndex);
+		console.log("chapter unit in chapter card")
+		console.log(chapterUnit);
+		console.log("current unit id in chapter card: " + chapterUnit[index]);
+
 		const cards = getUnitById(chapterUnit[index]).card;
 		setChapterCard([...cards]);
     }
@@ -117,10 +156,14 @@ const Chapter = ({firstCard }) => {
 	}
 
 	function updatePlayableUnits(){
-		console.log("current unit index playable units : " + currentUnitIndex);
+
         let playableUnits = [];
 		let j = 0;
 		let units = getChapterByIndex(0).unit;
+		/*const currentId = units.indexOf(chapterUnit[currentUnitIndex]);
+		if (currentId > -1) { // only splice array when item is found
+		  units.splice(currentId, 1); // 2nd parameter means remove one item only
+		}*/
 		units.forEach(element => {
 			let conditions = getUnitById(element).condition;
 			if(comparaison(conditions, worldSt)){
@@ -130,6 +173,7 @@ const Chapter = ({firstCard }) => {
 		})
 
 		setChapterUnit(playableUnits);
+
     }
 	
 
@@ -138,7 +182,7 @@ const Chapter = ({firstCard }) => {
 		//let customs = getUnitById(currentUnitId).custom;
 		//let customs = getUnitById(chapterUnit[currentUnitIndex]).custom;
 		//let customs = getUnitById("1e3a7a782b9f42f2a63f4a4be85cc08a").custom;
-		console.log("current unit index worldstate : " + currentUnitIndex);
+		//console.log("current unit index worldstate : " + currentUnitIndex);
 		let customs = getUnitById(id).custom;
 		const newWorld = {...worldSt, ...customs}
 		setworldSt(newWorld);
@@ -201,24 +245,35 @@ const Chapter = ({firstCard }) => {
 		  setCurrentMood({happy: [], sad: []});
 		}, 50);
 	  };
-	
 
 
 	  const createNewCard = () => {
 		setShowQuestion(false);
 		setTimeout(() => {
 		
-		console.log(chapterUnit);
-		console.log("newCreateCard : ");
-		
+		console.log("create new card :")
 
-		//updateWorldState(chapterUnit[currentUnitIndex]);
-		
 		setCurrentCard(getCardById(chapterCard[currentCardIndex % chapterCard.length]));
 		setCurrentCardIndex(currentCardIndex + 1);
 
-		updatePlayableUnits();	
+		updatePlayableUnits();
 		console.log(worldSt);
+
+		console.log("old chapter Unit : ")
+		console.log(chapterUnit);
+		//console.log("currentUnitIndex create new : " + currentUnitIndex);
+
+		console.log("unitid in create new : " + chapterUnit[currentUnitIndex]);
+
+		console.log("currentUnitId : " + currentUnitId);
+		let curId = chapterUnit[currentUnitIndex];
+		const currentId = chapterUnit.indexOf(curId);
+		if (currentId > -1) { // only splice array when item is found
+		  chapterUnit.splice(currentId, 1); // 2nd parameter means remove one item only
+		}
+
+		console.log("new playable unit")
+		console.log(chapterUnit);
 
 		//console.log("current unit index : " + currentUnitIndex);
 		
