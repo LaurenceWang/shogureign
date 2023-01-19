@@ -11,6 +11,7 @@ import useGeneratedChapters from './useGeneratedChapters';
 import useGeneratedUnits from './useGeneratedUnits';
 import worldState from './worldState';
 
+
 const Chapter = ({firstCard }) => {
 
 	//const {getChapterbyId} = useGeneratedChapters();
@@ -43,8 +44,8 @@ const Chapter = ({firstCard }) => {
 	const [showQuestion, setShowQuestion] = useState(false);
 	const [chapterCard, setChapterCard] = useState([]);
 	const [random, setRandom] = useState(0);
-
-	
+	const [choice, setChoice] = useState();
+	//let choice;
 	useEffect(() => {
 		
 		initializeWorld();
@@ -111,7 +112,7 @@ const Chapter = ({firstCard }) => {
 			
 			updateChapterCard(currentUnitIndex);
 			setCurrentCardIndex(0);
-
+			updatePlayableCards();
 			
 			console.log("before");
 			console.log(chapterUnit);
@@ -119,6 +120,14 @@ const Chapter = ({firstCard }) => {
 		}
 		//return () => ac.abort(); 
 	}, [currentUnitId]);
+
+
+	useEffect(() => {
+		console.log("choice = " + choice);
+		updateWorldStateCard(choice, currentCard.id);
+		console.log(worldSt);
+	}, [currentCard]);
+
 
 
 
@@ -179,7 +188,7 @@ const Chapter = ({firstCard }) => {
 
 	function updatePlayableCards(){
 		let playableCards = [];
-        console.log("getUnitById(currentUnitId) : "+ getChapterUnit(currentUnitId));
+        //console.log("getUnitById(currentUnitId) : "+ getChapterUnit(currentUnitId));
         const cards = getUnitById(currentUnitId).card;
 
         cards.forEach(element => {
@@ -196,8 +205,6 @@ const Chapter = ({firstCard }) => {
 	}
 
 
-	
-
 
 	function updateWorldState(id){
 		//let customs = getUnitById(currentUnitId).custom;
@@ -210,6 +217,20 @@ const Chapter = ({firstCard }) => {
 		//World = {...World, ...customs};
 	
 	}
+
+	function updateWorldStateCard(choice, id){
+        if(choice === "right"){
+            let rightCustoms = getCardById(id).right_custom;
+            const newWorld = {...worldSt,...rightCustoms};
+            setworldSt(newWorld);
+        }
+        else if(choice === "left"){
+            let leftCustoms = getCardById(id).left_custom;
+            const newWorld = {...worldSt,...leftCustoms};
+            setworldSt(newWorld);
+        }
+    }
+
 
 	const showNextCard = (timeout) => {
 		setTimeout(() => {
@@ -239,6 +260,9 @@ const Chapter = ({firstCard }) => {
 	  const onChooseLeftAnswer = () => {
 		setCurrentMood(currentCard.onLeft);
 		createNewCard();
+		setChoice("left");
+		//choice = "left";
+      
 
 		setTimeout(() => {
 		  setCurrentMood({happy: [], sad: []});
@@ -248,7 +272,8 @@ const Chapter = ({firstCard }) => {
 	  const onChooseRightAnswer = () => {
 		setCurrentMood(currentCard.onRight);
 		createNewCard();
-		
+		setChoice("right");
+		//choice = "right";
 		setTimeout(() => {
 		  setCurrentMood({happy: [], sad: []});
 		}, 50);
