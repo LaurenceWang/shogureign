@@ -130,6 +130,7 @@ const styles = StyleSheet.create({
     //left : 0,
     marginLeft : -170,
     marginTop : -60,
+    opacity: 0.6,
 
   },
 
@@ -139,6 +140,7 @@ iconRight: {
   width: 100,
   marginLeft: 50,
   marginTop: -100,
+  opacity: 0.6,
 },
 
 
@@ -148,6 +150,7 @@ iconUp: {
   width: 100,
   marginLeft: -50,
   marginTop: -200,
+  opacity: 0.6,
 },
 
 iconDown: {
@@ -156,6 +159,7 @@ iconDown: {
   width: 100,
   marginLeft: -50,
   marginTop: 120,
+  opacity: 0.6,
 },
 
   shadow: {

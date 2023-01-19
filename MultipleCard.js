@@ -21,8 +21,12 @@ import BackStatic from './BackgroundStatic';
 const MultipleCard = ({
   onChooseLeftAnswer,
   onChooseRightAnswer,
+  onChooseUpAnswer,
+  onChooseDownAnswer,
   leftText,
   rightText,
+  upText,
+  downText,
   image,
   backgroundColor,
 }) => {
@@ -44,6 +48,7 @@ const MultipleCard = ({
     },
     onEnd: (event) => {
       const tossX = event.translationX + 0.2 * event.velocityX;
+      const tossY = event.translationX + 0.2 * event.velocityY;
       if (tossX > 150) {
         x.value = withSpring(400, {
           velocity: event.velocityX,
@@ -54,6 +59,16 @@ const MultipleCard = ({
           velocity: event.velocityX,
         });
         runOnJS(onChooseLeftAnswer)();
+      } else if (tossY > 150 && tossX < -tossY && tossX>tossY ) {
+        x.value = withSpring(-400, {
+          velocity: event.velocityX,
+        });
+        runOnJS(onChooseUpAnswer)();
+      } else if (tossY < -150 && tossX < tossY && tossX > -tossY) {
+        x.value = withSpring(-400, {
+          velocity: event.velocityX,
+        });
+        runOnJS(onChooseDownAnswer)();
       } else {
         x.value = withSpring(0, {velocity: event.velocityX});
       }
@@ -141,7 +156,7 @@ const MultipleCard = ({
       ),
     };
   });
-
+/***
   const animatedRightTextWrapper = useAnimatedStyle(() => {
     return {
       opacity: interpolate(x.value, [15, 70], [0, 1], Extrapolate.CLAMP),
@@ -174,6 +189,22 @@ const MultipleCard = ({
     };
   });
 
+  const animatedUpTextWrapper = useAnimatedStyle(() => {
+    return {
+      opacity: interpolate(y.value, [-15, -70], [0, 1], Extrapolate.CLAMP),
+      
+    };
+  });
+
+  const animatedDownTextWrapper = useAnimatedStyle(() => {
+    return {
+      opacity: interpolate(y.value, [15, 70], [0,1], Extrapolate.CLAMP),
+      
+    };
+  });
+
+   ***/
+  
   return (
     <>
       <View style={[{opacity: showCard ? 1 : 0}, styles.cardWrapper]}>
@@ -187,17 +218,14 @@ const MultipleCard = ({
           <Animated.View style={[styles.wrapper]}>
             <BackStatic/>
             <Animated.View
+                style={[styles.topTextWrapper]}>
+                <Text style={styles.textUp}>{upText}</Text>
+                <Text style={styles.textLeft}>{leftText}</Text>
+                <Text style={styles.textRight}>{rightText}</Text>
+                <Text style={styles.textDown}>{downText}</Text>
+              </Animated.View>
+            <Animated.View
               style={[styles.kanji, animatedMovableCard, {backgroundColor}]}>
-              <Animated.View
-                style={[animatedRightTextWrapper, styles.topTextWrapper]}>
-                <Text style={styles.topText}>{rightText}</Text>
-              </Animated.View>
-              <Animated.View
-                style={[animatedLeftTextWrapper, styles.topTextWrapper]}>
-                <Text style={[styles.topText, styles.textLeft]}>
-                  {leftText}
-                </Text>
-              </Animated.View>
               <Animated.View style={[animatedFrontShadow, styles.shadow]} />
             </Animated.View>
             </Animated.View>
@@ -235,21 +263,34 @@ const styles = StyleSheet.create({
     height: 340,
   },
   topTextWrapper: {
-    position: 'absolute',
-    width: '120%',
-    left: '-10%',
-    top: '-10%',
-    paddingTop: '15%',
-    paddingHorizontal: '15%',
-    backgroundColor: 'rgba(0,0,0,0.4)',
-    padding: 15,
-    zIndex: 10,
+    height: 340,
+    width: 340,
+    borderRadius: 35,
   },
-  topText: {
-    color: '#fff',
+
+  textUp: {
+    textAlign: 'center',
+    top: -320,
+    fontSize: 80,
   },
+  
   textLeft: {
+    top: -340,
+    left: 20,
+    fontSize: 80,
+  },
+
+  textRight: {
+    top: -445,
+    left: -20,
     textAlign: 'right',
+    fontSize: 80,
+  },
+
+  textDown: {
+    textAlign: 'center',
+    top: -430,
+    fontSize: 80,
   },
   shadow: {
     position: 'absolute',

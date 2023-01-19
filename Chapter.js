@@ -8,6 +8,7 @@ import PowerIndicators from './PowerIndicators';
 import PlaceholderBackStaticCard from './PlaceholderBackStaticCard';
 import StartButton from './StartButton';
 import useGeneratedCards from './useGeneratedCards';
+import useGeneratedMultCards from './useGeneratedMultCards'
 import useGeneratedChapters from './useGeneratedChapters';
 import useGeneratedUnits from './useGeneratedUnits';
 
@@ -16,8 +17,8 @@ const Chapter = ({firstCard }) => {
 	//const {getChapterbyId} = useGeneratedChapters();
 	const {getChapterByIndex} = useGeneratedChapters();
 	const {getChapterByFirstCardId} = useGeneratedChapters();
-	const {getCardByIndex} = useGeneratedCards();
-	const {getCardById} = useGeneratedCards();
+	const {getCardByIndex} = useGeneratedMultCards();
+	const {getCardById} = useGeneratedMultCards();
 	const {getChapterCardByIndex} = useGeneratedChapters();
 	
 
@@ -133,6 +134,25 @@ const Chapter = ({firstCard }) => {
 		  setCurrentMood({happy: [], sad: []});
 		}, 50);
 	  };
+
+	  
+	  const onChooseUpAnswer = () => {
+		setCurrentMood(currentCard.onUp);
+		createNewCard();
+		setTimeout(() => {
+		  setCurrentMood({happy: [], sad: []});
+		}, 50);
+	  };
+
+	  
+	  const onChooseDownAnswer = () => {
+		setCurrentMood(currentCard.onDown);
+		createNewCard();
+		setTimeout(() => {
+		  setCurrentMood({happy: [], sad: []});
+		}, 50);
+	  };
+	
 	
 	  const createNewCard = () => {
 		setShowQuestion(false);
@@ -173,6 +193,8 @@ const Chapter = ({firstCard }) => {
             onChooseRightAnswer={onChooseRightAnswer}
             leftText={currentCard.leftText}
             rightText={currentCard.rightText}
+            downText={currentCard.downText}
+            upText={currentCard.upText}
             image={currentCard.image}
             backgroundColor={currentCard.background}
           />
