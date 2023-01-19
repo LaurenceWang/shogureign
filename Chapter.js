@@ -74,18 +74,23 @@ const Chapter = ({firstCard }) => {
 
 	useEffect(() => {
 		//const ac = new AbortController(); //to avoid memory leak
-		if(chapterCard && currentCardIndex && chapterUnit){
+		console.log("passé");
+		console.log("---------------------------------------")
+		console.log(chapterCard)
+		console.log("---------------------------------------")
+		console.log(currentCardIndex)
 
-		
+		if(chapterCard){
+
+		console.log("je suis passé dans l'use effect qui marche pas")
 		console.log("current card Index dans useEffect : " +currentCardIndex)
 		console.log("chapter card .length : " + chapterCard.length);
 		if(currentCardIndex + 1 >= chapterCard.length){
 
 			
-			const ran = Math.floor(Math.random() * chapterUnit.length);
-			
+			const ran = Math.floor(Math.random() * chapterUnit.length);		
 			setCurrentUnitIndex(ran);
-			
+			console.log("je suis passé à l'autre unit");
 			
 		}
 		}
@@ -96,6 +101,9 @@ const Chapter = ({firstCard }) => {
 	
 	useEffect(() => {
 		//const ac = new AbortController(); //to avoid memory leak
+		console.log("current unit index use effect : " + currentUnitIndex);
+		console.log("chapter unit dans useEffect");
+		console.log(chapterUnit);
 		if(chapterCard && currentCardIndex && chapterUnit){
 		
 			setCurrentUnitId(chapterUnit[currentUnitIndex]);
@@ -110,16 +118,6 @@ const Chapter = ({firstCard }) => {
 			
 			console.log("before");
 			console.log(chapterUnit);
-			
-
-			/*let curId = chapterUnit[currentUnitIndex];
-			const currentId = chapterUnit.indexOf(curId);
-			if (currentId > -1) { // only splice array when item is found
-			  chapterUnit.splice(currentId, 1); // 2nd parameter means remove one item only
-			}*/
-
-			//console.log("after");
-			//console.log(chapterUnit);
 			
 		}
 		//return () => ac.abort(); 
@@ -153,7 +151,7 @@ const Chapter = ({firstCard }) => {
 		
 		console.log("currentUnit in updChapCard : " +  getUnitById(chapterUnit[currentUnitIndex]).Name)
 
-		console.log("currentUnitID updtcard : " + currentUnitId)
+		//console.log("currentUnitID updtcard : " + currentUnitId)
 		const cards = getUnitById(chapterUnit[index]).card;
 		setChapterCard([...cards]);
 
@@ -277,11 +275,12 @@ const Chapter = ({firstCard }) => {
 		setTimeout(() => {
 		
 		console.log("create new card :")
-		
+		//console.log("chapter unit swipe")
+		//console.log(chapterUnit);
 
 		//console.log("in create");
 		//console.log(chapterUnit);
-
+		
 		setCurrentCard(getCardById(chapterCard[currentCardIndex % chapterCard.length]));
 		updatePlayableUnits();
 		setCurrentCardIndex(currentCardIndex + 1);
