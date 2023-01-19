@@ -19,8 +19,8 @@ const Chapter = ({firstCard }) => {
 	const {getCardByIndex} = useGeneratedCards();
 	const {getCardById} = useGeneratedCards();
 	const {getChapterCardByIndex} = useGeneratedChapters();
-	const [worldSt, setworldSt] = useState();
 	let {World} = worldState();
+	const [worldSt, setworldSt] = useState(World);
 
 	const {getUnitById} = useGeneratedUnits();
 	const {getUnitByIndex} = useGeneratedUnits();
@@ -47,8 +47,8 @@ const Chapter = ({firstCard }) => {
 	
 	useEffect(() => {
 		//const ac = new AbortController(); //to avoid memory leak
-		
-		setworldSt(World);
+		initializeWorld();
+		//setworldSt(World);
 		/*const firstCond = {"chap1_intro" : true};
 		const newWorld = {...worldSt, firstCond};
 		setworldSt(newWorld);*/
@@ -59,26 +59,34 @@ const Chapter = ({firstCard }) => {
 		setChapterCard([...cards]);
 		setCurrentCard(getCardById(cards[0]));
 		setCurrentCardIndex(currentCardIndex + 1);
+		setCurrentUnitId("188b7fe299a045299d9ad38778b1c7a4");
 	
 		//return () => ac.abort(); 
 	}, []);
 
 
 
+	function initializeWorld(){
+		Object.keys(worldSt).forEach((key) =>{ worldSt[key] = false;});
+		worldSt.chap1_intro = true;
+	}
+
+
 	useEffect(() => {
 		//const ac = new AbortController(); //to avoid memory leak
 		if(chapterCard && currentCardIndex && chapterUnit){
 
-			
-			//updatePlayableUnits();
+		
+		console.log("current card Index dans useEffect : " +currentCardIndex)
+		console.log("chapter card .length : " + chapterCard.length);
 		if(currentCardIndex + 1 >= chapterCard.length){
 
-			//console.log("fin de l'unit");
+			
 			const ran = Math.floor(Math.random() * chapterUnit.length);
-			console.log("ran : " + ran);
+			
 			setCurrentUnitIndex(ran);
-			setCurrentUnitId(chapterUnit[currentUnitIndex]);
-			console.log("current unit index end unit: " + chapterUnit[currentUnitIndex]);
+			
+			
 		}
 		}
 		//return () => ac.abort(); 
@@ -89,17 +97,35 @@ const Chapter = ({firstCard }) => {
 	useEffect(() => {
 		//const ac = new AbortController(); //to avoid memory leak
 		if(chapterCard && currentCardIndex && chapterUnit){
-			//updatePlayableUnits();
+		
+			setCurrentUnitId(chapterUnit[currentUnitIndex]);
+		
 
 			updateWorldState(chapterUnit[currentUnitIndex]);
+			console.log(worldSt);
+		
 			updateChapterCard(currentUnitIndex);
 			setCurrentCardIndex(0);
+
+			
+			console.log("before");
+			console.log(chapterUnit);
+			
+
+			/*let curId = chapterUnit[currentUnitIndex];
+			const currentId = chapterUnit.indexOf(curId);
+			if (currentId > -1) { // only splice array when item is found
+			  chapterUnit.splice(currentId, 1); // 2nd parameter means remove one item only
+			}*/
+
+			//console.log("after");
+			//console.log(chapterUnit);
 			
 		}
 		//return () => ac.abort(); 
 	}, [currentUnitIndex]);
 
-	useEffect(() => {
+	/*useEffect(() => {
 		//const ac = new AbortController(); //to avoid memory leak
 		if(chapterCard && currentCardIndex && chapterUnit){
 			//updatePlayableUnits();
@@ -114,33 +140,25 @@ const Chapter = ({firstCard }) => {
 		console.log("chapter unit after use effect splice")
 		console.log(chapterUnit);
 		//return () => ac.abort(); 
-	}, [chapterCard]);
-	
+	}, [chapterCard]);*/
 
-	/*useEffect(() => {
-		//const ac = new AbortController(); //to avoid memory leak
-		if(currentCardIndex && chapterUnit){
-			console.log(chapterUnit[currentUnitIndex])
-			const currentId = chapterUnit.indexOf(chapterUnit[currentUnitIndex]);
-			if (currentId > -1) { // only splice array when item is found
-		  	chapterUnit.splice(currentId, 1); // 2nd parameter means remove one item only
-			}
-			console.log("with splice :")
-			console.log(chapterUnit);
-		}
-
-	}, [chapterUnit]);*/
 	
 
 
 	function updateChapterCard(index) {
 		//console.log("current unit index update chapter card: " + currentUnitIndex);
-		console.log("chapter unit in chapter card")
-		console.log(chapterUnit);
-		console.log("current unit id in chapter card: " + chapterUnit[index]);
+		//onsole.log("chapter unit in chapter card")
+		//console.log(chapterUnit);
+		//console.log("current unit id in chapter card: " + chapterUnit[index]);
+		
+		console.log("currentUnit in updChapCard : " +  getUnitById(chapterUnit[currentUnitIndex]).Name)
 
+		console.log("currentUnitID updtcard : " + currentUnitId)
 		const cards = getUnitById(chapterUnit[index]).card;
 		setChapterCard([...cards]);
+
+		//console.log("chap card:");
+		//console.log(chapterCard);
     }
 
 	function comparaison(obj1,obj2){
@@ -157,13 +175,16 @@ const Chapter = ({firstCard }) => {
 
 	function updatePlayableUnits(){
 
+		console.log("current unit index in uptplayUnit: " + currentUnitIndex)
+
+		console.log("currentUnitID : " + currentUnitId)
         let playableUnits = [];
 		let j = 0;
 		let units = getChapterByIndex(0).unit;
-		/*const currentId = units.indexOf(chapterUnit[currentUnitIndex]);
+		const currentId = units.indexOf(currentUnitId);
 		if (currentId > -1) { // only splice array when item is found
 		  units.splice(currentId, 1); // 2nd parameter means remove one item only
-		}*/
+		}
 		units.forEach(element => {
 			let conditions = getUnitById(element).condition;
 			if(comparaison(conditions, worldSt)){
@@ -173,8 +194,25 @@ const Chapter = ({firstCard }) => {
 		})
 
 		setChapterUnit(playableUnits);
+		console.log("chap unit in upt");
+		console.log(chapterUnit)
 
     }
+	function updatePlayableCards(){
+		let playableCards = [];
+		
+		unitCards.forEach(element => {
+			const conditions = getCardById(element).condition;
+			if(comparaison(conditions, currentWorld)){
+				playableCards.push(element);
+			}
+			
+		});
+
+		setUnitCards(playableCards);
+	}
+
+
 	
 
 
@@ -201,20 +239,7 @@ const Chapter = ({firstCard }) => {
 
 	  
 	 const onStartChapter = () => {
-		/*setworldSt(World);
-		//setWorld(worldState());
-		const units = getChapterByIndex(0).unit;
-		setChapterUnit([...units]);
-		const cards = getUnitById(units[0]).card;
-		setChapterCard([...cards]);
-		setCurrentCard(getCardById(cards[0]));
 
-		//if(currentCardIndex + 1 < chapterCard.length){
-		//setCurrentUnitIndex(currentUnitIndex + 1);
-		//setCurrentUnitId(units[0]);
-		//console.log(currentUnitId);
-		setCurrentCardIndex(currentCardIndex + 1);*/
-		//}
 		setTimeout(() => {
 			setShowStartButton(false);
 			setShowAnimatedReverseCard(true);
@@ -252,44 +277,19 @@ const Chapter = ({firstCard }) => {
 		setTimeout(() => {
 		
 		console.log("create new card :")
+		
+
+		//console.log("in create");
+		//console.log(chapterUnit);
 
 		setCurrentCard(getCardById(chapterCard[currentCardIndex % chapterCard.length]));
-		setCurrentCardIndex(currentCardIndex + 1);
-
 		updatePlayableUnits();
-		console.log(worldSt);
-
-		console.log("old chapter Unit : ")
-		console.log(chapterUnit);
-		//console.log("currentUnitIndex create new : " + currentUnitIndex);
-
-		console.log("unitid in create new : " + chapterUnit[currentUnitIndex]);
-
-		console.log("currentUnitId : " + currentUnitId);
-		let curId = chapterUnit[currentUnitIndex];
-		const currentId = chapterUnit.indexOf(curId);
-		if (currentId > -1) { // only splice array when item is found
-		  chapterUnit.splice(currentId, 1); // 2nd parameter means remove one item only
-		}
-
-		console.log("new playable unit")
-		console.log(chapterUnit);
-
-		//console.log("current unit index : " + currentUnitIndex);
+		setCurrentCardIndex(currentCardIndex + 1);
+		
+		
 		
 
-		/*if(currentCardIndex + 1 >= chapterCard.length){
 
-			console.log("fin de l'unit");
-
-			const ran = Math.floor(Math.random() * chapterUnit.length);
-			console.log("ran : " + ran);
-			
-			setCurrentUnitIndex(ran);
-			
-		
-			
-		}*/
 
 		  setShowCard(false);
 		}, 100);
