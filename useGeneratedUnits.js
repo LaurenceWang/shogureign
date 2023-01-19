@@ -7,7 +7,7 @@ export default function useGeneratedUnits() {
 			"Person": "",
 			"Status": "",
 			"condition":{"chap1_intro" : false},
-			"custom" : {"chap1_intro" : true},
+			"custom" : {},
 			"background": ""
 		  },
 		  {
@@ -86,8 +86,8 @@ export default function useGeneratedUnits() {
 			"card": ["99888040bcc54e269ca6d0099d80979d"],
 			"Person": "",
 			"Status": "",
-			"condition": {"arrive_home_completed" : true, "home" : false},
-			"custom" : {"home" : true},
+			"condition": {"arrive_home_completed" : true, "at_Home" : true},
+			"custom" : {},
 			"background": ""
 		  },
 		  {
@@ -97,7 +97,7 @@ export default function useGeneratedUnits() {
 			"Person": "",
 			"Status": "",
 			"condition": {"arrive_home_completed" : true, "crush_dad" : false},
-			"custom" : {"crush_dad" : true},
+			"custom" : {},
 			"background": ""
 		  },
 		  {
@@ -107,7 +107,7 @@ export default function useGeneratedUnits() {
 			"Person": "",
 			"Status": "",
 			"condition": {"arrive_home_completed" : true, "neighbourH" : false},
-			"custom" : {"neighbourH" : true},
+			"custom" : {},
 			"background": ""
 		  },
 		  {
@@ -117,7 +117,7 @@ export default function useGeneratedUnits() {
 			"Person": "",
 			"Status": "",
 			"condition": {"arrive_home_completed" : true, "neighbourF" : false},
-			"custom" : {"neighbourF" : true},
+			"custom" : {},
 			"background": ""
 		  },
 		  {
@@ -127,7 +127,18 @@ export default function useGeneratedUnits() {
 			"Person": "",
 			"Status": "",
 			"condition": {"arrive_home_completed" : true, "neighbourE" : false},
-			"custom" : {"neighbourE" : true},
+			"custom" : {},
+			"background": ""
+		  },
+
+		  {
+			"Name": "Crush",
+			"id": "7c00e48218bc42aea11107d0f21f90c3",
+			"card": ["685ef582acb344faaa4fe4b680acd0f8",],
+			"Person": "",
+			"Status": "",
+			"condition": {},
+			"custom" : {},
 			"background": ""
 		  },
 		
