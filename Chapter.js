@@ -12,7 +12,7 @@ import useGeneratedUnits from './useGeneratedUnits';
 import worldState from './worldState';
 
 
-const Chapter = ({firstCard }) => {
+const Chapter = ({chapNum, endChap}) => {
 
 	//const {getChapterbyId} = useGeneratedChapters();
 	const {getChapterByIndex} = useGeneratedChapters();
@@ -46,19 +46,31 @@ const Chapter = ({firstCard }) => {
 	
 	const [choice, setChoice] = useState();
 
+	const[endChapitre, setEndChapitre] = useState(false);
+
+
+	//console.log("chapNum : " + chapNum);
 	useEffect(() => {
-		
 		initializeWorld();
-		let units = getChapterByIndex(0).unit;
+	
+	}, []);	
+
+
+	useEffect(() => {
+		initializeWorld();
+		console.log("current chap Num : " +chapNum)
+
+		let units = getChapterByIndex(chapNum).unit;
 	
 		updatePlayableUnits();
-		const cards = getUnitById(units[0]).card;
+		const cards = getUnitById(units[chapNum]).card;
 		setChapterCard([...cards]);
-		setCurrentCard(getCardById(cards[0]));
+		setCurrentCard(getCardById(cards[chapNum]));
 		setCurrentCardIndex(1);
-		setCurrentUnitId("188b7fe299a045299d9ad38778b1c7a4");
-	
-	}, []);
+		setCurrentUnitId(getChapterByIndex(chapNum).unit[0]);
+		//}
+			
+	}, [chapNum]);
 
 
 
@@ -125,6 +137,13 @@ const Chapter = ({firstCard }) => {
 			updatePlayableCards();
 		}
 	}, [worldSt]);
+
+	/*useEffect(() => {
+		if(endChapitre==true){
+			endChap();
+		}
+	}, [endChapitre]);*/
+	
 	
 
 
@@ -216,7 +235,11 @@ const Chapter = ({firstCard }) => {
 
 		if(playableCards.length ==0){
 
-			setChapterCard( getUnitById("7c00e48218bc42aea11107d0f21f90c3").card)
+			//setChapterCard( getUnitById("7c00e48218bc42aea11107d0f21f90c3").card)
+			setChapterCard( getUnitById(getChapterByIndex(chapNum+1).unit[0]).card)
+			//setEndChapitre(true);
+			//chapNum +=1;
+			//endChap();
 		}
 	
 	}

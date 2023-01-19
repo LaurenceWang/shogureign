@@ -1,25 +1,5 @@
 export default function useGeneratedChapters() {
 	const Chapters = [
-		/*{
-			"name": "Premier jour au japon",
-			"id": "61c18699d09246ba82c75b1510188461",
-			"condition": "",
-			"date": "",
-			"first_card": "505dc8c39ed34f48ad448e8146dcb60e",
-			"story_card": [],
-			"card": ["36f2fddae5f4434da9bc76f0763a28c2", "703186931b994813ac8e89a5c2197fd3", "3bc4abad722545aabcd9a01e30aaabcd", "1a1681d447ac4562a19d1b10d9ecf137", "d97ebf2a4a0f412dba7c2cfdbffff291", "2db19f997a904d848fd2fd36d77d5404",
-				"0df94147ee8f4dfda5f631224e43e74d",
-				"462b70a41b4847c6ad4e522af6b87733",
-				"55dbbc6e0026488fbd97f24cf0bceb1a",
-				"293b2a80a53247baa5256000639dc933",
-				"232662b3cb2a4080ac0ba214ef68b675",
-
-			],
-			"character": "",
-			"difficulté": "",
-			"background": ""
-		},*/
-
 		{
 			"Name": "Premier jour au japon",
 			"id": "61c18699d09246ba82c75b1510188461",
@@ -32,6 +12,18 @@ export default function useGeneratedChapters() {
 			"background": ""
 		},
 
+
+		{
+			"Name": "Premier repas japonais",
+			"id": "5f61ce0ca9074c249d3b3b244c67252c",
+			"Person": "",
+			"Status": "",
+			"condition": "",
+			"date": "04",
+			"unit": ["68bad6fc747141d1beb35ee057858f67", "28662fe73d694abbbc153e72ba25596d", "7d6c2f8046bb475a8f7a119e924a8452", "54b40bf6f6204fc0a0d84f66b3795381", "810d9da937e2464ab5b7145a73050996"],
+			"difficulté": "",
+			"background": ""
+		},
 	];
 
 

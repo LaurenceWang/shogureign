@@ -39,7 +39,12 @@ export default function AnimatedStyleUpdateExample() {
   const [showCard, setShowCard] = useState(false);
   const [showQuestion, setShowQuestion] = useState(false);
 
-
+  const [chapNum, setChapNum] = useState(0);
+  const increment = () => {
+    console.log("incrementé");
+    setChapNum(chapNum + 1);
+  }
+  //let chapNum = 0;
   //setFirstChapCard("1a1681d447ac4562a19d1b10d9ecf137");
 
 
@@ -99,7 +104,7 @@ export default function AnimatedStyleUpdateExample() {
 
   return (
     //<Text>TESTEST</Text>
-   <Chapter firstCard={firstChapCard} />
+   <Chapter chapNum={chapNum} endChap={increment} />
     /*<View style={styles.wrapper}>
       <View style={styles.topWrapper}>
         <PowerIndicators currentMood={currentMood} />
