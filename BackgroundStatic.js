@@ -7,13 +7,32 @@ const BackStatic = ({shadowOpacity = 0 }) => {
     <>
         <View style={[styles.shadow, { opacity: shadowOpacity }]} />
         {/* <ImageBackground source={'https://cdn-icons-png.flaticon.com/512/257/257701.png'} resizeMode="cover" style={styles.icon}></ImageBackground> */}
-        <View style={[styles.triangleLeft,]}>
+        
+        <View style={[styles.triangle,]}>
       <FastImage
-          style={styles.icon}
+          style={styles.iconLeft}
           source={{
             uri: 'https://cdn-icons-png.flaticon.com/512/257/257701.png',
           }}
-        /> 
+        />  
+        <FastImage
+        style={styles.iconRight}
+        source={{
+          uri: 'https://cdn-icons-png.flaticon.com/512/9445/9445839.png',
+        }}
+      /> 
+        <FastImage
+        style={styles.iconUp}
+        source={{
+          uri: 'https://cdn-icons-png.flaticon.com/512/9405/9405494.png',
+        }}
+      /> 
+        <FastImage
+        style={styles.iconDown}
+        source={{
+          uri: 'https://cdn-icons-png.flaticon.com/512/8758/8758550.png',
+        }}
+      /> 
         </View>
     </>
   );
@@ -31,7 +50,7 @@ const styles = StyleSheet.create({
     overflow:'hidden',
   },
   
-  triangleLeft: {
+  triangle: {
     width: 0,
     height: 0,
     backgroundColor: 'transparent',
@@ -40,10 +59,10 @@ const styles = StyleSheet.create({
     borderRightWidth: 170,
     borderBottomWidth: 170,
     borderLeftWidth: 170,
-    borderTopColor: 'transparent',
-    borderRightColor: 'transparent',
-    borderBottomColor: 'transparent',
-    borderLeftColor: 'red',
+    borderTopColor: '#ffccd3',
+    borderRightColor: '#fc9fac',
+    borderBottomColor: '#ffccd3',
+    borderLeftColor: '#fc9fac',
     borderRadius: 35,
     //position : 'relative',
     
@@ -51,6 +70,7 @@ const styles = StyleSheet.create({
     //overflow:'hidden',
   },
 
+  /*** 
   triangleRight: {
     width: 0,
     height: 0,
@@ -86,8 +106,9 @@ const styles = StyleSheet.create({
     width: 0,
     height: 0,
   },
+  ***/
 
-  icon: {
+  iconLeft: {
     
     /*width: 0,
     height: 0,
@@ -103,14 +124,39 @@ const styles = StyleSheet.create({
     borderLeftColor: 'green',
     borderRadius: 35,*/
     zIndex : 10,
-    height : 120,
-    width : 120,
+    height : 100,
+    width : 100,
     //position : 'absolute',
     //left : 0,
     marginLeft : -170,
     marginTop : -60,
 
   },
+
+iconRight: {
+  zIndex : 11,
+  height: 100,
+  width: 100,
+  marginLeft: 50,
+  marginTop: -100,
+},
+
+
+iconUp: {
+  zIndex : 12,
+  height: 100,
+  width: 100,
+  marginLeft: -50,
+  marginTop: -200,
+},
+
+iconDown: {
+  zIndex : 13,
+  height: 100,
+  width: 100,
+  marginLeft: -50,
+  marginTop: 120,
+},
 
   shadow: {
     position: 'absolute',
