@@ -7,6 +7,7 @@ import PowerIndicators from './PowerIndicators';
 import PlaceholderBackStaticCard from './PlaceholderBackStaticCard';
 import StartButton from './StartButton';
 import useGeneratedCards from './useGeneratedCards';
+import Config from './gameconfig';
 
 export default function AnimatedStyleUpdateExample() {
   const { getCardByIndex } = useGeneratedCards();
@@ -17,6 +18,7 @@ export default function AnimatedStyleUpdateExample() {
   const [currentStats, setCurrentStats] = useState(
     { popularity: baseStats, money: baseStats, hygiene: baseStats, happiness: baseStats }
   );
+  const [pendingKanjis, setPendingKanjis] = useState([]);
 
   const [showStartButton, setShowStartButton] = useState(true);
   const [showAnimatedReverseCard, setShowAnimatedReverseCard] = useState(false);
@@ -50,6 +52,46 @@ export default function AnimatedStyleUpdateExample() {
     }, 2000);
     showNextCard(2500);
   };
+
+  const kanjiParser = (text) => {
+    const japaneseCharacters = /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uff66-\uff9f]/g;
+    return text.match(japaneseCharacters);
+  }
+
+  const updatePendingKanjis = (kanjis) => {
+    if (kanjis) {
+      console.debug("updatePendingKanjis > Current kanjis: ");
+      console.debug(pendingKanjis);
+      console.debug("updatePendingKanjis > New kanjis: ");
+      console.debug(kanjis);
+
+      // Updating the kanji list
+      // But we have the choice between dealing with the list as a heap or a stack
+      newKanjiList = pendingKanjis;
+      newKanjiList.push(...kanjis);
+      newUniqueKanjiList = [...new Set(newKanjiList)];
+      console.debug("updatePendingKanjis > new kanji list (before setState): ");
+      console.debug(newUniqueKanjiList);
+      setPendingKanjis(newUniqueKanjiList);
+    }
+  }
+
+  useEffect(() => {
+    getKanjisForLesson();
+  }, [pendingKanjis]);
+
+  const getKanjisForLesson = () => {
+    if (pendingKanjis.length > Config.lessonSize) {
+      kanjiForLesson = [];
+      if (Config.lessonType === "oldest") {
+        kanjiForLesson = pendingKanjis.slice(0, Config.lessonSize);
+        console.log(`getKanjiForLesson > Let's take the first three encountered kanjis : ${kanjiForLesson}`);
+      } else {
+        kanjiForLesson = pendingKanjis.slice(- Config.lessonSize);
+        console.log(`getKanjiForLesson > Let's take the three most recently encountered kanjis : ${kanjiForLesson}`);
+      }
+    }
+  }
 
   const cardParser = (text) => {
     const moods = { happy: [], sad: [] }
@@ -150,6 +192,8 @@ export default function AnimatedStyleUpdateExample() {
         }
       );
     }
+
+    updatePendingKanjis(kanjiParser(currentCard["Kanji"]));
 
     createNewCard();
     setTimeout(() => {
