@@ -11,8 +11,6 @@ export default function useGeneratedChapters() {
 			"difficulté": "",
 			"background": ""
 		},
-
-
 		{
 			"Name": "Premier repas japonais",
 			"id": "5f61ce0ca9074c249d3b3b244c67252c",
