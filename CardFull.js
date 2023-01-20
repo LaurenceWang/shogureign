@@ -227,7 +227,7 @@ import Animated, {
 	  position: 'absolute',
 	},
 	cardWrapper: {
-	  height: 340,
+	  height: 240,
 	},
 	topTextWrapper: {
 	  position: 'absolute',
