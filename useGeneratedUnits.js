@@ -7,7 +7,7 @@ export default function useGeneratedUnits() {
 			"Person": "",
 			"Status": "",
 			"condition":{"chap1_intro" : false},
-			"custom" : {"chap1_intro" : true},
+			"custom" : {},
 			"background": ""
 		  },
 		  {
@@ -47,7 +47,7 @@ export default function useGeneratedUnits() {
 			"Person": "",
 			"Status": "",
 			"condition": {"chap1_street" : true},
-			"custom" : {},
+			"custom" : {"chap1_street" : false},
 			"background": ""
 		  },
 		  {
@@ -56,8 +56,8 @@ export default function useGeneratedUnits() {
 			"card": ["1f1d21e34eac4f9a8e25db5362de6f9b", "4566f4a78972445d9318c68add9acba0", "f664657568924ab495e562ea87fdf5ca", "d4a4e23916714f73a0a51764ce587069","8da83b727a694ed6b4ba44a7cff1746a","bc1fa208a5934b8e8086d14c98af21e8","36a1fb3f88c94ad094fa150bcafed68f","e2098d78628a49ad8c9a5d9cb04c8c87"],
 			"Person": "",
 			"Status": "",
-			"condition":{"chap1_street" : true} ,
-			"custom" : {},
+			"condition":{"chap1_street" : true, "kombini" : false} ,
+			"custom" : {"kombini" : true},
 			"background": ""
 		  },
 		  {
@@ -66,7 +66,7 @@ export default function useGeneratedUnits() {
 			"card": ["0df94147ee8f4dfda5f631224e43e74d"],
 			"Person": "",
 			"Status": "",
-			"condition": {},
+			"condition": {"arrive_home_completed" : false},
 			"custom" : {"arrive_home_completed" : true},
 			"background": ""
 		  },
@@ -76,8 +76,8 @@ export default function useGeneratedUnits() {
 			"card": ["9d1174e62e5d44f7a95c460745307e23"],
 			"Person": "",
 			"Status": "",
-			"condition": {"arrive_home_completed" : true},
-			"custom" : {},
+			"condition": {"arrive_home_completed" : true, "activity" : false},
+			"custom" : {"activity" : true},
 			"background": ""
 		  },
 		  {
@@ -86,7 +86,7 @@ export default function useGeneratedUnits() {
 			"card": ["99888040bcc54e269ca6d0099d80979d"],
 			"Person": "",
 			"Status": "",
-			"condition": {"arrive_home_completed" : true},
+			"condition": {"arrive_home_completed" : true, "at_Home" : true},
 			"custom" : {},
 			"background": ""
 		  },
@@ -96,7 +96,7 @@ export default function useGeneratedUnits() {
 			"card": ["462b70a41b4847c6ad4e522af6b87733"],
 			"Person": "",
 			"Status": "",
-			"condition": {"arrive_home_completed" : true},
+			"condition": {"arrive_home_completed" : true, "crush_dad" : false},
 			"custom" : {},
 			"background": ""
 		  },
@@ -106,7 +106,7 @@ export default function useGeneratedUnits() {
 			"card": ["55dbbc6e0026488fbd97f24cf0bceb1a",],
 			"Person": "",
 			"Status": "",
-			"condition": {"arrive_home_completed" : true},
+			"condition": {"arrive_home_completed" : true, "neighbourH" : false},
 			"custom" : {},
 			"background": ""
 		  },
@@ -116,7 +116,7 @@ export default function useGeneratedUnits() {
 			"card": ["293b2a80a53247baa5256000639dc933",],
 			"Person": "",
 			"Status": "",
-			"condition": {"arrive_home_completed" : true},
+			"condition": {"arrive_home_completed" : true, "neighbourF" : false},
 			"custom" : {},
 			"background": ""
 		  },
@@ -126,7 +126,7 @@ export default function useGeneratedUnits() {
 			"card": ["232662b3cb2a4080ac0ba214ef68b675",],
 			"Person": "",
 			"Status": "",
-			"condition": {"arrive_home_completed" : true},
+			"condition": {"arrive_home_completed" : true, "neighbourE" : false},
 			"custom" : {},
 			"background": ""
 		  },

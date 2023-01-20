@@ -112,7 +112,7 @@ const Chapter = ({firstCard }) => {
 			
 			updateChapterCard(currentUnitIndex);
 			setCurrentCardIndex(0);
-			updatePlayableCards();
+			
 			
 			console.log("before");
 			console.log(chapterUnit);
@@ -125,10 +125,23 @@ const Chapter = ({firstCard }) => {
 	useEffect(() => {
 		console.log("choice = " + choice);
 		updateWorldStateCard(choice, currentCard.id);
-		console.log(worldSt);
+		//console.log(worldSt);
+
+		
+
 	}, [currentCard]);
 
 
+	useEffect(() => {
+		if(currentUnitId){
+
+			updatePlayableCards();
+			console.log("----------------------------")
+			//console.log(unitCards);
+			console.log("----------------------------")
+		}
+	}, [worldSt]);
+	
 
 
 	function updateChapterCard(index) {
@@ -190,9 +203,12 @@ const Chapter = ({firstCard }) => {
 		let playableCards = [];
         //console.log("getUnitById(currentUnitId) : "+ getChapterUnit(currentUnitId));
         const cards = getUnitById(currentUnitId).card;
+		console.log("card");
+		console.log(cards);
 
         cards.forEach(element => {
             const conditions = getCardById(element).condition;
+			console.log(conditions);
             if(comparaison(conditions, worldSt)){
                 console.log("i");
                 playableCards.push(element);
@@ -200,7 +216,8 @@ const Chapter = ({firstCard }) => {
             
         });
 
-        setUnitCards(playableCards);
+        //setUnitCards(playableCards);
+		setChapterCard(playableCards);
         console.log("Nombre de cartes jouables restantes :"+playableCards.length);
 	}
 
@@ -229,6 +246,7 @@ const Chapter = ({firstCard }) => {
             const newWorld = {...worldSt,...leftCustoms};
             setworldSt(newWorld);
         }
+		setChoice("");
     }
 
 
@@ -295,6 +313,7 @@ const Chapter = ({firstCard }) => {
 		
 
 		updatePlayableUnits();
+		
 		setCurrentCardIndex(currentCardIndex + 1);
 	
 		
