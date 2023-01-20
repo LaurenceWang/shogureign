@@ -130,6 +130,73 @@ export default function useGeneratedUnits() {
 			"custom" : {},
 			"background": ""
 		  },
+
+		  {
+			"Name": "Introduction_chap2",
+			"id": "68bad6fc747141d1beb35ee057858f67",
+			"card": ["66262f990e88413f9ed6c66ab83d5300", "76b5bfc9afb64c5babf9350ad8c81bb7",],
+			"Person": "",
+			"Status": "",
+			"condition": {},
+			"custom" : {},
+			"background": ""
+		  },
+
+		  {
+			"Name": "Hungry",
+			"id": "28662fe73d694abbbc153e72ba25596d",
+			"card": ["b763de33a9f0457ea2db2a20a0e1e57a",],
+			"Person": "",
+			"Status": "",
+			"condition": {},
+			"custom" : {},
+			"background": ""
+		  },
+
+		  {
+			"Name": "Library",
+			"id": "7d6c2f8046bb475a8f7a119e924a8452",
+			"card": ["a0da9bacb9c147ad946b90001d355e8f",],
+			"Person": "",
+			"Status": "",
+			"condition": {},
+			"custom" : {},
+			"background": ""
+		  },
+
+		  {
+			"Name": "Grocery_store",
+			"id": "54b40bf6f6204fc0a0d84f66b3795381",
+			"card": ["479dfbcc62c443d8a1d5501f09edcca8",],
+			"Person": "",
+			"Status": "",
+			"condition": {},
+			"custom" : {},
+			"background": ""
+		  },
+
+		  {
+			"Name": "Cook",
+			"id": "810d9da937e2464ab5b7145a73050996",
+			"card": ["6a113b437caf4e6f932c2cbfb4ca79a2",],
+			"Person": "",
+			"Status": "",
+			"condition": {},
+			"custom" : {},
+			"background": ""
+		  },
+
+
+		  {
+			"Name": "Crush",
+			"id": "7c00e48218bc42aea11107d0f21f90c3",
+			"card": ["685ef582acb344faaa4fe4b680acd0f8",],
+			"Person": "",
+			"Status": "",
+			"condition": {},
+			"custom" : {},
+			"background": ""
+		},
 		
 	];
   

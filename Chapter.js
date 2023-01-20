@@ -12,7 +12,7 @@ import useGeneratedUnits from './useGeneratedUnits';
 import worldState from './worldState';
 
 
-const Chapter = ({firstCard }) => {
+const Chapter = ({chapNum, endChap}) => {
 
 	//const {getChapterbyId} = useGeneratedChapters();
 	const {getChapterByIndex} = useGeneratedChapters();
@@ -43,22 +43,34 @@ const Chapter = ({firstCard }) => {
 	const [showCard, setShowCard] = useState(false);
 	const [showQuestion, setShowQuestion] = useState(false);
 	const [chapterCard, setChapterCard] = useState([]);
-	const [random, setRandom] = useState(0);
+	
 	const [choice, setChoice] = useState();
-	//let choice;
+
+	const[endChapitre, setEndChapitre] = useState(false);
+
+
+	//console.log("chapNum : " + chapNum);
 	useEffect(() => {
-		
 		initializeWorld();
-		let units = getChapterByIndex(0).unit;
+	
+	}, []);	
+
+
+	useEffect(() => {
+		initializeWorld();
+		console.log("current chap Num : " +chapNum)
+
+		let units = getChapterByIndex(chapNum).unit;
 	
 		updatePlayableUnits();
-		const cards = getUnitById(units[0]).card;
+		const cards = getUnitById(units[chapNum]).card;
 		setChapterCard([...cards]);
-		setCurrentCard(getCardById(cards[0]));
-		setCurrentCardIndex(currentCardIndex + 1);
-		setCurrentUnitId("188b7fe299a045299d9ad38778b1c7a4");
-	
-	}, []);
+		setCurrentCard(getCardById(cards[chapNum]));
+		setCurrentCardIndex(1);
+		setCurrentUnitId(getChapterByIndex(chapNum).unit[0]);
+		//}
+			
+	}, [chapNum]);
 
 
 
@@ -69,16 +81,8 @@ const Chapter = ({firstCard }) => {
 
 
 	useEffect(() => {
-		//const ac = new AbortController(); //to avoid memory leak
-		console.log("passé");
-		/*console.log("---------------------------------------")
-		console.log(chapterCard)
-		console.log("---------------------------------------")
-		console.log(currentCardIndex)*/
 
 		if(chapterCard){
-
-		console.log("je suis passé dans l'use effect qui marche pas")
 
 		if(currentCardIndex + 1 >= chapterCard.length && chapterUnit.length != 0){
 
@@ -86,21 +90,17 @@ const Chapter = ({firstCard }) => {
 			const ran = Math.floor(Math.random() * chapterUnit.length);		
 			setCurrentUnitIndex(ran);
 			setCurrentUnitId(chapterUnit[ran]);
-			console.log("je suis passé à l'autre unit");
+			console.log("curID : " + currentUnitId);
 			
 		}
 		}
-		//return () => ac.abort(); 
+
 	}, [chapterUnit]);
 
 
 	
 	useEffect(() => {
 		//const ac = new AbortController(); //to avoid memory leak
-		console.log("current unit index use effect : " + currentUnitIndex);
-		console.log("chapter unit dans useEffect");
-		console.log(chapterUnit);
-		console.log("current card index :" + currentCardIndex)
 		
 		if(currentCardIndex && chapterUnit){
 		
@@ -109,13 +109,16 @@ const Chapter = ({firstCard }) => {
 			updateWorldState(chapterUnit[currentUnitIndex]);
 			console.log(worldSt);
 
+			/*const currentId = chapterUnit.indexOf(currentUnitId);
+			if (currentId > -1) { // only splice array when item is found
+		  	chapterUnit.splice(currentId, 1); // 2nd parameter means remove one item only
+			}*/
+
+			console.log(chapterUnit)
 			
 			updateChapterCard(currentUnitIndex);
 			setCurrentCardIndex(0);
 			
-			
-			console.log("before");
-			console.log(chapterUnit);
 			
 		}
 		//return () => ac.abort(); 
@@ -126,21 +129,21 @@ const Chapter = ({firstCard }) => {
 		console.log("choice = " + choice);
 		updateWorldStateCard(choice, currentCard.id);
 		//console.log(worldSt);
-
-		
-
 	}, [currentCard]);
 
 
 	useEffect(() => {
 		if(currentUnitId){
-
 			updatePlayableCards();
-			console.log("----------------------------")
-			//console.log(unitCards);
-			console.log("----------------------------")
 		}
 	}, [worldSt]);
+
+	/*useEffect(() => {
+		if(endChapitre==true){
+			endChap();
+		}
+	}, [endChapitre]);*/
+	
 	
 
 
@@ -179,11 +182,16 @@ const Chapter = ({firstCard }) => {
 		console.log("currentUnitID : " + currentUnitId)
         let playableUnits = [];
 		let j = 0;
+	
+
+
 		let units = getChapterByIndex(0).unit;
 		const currentId = units.indexOf(currentUnitId);
 		if (currentId > -1) { // only splice array when item is found
 		  units.splice(currentId, 1); // 2nd parameter means remove one item only
 		}
+	
+		
 		units.forEach(element => {
 			let conditions = getUnitById(element).condition;
 			if(comparaison(conditions, worldSt)){
@@ -192,7 +200,9 @@ const Chapter = ({firstCard }) => {
 			}
 		})
 
+		
 		setChapterUnit(playableUnits);
+		
 		console.log("chap unit in upt");
 		console.log(chapterUnit)
 
@@ -203,22 +213,35 @@ const Chapter = ({firstCard }) => {
 		let playableCards = [];
         //console.log("getUnitById(currentUnitId) : "+ getChapterUnit(currentUnitId));
         const cards = getUnitById(currentUnitId).card;
-		console.log("card");
-		console.log(cards);
+		//console.log("card");
+		//console.log(cards);
 
         cards.forEach(element => {
             const conditions = getCardById(element).condition;
 			console.log(conditions);
             if(comparaison(conditions, worldSt)){
-                console.log("i");
+                //console.log("i");
                 playableCards.push(element);
             }
             
         });
 
+		console.log("Nombre de cartes jouables restantes :"+playableCards.length);
         //setUnitCards(playableCards);
-		setChapterCard(playableCards);
-        console.log("Nombre de cartes jouables restantes :"+playableCards.length);
+		if(playableCards.length !=0){
+
+			setChapterCard(playableCards);
+		}
+
+		if(playableCards.length ==0){
+
+			//setChapterCard( getUnitById("7c00e48218bc42aea11107d0f21f90c3").card)
+			setChapterCard( getUnitById(getChapterByIndex(chapNum+1).unit[0]).card)
+			//setEndChapitre(true);
+			//chapNum +=1;
+			//endChap();
+		}
+	
 	}
 
 
@@ -246,7 +269,6 @@ const Chapter = ({firstCard }) => {
             const newWorld = {...worldSt,...leftCustoms};
             setworldSt(newWorld);
         }
-		setChoice("");
     }
 
 
