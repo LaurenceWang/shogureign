@@ -1,15 +1,25 @@
-import React, {useEffect} from 'react';
-import {Image, View, StyleSheet} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Image, View, StyleSheet } from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withTiming,
 } from 'react-native-reanimated';
+import Images from './images/index';
+import ProgressBar from './ProgressBar';
 
-const PowerPerson = ({image, isHappy, isSad}) => {
+const PowerPerson = ({ base, isHappy, isSad, value }) => {
   const heartAnimation = useSharedValue(0);
   const cloudAnimation = useSharedValue(0);
   const personSize = useSharedValue(1);
+
+  const iconSize = 95;
+
+  let styles = getStyles(iconSize, value);
+
+  useEffect(() => {
+    styles = getStyles(iconSize, value);
+  }, [value]);
 
   useEffect(() => {
     if (isHappy) {
@@ -33,22 +43,22 @@ const PowerPerson = ({image, isHappy, isSad}) => {
   const animatedHeart = useAnimatedStyle(() => {
     return {
       opacity: heartAnimation.value,
-      transform: [{translateY: 20 - heartAnimation.value * 20}],
+      transform: [{ translateY: 20 - heartAnimation.value * 20 }],
     };
   });
 
   const animatedCloud = useAnimatedStyle(() => {
     return {
       opacity: cloudAnimation.value,
-      transform: [{translateY: 20 - cloudAnimation.value * 20}],
+      transform: [{ translateY: 20 - cloudAnimation.value * 20 }],
     };
   });
 
   const personScale = useAnimatedStyle(() => {
     return {
       transform: [
-        {translateY: (personSize.value - 1) * -50},
-        {scale: personSize.value},
+        { translateY: (personSize.value - 1) * -50 },
+        { scale: personSize.value },
       ],
     };
   });
@@ -58,37 +68,40 @@ const PowerPerson = ({image, isHappy, isSad}) => {
       <View style={styles.wrapper}>
         <Animated.View style={[animatedHeart, styles.heartWrapper]}>
           <Image
-            source={{
-              uri: 'https://cdn-icons-png.flaticon.com/512/1081/1081930.png',
-            }}
+            source={Images.jaugeEffects.up}
             style={styles.heartImage}
           />
         </Animated.View>
         <Animated.View style={[animatedCloud, styles.cloudWrapper]}>
           <Image
-            source={{
-              uri: 'https://cdn-icons-png.flaticon.com/512/3208/3208676.png',
-            }}
+            source={Images.jaugeEffects.down}
             style={styles.cloudImage}
           />
         </Animated.View>
         <Animated.View style={personScale}>
-          <Image source={{uri: image}} style={styles.personImage} />
+          <ProgressBar value={value} />
+          <Image source={Images.jauges[base].full} style={styles.personImage} />
         </Animated.View>
-      </View>
+      </View >
     </>
   );
 };
 
-const styles = StyleSheet.create({
+const getStyles = (iconSize, value) => StyleSheet.create({
+  mask: {
+    overflow: "hidden",
+  },
+  maskImage: {
+    margin: `${Math.floor(iconSize * (value / 100))}pt 0 0 0`
+  },
   wrapper: {
     flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
   personImage: {
-    height: 95,
-    width: 95,
+    height: iconSize,
+    width: iconSize,
   },
   heartImage: {
     height: 55,
