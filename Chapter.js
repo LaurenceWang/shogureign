@@ -210,7 +210,7 @@ const Chapter = ({chapNum, endChap}) => {
             setChapterUnit(playableUnits);
         }else{
             console.log("sunifu");
-            //setEndChapitre(true);
+            setEndChapitre(true);
             //endChap();
         }
         
@@ -274,6 +274,7 @@ const Chapter = ({chapNum, endChap}) => {
     }
 
 	function updateCustomWorld(){
+		console.log("custom de la carte : ");
 		console.log(currentCard.custom);
 		let customs = currentCard.custom;
 		const worldcustom = {...worldSt, ...customs};
@@ -312,6 +313,7 @@ const Chapter = ({chapNum, endChap}) => {
 		choice = "left";
 		updateWorldStateCard(choice, currentCard.id);
 		nextCardId = currentCard.left_next_card;
+		//updatePlayableUnits();
 
 		setTimeout(() => {
 		  setCurrentMood({happy: [], sad: []});
@@ -324,6 +326,7 @@ const Chapter = ({chapNum, endChap}) => {
 		choice = "right";
 		updateWorldStateCard(choice, currentCard.id);
 		nextCardId = currentCard.right_next_card ;
+		//updatePlayableUnits();
 		
 		setTimeout(() => {
 		  setCurrentMood({happy: [], sad: []});
@@ -343,27 +346,23 @@ const Chapter = ({chapNum, endChap}) => {
 		//console.log(chapterUnit);
 		
 		
-		
-
-		updatePlayableUnits();
-		
 		if(nextCardId !== ""){
 			setCurrentCard(getCardById(nextCardId));
 			nextCardId = "";
 			console.log("je suis passé par le if");
 		}
 		else{
+			//const rand = Math.floor(Math.random() * unitCards.length);		
+			//setCurrentUnitIndex(rand);
+			//setCurrentUnitId(chapterUnit[ran]);
 			setCurrentCard(getCardById(chapterCard[currentCardIndex % chapterCard.length]));
 			setCurrentCardIndex(currentCardIndex + 1);
 			console.log("je suis passé dans le else ");
 		}
 		
-		
+		updatePlayableUnits();		
 		
 		//console.log(worldSt);
-		
-
-
 
 		  setShowCard(false);
 		}, 100);
