@@ -44,6 +44,7 @@ const Chapter = ({chapNum, endChap}) => {
 	
 	//const [choice, setChoice] = useState();
 	let choice;
+	let nextCardId = "";
 	const[endChapitre, setEndChapitre] = useState(false);
 
 
@@ -81,10 +82,12 @@ const Chapter = ({chapNum, endChap}) => {
 
 	useEffect(() => {
 
+		console.log("passé dans changement d'unit")
 		if(chapterCard){
 
 		if(currentCardIndex + 1 >= chapterCard.length && chapterUnit.length != 0){
 
+			console.log("fin d'unit")
 			
 			const ran = Math.floor(Math.random() * chapterUnit.length);		
 			setCurrentUnitIndex(ran);
@@ -125,7 +128,10 @@ const Chapter = ({chapNum, endChap}) => {
 
 
 	useEffect(() => {
+
+		console.log("je suis passé dans l'update custom card");
 		updateCustomWorld();
+		console.log(worldSt);
 		//let customs = currentCard.custom;
         //const worldcustom = {...worldSt, ...customs};
         //setworldSt(worldcustom);
@@ -251,16 +257,6 @@ const Chapter = ({chapNum, endChap}) => {
 
 			setChapterCard(playableCards);
 		}
-
-		if(playableCards.length ==0){
-
-			//endChap();
-			//setChapterCard( getUnitById("7c00e48218bc42aea11107d0f21f90c3").card)
-			//setChapterCard( getUnitById(getChapterByIndex(chapNum+1).unit[0]).card)
-			//setEndChapitre(true);
-			//chapNum +=1;
-			//endChap();
-		}
 	
 	}
 
@@ -292,6 +288,7 @@ const Chapter = ({chapNum, endChap}) => {
     }
 
 	function updateCustomWorld(){
+		console.log(currentCard.custom);
         let customs = currentCard.custom;
         const worldcustom = {...worldSt, ...customs};
         setworldSt(worldcustom);
@@ -329,7 +326,7 @@ const Chapter = ({chapNum, endChap}) => {
 		//setChoice("left");
 		choice = "left";
 		updateWorldStateCard(choice, currentCard.id);
-      
+		nextCardId = currentCard.left_next_card;
 
 		setTimeout(() => {
 		  setCurrentMood({happy: [], sad: []});
@@ -342,6 +339,7 @@ const Chapter = ({chapNum, endChap}) => {
 		//setChoice("right");
 		choice = "right";
 		updateWorldStateCard(choice, currentCard.id);
+		nextCardId = currentCard.right_next_card ;
 		setTimeout(() => {
 		  setCurrentMood({happy: [], sad: []});
 		}, 50);
@@ -359,13 +357,30 @@ const Chapter = ({chapNum, endChap}) => {
 		//console.log("in create");
 		//console.log(chapterUnit);
 		
-		setCurrentCard(getCardById(chapterCard[currentCardIndex % chapterCard.length]));
+		/*setCurrentCard(getCardById(chapterCard[currentCardIndex % chapterCard.length]));
 		
 		
 		updatePlayableUnits();
 		
-		setCurrentCardIndex(currentCardIndex + 1);
-	
+		setCurrentCardIndex(currentCardIndex + 1);*/
+
+		
+		if(nextCardId !== ""){
+			setCurrentCard(getCardById(nextCardId));
+			nextCardId = "";
+			console.log("je suis passé par le if");
+			updatePlayableUnits();
+			setCurrentCardIndex(currentCardIndex + 1);
+		}
+		else{
+			setCurrentCard(getCardById(chapterCard[currentCardIndex % chapterCard.length]));
+			updatePlayableUnits();
+			setCurrentCardIndex(currentCardIndex + 1);
+			console.log("je suis passé dans le else ");
+		}
+		
+		
+		
 		
 		
 		//console.log(worldSt);
