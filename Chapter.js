@@ -141,12 +141,13 @@ const Chapter = ({chapNum, endChap}) => {
 		}
 	}, [worldSt]);
 
-	/*useEffect(() => {
-		if(endChapitre==true){
-			endChap();
-		}
-	}, [endChapitre]);*/
-	
+	useEffect(() => {
+        if(endChapitre==true){
+            
+        endChap();
+        
+        }
+    }, [endChapitre]);
 	
 
 
@@ -180,48 +181,54 @@ const Chapter = ({chapNum, endChap}) => {
 
 	function updatePlayableUnits(){
 
-		console.log("current unit index in uptplayUnit: " + currentUnitIndex)
+        console.log("current unit index in uptplayUnit: " + currentUnitIndex)
 
-		console.log("currentUnitID : " + currentUnitId)
+        console.log("currentUnitID : " + currentUnitId)
         let playableUnits = [];
-		let j = 0;
-	
+        let j = 0;
+    
 
 
-		let units = getChapterByIndex(0).unit;
-		const currentId = units.indexOf(currentUnitId);
-		if (currentId > -1) { // only splice array when item is found
-		  units.splice(currentId, 1); // 2nd parameter means remove one item only
-		}
-	
-		
-		units.forEach(element => {
-			let conditions = getUnitById(element).condition;
-			if(comparaison(conditions, worldSt)){
-				playableUnits[j] = element;
-				j++;
-			}
-		})
+        let units = getChapterByIndex(chapNum).unit;
+        const currentId = units.indexOf(currentUnitId);
+        if (currentId > -1) { // only splice array when item is found
+          units.splice(currentId, 1); // 2nd parameter means remove one item only
+        }
+    
+        
+        units.forEach(element => {
+            let conditions = getUnitById(element).condition;
+            if(comparaison(conditions, worldSt)){
+                playableUnits[j] = element;
+                j++;
+            }
+        })
 
-		
-		setChapterUnit(playableUnits);
-		
-		console.log("chap unit in upt");
-		console.log(chapterUnit)
+        //setChapterUnit(playableUnits);
+        if(playableUnits.length!=0){
 
+            setChapterUnit(playableUnits);
+        }else{
+            console.log("sunifu");
+            //setEndChapitre(true);
+            //endChap();
+        }
+        
+        console.log("chap unit in upt");
+        console.log(chapterUnit) 
 
     }
 
 	function updatePlayableCards(){
-		let playableCards = [];
+        let playableCards = [];
         //console.log("getUnitById(currentUnitId) : "+ getChapterUnit(currentUnitId));
         const cards = getUnitById(currentUnitId).card;
-		//console.log("card");
-		//console.log(cards);
+        //console.log("card");
+        //console.log(cards);
 
         cards.forEach(element => {
             const conditions = getCardById(element).condition;
-			console.log(conditions);
+            console.log(conditions);
             if(comparaison(conditions, worldSt)){
                 //console.log("i");
                 playableCards.push(element);
@@ -229,23 +236,14 @@ const Chapter = ({chapNum, endChap}) => {
             
         });
 
-		console.log("Nombre de cartes jouables restantes :"+playableCards.length);
+        console.log("Nombre de cartes jouables restantes :"+playableCards.length);
         //setUnitCards(playableCards);
-		if(playableCards.length !=0){
+        if(playableCards.length !=0){
 
-			setChapterCard(playableCards);
-		}
-
-		if(playableCards.length ==0){
-
-			//setChapterCard( getUnitById("7c00e48218bc42aea11107d0f21f90c3").card)
-			setChapterCard( getUnitById(getChapterByIndex(chapNum+1).unit[0]).card)
-			//setEndChapitre(true);
-			//chapNum +=1;
-			//endChap();
-		}
-	
-	}
+            setChapterCard(playableCards);
+        }
+    
+    }
 
 
 
@@ -276,7 +274,7 @@ const Chapter = ({chapNum, endChap}) => {
     }
 
 	function updateCustomWorld(){
-		console.log("current card : "+currentCard.Name);
+		console.log(currentCard.custom);
 		let customs = currentCard.custom;
 		const worldcustom = {...worldSt, ...customs};
 		setworldSt(worldcustom);
