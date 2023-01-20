@@ -357,27 +357,27 @@ const Chapter = ({chapNum, endChap}) => {
 		//console.log("in create");
 		//console.log(chapterUnit);
 		
-		/*setCurrentCard(getCardById(chapterCard[currentCardIndex % chapterCard.length]));
+		setCurrentCard(getCardById(chapterCard[currentCardIndex % chapterCard.length]));
 		
 		
 		updatePlayableUnits();
 		
-		setCurrentCardIndex(currentCardIndex + 1);*/
+		setCurrentCardIndex(currentCardIndex + 1);
 
 		
-		if(nextCardId !== ""){
+		/*if(nextCardId !== ""){
 			setCurrentCard(getCardById(nextCardId));
 			nextCardId = "";
 			console.log("je suis passé par le if");
 			updatePlayableUnits();
-			setCurrentCardIndex(currentCardIndex + 1);
+			//setCurrentCardIndex(currentCardIndex + 1);
 		}
 		else{
 			setCurrentCard(getCardById(chapterCard[currentCardIndex % chapterCard.length]));
 			updatePlayableUnits();
 			setCurrentCardIndex(currentCardIndex + 1);
 			console.log("je suis passé dans le else ");
-		}
+		}*/
 		
 		
 		

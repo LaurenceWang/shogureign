@@ -46,8 +46,8 @@ export default function useGeneratedUnits() {
 			"card": ["2db19f997a904d848fd2fd36d77d5404", "2c04e0b89dbe44ad84e4ee81cb62b237", "10a6303a500a41a3a9d3544bd07fc630", "839723f8edab4821bc7d8a21e0831c91"],
 			"Person": "",
 			"Status": "",
-			"condition": {"chap1_street" : true},
-			"custom" : {"chap1_street" : false},
+			"condition": {"chap1_street" : false,},
+			"custom" : {"chap1_street" : true},
 			"background": ""
 		  },
 		  {
@@ -56,7 +56,7 @@ export default function useGeneratedUnits() {
 			"card": ["1f1d21e34eac4f9a8e25db5362de6f9b", "4566f4a78972445d9318c68add9acba0", "f664657568924ab495e562ea87fdf5ca", "d4a4e23916714f73a0a51764ce587069","8da83b727a694ed6b4ba44a7cff1746a","bc1fa208a5934b8e8086d14c98af21e8","36a1fb3f88c94ad094fa150bcafed68f","e2098d78628a49ad8c9a5d9cb04c8c87"],
 			"Person": "",
 			"Status": "",
-			"condition":{"chap1_street" : true, "kombini" : false} ,
+			"condition":{ "arrive_home_completed" : true, "at_Home" : false, "kombini" : false} ,
 			"custom" : {"kombini" : true},
 			"background": ""
 		  },
