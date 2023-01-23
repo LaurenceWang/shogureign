@@ -1,12 +1,14 @@
 import { View, StyleSheet } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
+import MultipleCard from './MultipleCard';
 import PlaceholderBackCards from './PlaceholderBackCards';
 import Question from './Question';
 import PowerIndicators from './PowerIndicators';
 import PlaceholderBackStaticCard from './PlaceholderBackStaticCard';
 import StartButton from './StartButton';
 import KanjiButton from './KanjiButton';
+import KanjiMenu from './KanjiMenu';
 import useGeneratedCards from './useGeneratedCards';
 import useGeneratedMultCards from './useGeneratedMultCards';
 import useGeneratedChapters from './useGeneratedChapters';
@@ -79,7 +81,7 @@ const Chapter = ({ chapNum, endChap }) => {
 	 * For the lesson specifically, it also does when the kanji has been reviewed.
 	 */
 	const [kanjiWeight, setKanjiWeight] = useState({});
-
+// Object.keys(kanjiWeight) -> donne tous les kanjis vus depuis le début
 
 	//const [choice, setChoice] = useState();
 	let choice;
@@ -363,13 +365,14 @@ const Chapter = ({ chapNum, endChap }) => {
 		console.log("useEffect (pending kanji) > cards since last lesson: " + cardsSinceLastLesson);
 		kanjiLesson = getKanjisForLesson();
 		console.debug("After get kanjis for lesson: new kanji weight > ");
-		console.debug(kanjiWeight);
+		console.debug("HELLO", kanjiWeight);
 
 	}, [pendingKanjis, cardsSinceLastLesson]);
 
 	const getKanjisForTest = () => {
 		// We need to have the lesson on a kanji K first, to be tested on K.
 		testableKanjis = Object.keys(kanjiWeight).filter(k => kanjiWeight[k].lesson == 0);
+		console.log(Object.keys(kanjiWeight));
 		testedKanjis = []
 
 		const findRandomKanji = (randomNumber) => {
@@ -620,6 +623,7 @@ const Chapter = ({ chapNum, endChap }) => {
 			<View style={styles.cardWrapper}>
         		{showKanjiButton && <KanjiButton onPress={onStartKanji} />}
 				{showStartButton && <StartButton onPress={onStartChapter} />}
+				{showKanjiMenu && <KanjiMenu/>}
 				{showAnimatedReverseCard && <PlaceholderBackCards />}
 				{showReverseCard && <PlaceholderBackStaticCard />}
 				{showCard && (

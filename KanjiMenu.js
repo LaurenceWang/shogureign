@@ -1,79 +1,82 @@
-import {StyleSheet, View, Text, Pressable} from 'react-native';
+import {StyleSheet, View, StatusBar, Text, FlatList, SafeAreaView, Pressable, ScrollView} from 'react-native';
 import React from 'react';
-import FastImage from 'react-native-fast-image';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withTiming,
 } from 'react-native-reanimated';
 
-const KanjiButton = ({onPress}) => {
-  const openAnimation = useSharedValue(1);
+const kanjis_rencontrés = [
+  {
+    name: '子',
+    title: 'blabla ko',
+  },
+  {
+    id: '母',
+    title: 'blabla haha',
+  },
+  {
+    id: '父',
+    title: 'blabla chichi',
+  },
+  {
+    id: '足',
+    title: 'blabla hashiru',
+  },
+  {
+    id: '車',
+    title: 'blabla kuruma',
+  },
+  {
+    id: '電',
+    title: 'blabla denki',
+  },  
+  {
+    id: 'aaaa',
+    title: 'blabla denkki',
+  },
+  {
+    id: 'ooo',
+    title: 'blabla den',
+  },
+];
 
-  const animatedWrapper = useAnimatedStyle(() => {
-    return {
-      opacity: openAnimation.value,
-    };
-  });
+const Item = ({title}) => (
+  <View style = {styles.item}>
+    <Text style={styles.title}>{title}</Text>
+  </View>
+  );
 
-  const onPressCard = () => {
-    openAnimation.value = withTiming(0);
-    onPress();
-  };
 
+const KanjiMenu = () => {
   return (
-    <Pressable style={styles.cardWrapper} onPress={onPressCard}>
-      <Animated.View style={[animatedWrapper, styles.wrapperBack]}>
-        <View style={styles.wrapper}>
-          <FastImage
-            source={{
-              uri: 'https://cdn-icons-png.flaticon.com/512/6851/6851875.png',
-            }}
-            style={styles.reverseIcon}
-          />
-          <Text style={styles.text}>Dictionnaire</Text>
-        </View>
-      </Animated.View>
-    </Pressable>
+  <SafeAreaView style={styles.container}>
+    <FlatList
+    data = {kanjis_rencontrés}
+    renderItem = {({item}) => <Item title = {item.id} />}
+    keyExtractor = {item => item.title}
+    />
+  </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  wrapperBack: {
-    height: 160,
-    width: 160,
-    left: -90,
-    top: -100,
-    backgroundColor: '#aaa',
-    borderRadius: 35,
-    overflow: 'hidden',
-  },
-  cardWrapper: {
-    height: 160,
-    width: 160,
-    position: 'absolute',
-  },
-  wrapper: {
+  container: {
     flex: 1,
-    backgroundColor: '#FFCCD3',
-  },
-  reverseIcon: {
-    height: 140,
-    width: 140,
-    position: 'absolute',
-  },
-  shadow: {
-    position: 'absolute',
-    zIndex: 100,
-    height: '100%',
-    width: '100%',
-    backgroundColor: 'black',
-  },
-  text: {
-    paddingTop: 133,
-    paddingLeft:33,
+    marginTop: StatusBar.currentHeight-150 || 0,
+    marginBottom:-150,
+    width: 300,
 
+  },
 
+  item: {
+    backgroundColor: '#ffff66',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  title: {
+    fontSize: 32,
   },
 });
 
