@@ -23,10 +23,7 @@ const Chapter = ({ chapNum, endChap }) => {
 	const [worldSt, setworldSt] = useState(World);
 
 	const { getUnitById } = useGeneratedUnits();
-	const { getUnitByIndex } = useGeneratedUnits();
-	const { getUnitCardByIndex } = useGeneratedUnits();
-
-	const { getChapterUnit } = useGeneratedChapters();
+	
 	const [chapterUnit, setChapterUnit] = useState([]);
 	const [unitCards, setUnitCards] = useState([]);
 	const [currentUnitIndex, setCurrentUnitIndex] = useState(0);
@@ -248,6 +245,7 @@ const Chapter = ({ chapNum, endChap }) => {
 
 	function updatePlayableCards() {
 		let playableCards = [];
+		let randomPlayableCards = [];
 		//console.log("getUnitById(currentUnitId) : "+ getChapterUnit(currentUnitId));
 		const cards = getUnitById(currentUnitId).card;
 		//console.log("card");
@@ -255,18 +253,36 @@ const Chapter = ({ chapNum, endChap }) => {
 
 		cards.forEach(element => {
 			const conditions = getCardById(element).condition;
-			console.log(conditions);
+			//console.log(conditions);
 			if (comparaison(conditions, worldSt)) {
 				//console.log("i");
 				playableCards.push(element);
 			}
 		});
 
-		console.log("Nombre de cartes jouables restantes :" + playableCards.length);
-		//setUnitCards(playableCards);
+		/*const nb_tirages= Math.floor(Math.random() * playableCards.length);
+		
+		for(let i=0; i<nb_tirages; i++){
+    	const random = Math.floor(Math.random() * playableCards.length);
+    	randomPlayableCards.push(playableCards[random]);
+    	playableCards.splice(random, 1);
+		console.log("random playable cards :")
+		console.log(randomPlayableCards);
+		}*/
+
+
+		//console.log("Nombre de cartes jouables restantes :" + playableCards.length);
+
 		if (playableCards.length != 0) {
 			setChapterCard(playableCards);
 		}
+		
+
+		console.log("Nombre de cartes jouables restantes :" + randomPlayableCards.length);
+		/*if (randomPlayableCards.length != 0) {
+			setChapterCard(randomPlayableCards);
+		}*/
+
 	}
 
 	function updateWorldState(id) {
@@ -330,26 +346,26 @@ const Chapter = ({ chapNum, endChap }) => {
 
 	const updatePendingKanjis = (newKanjis) => {
 		if (newKanjis) {
-			console.debug("updatePendingKanjis > Current kanjis: ");
+			/*console.debug("updatePendingKanjis > Current kanjis: ");
 			console.debug(pendingKanjis);
 			console.debug("updatePendingKanjis > New kanjis: ");
-			console.debug(newKanjis);
+			console.debug(newKanjis);*/
 
 			// Updating the kanji list
-			newKanjiList = pendingKanjis;
+			let newKanjiList = pendingKanjis;
 			newKanjiList.push(...newKanjis);
-			newUniqueKanjiList = [...new Set(newKanjiList)];
-			console.debug("updatePendingKanjis > new kanji list (before setState): ");
-			console.debug(newUniqueKanjiList);
+			let newUniqueKanjiList = [...new Set(newKanjiList)];
+			//console.debug("updatePendingKanjis > new kanji list (before setState): ");
+			//console.debug(newUniqueKanjiList);
 			setPendingKanjis(newUniqueKanjiList);
 		}
 	}
 
 	useEffect(() => {
-		console.log("useEffect (pending kanji) > cards since last lesson: " + cardsSinceLastLesson);
+		//console.log("useEffect (pending kanji) > cards since last lesson: " + cardsSinceLastLesson);
 		kanjiLesson = getKanjisForLesson();
-		console.debug("After get kanjis for lesson: new kanji weight > ");
-		console.debug(kanjiWeight);
+		//console.debug("After get kanjis for lesson: new kanji weight > ");
+		//console.debug(kanjiWeight);
 
 	}, [pendingKanjis, cardsSinceLastLesson]);
 
@@ -453,13 +469,13 @@ const Chapter = ({ chapNum, endChap }) => {
 		let trimmedText = text.replace(/\s/g, "")
 		const regexpWords = /[\+\-]\d+[ABHP]/g;
 		const data = trimmedText.match(regexpWords).map((effectText) => effectParser(effectText));
-		console.debug("Data: ");
-		console.debug(data);
+		//console.debug("Data: ");
+		//console.debug(data);
 
 		for (let i = 0; i < data.length; i++) {
 			// Sorting moods for animations
-			console.debug("Effect: ");
-			console.debug(data[i]);
+			//console.debug("Effect: ");
+			//console.debug(data[i]);
 			if (data[i]["mood"])
 				moods.happy.push(data[i]["stat"])
 			else
@@ -515,16 +531,16 @@ const Chapter = ({ chapNum, endChap }) => {
 	}, [currentStats]);
 
 	const gameOverStats = () => {
-		console.debug("Game over > Current stats: ");
-		console.debug(currentStats);
+		//console.debug("Game over > Current stats: ");
+		//console.debug(currentStats);
 		return Object.keys(currentStats).filter(k => currentStats[k] >= 100 || currentStats[k] <= 0);
 	}
 
 	const updateStats = (moods, variations) => {
 		// Is there some change in stats?
 		if (moods != {}) {
-			console.debug("updateStats > Moods :");
-			console.debug(moods);
+			//console.debug("updateStats > Moods :");
+			//console.debug(moods);
 			setCurrentMood(moods);
 			setCurrentStats(
 				{
@@ -538,7 +554,7 @@ const Chapter = ({ chapNum, endChap }) => {
 
 		updatePendingKanjis(kanjiParser(currentCard["Kanji"]));
 
-		console.log("updateStats > cards since last lesson before turn count: " + cardsSinceLastLesson);
+		//console.log("updateStats > cards since last lesson before turn count: " + cardsSinceLastLesson);
 		setCardsSinceLastLesson(cardsSinceLastLesson + 1);
 
 		createNewCard();
@@ -549,8 +565,8 @@ const Chapter = ({ chapNum, endChap }) => {
 	}
 
 	const onChooseLeftAnswer = () => {
-		console.debug("Current card: ");
-		console.debug(currentCard);
+		//console.debug("Current card: ");
+		//console.debug(currentCard);
 		const { moods, variations } = cardParser(currentCard.onLeft);
 		updateStats(moods, variations);
 
@@ -558,8 +574,8 @@ const Chapter = ({ chapNum, endChap }) => {
 	};
 
 	const onChooseRightAnswer = () => {
-		console.debug("Current card: ");
-		console.debug(currentCard);
+		//console.debug("Current card: ");
+		//console.debug(currentCard);
 		const { moods, variations } = cardParser(currentCard.onRight);
 		updateStats(moods, variations);
 
@@ -600,16 +616,6 @@ const Chapter = ({ chapNum, endChap }) => {
 			console.log("je suis passé dans le else ");
 		}*/
 		
-		
-		
-		
-		
-		//console.log(worldSt);
-		
-
-			//etCurrentCardIndex(currentCardIndex + 1);
-
-			//console.log(worldSt);
 
 			setShowCard(false);
 		}, 100);
