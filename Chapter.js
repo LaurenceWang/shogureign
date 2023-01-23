@@ -336,7 +336,7 @@ const Chapter = ({ chapNum, endChap }) => {
 			console.debug(newKanjis);
 
 			// Updating the kanji list
-			newKanjiList = pendingKanjis;
+			let newKanjiList = pendingKanjis;
 			newKanjiList.push(...newKanjis);
 			newUniqueKanjiList = [...new Set(newKanjiList)];
 			console.debug("updatePendingKanjis > new kanji list (before setState): ");
@@ -391,7 +391,7 @@ const Chapter = ({ chapNum, endChap }) => {
 
 	const getKanjisForLesson = () => {
 		// Create all new kanji weight
-		kanjiWeightTmp = kanjiWeight;
+		let kanjiWeightTmp = kanjiWeight;
 		alreadyEncounteredKanjis = Object.keys(pendingKanjis);
 		newKanjis = pendingKanjis.filter(k => !(k in alreadyEncounteredKanjis));
 
@@ -452,7 +452,14 @@ const Chapter = ({ chapNum, endChap }) => {
 		// Parsing the card text
 		let trimmedText = text.replace(/\s/g, "")
 		const regexpWords = /[\+\-]\d+[ABHP]/g;
-		const data = trimmedText.match(regexpWords).map((effectText) => effectParser(effectText));
+		let data = trimmedText.match(regexpWords);
+		if (data === null) {
+			return {
+				moods: moods,
+				variations: variations
+			}
+		}
+		data = data.map((effectText) => effectParser(effectText));
 		console.debug("Data: ");
 		console.debug(data);
 
