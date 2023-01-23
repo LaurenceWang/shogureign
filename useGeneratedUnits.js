@@ -56,7 +56,7 @@ export default function useGeneratedUnits() {
 			"card": ["1f1d21e34eac4f9a8e25db5362de6f9b", "4566f4a78972445d9318c68add9acba0", "f664657568924ab495e562ea87fdf5ca", "d4a4e23916714f73a0a51764ce587069","8da83b727a694ed6b4ba44a7cff1746a","bc1fa208a5934b8e8086d14c98af21e8","36a1fb3f88c94ad094fa150bcafed68f","e2098d78628a49ad8c9a5d9cb04c8c87"],
 			"Person": "",
 			"Status": "",
-			"condition":{ "arrive_home_completed" : true, "at_Home" : false, "kombini" : false} ,
+			"condition":{ "arrive_home_completed" : true, "at_Home" : false, "kombini" : false, } ,
 			"custom" : {"kombini" : true},
 			"background": ""
 		  },
@@ -66,7 +66,7 @@ export default function useGeneratedUnits() {
 			"card": ["0df94147ee8f4dfda5f631224e43e74d"],
 			"Person": "",
 			"Status": "",
-			"condition": {"arrive_home_completed" : false},
+			"condition": {"arrive_home_completed" : false, "chap1_street" : false,},
 			"custom" : {"arrive_home_completed" : true},
 			"background": ""
 		  },

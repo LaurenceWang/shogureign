@@ -260,7 +260,7 @@ const Chapter = ({ chapNum, endChap }) => {
 			}
 		});
 
-		/*const nb_tirages= Math.floor(Math.random() * playableCards.length);
+		const nb_tirages= Math.floor(Math.random() * playableCards.length);
 		
 		for(let i=0; i<nb_tirages; i++){
     	const random = Math.floor(Math.random() * playableCards.length);
@@ -268,20 +268,20 @@ const Chapter = ({ chapNum, endChap }) => {
     	playableCards.splice(random, 1);
 		console.log("random playable cards :")
 		console.log(randomPlayableCards);
-		}*/
+		}
 
 
 		//console.log("Nombre de cartes jouables restantes :" + playableCards.length);
 
-		if (playableCards.length != 0) {
+		/*if (playableCards.length != 0) {
 			setChapterCard(playableCards);
-		}
-		
+		}:*/
+	
 
 		console.log("Nombre de cartes jouables restantes :" + randomPlayableCards.length);
-		/*if (randomPlayableCards.length != 0) {
+		if (randomPlayableCards.length != 0) {
 			setChapterCard(randomPlayableCards);
-		}*/
+		}
 
 	}
 
@@ -568,18 +568,23 @@ const Chapter = ({ chapNum, endChap }) => {
 		//console.debug("Current card: ");
 		//console.debug(currentCard);
 		const { moods, variations } = cardParser(currentCard.onLeft);
+		updateWorldStateCard("left", currentCard.id);
+		nextCardId = currentCard.left_next_card;
 		updateStats(moods, variations);
 
-		updateWorldStateCard("left", currentCard.id);
 	};
 
 	const onChooseRightAnswer = () => {
 		//console.debug("Current card: ");
 		//console.debug(currentCard);
+		
 		const { moods, variations } = cardParser(currentCard.onRight);
-		updateStats(moods, variations);
-
 		updateWorldStateCard("right", currentCard.id);
+		nextCardId = currentCard.right_next_card;
+		updateStats(moods, variations);
+	
+		
+		
 	};
 
 	const createNewCard = () => {
@@ -593,20 +598,20 @@ const Chapter = ({ chapNum, endChap }) => {
 		//console.log("in create");
 		//console.log(chapterUnit);
 		
-		setCurrentCard(getCardById(chapterCard[currentCardIndex % chapterCard.length]));
+		/*setCurrentCard(getCardById(chapterCard[currentCardIndex % chapterCard.length]));
 		
 		
 		updatePlayableUnits();
 		
-		setCurrentCardIndex(currentCardIndex + 1);
+		setCurrentCardIndex(currentCardIndex + 1);*/
 
 		
-		/*if(nextCardId !== ""){
+		if(nextCardId !== ""){
 			setCurrentCard(getCardById(nextCardId));
 			nextCardId = "";
 			console.log("je suis passé par le if");
 			updatePlayableUnits();
-			//setCurrentCardIndex(currentCardIndex + 1);
+			setCurrentCardIndex(currentCardIndex + 1);
 		}
 		else{
 			setCurrentCard(getCardById(chapterCard[currentCardIndex % chapterCard.length]));
@@ -614,7 +619,7 @@ const Chapter = ({ chapNum, endChap }) => {
 			updatePlayableUnits();
 			setCurrentCardIndex(currentCardIndex + 1);
 			console.log("je suis passé dans le else ");
-		}*/
+		}
 		
 
 			setShowCard(false);
