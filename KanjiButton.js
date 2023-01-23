@@ -7,7 +7,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
-const StartButton = ({onPress}) => {
+const KanjiButton = ({onPress}) => {
   const openAnimation = useSharedValue(1);
 
   const animatedWrapper = useAnimatedStyle(() => {
@@ -27,11 +27,11 @@ const StartButton = ({onPress}) => {
         <View style={styles.wrapper}>
           <FastImage
             source={{
-              uri: 'https://image.flaticon.com/icons/png/512/3483/3483033.png',
+              uri: 'https://cdn-icons-png.flaticon.com/512/6851/6851875.png',
             }}
             style={styles.reverseIcon}
           />
-          <Text style={styles.text}>Play</Text>
+          <Text style={styles.text}>Dictionnaire</Text>
         </View>
       </Animated.View>
     </Pressable>
@@ -40,9 +40,10 @@ const StartButton = ({onPress}) => {
 
 const styles = StyleSheet.create({
   wrapperBack: {
-    position: 'absolute',
     height: 160,
     width: 160,
+    left: -90,
+    top: -100,
     backgroundColor: '#aaa',
     borderRadius: 35,
     overflow: 'hidden',
@@ -50,19 +51,16 @@ const styles = StyleSheet.create({
   cardWrapper: {
     height: 160,
     width: 160,
-    left: 90,
-    top: -100,
+    position: 'absolute',
   },
-
   wrapper: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#FFCCD3',
   },
   reverseIcon: {
-    height: 80,
-    width: 0,
+    height: 140,
+    width: 140,
+    position: 'absolute',
   },
   shadow: {
     position: 'absolute',
@@ -72,8 +70,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   text: {
-    paddingTop: 20,
+    paddingTop: 133,
+    paddingLeft:33,
+
+
   },
 });
 
-export default StartButton;
+export default KanjiButton;

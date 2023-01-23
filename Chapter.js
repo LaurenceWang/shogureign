@@ -6,7 +6,9 @@ import Question from './Question';
 import PowerIndicators from './PowerIndicators';
 import PlaceholderBackStaticCard from './PlaceholderBackStaticCard';
 import StartButton from './StartButton';
+import KanjiButton from './KanjiButton';
 import useGeneratedCards from './useGeneratedCards';
+import useGeneratedMultCards from './useGeneratedMultCards';
 import useGeneratedChapters from './useGeneratedChapters';
 import useGeneratedUnits from './useGeneratedUnits';
 import worldState from './worldState';
@@ -35,10 +37,12 @@ const Chapter = ({ chapNum, endChap }) => {
 	//const [chapFirstCard, setChapFirstCard] = useState({});
 
 	const [showStartButton, setShowStartButton] = useState(true);
+	const [showKanjiButton, setShowKanjiButton] = useState(true);
 	const [showAnimatedReverseCard, setShowAnimatedReverseCard] = useState(false);
 	const [showReverseCard, setShowReverseCard] = useState(false);
 	const [showCard, setShowCard] = useState(false);
 	const [showQuestion, setShowQuestion] = useState(false);
+	const [showKanjiMenu, setShowKanjiMenu] = useState(false);
 	const [chapterCard, setChapterCard] = useState([]);
 
 	const [currentCard, setCurrentCard] = useState({});
@@ -312,6 +316,7 @@ const Chapter = ({ chapNum, endChap }) => {
 
 		setTimeout(() => {
 			setShowStartButton(false);
+			setShowKanjiButton(false);
 			setShowAnimatedReverseCard(true);
 		}, 500);
 		setTimeout(() => {
@@ -322,6 +327,15 @@ const Chapter = ({ chapNum, endChap }) => {
 		}, 2000);
 		showNextCard(2500);
 	};
+	
+	const onStartKanji = () => {
+		setTimeout(() => {
+			setShowStartButton(false);
+			setShowKanjiButton(false);
+			setShowKanjiMenu(true);
+		  }, 500);
+	}
+
 
 	const kanjiParser = (text) => {
 		const japaneseCharacters = /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uff66-\uff9f]/g;
@@ -604,6 +618,7 @@ const Chapter = ({ chapNum, endChap }) => {
 				<Question question={currentCard.question} showQuestion={showQuestion} />
 			</View>
 			<View style={styles.cardWrapper}>
+        		{showKanjiButton && <KanjiButton onPress={onStartKanji} />}
 				{showStartButton && <StartButton onPress={onStartChapter} />}
 				{showAnimatedReverseCard && <PlaceholderBackCards />}
 				{showReverseCard && <PlaceholderBackStaticCard />}
