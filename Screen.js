@@ -98,6 +98,8 @@ export default function AnimatedStyleUpdateExample() {
   };*/
 
   return (
+
+    
     //<Text>TESTEST</Text>
     <Chapter firstCard={firstChapCard} />
     /*<View style={styles.wrapper}>

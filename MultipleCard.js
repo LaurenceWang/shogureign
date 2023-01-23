@@ -47,24 +47,22 @@ const MultipleCard = ({
       y.value = ctx.startY + event.translationY;
     },
     onEnd: (event) => {
-      const tossX = event.translationX + 0.2 * event.velocityX;
-      const tossY = event.translationX + 0.2 * event.velocityY;
-      if (tossX > 150) {
+      if (event.translationX > 50) {
         x.value = withSpring(400, {
           velocity: event.velocityX,
         });
         runOnJS(onChooseRightAnswer)();
-      } else if (tossX < -150) {
+      } else if (event.translationX < -50) {
         x.value = withSpring(-400, {
           velocity: event.velocityX,
         });
         runOnJS(onChooseLeftAnswer)();
-      } else if (tossY > 150 && tossX < -tossY && tossX>tossY ) {
+      } else if (event.translationY > 50  ) {
         x.value = withSpring(-400, {
           velocity: event.velocityX,
         });
         runOnJS(onChooseUpAnswer)();
-      } else if (tossY < -150 && tossX < tossY && tossX > -tossY) {
+      } else if (event.translationY < -50 ) {
         x.value = withSpring(-400, {
           velocity: event.velocityX,
         });
@@ -156,7 +154,7 @@ const MultipleCard = ({
       ),
     };
   });
-/***
+
   const animatedRightTextWrapper = useAnimatedStyle(() => {
     return {
       opacity: interpolate(x.value, [15, 70], [0, 1], Extrapolate.CLAMP),
@@ -203,7 +201,6 @@ const MultipleCard = ({
     };
   });
 
-   ***/
   
   return (
     <>
@@ -217,9 +214,7 @@ const MultipleCard = ({
           <Animated.View style={animatedFront}>
           <Animated.View style={[styles.wrapper]}>
             <BackStatic/>
-            <Animated.View
-                style={[styles.topTextWrapper]}>
-                <Text style={styles.textUp}>{upText}</Text>
+                <Text style={styles.textUp}>{upText}</Text>     
                 <Text style={styles.textLeft}>{leftText}</Text>
                 <Text style={styles.textRight}>{rightText}</Text>
                 <Text style={styles.textDown}>{downText}</Text>
@@ -229,7 +224,6 @@ const MultipleCard = ({
               <Animated.View style={[animatedFrontShadow, styles.shadow]} />
             </Animated.View>
             </Animated.View>
-          </Animated.View>
         </PanGestureHandler>
       </View>
     </>
