@@ -1,4 +1,4 @@
-import { View, StyleSheet } from 'react-native';
+import { AppState, View, StyleSheet } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import PlaceholderBackCards from './PlaceholderBackCards';
@@ -14,7 +14,7 @@ import worldState from './worldState';
 import Config from './gameconfig';
 
 
-const Chapter = ({ chapNum, endChap }) => {
+const Chapter = ({ chapNum, endChap, kanjiProgression, save }) => {
 
 	//const {getChapterbyId} = useGeneratedChapters();
 	const { getChapterByIndex } = useGeneratedChapters();
@@ -74,7 +74,7 @@ const Chapter = ({ chapNum, endChap }) => {
 	 * It goes down when : a correct answer has been given.
 	 * For the lesson specifically, it also does when the kanji has been reviewed.
 	 */
-	const [kanjiWeight, setKanjiWeight] = useState({});
+	const [kanjiWeight, setKanjiWeight] = useState(kanjiProgression);
 
 
 	//const [choice, setChoice] = useState();
@@ -84,13 +84,16 @@ const Chapter = ({ chapNum, endChap }) => {
 	//console.log("chapNum : " + chapNum);
 	useEffect(() => {
 		initializeWorld();
-
 	}, []);
 
+	useEffect(() => {
+		// console.log("Kanji progression test: ");
+		setKanjiWeight(kanjiProgression);
+	}, [kanjiProgression]);
 
 	useEffect(() => {
 		//initializeWorld();
-		console.log("current chap Num : " + chapNum)
+		// console.log("current chap Num : " + chapNum)
 
 		let units = getChapterByIndex(chapNum).unit;
 
@@ -131,14 +134,14 @@ const Chapter = ({ chapNum, endChap }) => {
 			setCurrentUnitId(chapterUnit[currentUnitIndex]);
 
 			updateWorldState(chapterUnit[currentUnitIndex]);
-			console.log(worldSt);
+			// console.log(worldSt);
 
 			/*const currentId = chapterUnit.indexOf(currentUnitId);
 			if (currentId > -1) { // only splice array when item is found
 				chapterUnit.splice(currentId, 1); // 2nd parameter means remove one item only
 			}*/
 
-			console.log(chapterUnit)
+			// console.log(chapterUnit)
 
 			updateChapterCard(currentUnitIndex);
 			setCurrentCardIndex(0);
@@ -153,7 +156,7 @@ const Chapter = ({ chapNum, endChap }) => {
 
 		console.log("je suis passé dans l'update custom card");
 		updateCustomWorld();
-		console.log(worldSt);
+		// console.log(worldSt);
 		//let customs = currentCard.custom;
 		//const worldcustom = {...worldSt, ...customs};
 		//setworldSt(worldcustom);
@@ -346,11 +349,21 @@ const Chapter = ({ chapNum, endChap }) => {
 	}
 
 	useEffect(() => {
+		console.log("useEffect kanji weight: " + kanjiWeight);
+		console.debug("Saving kanjis...");
+
+		if (kanjiWeight) {
+			save(kanjiWeight)
+				.then(() => console.log("Successfully saved."))
+				.catch(err => console.err(err));
+		}
+	}, [kanjiWeight]);
+
+	useEffect(() => {
 		console.log("useEffect (pending kanji) > cards since last lesson: " + cardsSinceLastLesson);
 		kanjiLesson = getKanjisForLesson();
 		console.debug("After get kanjis for lesson: new kanji weight > ");
 		console.debug(kanjiWeight);
-
 	}, [pendingKanjis, cardsSinceLastLesson]);
 
 	const getKanjisForTest = () => {
@@ -392,9 +405,9 @@ const Chapter = ({ chapNum, endChap }) => {
 
 	const getKanjisForLesson = () => {
 		// Create all new kanji weight
-		let kanjiWeightTmp = kanjiWeight;
-		alreadyEncounteredKanjis = Object.keys(pendingKanjis);
-		newKanjis = pendingKanjis.filter(k => !(k in alreadyEncounteredKanjis));
+		let kanjiWeightTmp = { ...kanjiWeight };
+		let alreadyEncounteredKanjis = Object.keys(pendingKanjis);
+		let newKanjis = pendingKanjis.filter(k => !(k in alreadyEncounteredKanjis));
 
 		// Default kanji weight
 		newKanjis.forEach(k => kanjiWeightTmp[k] = {
@@ -403,8 +416,12 @@ const Chapter = ({ chapNum, endChap }) => {
 			exam: 5
 		});
 
+		console.log("getKanjisForLesson > Kanji weight");
+		console.log(kanjiWeight);
+
+
 		// Kanjis available for the lesson
-		availableKanjis = pendingKanjis.filter(k => kanjiWeight[k].lesson > 0);
+		availableKanjis = pendingKanjis.filter(k => kanjiWeightTmp[k].lesson > 0);
 
 		// TODO: If you add new unencountered kanji, change this && to ||.
 		if (availableKanjis.length >= Config.lessonSize && cardsSinceLastLesson >= Config.minLessonInterval) {
@@ -429,10 +446,10 @@ const Chapter = ({ chapNum, endChap }) => {
 				availableKanjis.splice(i, 1);
 			});
 
+			setKanjiWeight(kanjiWeightTmp);
 			setPendingKanjis(availableKanjis);
 			// Creates a loop but the loop eventually ends.
 
-			setKanjiWeight(kanjiWeightTmp);
 			setCardsSinceLastLesson(0);
 			return kanjiForLesson;
 		}
@@ -516,9 +533,13 @@ const Chapter = ({ chapNum, endChap }) => {
 	}
 
 	useEffect(() => {
+		// get all stats that cause a game over
 		stats = gameOverStats();
 		if (stats.length > 0) {
 			console.log(`Game over > you are not in your dream country anymore because of ${(currentStats[stats[0]] >= 100) ? "too much" : "no more"} ${stats}`);
+			save(kanjiWeight)
+				.then(() => console.log("Saved successfully on game over."))
+				.catch(err => console.error(err));
 		}
 	}, [currentStats]);
 

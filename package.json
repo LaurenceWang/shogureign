@@ -11,6 +11,7 @@
     "web": "expo start --web || expo start --web --web-only"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.17.11",
     "expo-asset": "^8.2.0",
     "jsc-android": "^250230.2.1",
     "react": "17.0.2",
