@@ -22,8 +22,9 @@ const StartButton = ({onPress}) => {
   };
 
   return (
-    <Pressable style={styles.cardWrapper} onPress={onPressCard}>
-      <Animated.View style={[animatedWrapper, styles.wrapperBack]}>
+    <View style={styles.cardWrapper}>
+    <Pressable style={styles.wrapperBack} onPress={onPressCard}>
+      <Animated.View style={[animatedWrapper, styles.iconFull]}>
         <View style={styles.wrapper}>
           <FastImage
             source={{
@@ -35,25 +36,28 @@ const StartButton = ({onPress}) => {
         </View>
       </Animated.View>
     </Pressable>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   wrapperBack: {
     position: 'absolute',
-    height: 160,
-    width: 160,
-    backgroundColor: '#aaa',
+    height: '70%',
+    width: '42%',
     borderRadius: 35,
     overflow: 'hidden',
   },
   cardWrapper: {
-    height: 160,
-    width: 160,
-    left: 90,
-    top: -100,
+    height: '100%',
+    width: '100%',
+    left: '50%',
+    top: '15%',
   },
-
+  iconFull: {
+    height: '100%',
+    width: '100%'
+  },
   wrapper: {
     flex: 1,
     justifyContent: 'center',
@@ -67,8 +71,8 @@ const styles = StyleSheet.create({
   shadow: {
     position: 'absolute',
     zIndex: 100,
-    height: '100%',
-    width: '100%',
+    height: '70%',
+    width: '42%',
     backgroundColor: 'black',
   },
   text: {

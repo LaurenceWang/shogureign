@@ -1,12 +1,42 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Chapter from './Chapter';
+import StartButton from './StartButton';
+import KanjiButton from './KanjiButton';
+import KanjiMenu from './KanjiMenu';
+
+
 
 export default function AnimatedStyleUpdateExample() {
   const [chapNum, setChapNum] = useState(0);
   const [data, setData] = useState(null);
+  const [showStartButton, setShowStartButton] = useState(true);
+  const [showKanjiButton, setShowKanjiButton] = useState(true);
+  const [showKanjiMenu, setShowKanjiMenu] = useState(false);
+  const [showChapter, setShowChapter] = useState(false);
+
+  const onStartKanji = () => {
+		setTimeout(() => {
+			setShowStartButton(false);
+			setShowKanjiButton(false);
+			setShowKanjiMenu(true);
+		}, 500);
+	}
+
+  useEffect(() => {
+    console.log("menu ? ");
+    console.log(data);
+  }, [showKanjiMenu])
+
+  const onStartChapter = () => {
+		setTimeout(() => {
+			setShowStartButton(false);
+			setShowKanjiButton(false);
+      setShowChapter(true);
+		}, 500);
+	};
 
   const save = async (data) => {
     try {
@@ -55,7 +85,12 @@ export default function AnimatedStyleUpdateExample() {
   }
 
   return (
-    <Chapter chapNum={chapNum} endChap={increment} kanjiProgression={data} save={save} />
+    <View>
+    {showKanjiButton && <KanjiButton onPress={onStartKanji} />}
+    {showKanjiMenu && <KanjiMenu data={data}/>}
+    {showStartButton && <StartButton onPress={onStartChapter} />}
+    {showChapter && <Chapter chapNum={chapNum} endChap={increment} kanjiProgression={data} save={save} />}
+    </View>
   );
 }
 

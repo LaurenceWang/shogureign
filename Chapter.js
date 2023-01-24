@@ -6,9 +6,6 @@ import PlaceholderBackCards from './PlaceholderBackCards';
 import Question from './Question';
 import PowerIndicators from './PowerIndicators';
 import PlaceholderBackStaticCard from './PlaceholderBackStaticCard';
-import StartButton from './StartButton';
-import KanjiButton from './KanjiButton';
-import KanjiMenu from './KanjiMenu';
 import useGeneratedCards from './useGeneratedCards';
 import useGeneratedMultCards from './useGeneratedMultCards';
 import useGeneratedChapters from './useGeneratedChapters';
@@ -37,13 +34,10 @@ const Chapter = ({ chapNum, endChap, kanjiProgression, save }) => {
 	//const [currentCardId, setCurrentCardId] = useState();
 	//const [chapFirstCard, setChapFirstCard] = useState({});
 
-	const [showStartButton, setShowStartButton] = useState(true);
-	const [showKanjiButton, setShowKanjiButton] = useState(true);
 	const [showAnimatedReverseCard, setShowAnimatedReverseCard] = useState(false);
 	const [showReverseCard, setShowReverseCard] = useState(false);
 	const [showCard, setShowCard] = useState(false);
 	const [showQuestion, setShowQuestion] = useState(false);
-	const [showKanjiMenu, setShowKanjiMenu] = useState(false);
 	const [chapterCard, setChapterCard] = useState([]);
 
 	const [currentCard, setCurrentCard] = useState({});
@@ -89,6 +83,17 @@ const Chapter = ({ chapNum, endChap, kanjiProgression, save }) => {
 	//console.log("chapNum : " + chapNum);
 	useEffect(() => {
 		initializeWorld();
+
+		setTimeout(() => {
+			setShowAnimatedReverseCard(true);
+		}, 500);
+		setTimeout(() => {
+			setShowReverseCard(true);
+			setTimeout(() => {
+				setShowAnimatedReverseCard(false);
+			}, 100);
+		}, 2000);
+		showNextCard(2500);
 	}, []);
 
 	useEffect(() => {
@@ -316,31 +321,6 @@ const Chapter = ({ chapNum, endChap, kanjiProgression, save }) => {
 		}, timeout);
 	};
 
-	const onStartChapter = () => {
-
-		setTimeout(() => {
-			setShowStartButton(false);
-			setShowKanjiButton(false);
-			setShowAnimatedReverseCard(true);
-		}, 500);
-		setTimeout(() => {
-			setShowReverseCard(true);
-			setTimeout(() => {
-				setShowAnimatedReverseCard(false);
-			}, 100);
-		}, 2000);
-		showNextCard(2500);
-	};
-	
-	const onStartKanji = () => {
-		setTimeout(() => {
-			setShowStartButton(false);
-			setShowKanjiButton(false);
-			setShowKanjiMenu(true);
-		  }, 500);
-	}
-
-
 	const updatePendingKanjis = (newKanjis) => {
 		if (newKanjis) {
 			console.debug("updatePendingKanjis > Current kanjis: ");
@@ -561,9 +541,6 @@ const Chapter = ({ chapNum, endChap, kanjiProgression, save }) => {
 				<Question question={currentCard.question} showQuestion={showQuestion} />
 			</View>
 			<View style={styles.cardWrapper}>
-        		{showKanjiButton && <KanjiButton onPress={onStartKanji} />}
-				{showStartButton && <StartButton onPress={onStartChapter} />}
-				{showKanjiMenu && <KanjiMenu/>}
 				{showAnimatedReverseCard && <PlaceholderBackCards />}
 				{showReverseCard && <PlaceholderBackStaticCard />}
 				{showCard && (

@@ -22,51 +22,57 @@ const KanjiButton = ({onPress}) => {
   };
 
   return (
-    <Pressable style={styles.cardWrapper} onPress={onPressCard}>
-      <Animated.View style={[animatedWrapper, styles.wrapperBack]}>
+    <View style={styles.cardWrapper}>
+    <Pressable style={styles.wrapperBack} onPress={onPressCard}>
+      <Animated.View style={[animatedWrapper, styles.iconFull]}>
         <View style={styles.wrapper}>
           <FastImage
             source={{
               uri: 'https://cdn-icons-png.flaticon.com/512/6851/6851875.png',
             }}
-            style={styles.reverseIcon}
+            style={styles.Icon}
           />
           <Text style={styles.text}>Dictionnaire</Text>
         </View>
       </Animated.View>
     </Pressable>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   wrapperBack: {
-    height: 160,
-    width: 160,
-    left: -90,
-    top: -100,
-    backgroundColor: '#aaa',
+    height: '20%',
+    width: '42%',
     borderRadius: 35,
     overflow: 'hidden',
   },
   cardWrapper: {
-    height: 160,
-    width: 160,
-    position: 'absolute',
+    height: '100%',
+    width: '100%',
+    left: '7%',
+    top: '15%',
+    position: 'absolute'
+  },
+  iconFull: {
+    height: '100%',
+    width: '100%'
   },
   wrapper: {
     flex: 1,
     backgroundColor: '#FFCCD3',
   },
-  reverseIcon: {
-    height: 140,
-    width: 140,
+  Icon: {
+    height: '90%',
+    width: '90%',
     position: 'absolute',
+    left: '5%'
   },
   shadow: {
     position: 'absolute',
     zIndex: 100,
-    height: '100%',
-    width: '100%',
+    height: '20%',
+    width: '42%',
     backgroundColor: 'black',
   },
   text: {
