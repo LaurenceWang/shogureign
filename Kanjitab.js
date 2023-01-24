@@ -1,5 +1,5 @@
 export default function useKanjiCards() {
-  const KanjiCards = [
+  const KanjiCards = 
     {
         "一": {
           "Lecture": "ichi",
@@ -22,7 +22,7 @@ export default function useKanjiCards() {
         "三": {
           "Lecture": "san",
           "Trad": "trois",
-          "Mnemotechnique": "",
+          "Mnemotechnique": "trois bâtons :smile:",
           "Combinaison": "",
           "Littéral": "",
           "Traduction": "",
@@ -145,8 +145,7 @@ export default function useKanjiCards() {
           "Traduction": "forêt",
           "Niveau": ""
         }
-      }
-];
+      };
 
 return {
   KanjiCards,

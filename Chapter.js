@@ -1,12 +1,14 @@
 import { AppState, Text, View, StyleSheet } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
+import MultipleCard from './MultipleCard';
 import PlaceholderBackCards from './PlaceholderBackCards';
 import Question from './Question';
 import PowerIndicators from './PowerIndicators';
 import PlaceholderBackStaticCard from './PlaceholderBackStaticCard';
 import StartButton from './StartButton';
 import KanjiButton from './KanjiButton';
+import KanjiMenu from './KanjiMenu';
 import useGeneratedCards from './useGeneratedCards';
 import useGeneratedMultCards from './useGeneratedMultCards';
 import useGeneratedChapters from './useGeneratedChapters';
@@ -377,6 +379,7 @@ const Chapter = ({ chapNum, endChap, kanjiProgression, save }) => {
 	const getKanjisForTest = () => {
 		// We need to have the lesson on a kanji K first, to be tested on K.
 		testableKanjis = Object.keys(kanjiWeight).filter(k => kanjiWeight[k].lesson == 0);
+		console.log(Object.keys(kanjiWeight));
 		testedKanjis = []
 
 		const findRandomKanji = (randomNumber) => {
@@ -560,6 +563,7 @@ const Chapter = ({ chapNum, endChap, kanjiProgression, save }) => {
 			<View style={styles.cardWrapper}>
         		{showKanjiButton && <KanjiButton onPress={onStartKanji} />}
 				{showStartButton && <StartButton onPress={onStartChapter} />}
+				{showKanjiMenu && <KanjiMenu/>}
 				{showAnimatedReverseCard && <PlaceholderBackCards />}
 				{showReverseCard && <PlaceholderBackStaticCard />}
 				{showCard && (

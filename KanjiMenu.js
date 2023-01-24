@@ -1,79 +1,102 @@
-import {StyleSheet, View, Text, Pressable} from 'react-native';
-import React from 'react';
-import FastImage from 'react-native-fast-image';
+import {
+  StyleSheet, 
+  View, 
+  StatusBar, 
+  Text, 
+  FlatList, 
+  SafeAreaView, 
+  Pressable, 
+  TouchableOpacity,
+  ScrollView
+} from 'react-native';
+import React, {
+  useState
+} from 'react';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withTiming,
 } from 'react-native-reanimated';
+import useKanjiCards from './Kanjitab';
 
-const KanjiButton = ({onPress}) => {
-  const openAnimation = useSharedValue(1);
+const kanjis_rencontrés =
+  {
+    "三": {"exam": 5, "lesson": 0, "test": 5}, 
+    "七": {"exam": 5, "lesson": 0, "test": 5}, 
+    "九": {"exam": 5, "lesson": 0, "test": 5}, 
+    "小": {"exam": 5, "lesson": 0, "test": 5}, 
+    "本": {"exam": 5, "lesson": 0, "test": 5}, 
+    "月": {"exam": 5, "lesson": 0, "test": 5},
+    "人": {"exam": 5, "lesson": 0, "test": 5}
+  }
 
-  const animatedWrapper = useAnimatedStyle(() => {
-    return {
-      opacity: openAnimation.value,
-    };
-  });
+  const {KanjiCards} = useKanjiCards();
 
-  const onPressCard = () => {
-    openAnimation.value = withTiming(0);
-    onPress();
+const NotEmptyText = ({style, text}) => {
+  return (text !== '' && <Text style={style}>{text}</Text>);
+}
+
+const Item = ({item, onPress, backgroundColor, textColor, text}) => (
+  <TouchableOpacity onPress={onPress} style={[styles.item, {backgroundColor}]}>
+  <Text style={[styles.title, {color: textColor}]}>{item}</Text>
+  {(text !== '') && 
+  <><NotEmptyText style={[styles.text]} text={KanjiCards[item]["Lecture"]} /> 
+  <NotEmptyText style={[styles.text]} text={KanjiCards[item]["Trad"]}/>
+  <NotEmptyText style={[styles.text]} text={KanjiCards[item]["Mnemotechnique"]}/>
+  <NotEmptyText style={[styles.text]} text={KanjiCards[item]["Combinaison"]}/>
+  <NotEmptyText style={[styles.text]} text={KanjiCards[item]["Littéral"]}/>
+  <NotEmptyText style={[styles.text]} text={KanjiCards[item]["Traduction"]}/></>}
+</TouchableOpacity>
+);
+
+const KanjiMenu = () => {
+  const [selectedId, setSelectedId] = useState();
+  const renderItem = ({item}) => {
+    const backgroundColor = item === selectedId ? '#6e3b6e' : '#f9c2ff';
+    const color = item === selectedId ? 'white' : 'black';
+    const hello = item === selectedId ? 'hello' : '';
+
+    return (
+      <Item
+        item={item}
+        onPress={() => setSelectedId(item)}
+        backgroundColor={backgroundColor}
+        textColor={color}
+        text={hello}
+      />
+    );
   };
-
   return (
-    <Pressable style={styles.cardWrapper} onPress={onPressCard}>
-      <Animated.View style={[animatedWrapper, styles.wrapperBack]}>
-        <View style={styles.wrapper}>
-          <FastImage
-            source={{
-              uri: 'https://cdn-icons-png.flaticon.com/512/6851/6851875.png',
-            }}
-            style={styles.reverseIcon}
-          />
-          <Text style={styles.text}>Dictionnaire</Text>
-        </View>
-      </Animated.View>
-    </Pressable>
+  <SafeAreaView style={styles.container}>
+    <FlatList
+    data={Object.keys(kanjis_rencontrés)}
+    renderItem={renderItem}
+    extraData={selectedId}
+    />
+  </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  wrapperBack: {
-    height: 160,
-    width: 160,
-    left: -90,
-    top: -100,
-    backgroundColor: '#aaa',
-    borderRadius: 35,
-    overflow: 'hidden',
-  },
-  cardWrapper: {
-    height: 160,
-    width: 160,
-    position: 'absolute',
-  },
-  wrapper: {
+  container: {
     flex: 1,
-    backgroundColor: '#FFCCD3',
+    marginTop: StatusBar.currentHeight-150 || 0,
+    marginBottom:-150,
+    width: 350,
+
   },
-  reverseIcon: {
-    height: 140,
-    width: 140,
-    position: 'absolute',
+
+  item: {
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
   },
-  shadow: {
-    position: 'absolute',
-    zIndex: 100,
-    height: '100%',
-    width: '100%',
-    backgroundColor: 'black',
+  title: {
+    fontSize: 32,
   },
   text: {
-    paddingTop: 133,
-    paddingLeft:33,
-
-
+    fontSize: 18,
+    color: 'white',
   },
 });
 
