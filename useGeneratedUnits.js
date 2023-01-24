@@ -43,10 +43,10 @@ export default function useGeneratedUnits() {
 		  {
 			"Name": "Street",
 			"id": "023f6b2981ff4853826039b6e1845e62",
-			"card": ["2db19f997a904d848fd2fd36d77d5404", "2c04e0b89dbe44ad84e4ee81cb62b237", "10a6303a500a41a3a9d3544bd07fc630", "839723f8edab4821bc7d8a21e0831c91"],
+			"card": ["2db19f997a904d848fd2fd36d77d5404", "2c04e0b89dbe44ad84e4ee81cb62b237", "10a6303a500a41a3a9d3544bd07fc630", "839723f8edab4821bc7d8a21e0831c91", "0d0abc6b8f4a4d04b175a494d1a8bac9","bc2f87b9b56b4b06a21b021cd7816cc9", "dca682768c1d4e4083f7cfb55cbb6bd4", "8b8beb3c472641e982e7ef798bd30625", "da085f7dd63a46219d1943098e87819a", "6c2c6c2cbd9b43f58f49f7073b91cdc4", "8910581c2df84e79b0a06574c2e25f28", "04bd164197c04d4a8a8fb3c51a31f861", "6bafa0fdf65d41b78111396371a0ea51" ],
 			"Person": "",
 			"Status": "",
-			"condition": {"chap1_street" : false,},
+			"condition": {"chap1_street" : false, "chap1_choice_subway" : false, "chap1_choice_taxi" : false},
 			"custom" : {"chap1_street" : true,},
 			"background": ""
 		  },
@@ -67,7 +67,7 @@ export default function useGeneratedUnits() {
 			"Person": "",
 			"Status": "",
 			"condition": {"arrive_home_completed" : false,},
-			"custom" : {"arrive_home_completed" : true},
+			"custom" : {"arrive_home_completed" : true, "chap1_street" : true, "chap1_choice_subway" : false, "chap1_choice_taxi" : false},
 			"background": ""
 		  },
 		  {

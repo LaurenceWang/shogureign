@@ -146,7 +146,7 @@ const Chapter = ({ chapNum, endChap }) => {
 				console.log("next id right dans useEffect " + next_id);
 			}
 
-			if(!isPlayableCard(newPC)){
+			if(!isPlayableCard(newPC) && next_id == ""){
 				let hasFoundPC = false
 				let WS = newWS;
 				let PC = newPC;
@@ -171,7 +171,7 @@ const Chapter = ({ chapNum, endChap }) => {
 					setworldSt(WS);
 					setIdMemory(newOldId);
 					setChapterCard(PC);
-					setCurrentUnitId(newUnitId);
+					//setCurrentUnitId(newUnitId);
 					
 					createNewCard(PC, newUnitId, next_id);
 				}
@@ -846,9 +846,11 @@ const Chapter = ({ chapNum, endChap }) => {
 		}
 
 		if(next_id != ""){
+			setCurrentUnitId(getCardById(next_id).Unit);
+			console.log("unit du next card : " + getCardById(next_id).Unit)
 			setCurrentCard(getCardById(next_id));
 		}else{
-
+			setCurrentUnitId(newUnitId);
 			setCurrentCard(getCardById(newPC[ran]));
 		}
 
