@@ -1,45 +1,33 @@
-import {StyleSheet, View, StatusBar, Text, FlatList, SafeAreaView, Pressable, ScrollView} from 'react-native';
-import React from 'react';
+import {
+  StyleSheet, 
+  View, 
+  StatusBar, 
+  Text, 
+  FlatList, 
+  SafeAreaView, 
+  Pressable, 
+  TouchableOpacity,
+  ScrollView
+} from 'react-native';
+import React, {
+  useState
+} from 'react';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withTiming,
 } from 'react-native-reanimated';
 
-const kanjis_rencontrés = [
+const kanjis_rencontrés =
   {
-    name: '子',
-    title: 'blabla ko',
-  },
-  {
-    id: '母',
-    title: 'blabla haha',
-  },
-  {
-    id: '父',
-    title: 'blabla chichi',
-  },
-  {
-    id: '足',
-    title: 'blabla hashiru',
-  },
-  {
-    id: '車',
-    title: 'blabla kuruma',
-  },
-  {
-    id: '電',
-    title: 'blabla denki',
-  },  
-  {
-    id: 'aaaa',
-    title: 'blabla denkki',
-  },
-  {
-    id: 'ooo',
-    title: 'blabla den',
-  },
-];
+    "子": {"exam": 5, "lesson": 0, "test": 5}, 
+    "母": {"exam": 5, "lesson": 0, "test": 5}, 
+    "父": {"exam": 5, "lesson": 0, "test": 5}, 
+    "足": {"exam": 5, "lesson": 0, "test": 5}, 
+    "車": {"exam": 5, "lesson": 0, "test": 5}, 
+    "電": {"exam": 5, "lesson": 0, "test": 5},
+    "村": {"exam": 5, "lesson": 0, "test": 5}
+  }
 
 const Item = ({title}) => (
   <View style = {styles.item}>
@@ -52,9 +40,9 @@ const KanjiMenu = () => {
   return (
   <SafeAreaView style={styles.container}>
     <FlatList
-    data = {kanjis_rencontrés}
-    renderItem = {({item}) => <Item title = {item.id} />}
-    keyExtractor = {item => item.title}
+    data={Object.keys(kanjis_rencontrés)}
+    renderItem={({item}) => <Item title={item} />}
+    keyExtractor={item => item}
     />
   </SafeAreaView>
   );
