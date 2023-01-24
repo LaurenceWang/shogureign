@@ -7,7 +7,7 @@ export default function useGeneratedUnits() {
 			"Person": "",
 			"Status": "",
 			"condition":{"chap1_intro" : false},
-			"custom" : {},
+			"custom" : {"chap1_intro" : true},
 			"background": ""
 		  },
 		  {
@@ -33,7 +33,7 @@ export default function useGeneratedUnits() {
 		  {
 			"Name": "Subway",
 			"id": "5bb712a2a85b4adfa4b5a4fd9756e821",
-			"card": ["d97ebf2a4a0f412dba7c2cfdbffff291", "e5497ec82cf0475883608a25790bd700", "2f60c8d820644133a999f7921edac2ab", "aed04a6720c44c28a9142724c8a9ed71",],
+			"card": ["d97ebf2a4a0f412dba7c2cfdbffff291", "e5497ec82cf0475883608a25790bd700", "2f60c8d820644133a999f7921edac2ab", "aed04a6720c44c28a9142724c8a9ed71","cf43a3e6c91148d79fa48e118c31278b"],
 			"Person": "",
 			"Status": "",
 			"condition": {"chap1_choice_taxi" : false, "chap1_street" : false, "arrive_home_completed" : false },
@@ -43,11 +43,12 @@ export default function useGeneratedUnits() {
 		  {
 			"Name": "Street",
 			"id": "023f6b2981ff4853826039b6e1845e62",
-			"card": ["2db19f997a904d848fd2fd36d77d5404", "2c04e0b89dbe44ad84e4ee81cb62b237", "10a6303a500a41a3a9d3544bd07fc630", "839723f8edab4821bc7d8a21e0831c91"],
+			"card": ["2db19f997a904d848fd2fd36d77d5404", "2c04e0b89dbe44ad84e4ee81cb62b237", "10a6303a500a41a3a9d3544bd07fc630", "839723f8edab4821bc7d8a21e0831c91",
+			"4a2cd298fc3544bfbccbaf7cb5d33e6f", "0cc73f005b3c4f1194792ba2f533ec28", "349391e704cd4128851e326c7e1a5ab6", "8f0b2674993e47e884ebd8318775a809","542d6cf3ad3a4d8883da60b4fc7ba1ad", "ab94ff1654f6419a8e4eca3d3abb8bb5","0d0abc6b8f4a4d04b175a494d1a8bac9","bc2f87b9b56b4b06a21b021cd7816cc9", "dca682768c1d4e4083f7cfb55cbb6bd4", "8b8beb3c472641e982e7ef798bd30625", "da085f7dd63a46219d1943098e87819a", "6c2c6c2cbd9b43f58f49f7073b91cdc4", "8910581c2df84e79b0a06574c2e25f28", "04bd164197c04d4a8a8fb3c51a31f861", "6bafa0fdf65d41b78111396371a0ea51", "ef28954bfd084a53b5a598c7219fcd1d", "376b7b466de746638c382abe25510325" ],
 			"Person": "",
 			"Status": "",
-			"condition": {"chap1_street" : true},
-			"custom" : {"chap1_street" : false},
+			"condition": {"chap1_street" : false, "chap1_choice_subway" : false, "chap1_choice_taxi" : false},
+			"custom" : {"chap1_street" : true,},
 			"background": ""
 		  },
 		  {
@@ -56,18 +57,18 @@ export default function useGeneratedUnits() {
 			"card": ["1f1d21e34eac4f9a8e25db5362de6f9b", "4566f4a78972445d9318c68add9acba0", "f664657568924ab495e562ea87fdf5ca", "d4a4e23916714f73a0a51764ce587069","8da83b727a694ed6b4ba44a7cff1746a","bc1fa208a5934b8e8086d14c98af21e8","36a1fb3f88c94ad094fa150bcafed68f","e2098d78628a49ad8c9a5d9cb04c8c87"],
 			"Person": "",
 			"Status": "",
-			"condition":{"chap1_street" : true, "kombini" : false} ,
+			"condition":{ "arrive_home_completed" : true, "at_Home" : false, "kombini" : false, "chap1_street" : false} ,
 			"custom" : {"kombini" : true},
 			"background": ""
 		  },
 		  {
 			"Name": "Arrive_home",
 			"id": "1e3a7a782b9f42f2a63f4a4be85cc08a",
-			"card": ["0df94147ee8f4dfda5f631224e43e74d"],
+			"card": ["0df94147ee8f4dfda5f631224e43e74d", "b6373bee690941d0ab7892fc00b53560"],
 			"Person": "",
 			"Status": "",
-			"condition": {"arrive_home_completed" : false},
-			"custom" : {"arrive_home_completed" : true},
+			"condition": {"arrive_home_completed" : false,},
+			"custom" : {"arrive_home_completed" : true, "chap1_street" : true, "chap1_choice_subway" : false, "chap1_choice_taxi" : false},
 			"background": ""
 		  },
 		  {
@@ -83,7 +84,7 @@ export default function useGeneratedUnits() {
 		  {
 			"Name": "Home",
 			"id": "94a786f5d9e1405ca02b094fee0a9ece",
-			"card": ["99888040bcc54e269ca6d0099d80979d"],
+			"card": ["99888040bcc54e269ca6d0099d80979d", "60c54c879e95444f80c23e8b3cfa308a", "d8dbeef009e0470eb741d890ea5606cc","b05eee3993f144c48fdae6db1d6192ae", "a930e5a0ae3f4326a8d38538a7cd949f" ],
 			"Person": "",
 			"Status": "",
 			"condition": {"arrive_home_completed" : true, "at_Home" : true},

@@ -96,7 +96,7 @@ const getStyles = (iconSize, value) => StyleSheet.create({
   },
   wrapper: {
     flex: 1,
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
     alignItems: 'center',
   },
   personImage: {

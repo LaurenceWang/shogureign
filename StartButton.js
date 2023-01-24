@@ -1,4 +1,4 @@
-import {StyleSheet, View, Text, Pressable} from 'react-native';
+import { StyleSheet, View, Text, Pressable } from 'react-native';
 import React from 'react';
 import FastImage from 'react-native-fast-image';
 import Animated, {
@@ -7,7 +7,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
-const StartButton = ({onPress}) => {
+const StartButton = ({ onPress }) => {
   const openAnimation = useSharedValue(1);
 
   const animatedWrapper = useAnimatedStyle(() => {
@@ -23,19 +23,19 @@ const StartButton = ({onPress}) => {
 
   return (
     <View style={styles.cardWrapper}>
-    <Pressable style={styles.wrapperBack} onPress={onPressCard}>
-      <Animated.View style={[animatedWrapper, styles.iconFull]}>
-        <View style={styles.wrapper}>
-          <FastImage
-            source={{
-              uri: 'https://cdn-icons-png.flaticon.com/512/7734/7734686.png',
-            }}
-            style={styles.reverseIcon}
-          />
-          <Text style={styles.text}>Jouer</Text>
-        </View>
-      </Animated.View>
-    </Pressable>
+      <Pressable style={styles.wrapperBack} onPress={onPressCard}>
+        <Animated.View style={[animatedWrapper, styles.iconFull]}>
+          <View style={styles.wrapper}>
+            <FastImage
+              source={{
+                uri: 'https://cdn-icons-png.flaticon.com/512/7734/7734686.png',
+              }}
+              style={styles.reverseIcon}
+            />
+            <Text style={styles.text}>Jouer</Text>
+          </View>
+        </Animated.View>
+      </Pressable>
     </View>
   );
 };

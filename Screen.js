@@ -16,6 +16,8 @@ import CreditsMenu from './CreditsMenu';
 export default function AnimatedStyleUpdateExample() {
   const [chapNum, setChapNum] = useState(0);
   const [data, setData] = useState(null);
+  const [reload, setReload] = useState(true);
+
   const [showStartButton, setShowStartButton] = useState(true);
   const [showChapter, setShowChapter] = useState(false);
   const [showKanjiButton, setShowKanjiButton] = useState(true);
@@ -54,9 +56,12 @@ export default function AnimatedStyleUpdateExample() {
     setTimeout(() => {
       setShowStartButton(true);
       setShowKanjiButton(true);
+      setShowTrophyButton(true);
+      setShowCreditsButton(true);
       setShowKanjiMenu(false);
       setShowChapter(false);
       setChapNum(0);
+      setReload(true);
     }, 500);
   }
 
@@ -90,7 +95,10 @@ export default function AnimatedStyleUpdateExample() {
     }
   }
 
-  const clearSave = () => save({}).then(() => console.log("Clear successful"));
+  const clearSave = () => save({}).then(() => {
+    console.log("Clear successful");
+    setReload(true);
+  });
 
   const load = async () => {
     try {
@@ -117,9 +125,12 @@ export default function AnimatedStyleUpdateExample() {
   // clearSave();
 
   useEffect(async () => {
-    const tmp = await load();
-    setData(tmp);
-  }, []);
+    if (reload) {
+      const tmp = await load();
+      setData(tmp);
+      setReload(false);
+    }
+  }, [reload]);
 
   const increment = () => {
     console.log("incrementé");
