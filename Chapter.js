@@ -12,10 +12,12 @@ import useGeneratedChapters from './useGeneratedChapters';
 import useGeneratedUnits from './useGeneratedUnits';
 import worldState from './worldState';
 
+import GameOver from './data/gameover';
+
 import Config from './gameconfig';
 import Parsers from './Parsers';
 
-const Chapter = ({ chapNum, endChap, kanjiProgression, save }) => {
+const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => {
 	//const {getChapterbyId} = useGeneratedChapters();
 	const { getChapterByIndex } = useGeneratedChapters();
 	const { getCardById } = useGeneratedCards();
@@ -455,6 +457,10 @@ const Chapter = ({ chapNum, endChap, kanjiProgression, save }) => {
 			save(kanjiWeight)
 				.then(() => console.log("Saved successfully on game over."))
 				.catch(err => console.error(err));
+			setTimeout(() => {
+				console.log(GameOver[stats[0]][(currentStats[stats[0]] >= 100) ? "max" : "min"]["text"]);
+				onMenuReturn();
+			}, 500);
 		}
 	}, [currentStats]);
 

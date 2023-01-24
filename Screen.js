@@ -18,12 +18,12 @@ export default function AnimatedStyleUpdateExample() {
   const [showChapter, setShowChapter] = useState(false);
 
   const onStartKanji = () => {
-		setTimeout(() => {
-			setShowStartButton(false);
-			setShowKanjiButton(false);
-			setShowKanjiMenu(true);
-		}, 500);
-	}
+    setTimeout(() => {
+      setShowStartButton(false);
+      setShowKanjiButton(false);
+      setShowKanjiMenu(true);
+    }, 500);
+  }
 
   useEffect(() => {
     console.log("menu ? ");
@@ -31,12 +31,22 @@ export default function AnimatedStyleUpdateExample() {
   }, [showKanjiMenu])
 
   const onStartChapter = () => {
-		setTimeout(() => {
-			setShowStartButton(false);
-			setShowKanjiButton(false);
+    setTimeout(() => {
+      setShowStartButton(false);
+      setShowKanjiButton(false);
       setShowChapter(true);
-		}, 500);
-	};
+    }, 500);
+  };
+
+  const onMenuReturn = () => {
+    setTimeout(() => {
+      setShowStartButton(true);
+      setShowKanjiButton(true);
+      setShowKanjiMenu(false);
+      setShowChapter(false);
+      setChapNum(0);
+    }, 500);
+  }
 
   const save = async (data) => {
     try {
@@ -86,10 +96,10 @@ export default function AnimatedStyleUpdateExample() {
 
   return (
     <View>
-    {showKanjiButton && <KanjiButton onPress={onStartKanji} />}
-    {showKanjiMenu && <KanjiMenu data={data}/>}
-    {showStartButton && <StartButton onPress={onStartChapter} />}
-    {showChapter && <Chapter chapNum={chapNum} endChap={increment} kanjiProgression={data} save={save} />}
+      {showKanjiButton && <KanjiButton onPress={onStartKanji} />}
+      {showKanjiMenu && <KanjiMenu data={data} />}
+      {showStartButton && <StartButton onPress={onStartChapter} />}
+      {showChapter && <Chapter chapNum={chapNum} endChap={increment} onMenuReturn={onMenuReturn} kanjiProgression={data} save={save} />}
     </View>
   );
 }
