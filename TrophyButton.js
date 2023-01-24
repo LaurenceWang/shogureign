@@ -7,7 +7,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
-const StartButton = ({onPress}) => {
+const TrophyButton = ({onPress, text, iconURI}) => {
   const openAnimation = useSharedValue(1);
 
   const animatedWrapper = useAnimatedStyle(() => {
@@ -28,11 +28,11 @@ const StartButton = ({onPress}) => {
         <View style={styles.wrapper}>
           <FastImage
             source={{
-              uri: 'https://cdn-icons-png.flaticon.com/512/7734/7734686.png',
+              uri: 'https://cdn-icons-png.flaticon.com/512/3112/3112946.png',
             }}
-            style={styles.reverseIcon}
+            style={styles.Icon}
           />
-          <Text style={styles.text}>Jouer</Text>
+          <Text style={styles.text}>Succès</Text>
         </View>
       </Animated.View>
     </Pressable>
@@ -42,8 +42,7 @@ const StartButton = ({onPress}) => {
 
 const styles = StyleSheet.create({
   wrapperBack: {
-    position: 'absolute',
-    height: '70%',
+    height: '20%',
     width: '42%',
     borderRadius: 35,
     overflow: 'hidden',
@@ -51,8 +50,9 @@ const styles = StyleSheet.create({
   cardWrapper: {
     height: '100%',
     width: '100%',
-    left: '50%',
-    top: '15%',
+    left: '7%',
+    top: '40%',
+    position: 'absolute'
   },
   iconFull: {
     height: '100%',
@@ -60,24 +60,27 @@ const styles = StyleSheet.create({
   },
   wrapper: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#FFCCD3',
   },
-  reverseIcon: {
-    height: 80,
-    width: 80,
+  Icon: {
+    height: '85%',
+    width: '85%',
+    position: 'absolute',
+    left: '5%'
   },
   shadow: {
     position: 'absolute',
     zIndex: 100,
-    height: '70%',
+    height: '20%',
     width: '42%',
     backgroundColor: 'black',
   },
   text: {
-    paddingTop: 20,
+    paddingTop: 133,
+    paddingLeft:33,
+
+
   },
 });
 
-export default StartButton;
+export default TrophyButton;
