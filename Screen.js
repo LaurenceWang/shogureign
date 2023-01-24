@@ -6,6 +6,10 @@ import Chapter from './Chapter';
 import StartButton from './StartButton';
 import KanjiButton from './KanjiButton';
 import KanjiMenu from './KanjiMenu';
+import TrophyButton from './TrophyButton';
+import TrophyMenu from './TrophyMenu';
+import CreditsButton from './CreditsButton';
+import CreditsMenu from './CreditsMenu';
 
 
 
@@ -13,14 +17,20 @@ export default function AnimatedStyleUpdateExample() {
   const [chapNum, setChapNum] = useState(0);
   const [data, setData] = useState(null);
   const [showStartButton, setShowStartButton] = useState(true);
+  const [showChapter, setShowChapter] = useState(false);
   const [showKanjiButton, setShowKanjiButton] = useState(true);
   const [showKanjiMenu, setShowKanjiMenu] = useState(false);
-  const [showChapter, setShowChapter] = useState(false);
+  const [showTrophyButton, setShowTrophyButton] = useState(true);
+  const [showTrophyMenu, setShowTrophyMenu] = useState(false);
+  const [showCreditsButton, setShowCreditsButton] = useState(true);
+  const [showCreditsMenu, setShowCreditsMenu] = useState(false);
 
   const onStartKanji = () => {
 		setTimeout(() => {
 			setShowStartButton(false);
 			setShowKanjiButton(false);
+			setShowTrophyButton(false);
+			setShowCreditsButton(false);
 			setShowKanjiMenu(true);
 		}, 500);
 	}
@@ -34,9 +44,31 @@ export default function AnimatedStyleUpdateExample() {
 		setTimeout(() => {
 			setShowStartButton(false);
 			setShowKanjiButton(false);
+			setShowTrophyButton(false);
+			setShowCreditsButton(false);
       setShowChapter(true);
 		}, 500);
 	};
+
+  const onStartTrophy = () => {
+		setTimeout(() => {
+			setShowStartButton(false);
+			setShowKanjiButton(false);
+			setShowCreditsButton(false);
+			setShowTrophyButton(false);
+			setShowTrophyMenu(true);
+		}, 500);
+	}
+
+  const onStartCredits = () => {
+		setTimeout(() => {
+			setShowStartButton(false);
+			setShowKanjiButton(false);
+			setShowCreditsButton(false);
+			setShowTrophyButton(false);
+			setShowCreditsMenu(true);
+		}, 500);
+	}
 
   const save = async (data) => {
     try {
@@ -88,8 +120,13 @@ export default function AnimatedStyleUpdateExample() {
     <View>
     {showKanjiButton && <KanjiButton onPress={onStartKanji} />}
     {showKanjiMenu && <KanjiMenu data={data}/>}
+    {showTrophyButton && <TrophyButton onPress={onStartTrophy} />}
+    {showTrophyMenu && <TrophyMenu/>}
+    {showCreditsButton && <CreditsButton onPress={onStartCredits} />}
+    {showCreditsMenu && <CreditsMenu/>}
     {showStartButton && <StartButton onPress={onStartChapter} />}
     {showChapter && <Chapter chapNum={chapNum} endChap={increment} kanjiProgression={data} save={save} />}
+    
     </View>
   );
 }
