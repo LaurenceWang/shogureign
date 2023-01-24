@@ -99,10 +99,26 @@ const Chapter = ({ chapNum, endChap }) => {
 		updatePlayableUnits();
 		const cards = getUnitById(units[0]).card;
 		setChapterCard([...cards]);
-		setCurrentCard(getCardById(cards[0]));
-		setCurrentCardIndex(1);
 		setCurrentUnitId(getChapterByIndex(chapNum).unit[0]);
+
+
+		setShowQuestion(false);
+		setTimeout(() => {
 		
+		
+			setCurrentCard(getCardById(cards[0]));
+
+			setShowCard(false);
+		}, 100);
+
+		showNextCard(150);
+
+		//setCurrentCardIndex(1);
+		/*if(chapNum != 0){
+			createNewCard(cards, getChapterByIndex(chapNum).unit[0], "");
+		}*/
+		
+		//createNewCard(cards, getChapterByIndex(chapNum).unit[0], "");
 		//updateTrace(cards[0], "left");
 
 
@@ -164,7 +180,8 @@ const Chapter = ({ chapNum, endChap }) => {
 				}
 				
 				if(hasFoundPC == false){
-					setEndChapitre(true);
+					endChap();
+					//setEndChapitre(true);
 				}
 				else{
 					console.log(newUnitId)
@@ -175,20 +192,6 @@ const Chapter = ({ chapNum, endChap }) => {
 					
 					createNewCard(PC, newUnitId, next_id);
 				}
-				/*ranNewPU.forEach(element => {
-					WS = updateWorldState(newWS, traces[traces.length -1].direction, element);
-					console.log("WS")
-					console.log(WS);
-					let PC = updatePlayableCards(element, WS, oldId);
-					if(isPlayableCard(PC)){
-						hasFoundPC = true;
-						//newWS = WS;
-						//newPC = PC;
-						//newUnitId = element;
-						return;
-					}
-				})*/
-
 
 				
 			}else{
