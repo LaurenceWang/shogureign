@@ -1,4 +1,4 @@
-import { AppState, View, StyleSheet } from 'react-native';
+import { AppState, Text, View, StyleSheet } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import PlaceholderBackCards from './PlaceholderBackCards';
@@ -12,10 +12,9 @@ import useGeneratedUnits from './useGeneratedUnits';
 import worldState from './worldState';
 
 import Config from './gameconfig';
-
+import Parsers from './Parsers';
 
 const Chapter = ({ chapNum, endChap, kanjiProgression, save }) => {
-
 	//const {getChapterbyId} = useGeneratedChapters();
 	const { getChapterByIndex } = useGeneratedChapters();
 	const { getCardById } = useGeneratedCards();
@@ -326,11 +325,6 @@ const Chapter = ({ chapNum, endChap, kanjiProgression, save }) => {
 		showNextCard(2500);
 	};
 
-	const kanjiParser = (text) => {
-		const japaneseCharacters = /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uff66-\uff9f]/g;
-		return text.match(japaneseCharacters);
-	}
-
 	const updatePendingKanjis = (newKanjis) => {
 		if (newKanjis) {
 			console.debug("updatePendingKanjis > Current kanjis: ");
@@ -341,7 +335,7 @@ const Chapter = ({ chapNum, endChap, kanjiProgression, save }) => {
 			// Updating the kanji list
 			let newKanjiList = pendingKanjis;
 			newKanjiList.push(...newKanjis);
-			newUniqueKanjiList = [...new Set(newKanjiList)];
+			let newUniqueKanjiList = [...new Set(newKanjiList)];
 			console.debug("updatePendingKanjis > new kanji list (before setState): ");
 			console.debug(newUniqueKanjiList);
 			setPendingKanjis(newUniqueKanjiList);
@@ -456,82 +450,6 @@ const Chapter = ({ chapNum, endChap, kanjiProgression, save }) => {
 		return [];
 	}
 
-	const cardParser = (text) => {
-		const moods = { happy: [], sad: [] }
-		const variations = { popularity: 0, money: 0, hygiene: 0, happiness: 0 }
-
-		// If empty effect
-		if (!text)
-			return {
-				moods: moods,
-				variations: variations
-			};
-
-		// Parsing the card text
-		let trimmedText = text.replace(/\s/g, "")
-		const regexpWords = /[\+\-]\d+[ABHP]/g;
-		let data = trimmedText.match(regexpWords);
-		if (data === null) {
-			return {
-				moods: moods,
-				variations: variations
-			}
-		}
-		data = data.map((effectText) => effectParser(effectText));
-		console.debug("Data: ");
-		console.debug(data);
-
-		for (let i = 0; i < data.length; i++) {
-			// Sorting moods for animations
-			console.debug("Effect: ");
-			console.debug(data[i]);
-			if (data[i]["mood"])
-				moods.happy.push(data[i]["stat"])
-			else
-				moods.sad.push(data[i]["stat"])
-
-			// Effect : previous value +/- new value
-			variations[data[i]["stat"]] = (data[i]["mood"] ? 1 : -1) * data[i]["value"];
-		}
-
-		return {
-			moods: moods,
-			variations: variations
-		};
-	}
-
-	const statParser = (code) => {
-		switch (code) {
-			case "A": return "money";
-			case "B": return "happiness";
-			case "H": return "hygiene";
-			case "P": return "popularity";
-			default: console.log(`Stat does not exist yet: ${code}`);
-		}
-	}
-
-	const moodParser = (code) => {
-		switch (code) {
-			case "+": return true;
-			case "-": return false;
-			default: console.log(`Mood does not exist yet: ${code}`);
-		}
-	}
-
-	const effectParser = (text) => {
-		// Recognizes "+3P -5A (...)"
-		const regexpMood = /[\+\-]/;
-		const regexpValue = /\d+/;
-		const regexpStat = /[ABHP]/;
-
-		const mood = moodParser(text.match(regexpMood)[0]);
-		const value = text.match(regexpValue)[0];
-		const stat = statParser(text.match(regexpStat)[0]);
-
-		// console.log(`Mood: ${mood}; Value: ${value}; Stat: ${stat}`);
-		return { mood: mood, value: value, stat: stat }
-	}
-
 	useEffect(() => {
 		// get all stats that cause a game over
 		stats = gameOverStats();
@@ -565,7 +483,7 @@ const Chapter = ({ chapNum, endChap, kanjiProgression, save }) => {
 			);
 		}
 
-		updatePendingKanjis(kanjiParser(currentCard["Kanji"]));
+		updatePendingKanjis(Parsers.kanjiParser(currentCard["Kanji"]));
 
 		console.log("updateStats > cards since last lesson before turn count: " + cardsSinceLastLesson);
 		setCardsSinceLastLesson(cardsSinceLastLesson + 1);
@@ -580,7 +498,7 @@ const Chapter = ({ chapNum, endChap, kanjiProgression, save }) => {
 	const onChooseLeftAnswer = () => {
 		console.debug("Current card: ");
 		console.debug(currentCard);
-		const { moods, variations } = cardParser(currentCard.onLeft);
+		const { moods, variations } = Parsers.cardParser(currentCard.onLeft);
 		updateStats(moods, variations);
 
 		updateWorldStateCard("left", currentCard.id);
@@ -589,7 +507,7 @@ const Chapter = ({ chapNum, endChap, kanjiProgression, save }) => {
 	const onChooseRightAnswer = () => {
 		console.debug("Current card: ");
 		console.debug(currentCard);
-		const { moods, variations } = cardParser(currentCard.onRight);
+		const { moods, variations } = Parsers.cardParser(currentCard.onRight);
 		updateStats(moods, variations);
 
 		updateWorldStateCard("right", currentCard.id);
