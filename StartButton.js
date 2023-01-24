@@ -31,7 +31,7 @@ const StartButton = ({onPress}) => {
             }}
             style={styles.reverseIcon}
           />
-          <Text style={styles.text}>Play</Text>
+          {/* <Text style={styles.text}>Play</Text> */}
         </View>
       </Animated.View>
     </Pressable>

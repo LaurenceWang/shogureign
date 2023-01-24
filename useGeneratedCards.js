@@ -273,7 +273,7 @@ export default function useGeneratedCards() {
       "difficulté": "",
       "Kanji": "",
       "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/7697/7697533.png",
+      "image": "https://i.ibb.co/FVQs092/proprio.png",
       "itemId": ""
     },
     {
@@ -423,7 +423,7 @@ export default function useGeneratedCards() {
       "difficulté": "",
       "Kanji": "",
       "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/1149/1149922.png",
+      "image": "https://i.ibb.co/RN0m9Zq/voisine.png",
       "itemId": ""
     },
     {
@@ -473,7 +473,7 @@ export default function useGeneratedCards() {
       "difficulté": "",
       "Kanji": "愛 (amour)",
       "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/1993/1993167.png",
+      "image": "https://i.ibb.co/9tWsrCz/crush.png",
       "itemId": ""
     },
 
@@ -1428,6 +1428,88 @@ export default function useGeneratedCards() {
       "image": "https://cdn-icons-png.flaticon.com/512/5348/5348463.png",
       "itemId": ""
     },
+
+    {
+      "Name": "from_street",
+      "id": "b6373bee690941d0ab7892fc00b53560",
+      "Unit": "1e3a7a782b9f42f2a63f4a4be85cc08a",
+      "Person": "p",
+      "Status": "",
+      "card_type": "",
+      "character": "",
+      "condition":{"proprio_existe":true, "end_street_played" : true},
+      "question": "Ça fait du bien d’être à la maison !",
+      "leftText": "On n’est jamais mieux que chez soi.",
+      "onLeft": "",
+      "rightText": "Moui…",
+      "onRight": "",
+      "custom":{},
+      "left_custom": {},
+      "right_custom": {},
+      "left_next_card": "",
+      "right_next_card": "",
+      "difficulté": "",
+      "Kanji": "",
+      "background": "#ccc",
+      "image": "https://cdn-icons-png.flaticon.com/512/6259/6259079.png",
+      "itemId": ""
+    },
+
+
+    {
+      "Name": "end_street_1",
+      "id": "ef28954bfd084a53b5a598c7219fcd1d",
+      "Unit": "023f6b2981ff4853826039b6e1845e62",
+      "Person": "p",
+      "Status": "",
+      "card_type": "",
+      "character": "",
+      "condition":{"proprio_existe" : true},
+      "question": "Quelle longue journée, rentrons à la maison.",
+      "leftText": "Ok.",
+      "onLeft": "",
+      "rightText": "Bon...",
+      "onRight": "",
+      "custom":{"chap1_street" : true, "end_street_played" : true},
+      "left_custom": {},
+      "right_custom": {},
+      "left_next_card": "b6373bee690941d0ab7892fc00b53560",
+      "right_next_card": "b6373bee690941d0ab7892fc00b53560",
+      "difficulté": "",
+      "Kanji": "",
+      "background": "#ccc",
+      "image": "https://cdn-icons-png.flaticon.com/512/9252/9252616.png",
+      "itemId": ""
+    },
+
+
+    {
+      "Name": "end_street_2",
+      "id": "376b7b466de746638c382abe25510325",
+      "Unit": "023f6b2981ff4853826039b6e1845e62",
+      "Person": "p",
+      "Status": "",
+      "card_type": "",
+      "character": "",
+      "condition":{},
+      "question": "Il commence à se faire tard, rentrons vite.",
+      "leftText": "Je me dépêche",
+      "onLeft": "",
+      "rightText": "Ok",
+      "onRight": "",
+      "custom":{"chap1_street" : true},
+      "left_custom": {},
+      "right_custom": {},
+      "left_next_card": "0df94147ee8f4dfda5f631224e43e74d",
+      "right_next_card": "0df94147ee8f4dfda5f631224e43e74d",
+      "difficulté": "",
+      "Kanji": "",
+      "background": "#ccc",
+      "image": "https://cdn-icons-png.flaticon.com/512/9252/9252616.png",
+      "itemId": ""
+    },
+
+
     {
       "Name": "first_meet_with_crush",
       "id": "8b8beb3c472641e982e7ef798bd30625",
@@ -1450,7 +1532,7 @@ export default function useGeneratedCards() {
       "difficulté": "",
       "Kanji": "",
       "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/1993/1993167.png",
+      "image": "https://i.ibb.co/9tWsrCz/crush.png",
       "itemId": ""
     },
     {
@@ -1536,7 +1618,7 @@ export default function useGeneratedCards() {
       "Status": "",
       "card_type": "",
       "character": "",
-      "condition":{},
+      "condition":{"thief" : false},
       "question": "Un homme sympathique vient te voir et te dit de regarder derrière toi.",
       "leftText": "L’ignorer et continuer ton chemin.",
       "onLeft": "",
@@ -1544,7 +1626,7 @@ export default function useGeneratedCards() {
       "onRight": "",
       "custom":{},
       "left_custom": {},
-      "right_custom": {},
+      "right_custom": {"thief" : true},
       "left_next_card": "",
       "right_next_card": "6bafa0fdf65d41b78111396371a0ea51",
       "difficulté": "",
@@ -1561,13 +1643,13 @@ export default function useGeneratedCards() {
       "Status": "",
       "card_type": "",
       "character": "",
-      "condition":{},
+      "condition":{"thief" : true},
       "question": "L’homme t’a volé tout l’argent que tu avais sur toi !!!",
       "leftText": "Rentrer chez soi.",
       "onLeft": "-10B, -30A",
       "rightText": "Crier “Au voleur !”",
       "onRight": "-10B, -30A",
-      "custom":{},
+      "custom":{"thief" : false},
       "left_custom": {},
       "right_custom": {},
       "left_next_card": "",
