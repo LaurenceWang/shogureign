@@ -20,7 +20,7 @@ const getStyles = (value) => StyleSheet.create({
   },
   fill: {
     
-    backgroundColor: "#AAA",
+    backgroundColor: "#FDA3AF",
     width: `${value}%`,
     height: 10,
   }
