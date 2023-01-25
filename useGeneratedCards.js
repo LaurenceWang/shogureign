@@ -301,7 +301,7 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
+      "background": "#FFBE8D",
       "image": "https://i.ibb.co/FVQs092/proprio.png",
       "itemId": ""
     },
@@ -328,7 +328,7 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
+      "background": "#C9DCF2",
       "image": "https://cdn-icons-png.flaticon.com/512/953/953716.png",
       "itemId": ""
     },
@@ -353,8 +353,8 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/4784/4784962.png",
+      "background": "#DEDFE0",
+      "image": "https://cdn-icons-png.flaticon.com/512/7107/7107353.png",
       "itemId": ""
     },
 
@@ -379,8 +379,8 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/2636/2636570.png",
+      "background": "#DADFE2",
+      "image": "https://cdn-icons-png.flaticon.com/512/9137/9137915.png",
       "itemId": ""
     },
 
@@ -405,8 +405,8 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/9435/9435708.png",
+      "background": "#FEE8F2",
+      "image": "https://cdn-icons-png.flaticon.com/512/9288/9288621.png",
       "itemId": ""
     },
 
@@ -431,8 +431,8 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/5012/5012912.png",
+      "background": "#C6DFEC",
+      "image": "https://cdn-icons-png.flaticon.com/512/9267/9267503.png",
       "itemId": ""
     },
 
@@ -458,8 +458,8 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/3166/3166635.png",
+      "background": "#33548D",
+      "image": "https://cdn-icons-png.flaticon.com/512/4604/4604640.png",
       "itemId": ""
     },
 
@@ -485,7 +485,7 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "女 (femme)",
-      "background": "#ccc",
+      "background": "#CAEFCA",
       "image": "https://cdn-icons-png.flaticon.com/512/7504/7504950.png",
       "itemId": ""
     },
@@ -510,8 +510,8 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "母 (mère) 子 (enfant)",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/3146/3146501.png",
+      "background": "#E4D8CE",
+      "image": "https://cdn-icons-png.flaticon.com/512/4530/4530590.png",
       "itemId": ""
     },
     {
@@ -535,7 +535,7 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "父 (père)  子 (enfant)",
-      "background": "#ccc",
+      "background": "#FFBE5F",
       "image": "https://cdn-icons-png.flaticon.com/512/4486/4486352.png",
       "itemId": ""
     },
@@ -560,7 +560,7 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
+      "background": "#F2DF81",
       "image": "https://i.ibb.co/RN0m9Zq/voisine.png",
       "itemId": ""
     },
@@ -1237,8 +1237,8 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/9190/9190361.png",
+      "background": "#E4E4E4",
+      "image": "https://cdn-icons-png.flaticon.com/512/7485/7485047.png",
       "itemId": ""
     },
     {
@@ -1262,8 +1262,8 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/9190/9190361.png",
+      "background": "#E4E4E4",
+      "image": "https://cdn-icons-png.flaticon.com/512/3608/3608965.png",
       "itemId": ""
     },
     {
@@ -1287,8 +1287,8 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/9190/9190361.png",
+      "background": "#E4E4E4",
+      "image": "https://cdn-icons-png.flaticon.com/512/7485/7485047.png",
       "itemId": ""
     },
     {
@@ -1312,8 +1312,8 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/9190/9190361.png",
+      "background": "#E4E4E4",
+      "image": "https://cdn-icons-png.flaticon.com/512/7485/7485047.png",
       "itemId": ""
     },
     {
@@ -1337,8 +1337,8 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/9190/9190361.png",
+      "background": "#E4E4E4",
+      "image": "https://cdn-icons-png.flaticon.com/512/7485/7485047.png",
       "itemId": ""
     },
     {
@@ -1362,8 +1362,8 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/9190/9190361.png",
+      "background": "#E4E4E4",
+      "image": "https://cdn-icons-png.flaticon.com/512/7485/7485047.png",
       "itemId": ""
     },
     {
@@ -1387,8 +1387,8 @@ export default function useGeneratedCards() {
       "right_next_card": "e2098d78628a49ad8c9a5d9cb04c8c87",
       "difficulté": "",
       "Kanji": "viande (肉), poisson (魚)",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/9190/9190361.png",
+      "background": "#E4E4E4",
+      "image": "https://cdn-icons-png.flaticon.com/512/3608/3608965.png",
       "itemId": ""
     },
     {
@@ -1412,8 +1412,8 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/9190/9190361.png",
+      "background": "#E4E4E4",
+      "image": "https://cdn-icons-png.flaticon.com/512/3608/3608965.png",
       "itemId": ""
     },
     {
@@ -1437,8 +1437,8 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/8493/8493051.png",
+      "background": "#EAEAEA",
+      "image": "https://cdn-icons-png.flaticon.com/512/6616/6616252.png",
       "itemId": ""
     },
     {
@@ -1462,8 +1462,8 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/3021/3021381.png",
+      "background": "#DADADA",
+      "image": "https://cdn-icons-png.flaticon.com/512/2395/2395671.png",
       "itemId": ""
     },
     {
@@ -1487,8 +1487,8 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/3021/3021381.png",
+      "background": "#E4A5A5",
+      "image": "https://cdn-icons-png.flaticon.com/512/2395/2395600.png",
       "itemId": ""
     },
     {
@@ -1512,7 +1512,7 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
+      "background": "#E8E8E8",
       "image": "https://cdn-icons-png.flaticon.com/512/5348/5348463.png",
       "itemId": ""
     },
@@ -1537,8 +1537,8 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/5348/5348463.png",
+      "background": "#D9DADC",
+      "image": "https://cdn-icons-png.flaticon.com/512/7923/7923321.png",
       "itemId": ""
     },
     {
@@ -1558,12 +1558,12 @@ export default function useGeneratedCards() {
       "custom":{},
       "left_custom": {"see_vending_mach":true},
       "right_custom": {},
-      "left_next_card": "0cc73f005b3c4f1194792ba2f533ec28",
+      "left_next_card": "349391e704cd4128851e326c7e1a5ab6",
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/5348/5348463.png",
+      "background": "#D9DADC",
+      "image": "https://cdn-icons-png.flaticon.com/512/9274/9274475.png",
       "itemId": ""
     },
     {
@@ -1587,7 +1587,7 @@ export default function useGeneratedCards() {
       "right_next_card": "542d6cf3ad3a4d8883da60b4fc7ba1ad",
       "difficulté": "1",
       "Kanji": "cent (百), sept (七), yen / en (円)",
-      "background": "#ccc",
+      "background": "#E8E8E8",
       "image": "https://cdn-icons-png.flaticon.com/512/5348/5348463.png",
       "itemId": "" 
     },
@@ -1612,8 +1612,8 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "1",
       "Kanji": "cent (百), huit(八), yen / en (円)",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/5348/5348463.png",
+      "background": "#D9DADC",
+      "image": "https://cdn-icons-png.flaticon.com/512/7923/7923321.png",
       "itemId": "" 
     },
     {
@@ -1637,8 +1637,8 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "1",
       "Kanji": "cent (百), neuf (九), yen / en (円)",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/5348/5348463.png",
+      "background": "#D9DADC",
+      "image": "https://cdn-icons-png.flaticon.com/512/9274/9274475.png",
       "itemId": "" 
     },
     {
@@ -1662,8 +1662,8 @@ export default function useGeneratedCards() {
       "right_next_card": "542d6cf3ad3a4d8883da60b4fc7ba1ad",
       "difficulté": "1",
       "Kanji": "cent (百), yen / en (円)",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/5348/5348463.png",
+      "background": "#D9DADC",
+      "image": "https://cdn-icons-png.flaticon.com/512/5381/5381193.png",
       "itemId": "" 
     },
     {
@@ -1687,8 +1687,8 @@ export default function useGeneratedCards() {
       "right_next_card": "542d6cf3ad3a4d8883da60b4fc7ba1ad",
       "difficulté": "1",
       "Kanji": "cent (百), dix (十), yen / en (円)",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/5348/5348463.png",
+      "background": "#D9DADC",
+      "image": "https://cdn-icons-png.flaticon.com/512/4914/4914392.png",
       "itemId": "" 
     },
     {
@@ -1712,8 +1712,8 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "1",
       "Kanji": "",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/5348/5348463.png",
+      "background": "#D9DADC",
+      "image": "https://cdn-icons-png.flaticon.com/512/8541/8541809.png",
       "itemId": "" 
     },
 
@@ -1738,8 +1738,8 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/6259/6259079.png",
+      "background": "#E0E0E0",
+      "image": "https://cdn-icons-png.flaticon.com/512/4004/4004675.png",
       "itemId": ""
     },
 
@@ -1765,8 +1765,8 @@ export default function useGeneratedCards() {
       "right_next_card": "b6373bee690941d0ab7892fc00b53560",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/9252/9252616.png",
+      "background": "#7193CC",
+      "image": "https://cdn-icons-png.flaticon.com/512/187/187426.png",
       "itemId": ""
     },
 
@@ -1792,8 +1792,8 @@ export default function useGeneratedCards() {
       "right_next_card": "0df94147ee8f4dfda5f631224e43e74d",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/9252/9252616.png",
+      "background": "#D7E6D9",
+      "image": "https://cdn-icons-png.flaticon.com/512/3295/3295162.png",
       "itemId": ""
     },
 
@@ -1819,7 +1819,7 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
+      "background": "#FFE0EF",
       "image": "https://i.ibb.co/9tWsrCz/crush.png",
       "itemId": ""
     },
@@ -1844,8 +1844,8 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/4357/4357116.png",
+      "background": "#D2DEE4",
+      "image": "https://cdn-icons-png.flaticon.com/512/3361/3361503.png",
       "itemId": ""
     },
     {
@@ -1869,7 +1869,7 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
+      "background": "#B9C4D8",
       "image": "https://cdn-icons-png.flaticon.com/512/3361/3361903.png",
       "itemId": ""
     },
@@ -1894,7 +1894,7 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
+      "background": "#C2E0F8",
       "image": "https://cdn-icons-png.flaticon.com/512/7630/7630510.png",
       "itemId": ""
     },
@@ -1919,8 +1919,8 @@ export default function useGeneratedCards() {
       "right_next_card": "6bafa0fdf65d41b78111396371a0ea51",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
-      "image": "https://cdn-icons-png.flaticon.com/512/4352/4352392.png",
+      "background": "#FFF0F7",
+      "image": "https://cdn-icons-png.flaticon.com/512/9436/9436488.png",
       "itemId": ""
     },
     {
@@ -1944,7 +1944,7 @@ export default function useGeneratedCards() {
       "right_next_card": "",
       "difficulté": "",
       "Kanji": "",
-      "background": "#ccc",
+      "background": "#FF9FCC",
       "image": "https://cdn-icons-png.flaticon.com/512/7274/7274005.png",
       "itemId": ""
     },
