@@ -206,7 +206,7 @@ export default function AnimatedStyleUpdateExample() {
       {showTrophyMenu && <TrophyMenu />}
       {showCreditsButton && <CreditsButton onPress={onStartCredits} />}
       {showCreditsMenu && <CreditsMenu />}
-      <View style={styles.btn}>{showClearBtn && <Button onPress={clearSave} title="Clear game saving" style={styles.btn} color="#333333" />}</View>
+     {showClearBtn && <Button onPress={clearSave} title="Clear game saving" style={styles.btn} color="#333333" />}
       {showStartButton && <StartButton onPress={onStartChapter} />}
       {showChapter && <Chapter chapNum={chapNum} endChap={increment} onMenuReturn={onMenuReturn} kanjiProgression={kanji} gameSave={gameSave} save={save} />}
 
@@ -215,13 +215,6 @@ export default function AnimatedStyleUpdateExample() {
 }
 
 const styles = StyleSheet.create({
-  btn:{
-    
-    width : '100%',
-    height : 40,
-   
-   
-  },
 
   wrapper: {
     flex: 1,

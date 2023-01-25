@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
     left: '50%',
-    top: '10%',
+    top: '10.5%',
   },
   iconFull: {
     height: '100%',
@@ -76,7 +76,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   text: {
-    marginTop : 20,
+    //marginTop : 20,
+    paddingTop : 20,
   },
 });
 
