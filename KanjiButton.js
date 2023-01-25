@@ -28,7 +28,7 @@ const KanjiButton = ({onPress}) => {
         <View style={styles.wrapper}>
           <FastImage
             source={{
-              uri: 'https://cdn-icons-png.flaticon.com/512/6851/6851875.png',
+              uri: 'https://cdn-icons-png.flaticon.com/512/5078/5078655.png',
             }}
             style={styles.Icon}
           />
@@ -61,12 +61,16 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     backgroundColor: '#FFCCD3',
+    alignItems : 'center',
+    justifyContent : 'center',
   },
   Icon: {
-    height: '90%',
+    /*height: '90%',
     width: '90%',
     position: 'absolute',
-    left: '5%'
+    left: '5%'*/
+    height: '50%',
+    width: '50%',
   },
   shadow: {
     position: 'absolute',
@@ -76,8 +80,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   text: {
-    paddingTop: 133,
-    paddingLeft:33,
+    //paddingTop: 133,
+    //paddingLeft:33,
 
 
   },

@@ -28,7 +28,7 @@ const StartButton = ({ onPress }) => {
           <View style={styles.wrapper}>
             <FastImage
               source={{
-                uri: 'https://cdn-icons-png.flaticon.com/512/7734/7734686.png',
+                uri: 'https://cdn-icons-png.flaticon.com/512/3088/3088267.png',
               }}
               style={styles.reverseIcon}
             />
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
     left: '50%',
-    top: '15%',
+    top: '10%',
   },
   iconFull: {
     height: '100%',
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   text: {
-    paddingTop: 20,
+    marginTop : 20,
   },
 });
 

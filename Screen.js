@@ -119,9 +119,9 @@ export default function AnimatedStyleUpdateExample() {
 
   const clearSave = () => {
    
-    save(Config.kanjiKey, {}).then(() => {
+    /*save(Config.kanjiKey, {}).then(() => {
       console.log("Clear successful");
-    });
+    });*/
     save(Config.worldKey, {}).then(() => {
       console.log("Clear successful");
     });
@@ -200,13 +200,13 @@ export default function AnimatedStyleUpdateExample() {
 
   return (
     <View>
-      {showClearBtn && <Button onPress={clearSave} title="Clear game saving" style={styles.btn} ></Button>}
       {showKanjiButton && <KanjiButton onPress={onStartKanji} />}
       {showKanjiMenu && <KanjiMenu data={kanji} />}
       {showTrophyButton && <TrophyButton onPress={onStartTrophy} />}
       {showTrophyMenu && <TrophyMenu />}
       {showCreditsButton && <CreditsButton onPress={onStartCredits} />}
       {showCreditsMenu && <CreditsMenu />}
+      <View style={styles.btn}>{showClearBtn && <Button onPress={clearSave} title="Clear game saving" style={styles.btn} color="#333333" />}</View>
       {showStartButton && <StartButton onPress={onStartChapter} />}
       {showChapter && <Chapter chapNum={chapNum} endChap={increment} onMenuReturn={onMenuReturn} kanjiProgression={kanji} gameSave={gameSave} save={save} />}
 
@@ -215,6 +215,14 @@ export default function AnimatedStyleUpdateExample() {
 }
 
 const styles = StyleSheet.create({
+  btn:{
+    
+    width : '100%',
+    height : 40,
+   
+   
+  },
+
   wrapper: {
     flex: 1,
     flexDirection: 'column',
@@ -240,10 +248,5 @@ const styles = StyleSheet.create({
     height: 170,
     backgroundColor: '#ccc',
   },
-  btn:{
-    
-    width : 10,
-    height : 10,
-    color : "#ccc"
-  }
+
 });
