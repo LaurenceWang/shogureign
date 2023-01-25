@@ -1,24 +1,25 @@
 import { AppState, Text, View, StyleSheet } from 'react-native';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Card from './Card';
 import MultipleCard from './MultipleCard';
 import PlaceholderBackCards from './PlaceholderBackCards';
 import Question from './Question';
 import PowerIndicators from './PowerIndicators';
 import PlaceholderBackStaticCard from './PlaceholderBackStaticCard';
-import useGeneratedCards from './useGeneratedCards';
-import useGeneratedChapters from './useGeneratedChapters';
-import useGeneratedUnits from './useGeneratedUnits';
+import useGeneratedCards from './data/useGeneratedCards';
+import useGeneratedMultCards from './data/useGeneratedMultCards';
+import useGeneratedChapters from './data/useGeneratedChapters';
+import useGeneratedUnits from './data/useGeneratedUnits';
 import worldState from './worldState';
 
 import GameOver from './data/gameover';
 
 import Config from './gameconfig';
-import MultCards from './useGeneratedMultCards';
+import MultCards from './data/useGeneratedMultCards';
 import Parsers from './Parsers';
 import { set } from 'react-native-reanimated';
 
-const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => {
+const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSave, save }) => {
 	//const {getChapterbyId} = useGeneratedChapters();
 	const { getChapterByIndex } = useGeneratedChapters();
 	const { getCardById } = useGeneratedCards();
@@ -55,6 +56,7 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 	const [idMemory, setIdMemory] = useState([]);
 	let next_id = "";
 
+	const firstRun = useRef(true);
 	/** Kanji weight info
 	 * Weight of the kanji, used for the probability
 	 * for them to appear in the lesson and the tests.
@@ -89,6 +91,24 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 	useEffect(() => {
 		initializeWorld();
 
+		//console.log("testeeee :" + Object.keys(gameSave).length)
+		if (Object.keys(gameSave.cc).length != 0) {
+			console.log("-------")
+			console.log("game save")
+			console.log(gameSave);
+			console.log("-------")
+			//console.log("hihihi")
+
+			/*setworldSt(gameSave.ws);
+			setIdMemory(gameSave.im);
+			setChapterCard(gameSave.pc);
+			setChapterUnit(gameSave.pu);
+			setCurrentCard(gameSave.cc);*/
+		} else {
+			console.log("pouetpouet")
+		}
+
+
 		setTimeout(() => {
 			setShowAnimatedReverseCard(true);
 		}, 500);
@@ -106,38 +126,65 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 		setKanjiWeight(kanjiProgression);
 	}, [kanjiProgression]);
 
+
+	/*useEffect(() => {
+		// console.log("Kanji progression test: ");
+		setworldSt(gameSave.ws);
+		setIdMemory(gameSave.im);
+		setChapterCard(gameSave.pc);
+		setChapterUnit(gameSave.pu);
+		setCurrentCard(gameSave.cc);
+	}, [gameSave]);*/
+
 	useEffect(() => {
 		//initializeWorld();
 		// console.log("current chap Num : " + chapNum)
 
-		let units = getChapterByIndex(chapNum).unit;
+		if (firstRun.current && Object.keys(gameSave.cc).length != 0) {
+			setIdMemory(gameSave.im);
+			setChapterCard(gameSave.pc);
+			setChapterUnit(gameSave.pu);
+			setworldSt(gameSave.ws);
+			//console.log((gameSave.cc).Unit);
+			setCurrentUnitId((gameSave.cc).Unit);
 
-		updatePlayableUnits();
-		const cards = getUnitById(units[0]).card;
-		setChapterCard([...cards]);
-		setCurrentUnitId(getChapterByIndex(chapNum).unit[0]);
-
-
-		setShowQuestion(false);
-		setTimeout(() => {
-			//setCurrentMultCard(MultCards[0]);
-			setCurrentCard(getCardById(cards[0]));
-			setShowCard(false);
-		}, 100);
-
-		showNextCard(150);
-
-		//setCurrentCardIndex(1);
-		/*if(chapNum != 0){
-			createNewCard(cards, getChapterByIndex(chapNum).unit[0], "");
-		}*/
-
-		//createNewCard(cards, getChapterByIndex(chapNum).unit[0], "");
-		//updateTrace(cards[0], "left");
+			setShowQuestion(false);
+			setTimeout(() => {
 
 
-		//setCurrentCardId(cards[0]);
-		//}
+				setCurrentCard(gameSave.cc);
+
+				setShowCard(false);
+			}, 100);
+
+			showNextCard(150);
+			firstRun.current = false;
+
+		} else {
+
+
+
+			let units = getChapterByIndex(chapNum).unit;
+
+			updatePlayableUnits();
+			const cards = getUnitById(units[0]).card;
+			setChapterCard([...cards]);
+			setCurrentUnitId(getChapterByIndex(chapNum).unit[0]);
+
+
+			setShowQuestion(false);
+			setTimeout(() => {
+
+
+				setCurrentCard(getCardById(cards[0]));
+
+				setShowCard(false);
+			}, 100);
+
+			showNextCard(150);
+
+		}
+
 
 	}, [chapNum]);
 
@@ -214,7 +261,12 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 				setIdMemory(newOldId);
 				setChapterCard(newPC);
 				setChapterUnit(newPU);
+				save(Config.worldKey, newWS);
+				save(Config.curIdMemoKey, newOldId);
+				save(Config.chapCardKey, newPC);
+				save(Config.chapUnitKey, newPU);
 				createNewCard(newPC, newUnitId, next_id);
+
 			}
 
 
@@ -255,63 +307,11 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 	}
 
 
-	/*useEffect(() => {
-		if (chapterCard) {
-			if (currentCardIndex + 1 >= chapterCard.length && chapterUnit.length != 0) {
-				const ran = Math.floor(Math.random() * chapterUnit.length);
-				setCurrentUnitIndex(ran);
-				setCurrentUnitId(chapterUnit[ran]);
-				console.log("curID : " + currentUnitId);
-			}
-		}
-	}, [chapterUnit]);
-
-	useEffect(() => {
-		//const ac = new AbortController(); //to avoid memory leak
-
-		if (currentCardIndex && chapterUnit) {
-			setCurrentUnitId(chapterUnit[currentUnitIndex]);
-
-			updateWorldState(chapterUnit[currentUnitIndex]);
-			// console.log(worldSt);
-
-			console.log(chapterUnit)
-
-			updateChapterCard(currentUnitIndex);
-			setCurrentCardIndex(0);
-
-
-		}
-		//return () => ac.abort(); 
-	}, [currentUnitId]);
-
-
-	useEffect(() => {
-
-		console.log("je suis passé dans l'update custom card");
-		updateCustomWorld();
-		// console.log(worldSt);
-		//let customs = currentCard.custom;
-		//const worldcustom = {...worldSt, ...customs};
-		//setworldSt(worldcustom);
-
-	}, [currentCard]);
-
-
-	useEffect(() => {
-		if (currentUnitId) {
-			updatePlayableCards();
-		}
-	}, [worldSt]);*/
-
 	useEffect(() => {
 		if (endChapitre == true) {
 			endChap();
 			console.log("----------------------------------------")
-			/*let units = getChapterByIndex(chapNum+1).unit;
-			let cards = getUnitById(units[0]).card;
-			console.log(units)
-			console.log(getCardById(cards[0]))*/
+
 			console.log("chapNum :" + chapNum)
 			console.log("----------------------------------------")
 
@@ -322,23 +322,6 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 	function initializeWorld() {
 		Object.keys(worldSt).forEach((key) => { worldSt[key] = false; });
 		//worldSt.chap1_intro = true;
-	}
-
-
-	function updateChapterCard(index) {
-		//console.log("current unit index update chapter card: " + currentUnitIndex);
-		//onsole.log("chapter unit in chapter card")
-		//console.log(chapterUnit);
-		//console.log("current unit id in chapter card: " + chapterUnit[index]);
-
-		console.log("currentUnit in updChapCard : " + getUnitById(chapterUnit[currentUnitIndex]).Name)
-
-		//console.log("currentUnitID updtcard : " + currentUnitId)
-		const cards = getUnitById(chapterUnit[index]).card;
-		setChapterCard([...cards]);
-
-		//console.log("chap card:");
-		//console.log(chapterCard);
 	}
 
 	function comparaison(obj1, obj2) {
@@ -352,42 +335,6 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 		}
 		return true;
 	}
-
-	/*function updatePlayableUnits() {
-
-		console.log("current unit index in uptplayUnit: " + currentUnitIndex)
-
-		console.log("currentUnitID : " + currentUnitId)
-		let playableUnits = [];
-		let j = 0;
-
-		let units = getChapterByIndex(chapNum).unit;
-		const currentId = units.indexOf(currentUnitId);
-		if (currentId > -1) { // only splice array when item is found
-			units.splice(currentId, 1); // 2nd parameter means remove one item only
-		}
-
-		units.forEach(element => {
-			let conditions = getUnitById(element).condition;
-			if (comparaison(conditions, worldSt)) {
-				playableUnits[j] = element;
-				j++;
-			}
-		})
-
-		//setChapterUnit(playableUnits);
-		if (playableUnits.length != 0) {
-
-			setChapterUnit(playableUnits);
-		} else {
-			console.log("sunifu");
-			setEndChapitre(true);
-			//endChap();
-		}
-
-		console.log("chap unit in upt");
-		console.log(chapterUnit);
-	}*/
 
 
 	function updatePlayableUnits(unitId, newWorld) {
@@ -439,59 +386,6 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 
 	}
 
-
-	/*function updatePlayableCards() {
-		let playableCards = [];
-		let randomPlayableCards = [];
-		//console.log("getUnitById(currentUnitId) : "+ getChapterUnit(currentUnitId));
-		const cards = getUnitById(currentUnitId).card;
-		//console.log("card");
-		//console.log(cards);
-
-		cards.forEach(element => {
-			const conditions = getCardById(element).condition;
-			//console.log(conditions);
-			if (comparaison(conditions, worldSt)) {
-				//console.log("i");
-				playableCards.push(element);
-			}
-		});
-
-		/*const nb_tirages= Math.floor(Math.random() * playableCards.length);
-		
-		for(let i=0; i<nb_tirages; i++){
-			const random = Math.floor(Math.random() * playableCards.length);
-			randomPlayableCards.push(playableCards[random]);
-			playableCards.splice(random, 1);
-		console.log("random playable cards :")
-		console.log(randomPlayableCards);
-		}*/
-
-
-	/*console.log("Nombre de cartes jouables restantes :" + playableCards.length);
-
-	if (playableCards.length != 0) {
-		setChapterCard(playableCards);
-	};
-	
-
-	/*console.log("Nombre de cartes jouables restantes :" + randomPlayableCards.length);
-	if (randomPlayableCards.length != 0) {
-		setChapterCard(randomPlayableCards);
-	}
-
-}*/
-
-	/*function updateWorldState(id) {
-		//let customs = getUnitById(currentUnitId).custom;
-		//let customs = getUnitById(chapterUnit[currentUnitIndex]).custom;
-		//let customs = getUnitById("1e3a7a782b9f42f2a63f4a4be85cc08a").custom;
-		//console.log("current unit index worldstate : " + currentUnitIndex);
-		let customs = getUnitById(id).custom;
-		const newWorld = { ...worldSt, ...customs }
-		setworldSt(newWorld);
-		//World = {...World, ...customs};
-	}*/
 
 	function updateWorldState(world, choice, UnitId) {
 
@@ -691,8 +585,11 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 				.then(() => console.log("Saved successfully on game over."))
 				.catch(err => console.error(err));
 			setTimeout(() => {
-				console.log(GameOver[stats[0]][(currentStats[stats[0]] >= 100) ? "max" : "min"]["text"]);
-				onMenuReturn();
+				let stat = GameOver[stats[0]][(currentStats[stats[0]] >= 100) ? "max" : "min"];
+				let text = stat["text"];
+				console.log(text);
+				console.log(stat["icon"]);
+				onGameOverScreen(text, stat["icon"]);
 			}, 500);
 		}
 	}, [currentStats]);
@@ -788,14 +685,7 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 		setTimeout(() => {
 			console.log("---------------------------------------")
 			console.log("create new card :")
-			//console.log("chapter unit swipe")
-			//console.log(chapterUnit);
 
-			//console.log("in create");
-			//console.log(chapterUnit);
-			/*const ran = Math.floor(Math.random() * chapterCard.length);
-			console.log(getCardById(chapterCard[ran]));
-			setCurrentCard(getCardById(chapterCard[ran]));*/
 			console.log("testest");
 			console.log(newPC)
 
@@ -811,40 +701,19 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 			}
 
 			if (next_id != "") {
+				
+				console.log(next_id);
+				console.log("REGARDE LA CARTE : " + getCardById(next_id));
 				setCurrentUnitId(getCardById(next_id).Unit);
+				
 				console.log("unit du next card : " + getCardById(next_id).Unit)
 				setCurrentCard(getCardById(next_id));
+				save(Config.curCardKey, getCardById(next_id));
 			} else {
 				setCurrentUnitId(newUnitId);
 				setCurrentCard(getCardById(newPC[ran]));
+				save(Config.curCardKey, getCardById(newPC[ran]));
 			}
-
-			//setCurrentCardIndex(currentCardIndex + 1);
-			//console.log(pickRandomCard(newUnitId))
-			//setCurrentCard(newPC[pickRandomCard(newUnitId)]);
-
-			/*setCurrentCard(getCardById(chapterCard[currentCardIndex % chapterCard.length]));
-			
-			
-			updatePlayableUnits();
-			
-			setCurrentCardIndex(currentCardIndex + 1);*/
-
-
-			/*if(nextCardId !== ""){
-				setCurrentCard(getCardById(nextCardId));
-				nextCardId = "";
-				console.log("je suis passé par le if");
-				updatePlayableUnits();
-				setCurrentCardIndex(currentCardIndex + 1);
-			}
-			else{
-				setCurrentCard(getCardById(chapterCard[currentCardIndex % chapterCard.length]));
-	
-				updatePlayableUnits();
-				setCurrentCardIndex(currentCardIndex + 1);
-				console.log("je suis passé dans le else ");
-			}*/
 
 
 			setShowCard(false);

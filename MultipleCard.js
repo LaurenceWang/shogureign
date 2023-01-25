@@ -18,7 +18,7 @@ import {PanGestureHandler} from 'react-native-gesture-handler';
 import CardReverse from './CardReverse';
 import BackStatic from './BackgroundStatic';
 
-import useKanjiCards from './Kanjitab';
+import useKanjiCards from './data/Kanjitab';
 const {KanjiCards} = useKanjiCards();
 
 const MultipleCard = ({

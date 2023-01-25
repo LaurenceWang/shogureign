@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'center',
-    backgroundColor: '#ccc',
+    backgroundColor: "#FBFBFB",
     overflow: 'hidden',
   },
   personsWrapper: {
