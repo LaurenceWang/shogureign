@@ -744,10 +744,7 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 	const onChooseLeftAnswer = () => {
 		//console.debug("Current card: ");
 		//console.debug(currentCard);
-		const { moods, variations } = Parsers.cardParser(currentCard.onLeft);
-
-		updateTrace(currentCard.id, "left");
-
+		//updateTrace(currentCard.id, "left");
 		//updateWorldStateCard("left", currentCard.id);
 		//nextCardId = currentCard.left_next_card;
 		updateStats(moods, variations);
@@ -756,33 +753,31 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 	const onChooseRightAnswer = () => {
 		//console.debug("Current card: ");
 		//console.debug(currentCard);
-
-		const { moods, variations } = Parsers.cardParser(currentCard.onRight);
-
-		updateTrace(currentCard.id, "right");
+		//updateTrace(currentCard.id, "right");
 
 		//updateWorldStateCard("right", currentCard.id);
 		//nextCardId = currentCard.right_next_card;
-		updateStats(moods, variations);
+		//updateStats(moods, variations);
 	};
 
 	
-	const onChooseWestAnswer = () => {
-		updateTrace(currentCard.id, "west");
+	const onChooseWestAnswer = (kanji) => {
+		//updateTrace(currentCard.id, "west");
 		// updateStats(moods, variations);
 	};
 
-	const onChooseEastAnswer = () => {
-		updateTrace(currentCard.id, "east");
+	const onChooseEastAnswer = (kanji) => {
+		
+		//updateTrace(currentCard.id, "east");
 		// updateStats(moods, variations);
 	};
 
 	
-	const onChooseNorthAnswer = () => {
+	const onChooseNorthAnswer = (kanji) => {
 		updateTrace(currentCard.id, "north");
 	};
 
-	const onChooseSouthAnswer = () => {
+	const onChooseSouthAnswer = (kanji) => {
 		const { moods, variations } = Parsers.cardParser(currentCard.onRight);
 		updateTrace(currentCard.id, "south");
 		updateStats(moods, variations);

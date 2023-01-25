@@ -18,6 +18,9 @@ import {PanGestureHandler} from 'react-native-gesture-handler';
 import CardReverse from './CardReverse';
 import BackStatic from './BackgroundStatic';
 
+import useKanjiCards from './Kanjitab';
+const {KanjiCards} = useKanjiCards();
+
 const MultipleCard = ({
   onChooseWestAnswer,
   onChooseEastAnswer,
@@ -27,8 +30,6 @@ const MultipleCard = ({
   eastText,
   northText,
   southText,
-  image,
-  backgroundColor,
 }) => {
   const [isActive, setIsActive] = useState(false);
   const [showCard, setShowCard] = useState(false);
@@ -48,30 +49,22 @@ const MultipleCard = ({
     },
     onEnd: (event) => {
       if (event.translationX > 50 && event.translationY < event.translationX && (-event.translationX) < event.translationY) {
-        x.value = withSpring(400, {
-          velocity: event.velocityX,
-        });
-        runOnJS(onChooseEastAnswer)();
+
+        runOnJS(onChooseEastAnswer)(eastText);
       } else if (event.translationX < -50 && event.translationY > event.translationX && (-event.translationX) > event.translationY ) {
-        x.value = withSpring(-400, {
-          velocity: event.velocityX,
-        });
-        runOnJS(onChooseWestAnswer)();
-      } else if (event.translationY > 50 && event.translationX < event.translationY && (-event.translationY) < event.translationX) {
-        y.value = withSpring(-400, {
-          velocity: event.velocityY,
-        });
-        runOnJS(onChooseNorthAnswer)();
-      } else if (event.translationY < -50 && event.translationX > event.translationY && (-event.translationY) > event.translationX ) {
-        y.value = withSpring(400, {
-          velocity: event.velocityY,
-        });
-        runOnJS(onChooseSouthAnswer)();
+
+        runOnJS(onChooseWestAnswer)(westText);
+      } else if (event.translationY > -50 && event.translationX > event.translationY && (-event.translationY) > event.translationX) {
+
+        runOnJS(onChooseSouthAnswer)(southText);
+      } else if (event.translationY < 50 && event.translationX < event.translationY && (-event.translationY) < event.translationX ) {
+
+        runOnJS(onChooseNorthAnswer)(northText);
       }
-      //  else {
-      //   x.value = withSpring(0, {velocity: event.velocityX});
-      // }
-      // y.value = withSpring(0, {velocity: event.velocityY});
+      else {
+      x.value = withSpring(0, {velocity: event.velocityX});
+      }
+      y.value = withSpring(0, {velocity: event.velocityY});
     },
   });
 
