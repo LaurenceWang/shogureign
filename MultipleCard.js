@@ -19,14 +19,14 @@ import CardReverse from './CardReverse';
 import BackStatic from './BackgroundStatic';
 
 const MultipleCard = ({
-  onChooseLeftAnswer,
-  onChooseRightAnswer,
-  onChooseUpAnswer,
-  onChooseDownAnswer,
-  leftText,
-  rightText,
-  upText,
-  downText,
+  onChooseWestAnswer,
+  onChooseEastAnswer,
+  onChooseNorthAnswer,
+  onChooseSouthAnswer,
+  westText,
+  eastText,
+  northText,
+  southText,
   image,
   backgroundColor,
 }) => {
@@ -47,30 +47,31 @@ const MultipleCard = ({
       y.value = ctx.startY + event.translationY;
     },
     onEnd: (event) => {
-      if (event.translationX > 50) {
+      if (event.translationX > 50 && event.translationY < event.translationX && (-event.translationX) < event.translationY) {
         x.value = withSpring(400, {
           velocity: event.velocityX,
         });
-        runOnJS(onChooseRightAnswer)();
-      } else if (event.translationX < -50) {
+        runOnJS(onChooseEastAnswer)();
+      } else if (event.translationX < -50 && event.translationY > event.translationX && (-event.translationX) > event.translationY ) {
         x.value = withSpring(-400, {
           velocity: event.velocityX,
         });
-        runOnJS(onChooseLeftAnswer)();
-      } else if (event.translationY > 50  ) {
-        x.value = withSpring(-400, {
-          velocity: event.velocityX,
+        runOnJS(onChooseWestAnswer)();
+      } else if (event.translationY > 50 && event.translationX < event.translationY && (-event.translationY) < event.translationX) {
+        y.value = withSpring(-400, {
+          velocity: event.velocityY,
         });
-        runOnJS(onChooseUpAnswer)();
-      } else if (event.translationY < -50 ) {
-        x.value = withSpring(-400, {
-          velocity: event.velocityX,
+        runOnJS(onChooseNorthAnswer)();
+      } else if (event.translationY < -50 && event.translationX > event.translationY && (-event.translationY) > event.translationX ) {
+        y.value = withSpring(400, {
+          velocity: event.velocityY,
         });
-        runOnJS(onChooseDownAnswer)();
-      } else {
-        x.value = withSpring(0, {velocity: event.velocityX});
+        runOnJS(onChooseSouthAnswer)();
       }
-      y.value = withSpring(0, {velocity: event.velocityY});
+      //  else {
+      //   x.value = withSpring(0, {velocity: event.velocityX});
+      // }
+      // y.value = withSpring(0, {velocity: event.velocityY});
     },
   });
 
@@ -201,7 +202,6 @@ const MultipleCard = ({
     };
   });
 
-  
   return (
     <>
       <View style={[{opacity: showCard ? 1 : 0}, styles.cardWrapper]}>
@@ -212,18 +212,18 @@ const MultipleCard = ({
         </Animated.View>
         <PanGestureHandler onGestureEvent={gestureHandler} enabled={isActive}>
           <Animated.View style={animatedFront}>
-          <Animated.View style={[styles.wrapper]}>
-            <BackStatic/>
-                <Text style={styles.textUp}>{upText}</Text>     
-                <Text style={styles.textLeft}>{leftText}</Text>
-                <Text style={styles.textRight}>{rightText}</Text>
-                <Text style={styles.textDown}>{downText}</Text>
-              </Animated.View>
+            <View style={[styles.wrapper]}>
+              <BackStatic/>
+              <Text style={styles.textUp}>{northText}</Text>     
+              <Text style={styles.textLeft}>{westText}</Text>
+              <Text style={styles.textRight}>{eastText}</Text>
+              <Text style={styles.textDown}>{southText}</Text>
+            </View>
             <Animated.View
-              style={[styles.kanji, animatedMovableCard, {backgroundColor}]}>
+              style={[styles.kanji, animatedMovableCard]}>
               <Animated.View style={[animatedFrontShadow, styles.shadow]} />
             </Animated.View>
-            </Animated.View>
+          </Animated.View>
         </PanGestureHandler>
       </View>
     </>
@@ -233,6 +233,8 @@ const MultipleCard = ({
 const styles = StyleSheet.create({
   
   kanji: {
+    backgroundColor: 'red',
+    color: 'blue',
     position: 'absolute',
     height: 50,
     width: 50,

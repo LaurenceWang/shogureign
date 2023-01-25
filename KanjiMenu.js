@@ -35,7 +35,6 @@ const dotColor = (data, item) => {
 
     case 4 : case 5 :
       return 'red';
-    
   }
 }
 

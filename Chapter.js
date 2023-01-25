@@ -7,7 +7,6 @@ import Question from './Question';
 import PowerIndicators from './PowerIndicators';
 import PlaceholderBackStaticCard from './PlaceholderBackStaticCard';
 import useGeneratedCards from './useGeneratedCards';
-import useGeneratedMultCards from './useGeneratedMultCards';
 import useGeneratedChapters from './useGeneratedChapters';
 import useGeneratedUnits from './useGeneratedUnits';
 import worldState from './worldState';
@@ -15,6 +14,7 @@ import worldState from './worldState';
 import GameOver from './data/gameover';
 
 import Config from './gameconfig';
+import MultCards from './useGeneratedMultCards';
 import Parsers from './Parsers';
 import { set } from 'react-native-reanimated';
 
@@ -37,10 +37,12 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 	const [showAnimatedReverseCard, setShowAnimatedReverseCard] = useState(false);
 	const [showReverseCard, setShowReverseCard] = useState(false);
 	const [showCard, setShowCard] = useState(false);
+	const [showMultCard, setShowMultCard] = useState(false);
 	const [showQuestion, setShowQuestion] = useState(false);
 	const [chapterCard, setChapterCard] = useState([]);
 
 	const [currentCard, setCurrentCard] = useState({});
+	const [currentMultCard, setCurrentMultCard] = useState({});
 	const [currentCardIndex, setCurrentCardIndex] = useState(0);
 	const [currentMood, setCurrentMood] = useState({ happy: [], sad: [] });
 	const baseStats = 50;
@@ -120,9 +122,9 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 		setShowQuestion(false);
 		setTimeout(() => {
 
-
+			setCurrentMultCard(MultCards[0]);
 			setCurrentCard(getCardById(cards[0]));
-
+			setShowMultCard(true);
 			setShowCard(false);
 		}, 100);
 
@@ -549,7 +551,8 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 
 	const showNextCard = (timeout) => {
 		setTimeout(() => {
-			setShowCard(true);
+			setShowCard(false);
+			setCurrentMultCard(MultCards[0]);
 			setTimeout(() => {
 				setShowQuestion(true);
 			}, 10);
@@ -763,6 +766,29 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 		updateStats(moods, variations);
 	};
 
+	
+	const onChooseWestAnswer = () => {
+		updateTrace(currentCard.id, "west");
+		// updateStats(moods, variations);
+	};
+
+	const onChooseEastAnswer = () => {
+		updateTrace(currentCard.id, "east");
+		// updateStats(moods, variations);
+	};
+
+	
+	const onChooseNorthAnswer = () => {
+		updateTrace(currentCard.id, "north");
+	};
+
+	const onChooseSouthAnswer = () => {
+		const { moods, variations } = Parsers.cardParser(currentCard.onRight);
+		updateTrace(currentCard.id, "south");
+		updateStats(moods, variations);
+	};
+
+
 	const createNewCard = (newPC, newUnitId, next_id) => {
 		setShowQuestion(false);
 		setTimeout(() => {
@@ -844,6 +870,16 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 			<View style={styles.cardWrapper}>
 				{showAnimatedReverseCard && <PlaceholderBackCards />}
 				{showReverseCard && <PlaceholderBackStaticCard />}
+				{showMultCard && <MultipleCard
+						onChooseWestAnswer={onChooseWestAnswer}
+						onChooseEastAnswer={onChooseEastAnswer}
+						onChooseNorthAnswer={onChooseNorthAnswer}
+						onChooseSouthAnswer={onChooseSouthAnswer}
+						westText={currentMultCard["westText"]}
+						eastText={currentMultCard["eastText"]}
+						northText={currentMultCard["northText"]}
+						southText={currentMultCard["southText"]}
+					/>}
 				{showCard && (
 					<Card
 						onChooseLeftAnswer={onChooseLeftAnswer}
