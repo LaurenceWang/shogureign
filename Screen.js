@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Button, Text } from 'react-native';
 import React, { useEffect, useState } from 'react';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -16,6 +16,7 @@ export default function AnimatedStyleUpdateExample() {
   const [chapNum, setChapNum] = useState(0);
   const [kanji, setKanji] = useState(null);
   const [reload, setReload] = useState(true);
+  const [gameSave, setGameSave] = useState();
 
   const [showStartButton, setShowStartButton] = useState(true);
   const [showChapter, setShowChapter] = useState(false);
@@ -25,6 +26,7 @@ export default function AnimatedStyleUpdateExample() {
   const [showTrophyMenu, setShowTrophyMenu] = useState(false);
   const [showCreditsButton, setShowCreditsButton] = useState(true);
   const [showCreditsMenu, setShowCreditsMenu] = useState(false);
+  const [showClearBtn, setShowClearBtn] = useState(true);
 
   const onStartKanji = () => {
     setTimeout(() => {
@@ -33,6 +35,7 @@ export default function AnimatedStyleUpdateExample() {
       setShowTrophyButton(false);
       setShowCreditsButton(false);
       setShowKanjiMenu(true);
+      setShowClearBtn(false);
     }, 500);
   }
 
@@ -47,12 +50,14 @@ export default function AnimatedStyleUpdateExample() {
       setShowKanjiButton(false);
       setShowTrophyButton(false);
       setShowCreditsButton(false);
+      setShowClearBtn(false);
       setShowChapter(true);
     }, 500);
   };
 
   const onMenuReturn = () => {
     setTimeout(() => {
+      setShowClearBtn(true);
       setShowStartButton(true);
       setShowKanjiButton(true);
       setShowTrophyButton(true);
@@ -71,6 +76,7 @@ export default function AnimatedStyleUpdateExample() {
       setShowCreditsButton(false);
       setShowTrophyButton(false);
       setShowTrophyMenu(true);
+      setShowClearBtn(false);
     }, 500);
   }
 
@@ -81,6 +87,7 @@ export default function AnimatedStyleUpdateExample() {
       setShowCreditsButton(false);
       setShowTrophyButton(false);
       setShowCreditsMenu(true);
+      setShowClearBtn(false);
     }, 500);
   }
 
@@ -94,14 +101,52 @@ export default function AnimatedStyleUpdateExample() {
     }
   }
 
-  const clearSave = () => save(Config.kanjiKey, {}).then(() => {
+  const loadGameSave = (ws, pc, pu, cc, im) =>{
+    let wSave = {};
+    wSave.ws = ws;
+    wSave.pc = pc;
+    wSave.pu = pu,
+    wSave.cc = cc;
+    wSave.im = im;
+
+    setGameSave(wSave);
+  }
+
+  /*const clearSave = () => save(Config.kanjiKey, {}).then(() => {
     console.log("Clear successful");
     setReload(true);
-  });
+  });*/
+
+  const clearSave = () => {
+   
+    save(Config.kanjiKey, {}).then(() => {
+      console.log("Clear successful");
+    });
+    save(Config.worldKey, {}).then(() => {
+      console.log("Clear successful");
+    });
+    save(Config.chapCardKey, {}).then(() => {
+      console.log("Clear successful");
+    });
+    save(Config.chapUnitKey, {}).then(() => {
+      console.log("Clear successful");
+    });
+    save(Config.curCardKey, {}).then(() => {
+      console.log("Clear successful");
+    });
+    save(Config.curIdMemoKey, {}).then(() => {
+      console.log("Clear successful");
+    });
+    setReload(true);
+  }
+
+  /*clearSave();*/
+
 
   const load = async (key) => {
     try {
       keys = await AsyncStorage.getAllKeys();
+      console.log("keys :");
       console.info(keys);
       if (!(keys.includes(key))) {
         console.info("Initializing kanjis...");
@@ -126,6 +171,22 @@ export default function AnimatedStyleUpdateExample() {
   useEffect(async () => {
     if (reload) {
       const tmp = await load(Config.kanjiKey);
+      const ws = await load(Config.worldKey);
+      const pc = await load(Config.chapCardKey);
+      const pu = await load(Config.chapUnitKey);
+      const cc = await load(Config.curCardKey);
+      const im = await load(Config.curIdMemoKey); 
+      /*console.log("ws : ")
+      console.log(ws);
+      console.log("pc : ")
+      console.log(pc);
+      console.log("pu : ")
+      console.log(pu);
+      console.log("cc : ")
+      console.log(cc);
+      console.log("im : ")
+      console.log(im);*/
+      loadGameSave(ws, pc, pu, cc, im);
       setKanji(tmp);
       setReload(false);
     }
@@ -136,8 +197,10 @@ export default function AnimatedStyleUpdateExample() {
     setChapNum(chapNum + 1);
   }
 
+
   return (
     <View>
+      {showClearBtn && <Button onPress={clearSave} title="Clear game saving" style={styles.btn} ></Button>}
       {showKanjiButton && <KanjiButton onPress={onStartKanji} />}
       {showKanjiMenu && <KanjiMenu data={kanji} />}
       {showTrophyButton && <TrophyButton onPress={onStartTrophy} />}
@@ -145,7 +208,7 @@ export default function AnimatedStyleUpdateExample() {
       {showCreditsButton && <CreditsButton onPress={onStartCredits} />}
       {showCreditsMenu && <CreditsMenu />}
       {showStartButton && <StartButton onPress={onStartChapter} />}
-      {showChapter && <Chapter chapNum={chapNum} endChap={increment} onMenuReturn={onMenuReturn} kanjiProgression={kanji} save={save} />}
+      {showChapter && <Chapter chapNum={chapNum} endChap={increment} onMenuReturn={onMenuReturn} kanjiProgression={kanji} gameSave={gameSave} save={save} />}
 
     </View>
   );
@@ -177,4 +240,10 @@ const styles = StyleSheet.create({
     height: 170,
     backgroundColor: '#ccc',
   },
+  btn:{
+    
+    width : 10,
+    height : 10,
+    color : "#ccc"
+  }
 });

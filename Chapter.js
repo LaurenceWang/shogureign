@@ -1,5 +1,5 @@
 import { AppState, Text, View, StyleSheet } from 'react-native';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Card from './Card';
 import MultipleCard from './MultipleCard';
 import PlaceholderBackCards from './PlaceholderBackCards';
@@ -18,7 +18,7 @@ import Config from './gameconfig';
 import Parsers from './Parsers';
 import { set } from 'react-native-reanimated';
 
-const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => {
+const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, gameSave, save }) => {
 	//const {getChapterbyId} = useGeneratedChapters();
 	const { getChapterByIndex } = useGeneratedChapters();
 	const { getCardById } = useGeneratedCards();
@@ -53,7 +53,8 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 	const [testUnit, setTestUnit] = useState(0);
 	const [idMemory, setIdMemory] = useState([]);
 	let next_id = "";
-
+	
+	const firstRun = useRef(true);
 	/** Kanji weight info
 	 * Weight of the kanji, used for the probability
 	 * for them to appear in the lesson and the tests.
@@ -88,6 +89,24 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 	useEffect(() => {
 		initializeWorld();
 
+		//console.log("testeeee :" + Object.keys(gameSave).length)
+		if(Object.keys(gameSave.cc).length !=0){
+		console.log("-------")
+		console.log("game save")
+		console.log(gameSave);
+		console.log("-------")
+		//console.log("hihihi")
+
+		/*setworldSt(gameSave.ws);
+		setIdMemory(gameSave.im);
+		setChapterCard(gameSave.pc);
+		setChapterUnit(gameSave.pu);
+		setCurrentCard(gameSave.cc);*/
+		}else{
+			console.log("pouetpouet")
+		}
+
+
 		setTimeout(() => {
 			setShowAnimatedReverseCard(true);
 		}, 500);
@@ -105,9 +124,43 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 		setKanjiWeight(kanjiProgression);
 	}, [kanjiProgression]);
 
+
+	/*useEffect(() => {
+		// console.log("Kanji progression test: ");
+		setworldSt(gameSave.ws);
+		setIdMemory(gameSave.im);
+		setChapterCard(gameSave.pc);
+		setChapterUnit(gameSave.pu);
+		setCurrentCard(gameSave.cc);
+	}, [gameSave]);*/
+
 	useEffect(() => {
 		//initializeWorld();
 		// console.log("current chap Num : " + chapNum)
+
+		if(firstRun.current && Object.keys(gameSave.cc).length !=0 ){
+			setIdMemory(gameSave.im);
+			setChapterCard(gameSave.pc);
+			setChapterUnit(gameSave.pu);
+			setworldSt(gameSave.ws);
+			//console.log((gameSave.cc).Unit);
+			setCurrentUnitId((gameSave.cc).Unit);
+
+			setShowQuestion(false);
+			setTimeout(() => {
+
+
+				setCurrentCard(gameSave.cc);
+
+			setShowCard(false);
+			}, 100);
+
+		showNextCard(150);
+		firstRun.current = false;
+			
+		}else{
+
+		
 
 		let units = getChapterByIndex(chapNum).unit;
 
@@ -127,6 +180,8 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 		}, 100);
 
 		showNextCard(150);
+
+		}
 
 
 	}, [chapNum]);
@@ -204,6 +259,10 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 				setIdMemory(newOldId);
 				setChapterCard(newPC);
 				setChapterUnit(newPU);
+				save(Config.worldKey, newWS);
+				save(Config.curIdMemoKey, newOldId);
+				save(Config.chapCardKey, newPC);
+				save(Config.chapUnitKey, newPU);
 				createNewCard(newPC, newUnitId, next_id);
 
 			}
@@ -619,9 +678,11 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 				setCurrentUnitId(getCardById(next_id).Unit);
 				console.log("unit du next card : " + getCardById(next_id).Unit)
 				setCurrentCard(getCardById(next_id));
+				save(Config.curCardKey , getCardById(next_id));
 			} else {
 				setCurrentUnitId(newUnitId);
 				setCurrentCard(getCardById(newPC[ran]));
+				save(Config.curCardKey , getCardById(newPC[ran]));
 			}
 
 
