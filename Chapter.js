@@ -42,7 +42,6 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 	const [chapterCard, setChapterCard] = useState([]);
 
 	const [currentCard, setCurrentCard] = useState({});
-	const [currentMultCard, setCurrentMultCard] = useState({});
 	const [currentCardIndex, setCurrentCardIndex] = useState(0);
 	const [currentMood, setCurrentMood] = useState({ happy: [], sad: [] });
 	const baseStats = 50;
@@ -121,10 +120,8 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 
 		setShowQuestion(false);
 		setTimeout(() => {
-
-			setCurrentMultCard(MultCards[0]);
+			//setCurrentMultCard(MultCards[0]);
 			setCurrentCard(getCardById(cards[0]));
-			setShowMultCard(true);
 			setShowCard(false);
 		}, 100);
 
@@ -551,8 +548,8 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 
 	const showNextCard = (timeout) => {
 		setTimeout(() => {
-			setShowCard(false);
-			setCurrentMultCard(MultCards[0]);
+			setShowCard(true);
+			//setCurrentMultCard(MultCards[0]);
 			setTimeout(() => {
 				setShowQuestion(true);
 			}, 10);
@@ -744,7 +741,8 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 	const onChooseLeftAnswer = () => {
 		//console.debug("Current card: ");
 		//console.debug(currentCard);
-		//updateTrace(currentCard.id, "left");
+		const {moods, variations} = Parsers.cardParser(currentCard.onLeft);
+		updateTrace(currentCard.id, "left");
 		//updateWorldStateCard("left", currentCard.id);
 		//nextCardId = currentCard.left_next_card;
 		updateStats(moods, variations);
@@ -753,11 +751,12 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 	const onChooseRightAnswer = () => {
 		//console.debug("Current card: ");
 		//console.debug(currentCard);
-		//updateTrace(currentCard.id, "right");
+		const {moods, variations} = Parsers.cardParser(currentCard.onRight);
+		updateTrace(currentCard.id, "right");
 
 		//updateWorldStateCard("right", currentCard.id);
 		//nextCardId = currentCard.right_next_card;
-		//updateStats(moods, variations);
+		updateStats(moods, variations);
 	};
 
 	
