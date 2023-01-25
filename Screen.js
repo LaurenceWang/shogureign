@@ -14,7 +14,7 @@ import CreditsMenu from './CreditsMenu';
 
 
 export default function AnimatedStyleUpdateExample() {
-  const [chapNum, setChapNum] = useState(0);
+  const [chapNum, setChapNum] = useState(1);
   const [data, setData] = useState(null);
   const [reload, setReload] = useState(true);
 

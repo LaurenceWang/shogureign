@@ -138,18 +138,18 @@ export default function useGeneratedUnits() {
 			"card": ["66262f990e88413f9ed6c66ab83d5300", "76b5bfc9afb64c5babf9350ad8c81bb7",],
 			"Person": "",
 			"Status": "",
-			"condition": {},
-			"custom" : {},
+			"condition": {"chap2_intro":false},
+			"custom" : {"chap2_intro" :true},
 			"background": ""
 		  },
 
 		  {
 			"Name": "Hungry",
 			"id": "28662fe73d694abbbc153e72ba25596d",
-			"card": ["b763de33a9f0457ea2db2a20a0e1e57a",],
+			"card": ["b763de33a9f0457ea2db2a20a0e1e57a","9df0a189575a4c9c8b7233036e8e90cc"],
 			"Person": "",
 			"Status": "",
-			"condition": {},
+			"condition": {"hungry":true},
 			"custom" : {},
 			"background": ""
 		  },
@@ -160,18 +160,18 @@ export default function useGeneratedUnits() {
 			"card": ["a0da9bacb9c147ad946b90001d355e8f",],
 			"Person": "",
 			"Status": "",
-			"condition": {},
-			"custom" : {},
+			"condition": {"library": true},
+			"custom" : {"library": false},
 			"background": ""
 		  },
 
 		  {
 			"Name": "Grocery_store",
 			"id": "54b40bf6f6204fc0a0d84f66b3795381",
-			"card": ["479dfbcc62c443d8a1d5501f09edcca8",],
+			"card": ["479dfbcc62c443d8a1d5501f09edcca8","b4197339405e4d8abb5108231a0f2970","a5af2a0c6950475fbab98038dc2174ca","d9a8f380fe534fb5be4138a1ac64188a","054abd47fdfa44e595ddb19f6629c3cf"],
 			"Person": "",
 			"Status": "",
-			"condition": {},
+			"condition": {"grocery":true},
 			"custom" : {},
 			"background": ""
 		  },
@@ -179,11 +179,11 @@ export default function useGeneratedUnits() {
 		  {
 			"Name": "Cook",
 			"id": "810d9da937e2464ab5b7145a73050996",
-			"card": ["6a113b437caf4e6f932c2cbfb4ca79a2",],
+			"card": ["6a113b437caf4e6f932c2cbfb4ca79a2","3f45c532bd6b4b42aaba448de4622380","7b75706741bd4c4c870bcc054c8144d8", "c6c217b1a8234df8935968191643463b", "dbfd37ef8d6c4093bc1cd494136e331b", "9b2377b9a26d45c6a907426ce6ef3e0e", "e6192d4857124e8288ba4a39ede033c1","6357f62be25d42d8b396047ada4fd65a","57de92128fac4aa283fa087b3483d702","5f39bf8a266e47349801f00ac76e65f2","f0a342bda52c49608eb5014ba73a866a","168ce3fa29374396a8ad4fcbbe893b2e"],
 			"Person": "",
 			"Status": "",
-			"condition": {},
-			"custom" : {},
+			"condition": {"cook":true},
+			"custom" : {"cook":false},
 			"background": ""
 		  },
 
