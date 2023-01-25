@@ -11,11 +11,14 @@ import TrophyMenu from './TrophyMenu';
 import CreditsButton from './CreditsButton';
 import CreditsMenu from './CreditsMenu';
 import Config from './gameconfig';
+import GameOver from './data/gameover';
+import GameOverScreen from './GameOverScreen';
 
 export default function AnimatedStyleUpdateExample() {
   const [chapNum, setChapNum] = useState(0);
   const [kanji, setKanji] = useState(null);
   const [reload, setReload] = useState(true);
+  const [gameOverText, setGameOverText] = useState('');
 
   const [showStartButton, setShowStartButton] = useState(true);
   const [showChapter, setShowChapter] = useState(false);
@@ -25,13 +28,21 @@ export default function AnimatedStyleUpdateExample() {
   const [showTrophyMenu, setShowTrophyMenu] = useState(false);
   const [showCreditsButton, setShowCreditsButton] = useState(true);
   const [showCreditsMenu, setShowCreditsMenu] = useState(false);
+  const [showGameOverScreen, setShowGameOverScreen] = useState(false);
+
+  const resetStates = () => {
+    setShowStartButton(false);
+    setShowKanjiButton(false);
+    setShowTrophyButton(false);
+    setShowCreditsButton(false);
+    setShowGameOverScreen(false);
+    setShowKanjiMenu(false);
+    setShowChapter(false);
+  }
 
   const onStartKanji = () => {
     setTimeout(() => {
-      setShowStartButton(false);
-      setShowKanjiButton(false);
-      setShowTrophyButton(false);
-      setShowCreditsButton(false);
+      resetStates();
       setShowKanjiMenu(true);
     }, 500);
   }
@@ -43,43 +54,42 @@ export default function AnimatedStyleUpdateExample() {
 
   const onStartChapter = () => {
     setTimeout(() => {
-      setShowStartButton(false);
-      setShowKanjiButton(false);
-      setShowTrophyButton(false);
-      setShowCreditsButton(false);
+      resetStates();
       setShowChapter(true);
     }, 500);
   };
 
+  const onGameOverScreen = (text) => {
+    setTimeout(() => {
+      resetStates();
+      setShowGameOverScreen(true);
+      setGameOverText(text);
+      onMenuReturn();
+    }, 500);
+  }
+
   const onMenuReturn = () => {
     setTimeout(() => {
+      resetStates();
       setShowStartButton(true);
       setShowKanjiButton(true);
       setShowTrophyButton(true);
       setShowCreditsButton(true);
-      setShowKanjiMenu(false);
-      setShowChapter(false);
       setChapNum(0);
       setReload(true);
-    }, 500);
+    }, 2000);
   }
 
   const onStartTrophy = () => {
     setTimeout(() => {
-      setShowStartButton(false);
-      setShowKanjiButton(false);
-      setShowCreditsButton(false);
-      setShowTrophyButton(false);
+      resetStates();
       setShowTrophyMenu(true);
     }, 500);
   }
 
   const onStartCredits = () => {
     setTimeout(() => {
-      setShowStartButton(false);
-      setShowKanjiButton(false);
-      setShowCreditsButton(false);
-      setShowTrophyButton(false);
+      resetStates();
       setShowCreditsMenu(true);
     }, 500);
   }
@@ -145,8 +155,8 @@ export default function AnimatedStyleUpdateExample() {
       {showCreditsButton && <CreditsButton onPress={onStartCredits} />}
       {showCreditsMenu && <CreditsMenu />}
       {showStartButton && <StartButton onPress={onStartChapter} />}
-      {showChapter && <Chapter chapNum={chapNum} endChap={increment} onMenuReturn={onMenuReturn} kanjiProgression={kanji} save={save} />}
-
+      {showChapter && <Chapter chapNum={chapNum} endChap={increment} onGameOverScreen={onGameOverScreen} kanjiProgression={kanji} save={save} />}
+      {showGameOverScreen && <GameOverScreen text={gameOverText} />}
     </View>
   );
 }

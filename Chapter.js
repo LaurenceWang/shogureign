@@ -18,7 +18,7 @@ import Config from './gameconfig';
 import Parsers from './Parsers';
 import { set } from 'react-native-reanimated';
 
-const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => {
+const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, save }) => {
 	//const {getChapterbyId} = useGeneratedChapters();
 	const { getChapterByIndex } = useGeneratedChapters();
 	const { getCardById } = useGeneratedCards();
@@ -523,8 +523,9 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 				.then(() => console.log("Saved successfully on game over."))
 				.catch(err => console.error(err));
 			setTimeout(() => {
-				console.log(GameOver[stats[0]][(currentStats[stats[0]] >= 100) ? "max" : "min"]["text"]);
-				onMenuReturn();
+				let text = GameOver[stats[0]][(currentStats[stats[0]] >= 100) ? "max" : "min"]["text"];
+				console.log(text);
+				onGameOverScreen(text);
 			}, 500);
 		}
 	}, [currentStats]);
