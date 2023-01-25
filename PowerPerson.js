@@ -13,7 +13,7 @@ const PowerPerson = ({ base, isHappy, isSad, value }) => {
   const cloudAnimation = useSharedValue(0);
   const personSize = useSharedValue(1);
 
-  const iconSize = 95;
+  const iconSize = 65;
 
   let styles = getStyles(iconSize, value);
 
@@ -102,22 +102,23 @@ const getStyles = (iconSize, value) => StyleSheet.create({
   personImage: {
     height: iconSize,
     width: iconSize,
+
   },
   heartImage: {
-    height: 55,
-    width: 55,
+    height: 10,
+    width: 10,
   },
   heartWrapper: {
     position: 'absolute',
-    bottom: 105,
+    bottom: 155,
   },
   cloudImage: {
-    height: 65,
-    width: 65,
+    height: 15,
+    width: 15,
   },
   cloudWrapper: {
     position: 'absolute',
-    bottom: 95,
+    bottom: 140,
   },
 });
 

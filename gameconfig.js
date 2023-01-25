@@ -31,6 +31,24 @@ const Config = {
   currentKanjiLevel: 1,
   // current level of the learned kanjis
   // default : 1
+
+  kanjiKey: '@kanji_progression',
+  // key for the AsyncStorage for the kanji stats
+
+  worldKey: '@world_state',
+  // key for the AsyncStorage for world state
+
+  chapCardKey: '@chap_card',
+  // key for the AsyncStorage for chapter cards
+
+  chapUnitKey: '@chap_unit',
+  // key for the AsyncStorage for chapter units
+
+  curCardKey: '@cur_card',
+  // key for the AsyncStorage for current card
+
+  curIdMemoKey: '@id_memo',
+  // key for the AsyncStorage for id memory
 }
 
 export default Config;
