@@ -1,5 +1,5 @@
-import useGeneratedUnits from "./useGeneratedUnits";
-import useGeneratedCards from "./useGeneratedCards";
+import useGeneratedUnits from "./data/useGeneratedUnits";
+import useGeneratedCards from "./data/useGeneratedCards";
 
 
 export default function worldState() {
@@ -13,18 +13,18 @@ export default function worldState() {
 	// 		"arrive_home_completed": false,
 	// 		//"chap1_home": false,
 	// 	}
-		
+
 	//;
 
-	const {Units} = useGeneratedUnits();
-	const {Cards} = useGeneratedCards();
+	const { Units } = useGeneratedUnits();
+	const { Cards } = useGeneratedCards();
 	let World;
 	Units.forEach(element => {
-		World = {...World, ...element.condition, ...element.custom};
+		World = { ...World, ...element.condition, ...element.custom };
 	});
-	Cards.forEach(val =>{
-		World = {...World, ...val.condition,...val.left_custom, ...val.right_custom};		
-	});  
+	Cards.forEach(val => {
+		World = { ...World, ...val.condition, ...val.left_custom, ...val.right_custom };
+	});
 
 
 	return {

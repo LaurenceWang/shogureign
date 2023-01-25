@@ -6,10 +6,10 @@ import PlaceholderBackCards from './PlaceholderBackCards';
 import Question from './Question';
 import PowerIndicators from './PowerIndicators';
 import PlaceholderBackStaticCard from './PlaceholderBackStaticCard';
-import useGeneratedCards from './useGeneratedCards';
-import useGeneratedMultCards from './useGeneratedMultCards';
-import useGeneratedChapters from './useGeneratedChapters';
-import useGeneratedUnits from './useGeneratedUnits';
+import useGeneratedCards from './data/useGeneratedCards';
+import useGeneratedMultCards from './data/useGeneratedMultCards';
+import useGeneratedChapters from './data/useGeneratedChapters';
+import useGeneratedUnits from './data/useGeneratedUnits';
 import worldState from './worldState';
 
 import GameOver from './data/gameover';
@@ -250,7 +250,7 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 		if (endChapitre == true) {
 			endChap();
 			console.log("----------------------------------------")
-	
+
 			console.log("chapNum :" + chapNum)
 			console.log("----------------------------------------")
 
@@ -600,7 +600,7 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 		setTimeout(() => {
 			console.log("---------------------------------------")
 			console.log("create new card :")
-		
+
 			console.log("testest");
 			console.log(newPC)
 
