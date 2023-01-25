@@ -18,7 +18,7 @@ import Config from './gameconfig';
 import Parsers from './Parsers';
 import { set } from 'react-native-reanimated';
 
-const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, gameSave, save }) => {
+const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSave, save }) => {
 	//const {getChapterbyId} = useGeneratedChapters();
 	const { getChapterByIndex } = useGeneratedChapters();
 	const { getCardById } = useGeneratedCards();

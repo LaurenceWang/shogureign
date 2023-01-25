@@ -18,12 +18,9 @@ export default function AnimatedStyleUpdateExample() {
   const [chapNum, setChapNum] = useState(0);
   const [kanji, setKanji] = useState(null);
   const [reload, setReload] = useState(true);
-<<<<<<< HEAD
   const [gameOverText, setGameOverText] = useState('');
   const [gameOverIcon, setGameOverIcon] = useState('');
-=======
   const [gameSave, setGameSave] = useState();
->>>>>>> origin/laurpoups3
 
   const [showStartButton, setShowStartButton] = useState(true);
   const [showChapter, setShowChapter] = useState(false);
@@ -226,7 +223,7 @@ export default function AnimatedStyleUpdateExample() {
       {showCreditsButton && <CreditsButton onPress={onStartCredits} />}
       {showCreditsMenu && <CreditsMenu />}
       {showStartButton && <StartButton onPress={onStartChapter} />}
-      {showChapter && <Chapter chapNum={chapNum} endChap={increment} onMenuReturn={onMenuReturn} kanjiProgression={kanji} gameSave={gameSave} save={save} />}
+      {showChapter && <Chapter chapNum={chapNum} endChap={increment} onGameOverScreen={onGameOverScreen} kanjiProgression={kanji} gameSave={gameSave} save={save} />}
       {showGameOverScreen && <GameOverScreen text={gameOverText} iconURI={gameOverIcon} />}
     </View >
   );
