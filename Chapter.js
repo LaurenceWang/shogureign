@@ -578,7 +578,7 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 		console.debug("Saving kanjis...");
 
 		if (kanjiWeight) {
-			save(kanjiWeight)
+			save(Config.kanjiKey, kanjiWeight)
 				.then(() => console.log("Successfully saved."))
 				.catch(err => console.err(err));
 		}
@@ -687,7 +687,7 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 		stats = gameOverStats();
 		if (stats.length > 0) {
 			console.log(`Game over > you are not in your dream country anymore because of ${(currentStats[stats[0]] >= 100) ? "too much" : "no more"} ${stats}`);
-			save(kanjiWeight)
+			save(Config.kanjiKey, kanjiWeight)
 				.then(() => console.log("Saved successfully on game over."))
 				.catch(err => console.error(err));
 			setTimeout(() => {

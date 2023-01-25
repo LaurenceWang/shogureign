@@ -31,6 +31,9 @@ const Config = {
   currentKanjiLevel: 1,
   // current level of the learned kanjis
   // default : 1
+
+  kanjiKey: '@kanji_progression'
+  // key for the AsyncStorage for the kanji stats
 }
 
 export default Config;
