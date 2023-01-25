@@ -19,6 +19,7 @@ export default function AnimatedStyleUpdateExample() {
   const [kanji, setKanji] = useState(null);
   const [reload, setReload] = useState(true);
   const [gameOverText, setGameOverText] = useState('');
+  const [gameOverIcon, setGameOverIcon] = useState('');
 
   const [showStartButton, setShowStartButton] = useState(true);
   const [showChapter, setShowChapter] = useState(false);
@@ -36,6 +37,7 @@ export default function AnimatedStyleUpdateExample() {
     setShowTrophyButton(false);
     setShowCreditsButton(false);
     setShowGameOverScreen(false);
+    setGameOverIcon('');
     setShowKanjiMenu(false);
     setShowChapter(false);
   }
@@ -59,11 +61,14 @@ export default function AnimatedStyleUpdateExample() {
     }, 500);
   };
 
-  const onGameOverScreen = (text) => {
+  const onGameOverScreen = (text, icon) => {
     setTimeout(() => {
       resetStates();
       setShowGameOverScreen(true);
+      // console.log('Screen > onGameOverScreen > text : ' + text);
       setGameOverText(text);
+      // console.log('Screen > onGameOverScreen > icon : ' + icon);
+      setGameOverIcon(icon);
       onMenuReturn();
     }, 500);
   }
@@ -111,7 +116,7 @@ export default function AnimatedStyleUpdateExample() {
 
   const load = async (key) => {
     try {
-      keys = await AsyncStorage.getAllKeys();
+      let keys = await AsyncStorage.getAllKeys();
       console.info(keys);
       if (!(keys.includes(key))) {
         console.info("Initializing kanjis...");
@@ -156,7 +161,7 @@ export default function AnimatedStyleUpdateExample() {
       {showCreditsMenu && <CreditsMenu />}
       {showStartButton && <StartButton onPress={onStartChapter} />}
       {showChapter && <Chapter chapNum={chapNum} endChap={increment} onGameOverScreen={onGameOverScreen} kanjiProgression={kanji} save={save} />}
-      {showGameOverScreen && <GameOverScreen text={gameOverText} />}
+      {showGameOverScreen && <GameOverScreen text={gameOverText} iconURI={gameOverIcon} />}
     </View>
   );
 }

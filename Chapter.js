@@ -523,9 +523,11 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, save })
 				.then(() => console.log("Saved successfully on game over."))
 				.catch(err => console.error(err));
 			setTimeout(() => {
-				let text = GameOver[stats[0]][(currentStats[stats[0]] >= 100) ? "max" : "min"]["text"];
+				let stat = GameOver[stats[0]][(currentStats[stats[0]] >= 100) ? "max" : "min"];
+				let text = stat["text"];
 				console.log(text);
-				onGameOverScreen(text);
+				console.log(stat["icon"]);
+				onGameOverScreen(text, stat["icon"]);
 			}, 500);
 		}
 	}, [currentStats]);
