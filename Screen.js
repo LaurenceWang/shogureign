@@ -10,12 +10,11 @@ import TrophyButton from './TrophyButton';
 import TrophyMenu from './TrophyMenu';
 import CreditsButton from './CreditsButton';
 import CreditsMenu from './CreditsMenu';
-
-
+import Config from './gameconfig';
 
 export default function AnimatedStyleUpdateExample() {
   const [chapNum, setChapNum] = useState(0);
-  const [data, setData] = useState(null);
+  const [kanji, setKanji] = useState(null);
   const [reload, setReload] = useState(true);
 
   const [showStartButton, setShowStartButton] = useState(true);
@@ -39,7 +38,7 @@ export default function AnimatedStyleUpdateExample() {
 
   useEffect(() => {
     console.log("menu ? ");
-    console.log(data);
+    console.log(kanji);
   }, [showKanjiMenu])
 
   const onStartChapter = () => {
@@ -85,32 +84,32 @@ export default function AnimatedStyleUpdateExample() {
     }, 500);
   }
 
-  const save = async (data) => {
+  const save = async (key, data) => {
     try {
       const jsonValue = JSON.stringify(data);
-      await AsyncStorage.setItem('@kanji_progression', jsonValue);
+      await AsyncStorage.setItem(key, jsonValue);
     } catch (e) {
       console.error(`Couldn't save data. Error: ${data}`);
       // saving error
     }
   }
 
-  const clearSave = () => save({}).then(() => {
+  const clearSave = () => save(Config.kanjiKey, {}).then(() => {
     console.log("Clear successful");
     setReload(true);
   });
 
-  const load = async () => {
+  const load = async (key) => {
     try {
       keys = await AsyncStorage.getAllKeys();
       console.info(keys);
-      if (!(keys.includes("@kanji_progression"))) {
+      if (!(keys.includes(key))) {
         console.info("Initializing kanjis...");
         clearSave();
         console.info("Initialization success.");
       }
 
-      const jsonValue = await AsyncStorage.getItem('@kanji_progression');
+      const jsonValue = await AsyncStorage.getItem(key);
       console.debug("Load > Value: ");
       console.debug(jsonValue);
       console.debug(typeof (jsonValue))
@@ -126,8 +125,8 @@ export default function AnimatedStyleUpdateExample() {
 
   useEffect(async () => {
     if (reload) {
-      const tmp = await load();
-      setData(tmp);
+      const tmp = await load(Config.kanjiKey);
+      setKanji(tmp);
       setReload(false);
     }
   }, [reload]);
@@ -140,13 +139,13 @@ export default function AnimatedStyleUpdateExample() {
   return (
     <View>
       {showKanjiButton && <KanjiButton onPress={onStartKanji} />}
-      {showKanjiMenu && <KanjiMenu data={data} />}
+      {showKanjiMenu && <KanjiMenu data={kanji} />}
       {showTrophyButton && <TrophyButton onPress={onStartTrophy} />}
       {showTrophyMenu && <TrophyMenu />}
       {showCreditsButton && <CreditsButton onPress={onStartCredits} />}
       {showCreditsMenu && <CreditsMenu />}
       {showStartButton && <StartButton onPress={onStartChapter} />}
-      {showChapter && <Chapter chapNum={chapNum} endChap={increment} onMenuReturn={onMenuReturn} kanjiProgression={data} save={save} />}
+      {showChapter && <Chapter chapNum={chapNum} endChap={increment} onMenuReturn={onMenuReturn} kanjiProgression={kanji} save={save} />}
 
     </View>
   );
