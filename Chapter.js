@@ -791,7 +791,11 @@ const Chapter = ({ chapNum, endChap, onMenuReturn, kanjiProgression, save }) => 
 			}
 
 			if (next_id != "") {
+				
+				console.log(next_id);
+				console.log("REGARDE LA CARTE : " + getCardById(next_id));
 				setCurrentUnitId(getCardById(next_id).Unit);
+				
 				console.log("unit du next card : " + getCardById(next_id).Unit)
 				setCurrentCard(getCardById(next_id));
 			} else {

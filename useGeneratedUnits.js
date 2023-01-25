@@ -183,7 +183,7 @@ export default function useGeneratedUnits() {
 			"Person": "",
 			"Status": "",
 			"condition": {"cook":true},
-			"custom" : {"cook":false},
+			"custom" : {},
 			"background": ""
 		  },
 
