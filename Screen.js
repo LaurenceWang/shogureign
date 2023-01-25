@@ -54,6 +54,10 @@ export default function AnimatedStyleUpdateExample() {
   }
 
   useEffect(() => {
+    console.log("Screen > show clear button: " + showClearBtn);
+  }, [showClearBtn]);
+
+  useEffect(() => {
     console.log("menu ? ");
     console.log(kanji);
   }, [showKanjiMenu])
@@ -134,9 +138,9 @@ export default function AnimatedStyleUpdateExample() {
 
   const clearSave = () => {
 
-    save(Config.kanjiKey, {}).then(() => {
+    /*save(Config.kanjiKey, {}).then(() => {
       console.log("Clear successful");
-    });
+    });*/
     save(Config.worldKey, {}).then(() => {
       console.log("Clear successful");
     });
@@ -215,7 +219,7 @@ export default function AnimatedStyleUpdateExample() {
 
   return (
     <View>
-      {showClearBtn && <Button onPress={clearSave} title="Clear game saving" style={styles.btn} ></Button>}
+      {showClearBtn && <Button onPress={clearSave} title="Clear game saving" color="#333333" />}
       {showKanjiButton && <KanjiButton onPress={onStartKanji} />}
       {showKanjiMenu && <KanjiMenu data={kanji} />}
       {showTrophyButton && <TrophyButton onPress={onStartTrophy} />}
@@ -230,6 +234,7 @@ export default function AnimatedStyleUpdateExample() {
 }
 
 const styles = StyleSheet.create({
+
   wrapper: {
     flex: 1,
     flexDirection: 'column',
@@ -255,10 +260,4 @@ const styles = StyleSheet.create({
     height: 170,
     backgroundColor: '#ccc',
   },
-  btn: {
-
-    width: 10,
-    height: 10,
-    color: "#ccc"
-  }
 });

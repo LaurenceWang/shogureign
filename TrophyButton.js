@@ -46,13 +46,14 @@ const styles = StyleSheet.create({
     width: '42%',
     borderRadius: 35,
     overflow: 'hidden',
+    //flex : 1,
   },
   cardWrapper: {
     height: '100%',
     width: '100%',
     left: '7%',
     top: '40%',
-    position: 'absolute'
+    position: 'absolute',
   },
   iconFull: {
     height: '100%',
@@ -61,12 +62,15 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     backgroundColor: '#FFCCD3',
+    alignItems : 'center',
+    justifyContent : 'center',
   },
   Icon: {
-    height: '85%',
-    width: '85%',
-    position: 'absolute',
-    left: '5%'
+    height: '50%',
+    width: '50%',
+    //top : '50%',
+    //position: 'absolute',
+    //left: '5%'
   },
   shadow: {
     position: 'absolute',
@@ -76,8 +80,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   text: {
-    paddingTop: 133,
-    paddingLeft:33,
+    //paddingTop: 133,
+    //paddingLeft:33,
 
 
   },
