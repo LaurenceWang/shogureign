@@ -5,20 +5,24 @@ const ProgressBar = ({ value }) => {
   const styles = getStyles((value >= 0) ? value : 0);
 
   return (
-    <View className="power-pb" style={styles.pbBorder}>
-      <Animated.View className="power-pb-green" style={styles.green} />
+    <View className="power-pb" style={styles.pb}>
+      <Animated.View className="power-pb-green" style={styles.fill} />
     </View>
   );
 }
 
 const getStyles = (value) => StyleSheet.create({
-  pbBorder: {
-    borderWidth: 1
+  pb: {
+    marginBottom : 35,
+    transform: [{rotateZ: '-90deg'}],
+    borderWidth: 1,
+    borderColor : "#AAA",
   },
-  green: {
-    backgroundColor: "#60F645",
+  fill: {
+    
+    backgroundColor: "#AAA",
     width: `${value}%`,
-    height: 2
+    height: 10,
   }
 });
 
