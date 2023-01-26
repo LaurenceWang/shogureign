@@ -1,4 +1,4 @@
-import { StyleSheet, View, Button, Text } from 'react-native';
+import { StyleSheet, View, Button } from 'react-native';
 import React, { useEffect, useState } from 'react';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -78,21 +78,26 @@ export default function AnimatedStyleUpdateExample() {
       // console.log('Screen > onGameOverScreen > icon : ' + icon);
       setGameOverIcon(icon);
       clearSave(false);
-      onMenuReturn();
+      setTimeout(() => {
+        onMenuReturn();
+      }, 2000);
+      setChapNum(0);
     }, 500);
   }
 
   const onMenuReturn = () => {
-    setTimeout(() => {
-      resetStates();
-      setShowClearBtn(true);
-      setShowStartButton(true);
-      setShowKanjiButton(true);
-      setShowTrophyButton(true);
-      setShowCreditsButton(true);
-      setChapNum(0);
-      setReload(true);
-    }, 2000);
+
+    resetStates();
+    setShowClearBtn(true);
+    setShowStartButton(true);
+    setShowKanjiButton(true);
+    setShowTrophyButton(true);
+    setShowCreditsButton(true);
+    setShowChapter(false);
+    setShowKanjiMenu(false);
+    //setChapNum(0);
+    setReload(true);
+
   }
 
   const onStartTrophy = () => {
@@ -161,8 +166,6 @@ export default function AnimatedStyleUpdateExample() {
     setReload(true);
   }
 
-  /*clearSave();*/
-
 
   const load = async (key) => {
     try {
@@ -197,16 +200,6 @@ export default function AnimatedStyleUpdateExample() {
       const pu = await load(Config.chapUnitKey);
       const cc = await load(Config.curCardKey);
       const im = await load(Config.curIdMemoKey);
-      /*console.log("ws : ")
-      console.log(ws);
-      console.log("pc : ")
-      console.log(pc);
-      console.log("pu : ")
-      console.log(pu);
-      console.log("cc : ")
-      console.log(cc);
-      console.log("im : ")
-      console.log(im);*/
       loadGameSave(ws, pc, pu, cc, im);
       setKanji(tmp);
       setReload(false);
@@ -221,15 +214,15 @@ export default function AnimatedStyleUpdateExample() {
 
   return (
     <View>
-      {showClearBtn && <Button onPress={() => clearSave(true)} title="Clear game saving" color="#333333" />}
+      {showClearBtn && <Button onPress={() => clearSave(true)} title="Clear game save" color="#eb5267" />}
       {showKanjiButton && <KanjiButton onPress={onStartKanji} />}
-      {showKanjiMenu && <KanjiMenu data={kanji} />}
+      {showKanjiMenu && <KanjiMenu data={kanji} onBack={onMenuReturn} />}
       {showTrophyButton && <TrophyButton onPress={onStartTrophy} />}
       {showTrophyMenu && <TrophyMenu />}
       {showCreditsButton && <CreditsButton onPress={onStartCredits} />}
       {showCreditsMenu && <CreditsMenu />}
       {showStartButton && <StartButton onPress={onStartChapter} />}
-      {showChapter && <Chapter chapNum={chapNum} endChap={increment} onGameOverScreen={onGameOverScreen} kanjiProgression={kanji} gameSave={gameSave} save={save} />}
+      {showChapter && <Chapter chapNum={chapNum} endChap={increment} onGameOverScreen={onGameOverScreen} kanjiProgression={kanji} gameSave={gameSave} save={save} onBack={onMenuReturn} />}
       {showGameOverScreen && <GameOverScreen text={gameOverText} iconURI={gameOverIcon} />}
     </View >
   );
