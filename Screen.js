@@ -79,25 +79,25 @@ export default function AnimatedStyleUpdateExample() {
       setGameOverIcon(icon);
       clearSave(false);
       setTimeout(() => {
-      onMenuReturn();
+        onMenuReturn();
       }, 2000);
       setChapNum(0);
     }, 500);
   }
 
   const onMenuReturn = () => {
-   
-      resetStates();
-      setShowClearBtn(true);
-      setShowStartButton(true);
-      setShowKanjiButton(true);
-      setShowTrophyButton(true);
-      setShowCreditsButton(true);
-      setShowChapter(false);
-      setShowKanjiMenu(false);
-      //setChapNum(0);
-      setReload(true);
-    
+
+    resetStates();
+    setShowClearBtn(true);
+    setShowStartButton(true);
+    setShowKanjiButton(true);
+    setShowTrophyButton(true);
+    setShowCreditsButton(true);
+    setShowChapter(false);
+    setShowKanjiMenu(false);
+    //setChapNum(0);
+    setReload(true);
+
   }
 
   const onStartTrophy = () => {
@@ -218,13 +218,13 @@ export default function AnimatedStyleUpdateExample() {
     <View>
       {showClearBtn && <Button onPress={() => clearSave(true)} title="Clear game saving" color="#eb5267" />}
       {showKanjiButton && <KanjiButton onPress={onStartKanji} />}
-      {showKanjiMenu && <KanjiMenu data={kanji} onBack ={onMenuReturn} />}
+      {showKanjiMenu && <KanjiMenu data={kanji} onBack={onMenuReturn} />}
       {showTrophyButton && <TrophyButton onPress={onStartTrophy} />}
       {showTrophyMenu && <TrophyMenu />}
       {showCreditsButton && <CreditsButton onPress={onStartCredits} />}
       {showCreditsMenu && <CreditsMenu />}
       {showStartButton && <StartButton onPress={onStartChapter} />}
-      {showChapter && <Chapter chapNum={chapNum} endChap={increment} onGameOverScreen={onGameOverScreen} kanjiProgression={kanji} gameSave={gameSave} save={save} onBack ={onMenuReturn} />}
+      {showChapter && <Chapter chapNum={chapNum} endChap={increment} onGameOverScreen={onGameOverScreen} kanjiProgression={kanji} gameSave={gameSave} save={save} onBack={onMenuReturn} />}
       {showGameOverScreen && <GameOverScreen text={gameOverText} iconURI={gameOverIcon} />}
     </View >
   );

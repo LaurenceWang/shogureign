@@ -1,4 +1,4 @@
-import {StyleSheet, View, Text, Pressable,} from 'react-native';
+import { StyleSheet, View, Text, Pressable, } from 'react-native';
 import React from 'react';
 import FastImage from 'react-native-fast-image';
 import Animated, {
@@ -7,7 +7,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
-const KanjiButton = ({onPress}) => {
+const KanjiButton = ({ onPress }) => {
   const openAnimation = useSharedValue(1);
 
   const animatedWrapper = useAnimatedStyle(() => {
@@ -23,20 +23,20 @@ const KanjiButton = ({onPress}) => {
 
   return (
     <View style={styles.cardWrapper}>
-     
-    <Pressable style={styles.wrapperBack} onPress={onPressCard}>
-      <Animated.View style={[animatedWrapper, styles.iconFull]}>
-        <View style={styles.wrapper}>
-          <FastImage
-            source={{
-              uri: 'https://cdn-icons-png.flaticon.com/512/5078/5078655.png',
-            }}
-            style={styles.Icon}
-          />
-          <Text style={styles.text}>Dictionnaire</Text>
-        </View>
-      </Animated.View>
-    </Pressable>
+
+      <Pressable style={styles.wrapperBack} onPress={onPressCard}>
+        <Animated.View style={[animatedWrapper, styles.iconFull]}>
+          <View style={styles.wrapper}>
+            <FastImage
+              source={{
+                uri: 'https://cdn-icons-png.flaticon.com/512/5078/5078655.png',
+              }}
+              style={styles.Icon}
+            />
+            <Text style={styles.text}>Dictionnaire</Text>
+          </View>
+        </Animated.View>
+      </Pressable>
     </View>
   );
 };
@@ -62,8 +62,8 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     backgroundColor: '#FFCCD3',
-    alignItems : 'center',
-    justifyContent : 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   Icon: {
     /*height: '90%',
