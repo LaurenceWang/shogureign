@@ -1,4 +1,4 @@
-import { AppState, Text, View, StyleSheet } from 'react-native';
+import { AppState, Button, View, StyleSheet } from 'react-native';
 import React, { useState, useEffect, useRef } from 'react';
 import Card from './Card';
 import MultipleCard from './MultipleCard';
@@ -18,7 +18,7 @@ import Config from './gameconfig';
 import Parsers from './Parsers';
 import { set } from 'react-native-reanimated';
 
-const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSave, save }) => {
+const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSave, save, onBack }) => {
 	//const {getChapterbyId} = useGeneratedChapters();
 	const { getChapterByIndex } = useGeneratedChapters();
 	const { getCardById } = useGeneratedCards();
@@ -701,6 +701,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 
 	return (
 		<View style={styles.wrapper}>
+
 			<View style={styles.topWrapper}>
 				<PowerIndicators currentMood={currentMood} currentStats={currentStats} />
 			</View>
@@ -720,8 +721,14 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 						backgroundColor={currentCard.background}
 					/>
 				)}
+				
 			</View>
-			<View style={styles.nameWrapper} />
+			<View style={styles.btnWrapper}>
+				{ <Button title="Back" color="#FDA3AF" onPress={onBack} style={styles.btn} />}
+			</View>
+			{/* <View style={styles.nameWrapper} /> */}
+			
+			
 		</View>
 	);
 }
@@ -753,6 +760,22 @@ const styles = StyleSheet.create({
 		height: 170,
 		backgroundColor: '#ccc',
 	},
+
+	btnWrapper:{
+		
+		position : 'absolute',
+		bottom : -710,
+		//top: 650,
+		//marginTop : "185%",
+		left : 20,
+		//zIndex : 100,
+		//justifyContent: 'center',
+		//alignItems : 'flex-end',
+		//marginBottom : -250,
+		//alignItems: 'flex-start',
+	},
+
+	
 });
 
 export default Chapter;
