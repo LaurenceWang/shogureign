@@ -372,7 +372,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 			cards.splice(currentId, 1); // 2nd parameter means remove one item only
 		}*/
 
-		cards.forEach(element => {		
+		cards.forEach(element => {
 			const conditions = getCardById(element).condition;
 			if (comparaison(conditions, newWorld)) {
 				playableCards.push(element);
@@ -460,9 +460,24 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 			// Updating the kanji list
 			let newKanjiList = pendingKanjis;
 			newKanjiList.push(...newKanjis);
+			let kanjiWeightTmp = { ...kanjiWeight };
+			let count = 0;
+			for (let k in newKanjis) {
+				if (!Object.keys(kanjiWeight).includes(newKanjis[k])) {
+					kanjiWeightTmp[newKanjis[k]] = {
+						lesson: 5,
+						test: 5,
+						exam: 5
+					};
+					count += 1;
+				}
+			}
+
 			let newUniqueKanjiList = [...new Set(newKanjiList)];
 			//console.debug("updatePendingKanjis > new kanji list (before setState): ");
 			//console.debug(newUniqueKanjiList);
+			if (count > 0)
+				setKanjiWeight(kanjiWeightTmp);
 			setPendingKanjis(newUniqueKanjiList);
 		}
 	}
@@ -638,7 +653,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 	const onChooseLeftAnswer = () => {
 		//console.debug("Current card: ");
 		//console.debug(currentCard);
-		const {moods, variations} = Parsers.cardParser(currentCard.onLeft);
+		const { moods, variations } = Parsers.cardParser(currentCard.onLeft);
 		updateTrace(currentCard.id, "left");
 		//updateWorldStateCard("left", currentCard.id);
 		//nextCardId = currentCard.left_next_card;
@@ -648,7 +663,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 	const onChooseRightAnswer = () => {
 		//console.debug("Current card: ");
 		//console.debug(currentCard);
-		const {moods, variations} = Parsers.cardParser(currentCard.onRight);
+		const { moods, variations } = Parsers.cardParser(currentCard.onRight);
 		updateTrace(currentCard.id, "right");
 
 		//updateWorldStateCard("right", currentCard.id);
@@ -656,19 +671,19 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 		updateStats(moods, variations);
 	};
 
-	
+
 	const onChooseWestAnswer = (kanji) => {
 		//updateTrace(currentCard.id, "west");
 		// updateStats(moods, variations);
 	};
 
 	const onChooseEastAnswer = (kanji) => {
-		
+
 		//updateTrace(currentCard.id, "east");
 		// updateStats(moods, variations);
 	};
 
-	
+
 	const onChooseNorthAnswer = (kanji) => {
 		updateTrace(currentCard.id, "north");
 	};
@@ -701,11 +716,11 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 			}
 
 			if (next_id != "") {
-				
+
 				console.log(next_id);
 				console.log("REGARDE LA CARTE : " + getCardById(next_id));
 				setCurrentUnitId(getCardById(next_id).Unit);
-				
+
 				console.log("unit du next card : " + getCardById(next_id).Unit)
 				setCurrentCard(getCardById(next_id));
 				save(Config.curCardKey, getCardById(next_id));
@@ -735,15 +750,15 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 				{showAnimatedReverseCard && <PlaceholderBackCards />}
 				{showReverseCard && <PlaceholderBackStaticCard />}
 				{showMultCard && <MultipleCard
-						onChooseWestAnswer={onChooseWestAnswer}
-						onChooseEastAnswer={onChooseEastAnswer}
-						onChooseNorthAnswer={onChooseNorthAnswer}
-						onChooseSouthAnswer={onChooseSouthAnswer}
-						westText={currentMultCard["westText"]}
-						eastText={currentMultCard["eastText"]}
-						northText={currentMultCard["northText"]}
-						southText={currentMultCard["southText"]}
-					/>}
+					onChooseWestAnswer={onChooseWestAnswer}
+					onChooseEastAnswer={onChooseEastAnswer}
+					onChooseNorthAnswer={onChooseNorthAnswer}
+					onChooseSouthAnswer={onChooseSouthAnswer}
+					westText={currentMultCard["westText"]}
+					eastText={currentMultCard["eastText"]}
+					northText={currentMultCard["northText"]}
+					southText={currentMultCard["southText"]}
+				/>}
 				{showCard && (
 					<Card
 						onChooseLeftAnswer={onChooseLeftAnswer}
@@ -754,14 +769,14 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 						backgroundColor={currentCard.background}
 					/>
 				)}
-				
+
 			</View>
 			<View style={styles.btnWrapper}>
-				{ <Button title="Back" color="#FDA3AF" onPress={onBack} style={styles.btn} />}
+				{<Button title="Back" color="#FDA3AF" onPress={onBack} style={styles.btn} />}
 			</View>
 			{/* <View style={styles.nameWrapper} /> */}
-			
-			
+
+
 		</View>
 	);
 }
@@ -794,13 +809,13 @@ const styles = StyleSheet.create({
 		backgroundColor: '#ccc',
 	},
 
-	btnWrapper:{
-		
-		position : 'absolute',
-		bottom : -710,
+	btnWrapper: {
+
+		position: 'absolute',
+		bottom: -710,
 		//top: 650,
 		//marginTop : "185%",
-		left : 20,
+		left: 20,
 		//zIndex : 100,
 		//justifyContent: 'center',
 		//alignItems : 'flex-end',
@@ -808,7 +823,7 @@ const styles = StyleSheet.create({
 		//alignItems: 'flex-start',
 	},
 
-	
+
 });
 
 export default Chapter;
