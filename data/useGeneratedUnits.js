@@ -211,13 +211,46 @@ export default function useGeneratedUnits() {
 
 
 		{
-			"Name": "School",
-			"id": "855e243f63ae4f5f8578cdb7c842d618",
-			"card": ["685ef582acb344faaa4fe4b680acd0f8",],
+			"Name": "Introduction_chap3",
+			"id": "c84330446f9040d8b0661785992984c6",
+			"card": ["0a7cfc9935bb4ab0a7aae8f3c2b946d1",],
 			"Person": "",
 			"Status": "",
-			"condition": {},
+			"condition": {"chap3_intro":false},
+			"custom" : {"chap3_intro" :true},
+			"background": ""
+		},
+
+		{
+			"Name": "School",
+			"id": "855e243f63ae4f5f8578cdb7c842d618",
+			"card": ["1dd0102cd9b848858925f3e9899379ce", "685ef582acb344faaa4fe4b680acd0f8","e201fdaad5734c359a1910ac32886e56","1ac1fa6a2bdf4748b35d056e3bbe7a24","088b2294323c4352bb97ec2d21a743fc", "8a546bbe5ce94e67a67cfe3c94d36abf", "7b7bdb75779d4a439d16b86160b432a0", "4dfcbeeae33b4c6fb62360cd9c7e491b", "fe9293df5867473cb60560e3886d6dac", "3ec5a10e661b4c198e533f04f30f942b", "353fa0bebc01454b8ff1d0a7825885aa"],
+			"Person": "",
+			"Status": "",
+			"condition": {"in_school" : false},
+			"custom" : {"in_school" : true},
+			"background": ""
+		},
+
+		{
+			"Name": "Classroom",
+			"id": "15ded9ccd4704073a5bb31f4533e64bd",
+			"card": ["8b391439bae34fd786ed4712e60cfc7a",],
+			"Person": "",
+			"Status": "",
+			"condition": {"in_class":true},
 			"custom" : {},
+			"background": ""
+		},
+
+		{
+			"Name": "First_lesson",
+			"id": "dba4c5a89b364642a87f9b483154cd3c",
+			"card": ["8b391439bae34fd786ed4712e60cfc7a",],
+			"Person": "",
+			"Status": "",
+			"condition": {"first_lesson":true},
+			"custom" : {"first_lesson" : false},
 			"background": ""
 		},
 		
