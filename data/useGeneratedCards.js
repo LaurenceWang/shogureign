@@ -497,7 +497,7 @@ export default function useGeneratedCards() {
       "card_type": "dialogue_card",
       "character": "voisinshomme",
       "condition": { "voisinh_existe": false },
-      "question": "Bonjour, vous êtes la nouvelle voisine je présume. Enchanté, j’habite en face avec ma femme 母 et mon fils 子. Passez une bonne journée.",
+      "question": "Bonjour, vous êtes le nouveau voisin je présume. Enchanté, j’habite en face avec ma femme 母 et mon fils 子. Passez une bonne journée.",
       "leftText": "Vous aussi",
       "onLeft": "+5P",
       "rightText": "… (fixer avec insistance)",
