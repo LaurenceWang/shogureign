@@ -37,7 +37,7 @@ export default function useGeneratedCards() {
       "question": "Pour ce faire tu dois surveiller que ces jauges soient toujours pleines mais sans déborder ! Lors de ton année ces jauges varieront selon les choix que tu feras. Tiens essaie avec moi.",
       "leftText": "Acheter et manger un sandwich",
       "onLeft": "-5 A +10 H",
-      "rightText": "Enfiler un joli chapeau",
+      "rightText": "Acheter un joli chapeau",
       "onRight": "-10 A +10 P + 10 B",
       "custom": {},
       "left_custom": {},
