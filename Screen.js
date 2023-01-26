@@ -191,7 +191,7 @@ export default function AnimatedStyleUpdateExample() {
     }
   }
 
-  // clearSave();
+  //clearSave(true);
 
   useEffect(async () => {
     if (reload) {
