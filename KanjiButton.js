@@ -1,4 +1,4 @@
-import {StyleSheet, View, Text, Pressable} from 'react-native';
+import {StyleSheet, View, Text, Pressable,} from 'react-native';
 import React from 'react';
 import FastImage from 'react-native-fast-image';
 import Animated, {
@@ -23,6 +23,7 @@ const KanjiButton = ({onPress}) => {
 
   return (
     <View style={styles.cardWrapper}>
+     
     <Pressable style={styles.wrapperBack} onPress={onPressCard}>
       <Animated.View style={[animatedWrapper, styles.iconFull]}>
         <View style={styles.wrapper}>
