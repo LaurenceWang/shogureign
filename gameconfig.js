@@ -49,6 +49,9 @@ const Config = {
 
   curIdMemoKey: '@id_memo',
   // key for the AsyncStorage for id memory
+
+  curStat: '@id_stat',
+  // key for the AsyncStorage for stats
 }
 
 export default Config;

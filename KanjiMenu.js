@@ -2,6 +2,7 @@ import {
   StyleSheet,
   View,
   StatusBar,
+  Button,
   Text,
   FlatList,
   SafeAreaView,
@@ -53,7 +54,7 @@ const Item = ({ item, onPress, backgroundColor, textColor, dotColor, text }) => 
   </TouchableOpacity>
 );
 
-const KanjiMenu = ({ data }) => {
+const KanjiMenu = ({ data, onBack }) => {
   const [selectedId, setSelectedId] = useState();
   const renderItem = ({ item }) => {
     const backgroundColor = item === selectedId ? '#FDA3AF' : '#FFCCD3';
@@ -61,6 +62,8 @@ const KanjiMenu = ({ data }) => {
     const hello = item === selectedId ? 'hello' : '';
 
     return (
+      <View>
+     
       <Item
         item={item}
         onPress={() => setSelectedId(item)}
@@ -69,10 +72,12 @@ const KanjiMenu = ({ data }) => {
         dotColor={dotColor(data, item)}
         text={hello}
       />
+      </View>
     );
   };
   return (
     <SafeAreaView style={styles.container}>
+       <Button title="Back" onPress={onBack} color="#FDA3AF" style={styles.btn}></Button>
       {data && <FlatList
         data={Object.keys(data)}
         renderItem={renderItem}
@@ -80,17 +85,18 @@ const KanjiMenu = ({ data }) => {
       />}
     </SafeAreaView>
   );
+  
+        
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 100,
-    marginBottom: -800,
-    width: 350,
+    //marginTop: 100,
+    marginBottom: "-200%",
+    width: "100%",
 
   },
-
   item: {
     padding: 20,
     marginVertical: 8,
