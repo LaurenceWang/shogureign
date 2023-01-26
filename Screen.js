@@ -126,13 +126,14 @@ export default function AnimatedStyleUpdateExample() {
     }
   }
 
-  const loadGameSave = (ws, pc, pu, cc, im) => {
+  const loadGameSave = (ws, pc, pu, cc, im,st) => {
     let wSave = {};
     wSave.ws = ws;
     wSave.pc = pc;
     wSave.pu = pu,
-      wSave.cc = cc;
+    wSave.cc = cc;
     wSave.im = im;
+    wSave.st = st;
 
     setGameSave(wSave);
   }
@@ -200,7 +201,8 @@ export default function AnimatedStyleUpdateExample() {
       const pu = await load(Config.chapUnitKey);
       const cc = await load(Config.curCardKey);
       const im = await load(Config.curIdMemoKey);
-      loadGameSave(ws, pc, pu, cc, im);
+      const st = await load(Config.curStat);
+      loadGameSave(ws, pc, pu, cc, im, st);
       setKanji(tmp);
       setReload(false);
     }
@@ -214,7 +216,7 @@ export default function AnimatedStyleUpdateExample() {
 
   return (
     <View>
-      {showClearBtn && <Button onPress={() => clearSave(true)} title="Clear game save" color="#eb5267" />}
+      {showClearBtn && <Button onPress={() => clearSave(true)} title="Clear game saving" color="#eb5267" />}
       {showKanjiButton && <KanjiButton onPress={onStartKanji} />}
       {showKanjiMenu && <KanjiMenu data={kanji} onBack={onMenuReturn} />}
       {showTrophyButton && <TrophyButton onPress={onStartTrophy} />}

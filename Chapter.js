@@ -145,6 +145,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 			setChapterCard(gameSave.pc);
 			setChapterUnit(gameSave.pu);
 			setworldSt(gameSave.ws);
+			setCurrentStats(gameSave.st);
 			//console.log((gameSave.cc).Unit);
 			setCurrentUnitId((gameSave.cc).Unit);
 
@@ -629,6 +630,12 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 					happiness: currentStats.happiness + variations.happiness
 				}
 			);
+			save(Config.curStat, {
+				popularity: currentStats.popularity + variations.popularity,
+				money: currentStats.money + variations.money,
+				hygiene: currentStats.hygiene + variations.hygiene,
+				happiness: currentStats.happiness + variations.happiness
+			});
 		}
 
 		updatePendingKanjis(Parsers.kanjiParser(currentCard["Kanji"]));

@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   personImage: {
-    height: 200,
-    width: 200,
+    height: 280,
+    width: 280,
   },
 });
 

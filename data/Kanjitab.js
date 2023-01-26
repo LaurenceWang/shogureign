@@ -891,6 +891,16 @@ export default function useKanjiCards() {
       "Littéral": "son + musique",
       "Traduction": "musique"
     },
+    "画": {
+      "Niveau": "",
+      "WanikaniLevel": 6,
+      "Lecture": "ega /kaku",
+      "Trad": "dessin / écrire",
+      "Mnemotechnique": "formé par le kanji de rizière",
+      "Combinaison": "映画 - eiga",
+      "Littéral": "projection + dessin",
+      "Traduction": "film"
+    },
     "音": {
       "Niveau": "",
       "WanikaniLevel": 5,
@@ -1021,6 +1031,30 @@ export default function useKanjiCards() {
       "Littéral": "",
       "Traduction": ""
     },
+    
+    "糖": {
+      "Niveau": "",
+      "WanikaniLevel": 33,
+      "Lecture": "tou",
+      "Trad": "sucre",
+      "Mnemotechnique": "formé par le kanji de riz à gauche et une bouche à droite",
+      "Combinaison": "",
+      "Littéral": "",
+      "Traduction": ""
+    },
+
+     
+    "塩": {
+      "Niveau": "",
+      "WanikaniLevel": 17,
+      "Lecture": "shio",
+      "Trad": "sel",
+      "Mnemotechnique": "",
+      "Combinaison": "",
+      "Littéral": "",
+      "Traduction": ""
+    },
+
     "安": {
       "Niveau": "",
       "WanikaniLevel": 6,
