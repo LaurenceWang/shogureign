@@ -179,7 +179,7 @@ export default function useGeneratedUnits() {
 		  {
 			"Name": "Cook",
 			"id": "810d9da937e2464ab5b7145a73050996",
-			"card": ["6a113b437caf4e6f932c2cbfb4ca79a2","3f45c532bd6b4b42aaba448de4622380","7b75706741bd4c4c870bcc054c8144d8", "c6c217b1a8234df8935968191643463b", "dbfd37ef8d6c4093bc1cd494136e331b", "9b2377b9a26d45c6a907426ce6ef3e0e", "e6192d4857124e8288ba4a39ede033c1","6357f62be25d42d8b396047ada4fd65a","57de92128fac4aa283fa087b3483d702","5f39bf8a266e47349801f00ac76e65f2","f0a342bda52c49608eb5014ba73a866a","168ce3fa29374396a8ad4fcbbe893b2e"],
+			"card": ["6a113b437caf4e6f932c2cbfb4ca79a2","3f45c532bd6b4b42aaba448de4622380","7b75706741bd4c4c870bcc054c8144d8", "c6c217b1a8234df8935968191643463b", "dbfd37ef8d6c4093bc1cd494136e331b", "9b2377b9a26d45c6a907426ce6ef3e0e", "e6192d4857124e8288ba4a39ede033c1","6357f62be25d42d8b396047ada4fd65a","57de92128fac4aa283fa087b3483d702","5f39bf8a266e47349801f00ac76e65f2","f0a342bda52c49608eb5014ba73a866a","168ce3fa29374396a8ad4fcbbe893b2e", "c230055dc3634c05b2dbf4380993cd56"],
 			"Person": "",
 			"Status": "",
 			"condition": {"cook":true},
@@ -187,10 +187,32 @@ export default function useGeneratedUnits() {
 			"background": ""
 		  },
 
-
 		  {
+			"Name": "end_chap2",
+			"id": "65ab3f62f9e348baafc9aacade75f447",
+			"card": ["4c6d457e8d0a4ed18dd53206fc14352d","381839ae509c4d3aa1367a5f2ed9f56e",],
+			"Person": "",
+			"Status": "",
+			"condition": {},
+			"custom" : {},
+			"background": ""
+		  },
+
+		{
 			"Name": "Crush",
 			"id": "7c00e48218bc42aea11107d0f21f90c3",
+			"card": ["685ef582acb344faaa4fe4b680acd0f8",],
+			"Person": "",
+			"Status": "",
+			"condition": {},
+			"custom" : {},
+			"background": ""
+		},
+
+
+		{
+			"Name": "School",
+			"id": "855e243f63ae4f5f8578cdb7c842d618",
 			"card": ["685ef582acb344faaa4fe4b680acd0f8",],
 			"Person": "",
 			"Status": "",
