@@ -77,6 +77,7 @@ export default function AnimatedStyleUpdateExample() {
       setGameOverText(text);
       // console.log('Screen > onGameOverScreen > icon : ' + icon);
       setGameOverIcon(icon);
+      clearSave(false);
       onMenuReturn();
     }, 500);
   }
@@ -136,11 +137,12 @@ export default function AnimatedStyleUpdateExample() {
     setReload(true);
   });*/
 
-  const clearSave = () => {
-
-    /*save(Config.kanjiKey, {}).then(() => {
-      console.log("Clear successful");
-    });*/
+  const clearSave = (clearKanji) => {
+    if (clearKanji) {
+      save(Config.kanjiKey, {}).then(() => {
+        console.log("Clear kanji save successful");
+      });
+    }
     save(Config.worldKey, {}).then(() => {
       console.log("Clear successful");
     });
@@ -169,7 +171,7 @@ export default function AnimatedStyleUpdateExample() {
       console.info(keys);
       if (!(keys.includes(key))) {
         console.info("Initializing kanjis...");
-        clearSave();
+        clearSave(true);
         console.info("Initialization success.");
       }
 
@@ -219,7 +221,7 @@ export default function AnimatedStyleUpdateExample() {
 
   return (
     <View>
-      {showClearBtn && <Button onPress={clearSave} title="Clear game saving" color="#333333" />}
+      {showClearBtn && <Button onPress={() => clearSave(true)} title="Clear game saving" color="#333333" />}
       {showKanjiButton && <KanjiButton onPress={onStartKanji} />}
       {showKanjiMenu && <KanjiMenu data={kanji} />}
       {showTrophyButton && <TrophyButton onPress={onStartTrophy} />}

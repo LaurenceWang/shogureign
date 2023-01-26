@@ -372,7 +372,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 			cards.splice(currentId, 1); // 2nd parameter means remove one item only
 		}*/
 
-		cards.forEach(element => {
+		cards.forEach(element => {		
 			const conditions = getCardById(element).condition;
 			if (comparaison(conditions, newWorld)) {
 				playableCards.push(element);
