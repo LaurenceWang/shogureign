@@ -10,8 +10,9 @@ import TrophyButton from './TrophyButton';
 import TrophyMenu from './TrophyMenu';
 import CreditsButton from './CreditsButton';
 import CreditsMenu from './CreditsMenu';
-import Config from './gameconfig';
+import Config from './tools/Config';
 import GameOver from './data/gameover';
+import { save, load } from './data/Storage';
 import GameOverScreen from './GameOverScreen';
 
 export default function AnimatedStyleUpdateExample() {
@@ -116,25 +117,16 @@ export default function AnimatedStyleUpdateExample() {
     }, 500);
   }
 
-  const save = async (key, data) => {
-    try {
-      const jsonValue = JSON.stringify(data);
-      await AsyncStorage.setItem(key, jsonValue);
-    } catch (e) {
-      console.error(`Couldn't save data. Error: ${data}`);
-      // saving error
-    }
-  }
-
-  const loadGameSave = (ws, pc, pu, cc, im,st) => {
+  const loadGameSave = async () => {
     let wSave = {};
-    wSave.ws = ws;
-    wSave.pc = pc;
-    wSave.pu = pu,
-    wSave.cc = cc;
-    wSave.im = im;
-    wSave.st = st;
+    wSave.ws = await load(Config.worldKey);
+    wSave.pc = await load(Config.chapCardKey);
+    wSave.pu = await load(Config.chapUnitKey);
+    wSave.cc = await load(Config.curCardKey);
+    wSave.im = await load(Config.curIdMemoKey);
+    wSave.st = await load(Config.curStat);
 
+    console.log("Game save set.");
     setGameSave(wSave);
   }
 
@@ -167,45 +159,17 @@ export default function AnimatedStyleUpdateExample() {
     setReload(true);
   }
 
-
-  const load = async (key) => {
-    try {
-      let keys = await AsyncStorage.getAllKeys();
-      console.log("keys :");
-      console.info(keys);
-      if (!(keys.includes(key))) {
-        console.info("Initializing kanjis...");
-        clearSave(true);
-        console.info("Initialization success.");
-      }
-
-      const jsonValue = await AsyncStorage.getItem(key);
-      console.debug("Load > Value: ");
-      console.debug(jsonValue);
-      console.debug(typeof (jsonValue))
-
-      return (jsonValue !== null) ? JSON.parse(jsonValue) : null;
-    } catch (e) {
-      console.error(`Couldn't load data. Error: ${data}`);
-      // error reading value
-    }
-  }
-
   //clearSave(true);
 
   useEffect(async () => {
     if (reload) {
-      const tmp = await load(Config.kanjiKey);
-      const ws = await load(Config.worldKey);
-      const pc = await load(Config.chapCardKey);
-      const pu = await load(Config.chapUnitKey);
-      const cc = await load(Config.curCardKey);
-      const im = await load(Config.curIdMemoKey);
-      const st = await load(Config.curStat);
-      loadGameSave(ws, pc, pu, cc, im, st);
-      setKanji(tmp);
+      let kanjis = await load(Config.kanjiKey);
+      loadGameSave();
+      setKanji(kanjis);
       setReload(false);
     }
+
+    return
   }, [reload]);
 
   const increment = () => {
@@ -216,7 +180,7 @@ export default function AnimatedStyleUpdateExample() {
 
   return (
     <View>
-      {showClearBtn && <Button onPress={() => clearSave(true)} title="Clear game saving" color="#eb5267" />}
+      {showClearBtn && <Button onPress={() => clearSave(true)} title="------------ Clear game saving ------------" color="#eb5267" />}
       {showKanjiButton && <KanjiButton onPress={onStartKanji} />}
       {showKanjiMenu && <KanjiMenu data={kanji} onBack={onMenuReturn} />}
       {showTrophyButton && <TrophyButton onPress={onStartTrophy} />}

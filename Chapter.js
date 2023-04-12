@@ -14,9 +14,9 @@ import worldState from './worldState';
 
 import GameOver from './data/gameover';
 
-import Config from './gameconfig';
+import Config from './tools/Config';
 import MultCards from './data/useGeneratedMultCards';
-import Parsers from './Parsers';
+import Parsers from './tools/Parsers';
 import { set } from 'react-native-reanimated';
 
 const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSave, save, onBack }) => {
