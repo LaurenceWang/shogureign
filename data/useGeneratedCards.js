@@ -9,7 +9,7 @@ export default function useGeneratedCards() {
       "card_type": "dialogue_card",
       "character": "persoexplication",
       "condition": {},
-      "question": "Hé bien! Te voilà à Tokyo pour une année de cours à l’étranger. Je suis Shogu et je veillerai à ce que ce ton séjour ici se passe parfaitement !",
+      "question": "Hé bien!! Te voilà à Tokyo pour une année de cours à l’étranger. Je suis Shogu et je veillerai à ce que ce ton séjour ici se passe parfaitement !",
       "leftText": "Oh !",
       "onLeft": "",
       "rightText": "Euh ?",
@@ -1920,7 +1920,10 @@ export default function useGeneratedCards() {
       "card_type": "",
       "Person": "",
       "Status": ""
-    }, {
+    }, 
+
+   
+    {
       "Name": "Test_demo",
       "id": "cbbbab5a0f964b3996a59964604f3b7f",
       "Unit": "dba4c5a89b364642a87f9b483154cd3c",
@@ -1934,8 +1937,8 @@ export default function useGeneratedCards() {
       "onRight": "",
       "left_custom": {},
       "right_custom": {},
-      "left_next_card": "",
-      "right_next_card": "",
+      "left_next_card": "28f22604a5464217915440c90f8b057f",
+      "right_next_card": "92fef38477b046ceb08de5976dcbfbaf",
       "difficulté": "",
       "Kanji": "femme (女)",
       "background": "#ccc",
@@ -1944,7 +1947,63 @@ export default function useGeneratedCards() {
       "card_type": "",
       "Person": "",
       "Status": ""
-    }, {
+    }, 
+    
+    {
+      "Name": "Leçon_女_correct",
+      "id": "28f22604a5464217915440c90f8b057f",
+      "Unit": "dba4c5a89b364642a87f9b483154cd3c",
+      "character": "",
+      "condition": {},
+      "custom": {"end_school":true},
+      "question": "Bien joué c’est ça ! Tu apprends vite",
+      "leftText": "Je suis trop fort",
+      "onLeft": "",
+      "rightText": "C’était facile",
+      "onRight": "",
+      "left_custom": {},
+      "right_custom": {},
+      "left_next_card": "",
+      "right_next_card": "",
+      "difficulté": "",
+      "Kanji": "femme (女)",
+      "background": "#ccc",
+      "image": "https://cdn-icons-png.flaticon.com/512/190/190411.png",
+      "itemId": "",
+      "card_type": "",
+      "Person": "",
+      "Status": ""
+    }, 
+
+
+    {
+      "Name": "Leçon_女_wrong",
+      "id": "92fef38477b046ceb08de5976dcbfbaf",
+      "Unit": "dba4c5a89b364642a87f9b483154cd3c",
+      "character": "",
+      "condition": {},
+      "custom": {"end_school":true},
+      "question": "Raté ! 女 veut dire femme. Tu feras mieux la prochaine fois !",
+      "leftText": "Ah…",
+      "onLeft": "",
+      "rightText": "Je ne me découragerai pas",
+      "onRight": "",
+      "left_custom": {},
+      "right_custom": {},
+      "left_next_card": "",
+      "right_next_card": "",
+      "difficulté": "",
+      "Kanji": "femme (女)",
+      "background": "#ccc",
+      "image": "https://cdn-icons-png.flaticon.com/512/6711/6711656.png",
+      "itemId": "",
+      "card_type": "",
+      "Person": "",
+      "Status": ""
+    }, 
+    
+
+    {
       "Name": "Leçon_男",
       "id": "f8b279be16774306a75b88220f9d8284",
       "Unit": "dba4c5a89b364642a87f9b483154cd3c",
@@ -1969,6 +2028,34 @@ export default function useGeneratedCards() {
       "Person": "",
       "Status": ""
     },
+
+
+    {
+      "Name": "end_school_1",
+      "id": "27d42ec53e2f4086a9fecb5d3c8519e1",
+      "Unit": "",
+      "character": "",
+      "condition": {},
+      "custom": { "end_school": false},
+      "question": "Quelle longue journée ! C’est l’heure de rentrer à la maison et regarder le dernier épisode de l’attaque des Titans",
+      "leftText": "SASAGEYO",
+      "onLeft": "",
+      "rightText": "Ouf j’en pouvais plus",
+      "onRight": "",
+      "left_custom": {},
+      "right_custom": {},
+      "left_next_card": "",
+      "right_next_card": "",
+      "difficulté": "",
+      "Kanji": "",
+      "background": "#ccc",
+      "image": "https://cdn-icons-png.flaticon.com/512/3609/3609741.png",
+      "itemId": "",
+      "card_type": "",
+      "Person": "",
+      "Status": ""
+    },
+
 
     {
       "Name": "end_chap2_good",
