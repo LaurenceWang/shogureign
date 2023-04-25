@@ -17,13 +17,14 @@ import {StyleSheet, View, Text} from 'react-native';
 import {PanGestureHandler} from 'react-native-gesture-handler';
 import CardReverse from './CardReverse';
 import CardPerson from './CardPerson';
+import Imagesbank from './data/ImagesBank';
 
 const Card = ({
   onChooseLeftAnswer,
   onChooseRightAnswer,
   leftText,
   rightText,
-  image,
+  character,
   backgroundColor,
 }) => {
   const [isActive, setIsActive] = useState(false);
@@ -195,7 +196,8 @@ const Card = ({
                   {leftText}
                 </Text>
               </Animated.View>
-              <CardPerson image={image} />
+
+              <CardPerson image={Imagesbank[character]} />
               <Animated.View style={[animatedFrontShadow, styles.shadow]} />
             </Animated.View>
           </Animated.View>
