@@ -244,6 +244,17 @@ export default function useGeneratedUnits() {
 		},
 
 		{
+			"Name": "End_school",
+			"id": "fdee85ecc6ac45b68c443898b7f287a8",
+			"card": ["27d42ec53e2f4086a9fecb5d3c8519e1",],
+			"Person": "",
+			"Status": "",
+			"condition": {"end_school":true},
+			"custom" : {},
+			"background": ""
+		},
+
+		{
 			"Name": "First_lesson",
 			"id": "dba4c5a89b364642a87f9b483154cd3c",
 			"card": ["8b391439bae34fd786ed4712e60cfc7a",],
