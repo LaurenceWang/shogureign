@@ -166,7 +166,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 
 
 			let units = getChapterByIndex(chapNum).unit;
-
+			//let units = getChapterByIndex(2).unit;
 			updatePlayableUnits();
 			const cards = getUnitById(units[0]).card;
 			setChapterCard([...cards]);
@@ -772,7 +772,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 						onChooseRightAnswer={onChooseRightAnswer}
 						leftText={currentCard.leftText}
 						rightText={currentCard.rightText}
-						image={currentCard.image}
+						character={currentCard.character}
 						backgroundColor={currentCard.background}
 					/>
 				)}
