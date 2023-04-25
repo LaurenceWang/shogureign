@@ -5,7 +5,7 @@ const Imagesbank = {
     crush: "https://i.ibb.co/sKJZGz4/crush.png",
     prezmusique: "https://i.ibb.co/TbSW7DQ/music.png",
     prezsport: "https://i.ibb.co/5MWwfyB/sport.png",
-    prezpeint: "https://i.ibb.co/DDQsws1/peintre.png",
+    prezpeinture: "https://i.ibb.co/DDQsws1/peintre.png",
     prezcuisine: "https://i.ibb.co/Xtw2BJp/cuiz.png",
     prezweeb: "https://i.ibb.co/yqxRKg2/weeb.png",
     brosûr: "https://i.ibb.co/0JpxpLQ/bestbro.png",
@@ -22,7 +22,8 @@ const Imagesbank = {
     chienmechant : "https://cdn-icons-png.flaticon.com/512/2395/2395671.png",
 
 
-
+    good : "https://cdn-icons-png.flaticon.com/512/190/190411.png",
+    badd : "https://cdn-icons-png.flaticon.com/512/6711/6711656.png",
     taxi :"https://cdn-icons-png.flaticon.com/512/3357/3357912.png",
     train : "https://cdn-icons-png.flaticon.com/512/722/722831.png",
     metro : "https://cdn-icons-png.flaticon.com/512/4352/4352784.png",
