@@ -772,7 +772,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 						onChooseRightAnswer={onChooseRightAnswer}
 						leftText={currentCard.leftText}
 						rightText={currentCard.rightText}
-						image={currentCard.image}
+						character={currentCard.character}
 						backgroundColor={currentCard.background}
 					/>
 				)}

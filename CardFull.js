@@ -19,7 +19,7 @@ import Animated, {
 	onChooseRightAnswer,
 	leftText,
 	rightText,
-	image,
+	character,
 	backgroundColor,
   }) => {
 	const [isActive, setIsActive] = useState(false);
@@ -202,7 +202,7 @@ import Animated, {
 					{leftText}
 				  </Animated.Text>
 				</Animated.View>
-				<CardPerson image={image} />
+				<CardPerson image={Imagesbank[character]} />
 				<Animated.View style={[animatedFrontShadow, styles.shadow]} />
 			  </Animated.View>
 			</Animated.View>
