@@ -448,6 +448,33 @@ export default function useGeneratedCards() {
     },
 
     {
+      Name: 'petit_dej',
+      id: '68aa4cd1a25c4f20a1a4cf1ccf77931f',
+      Unit: '94a786f5d9e1405ca02b094fee0a9ece',
+      Person: '',
+      Status: 'To Be checked',
+      card_type: '',
+      character: 'sans',
+      condition: {at_Home: true},
+      question:
+        'C’est l’heure de prendre un petit déjeuner ! Ah.. tu n’as qu’un fond de bouteille de lait…',
+      leftText: 'Sortir faire les courses',
+      onLeft: '',
+      rightText: 'S’en contenter',
+      onRight: '-15H',
+      custom: {},
+      left_custom: {street: true, at_Home: false},
+      right_custom: {},
+      left_next_card: '',
+      right_next_card: '',
+      difficulté: '',
+      Kanji: '',
+      background: '#C6DFEC',
+      image: 'https://cdn-icons-png.flaticon.com/512/3166/3166635.png',
+      itemId: '',
+    },
+
+    {
       Name: 'chaussette',
       id: 'b05eee3993f144c48fdae6db1d6192ae',
       Unit: '94a786f5d9e1405ca02b094fee0a9ece',
