@@ -56,6 +56,7 @@ const Imagesbank = {
     kitchen : "https://cdn-icons-png.flaticon.com/512/1698/1698691.png",
     bathroom : "https://cdn-icons-png.flaticon.com/512/9137/9137915.png",
     sock : "https://cdn-icons-png.flaticon.com/512/9267/9267503.png",
+    bed : "https://cdn-icons-png.flaticon.com/512/3166/3166635.png",
     sleep : "https://cdn-icons-png.flaticon.com/512/4604/4604640.png",
     hungry : "https://cdn-icons-png.flaticon.com/512/5060/5060720.png",
     emptyfridge : "https://cdn-icons-png.flaticon.com/512/3422/3422519.png",
@@ -69,6 +70,9 @@ const Imagesbank = {
     thief2 : "https://cdn-icons-png.flaticon.com/512/7274/7274005.png",
     corridor : "https://cdn-icons-png.flaticon.com/512/8742/8742264.png",
     school : "https://cdn-icons-png.flaticon.com/512/1033/1033285.png",
+    randomOBJ : "https://cdn-icons-png.flaticon.com/512/6939/6939052.png",
+    koban : "https://cdn-icons-png.flaticon.com/512/308/308023.png",
+    wallet : "https://cdn-icons-png.flaticon.com/512/3846/3846014.png",
   };
   
   export default Imagesbank;

@@ -86,7 +86,7 @@ export default function useGeneratedUnits() {
 		  {
 			"Name": "Home",
 			"id": "94a786f5d9e1405ca02b094fee0a9ece",
-			"card": ["99888040bcc54e269ca6d0099d80979d", "60c54c879e95444f80c23e8b3cfa308a", "d8dbeef009e0470eb741d890ea5606cc","b05eee3993f144c48fdae6db1d6192ae", "a930e5a0ae3f4326a8d38538a7cd949f", "2bac1a9572f048958dd2439a6a99a1ad", "c723bdbc22f34dce83032fde30864ca8", "c717f2e69eaf4084b18c137879a5b388" ],
+			"card": ["99888040bcc54e269ca6d0099d80979d", "60c54c879e95444f80c23e8b3cfa308a", "d8dbeef009e0470eb741d890ea5606cc","b05eee3993f144c48fdae6db1d6192ae", "a930e5a0ae3f4326a8d38538a7cd949f", "2bac1a9572f048958dd2439a6a99a1ad", "c723bdbc22f34dce83032fde30864ca8", "1d77bbf75b854632a9900aebce1d82a4", "c717f2e69eaf4084b18c137879a5b388" ],
 			"Person": "",
 			"Status": "",
 			"condition": {"arrive_home_completed" : true, "at_Home" : true},
@@ -300,6 +300,66 @@ export default function useGeneratedUnits() {
 			"custom" : {"first_friend":false},
 			"background": ""
 		},
+
+		{
+			"Name": "Introduction_chap5",
+			"id": "166896163b494c14b01908f38c933418",
+			"card": ["8035329053dc4b8eb66534d7536920ba"],
+			"Person": "",
+			"Status": "",
+			"condition": {"chap5_intro":false},
+			"custom" : {"chap5_intro":true, "lost_purse": true},
+			"background": ""
+		},
+
+
+		{
+			"Name": "search_school",
+			"id": "9edd889e7d6e4a74bbc14a7fe9cca540",
+			"card": ["a1f5ca1c005647d1ac97c17e3d83ac96", "7c756a64d3ab4bef96d96ba574207898", "246cf67589a148b0a9b8a1480d03709e","d44c85c4cde741a5a2baa0fa1b0d2421","622164448529417fb0894205d0876250",],
+			"Person": "",
+			"Status": "",
+			"condition": {"lost_purse": true},
+			"custom" : {},
+			"background": ""
+		},
+
+
+		{
+			"Name": "search_Street",
+			"id": "af1196e1fbfd477a8d06f20901387351",
+			"card": ["6cab236404254ac0900c7d0ee7390945","72b4d6f7c3a34986ac9eaf437322f030","5346ccdb9bb04f13a9e4265ca574d523", "91404a1a1cd94d0293aea7023848aca8", "4164d19529764cc7a65855a6fad8dd0c","26d6464e73974c0bb01daa58ef717a88","80dd11df9a39452f89efcd338a0d68b6",],
+			"Person": "",
+			"Status": "",
+			"condition": {"lost_purse": true},
+			"custom" : {},
+			"background": ""
+		},
+
+
+		{
+			"Name": "search_koban",
+			"id": "07d1b181ba57465b9dc84160aa4a6155",
+			"card": ["12a4f274db0348aba9f2b58210f7485d", "13b918e0646e46e18b18d42ad9a03f28"],
+			"Person": "",
+			"Status": "",
+			"condition": {"street_search_done":true, "school_search_done":true, "lost_purse": true },
+			"custom" : {},
+			"background": ""
+		},
+
+		{
+			"Name": "end_chap5",
+			"id": "8c18be6ca6d74215af5f62690eb78a34",
+			"card": ["de7fc9b63db5474d828bf6893d4c5e48"],
+			"Person": "",
+			"Status": "",
+			"condition": {"end_chap5" : true},
+			"custom" : {},
+			"background": ""
+		  },
+
+
 		
 	];
   

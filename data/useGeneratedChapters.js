@@ -51,6 +51,18 @@ export default function useGeneratedChapters() {
 			"difficulté": "",
 			"background": ""
 		},
+
+		{
+			"Name": "Perdre son portefeuille",
+			"id": "16ee0914d59f479690e0fa46b790be3b",
+			"Person": "",
+			"Status": "",
+			"condition": "",
+			"date": "04",
+			"unit": ["166896163b494c14b01908f38c933418", "855e243f63ae4f5f8578cdb7c842d618", "af1196e1fbfd477a8d06f20901387351", "07d1b181ba57465b9dc84160aa4a6155",  "8c18be6ca6d74215af5f62690eb78a34",],
+			"difficulté": "",
+			"background": ""
+		},
 	];
 
 
