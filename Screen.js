@@ -14,9 +14,14 @@ import Config from './tools/Config';
 import GameOver from './data/gameover';
 import { save, load } from './data/Storage';
 import GameOverScreen from './GameOverScreen';
+import { generateLessonUnit, generateLessonChapter } from './learning/cardGenerator';
+import { Chapters } from './data/useGeneratedChapters';
+import { Units } from './data/useGeneratedUnits';
+import { Cards } from './data/useGeneratedCards';
 
 export default function AnimatedStyleUpdateExample() {
   const [chapNum, setChapNum] = useState(0);
+  const [storyChapterNumber, setStoryChapterNumber] = useState(0);
   const [kanji, setKanji] = useState(null);
   const [reload, setReload] = useState(true);
   const [gameOverText, setGameOverText] = useState('');
@@ -33,6 +38,10 @@ export default function AnimatedStyleUpdateExample() {
   const [showCreditsMenu, setShowCreditsMenu] = useState(false);
   const [showGameOverScreen, setShowGameOverScreen] = useState(false);
   const [showClearBtn, setShowClearBtn] = useState(true);
+
+  const [lessonKanji, setLessonKanji] = useState([]);
+  const [lessonChapter, setLessonChapter] = useState(false);
+  const [extraChapterAdded, setExtraChapterAdded] = useState(false);
 
   const resetStates = () => {
     setShowStartButton(false);
@@ -172,11 +181,65 @@ export default function AnimatedStyleUpdateExample() {
     return
   }, [reload]);
 
-  const increment = () => {
-    console.log("incrementé");
-    setChapNum(chapNum + 1);
+  const increment = (from) => {
+    value = from + 1;
+    console.log("Chapter incrementé: " + value);
+    setChapNum(value);
+    setStoryChapterNumber(value);
   }
 
+  const startLesson = (kanjis) => {
+    console.log("Screen > Start lesson > Set kanjis: ");
+    console.log(kanjis);
+    setLessonKanji(kanjis);
+  }
+
+  const toggleLesson = () => {
+    setLessonChapter(!lessonChapter);
+  }
+
+  useEffect(() => {
+    console.error("Chapter change. It is " + (lessonChapter ? "" : "not") + " a lesson");
+    if (lessonChapter) {
+      // Create chapter & unit
+      let chapter = generateLessonChapter();
+      console.log("Generated chapter:");
+      console.log(chapter);
+      Chapters.push(chapter);
+
+      let { cards, unit } = generateLessonUnit(lessonKanji);
+      Units.push(unit);
+      console.log("Generated unit:");
+      console.log(unit);
+
+      for (let card of cards) {
+        Cards.push(card);
+      }
+      console.log("Generated cards:");
+      console.log(cards);
+
+      console.log("Cards in the dictionary:");
+      for (let i = Cards.length - Config.lessonSize; i < Cards.length; i++) {
+        console.log(Cards[i]);
+      }
+
+      console.log("Chapitre leçon: ");
+      console.log(Chapters[Chapters.length - 1]);
+      setExtraChapterAdded(true);
+      setChapNum(Chapters.length - 1);
+    } else {
+      if (extraChapterAdded) {
+        Chapters.pop();
+        Units.pop();
+        for (let kanji in lessonKanji) {
+          Cards.pop();
+        }
+        setLessonKanji([]);
+        setExtraChapterAdded(false);
+        increment(storyChapterNumber);
+      }
+    }
+  }, [lessonChapter]);
 
   return (
     <View>
@@ -188,7 +251,7 @@ export default function AnimatedStyleUpdateExample() {
       {showCreditsButton && <CreditsButton onPress={onStartCredits} />}
       {showCreditsMenu && <CreditsMenu />}
       {showStartButton && <StartButton onPress={onStartChapter} />}
-      {showChapter && <Chapter chapNum={chapNum} endChap={increment} onGameOverScreen={onGameOverScreen} kanjiProgression={kanji} gameSave={gameSave} save={save} onBack={onMenuReturn} />}
+      {showChapter && <Chapter chapNum={chapNum} endChap={toggleLesson} onGameOverScreen={onGameOverScreen} kanjiProgression={kanji} gameSave={gameSave} save={save} onBack={onMenuReturn} setQueuedLesson={startLesson} />}
       {showGameOverScreen && <GameOverScreen text={gameOverText} iconURI={gameOverIcon} />}
     </View >
   );
