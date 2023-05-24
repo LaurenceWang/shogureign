@@ -21,6 +21,10 @@ const Imagesbank = {
     chiencute : "https://cdn-icons-png.flaticon.com/512/6616/6616252.png",
     chienmechant : "https://cdn-icons-png.flaticon.com/512/2395/2395671.png",
 
+    rain : "https://cdn-icons-png.flaticon.com/512/3520/3520675.png",
+    wind : "https://cdn-icons-png.flaticon.com/512/2676/2676047.png",
+    sun : "https://cdn-icons-png.flaticon.com/512/439/439842.png",
+
 
     good : "https://cdn-icons-png.flaticon.com/512/190/190411.png",
     bad : "https://cdn-icons-png.flaticon.com/512/6711/6711656.png",

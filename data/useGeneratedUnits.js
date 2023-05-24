@@ -33,7 +33,7 @@ export default function useGeneratedUnits() {
 		  {
 			"Name": "Subway",
 			"id": "5bb712a2a85b4adfa4b5a4fd9756e821",
-			"card": ["d97ebf2a4a0f412dba7c2cfdbffff291", "e5497ec82cf0475883608a25790bd700", "2f60c8d820644133a999f7921edac2ab", "aed04a6720c44c28a9142724c8a9ed71","cf43a3e6c91148d79fa48e118c31278b"],
+			"card": ["d97ebf2a4a0f412dba7c2cfdbffff291", "e5497ec82cf0475883608a25790bd700", "2f60c8d820644133a999f7921edac2ab", "aed04a6720c44c28a9142724c8a9ed71","1da19ab5e63f40f79f63159eed9396a4","cf43a3e6c91148d79fa48e118c31278b", ],
 			"Person": "",
 			"Status": "",
 			"condition": {"chap1_choice_taxi" : false, "chap1_street" : false, "arrive_home_completed" : false },
@@ -44,7 +44,9 @@ export default function useGeneratedUnits() {
 			"Name": "Street",
 			"id": "023f6b2981ff4853826039b6e1845e62",
 			"card": ["2db19f997a904d848fd2fd36d77d5404", "2c04e0b89dbe44ad84e4ee81cb62b237", "10a6303a500a41a3a9d3544bd07fc630", "839723f8edab4821bc7d8a21e0831c91",
-			"4a2cd298fc3544bfbccbaf7cb5d33e6f", "0cc73f005b3c4f1194792ba2f533ec28", "349391e704cd4128851e326c7e1a5ab6", "8f0b2674993e47e884ebd8318775a809","542d6cf3ad3a4d8883da60b4fc7ba1ad", "ab94ff1654f6419a8e4eca3d3abb8bb5","0d0abc6b8f4a4d04b175a494d1a8bac9","bc2f87b9b56b4b06a21b021cd7816cc9", "dca682768c1d4e4083f7cfb55cbb6bd4", "8b8beb3c472641e982e7ef798bd30625", "da085f7dd63a46219d1943098e87819a", "6c2c6c2cbd9b43f58f49f7073b91cdc4", "8910581c2df84e79b0a06574c2e25f28", "04bd164197c04d4a8a8fb3c51a31f861", "6bafa0fdf65d41b78111396371a0ea51", "ef28954bfd084a53b5a598c7219fcd1d", "376b7b466de746638c382abe25510325" ],
+			"4a2cd298fc3544bfbccbaf7cb5d33e6f", "0cc73f005b3c4f1194792ba2f533ec28", "349391e704cd4128851e326c7e1a5ab6", "8f0b2674993e47e884ebd8318775a809","542d6cf3ad3a4d8883da60b4fc7ba1ad", "ab94ff1654f6419a8e4eca3d3abb8bb5","0d0abc6b8f4a4d04b175a494d1a8bac9","bc2f87b9b56b4b06a21b021cd7816cc9", "dca682768c1d4e4083f7cfb55cbb6bd4", "8b8beb3c472641e982e7ef798bd30625", "da085f7dd63a46219d1943098e87819a", "6c2c6c2cbd9b43f58f49f7073b91cdc4", "8910581c2df84e79b0a06574c2e25f28",
+			"7f9b4bbcfae44448accc3ffa8491f6ae",
+			"cb0ca5c2e3f5498d8fa136e41feb0cd1", "04bd164197c04d4a8a8fb3c51a31f861", "6bafa0fdf65d41b78111396371a0ea51", "ef28954bfd084a53b5a598c7219fcd1d", "376b7b466de746638c382abe25510325" ],
 			"Person": "",
 			"Status": "",
 			"condition": {"chap1_street" : false, "chap1_choice_subway" : false, "chap1_choice_taxi" : false},
@@ -84,7 +86,7 @@ export default function useGeneratedUnits() {
 		  {
 			"Name": "Home",
 			"id": "94a786f5d9e1405ca02b094fee0a9ece",
-			"card": ["99888040bcc54e269ca6d0099d80979d", "60c54c879e95444f80c23e8b3cfa308a", "d8dbeef009e0470eb741d890ea5606cc","b05eee3993f144c48fdae6db1d6192ae", "a930e5a0ae3f4326a8d38538a7cd949f" ],
+			"card": ["99888040bcc54e269ca6d0099d80979d", "60c54c879e95444f80c23e8b3cfa308a", "d8dbeef009e0470eb741d890ea5606cc","b05eee3993f144c48fdae6db1d6192ae", "a930e5a0ae3f4326a8d38538a7cd949f", "2bac1a9572f048958dd2439a6a99a1ad", "c723bdbc22f34dce83032fde30864ca8", "c717f2e69eaf4084b18c137879a5b388" ],
 			"Person": "",
 			"Status": "",
 			"condition": {"arrive_home_completed" : true, "at_Home" : true},
@@ -150,7 +152,7 @@ export default function useGeneratedUnits() {
 			"Person": "",
 			"Status": "",
 			"condition": {"hungry":true},
-			"custom" : {},
+			"custom" : {"hungry":false},
 			"background": ""
 		  },
 
@@ -168,7 +170,7 @@ export default function useGeneratedUnits() {
 		  {
 			"Name": "Grocery_store",
 			"id": "54b40bf6f6204fc0a0d84f66b3795381",
-			"card": ["479dfbcc62c443d8a1d5501f09edcca8","b4197339405e4d8abb5108231a0f2970","a5af2a0c6950475fbab98038dc2174ca","d9a8f380fe534fb5be4138a1ac64188a","054abd47fdfa44e595ddb19f6629c3cf"],
+			"card": ["479dfbcc62c443d8a1d5501f09edcca8","b4197339405e4d8abb5108231a0f2970","a5af2a0c6950475fbab98038dc2174ca","054abd47fdfa44e595ddb19f6629c3cf"],
 			"Person": "",
 			"Status": "",
 			"condition": {"grocery":true},

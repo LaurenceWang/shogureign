@@ -164,7 +164,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 		} else {
 
 
-
+			
 			let units = getChapterByIndex(chapNum).unit;
 			//let units = getChapterByIndex(2).unit;
 			updatePlayableUnits();

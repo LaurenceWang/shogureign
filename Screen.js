@@ -16,7 +16,7 @@ import { save, load } from './data/Storage';
 import GameOverScreen from './GameOverScreen';
 
 export default function AnimatedStyleUpdateExample() {
-  const [chapNum, setChapNum] = useState(0);
+  const [chapNum, setChapNum] = useState(1);
   const [kanji, setKanji] = useState(null);
   const [reload, setReload] = useState(true);
   const [gameOverText, setGameOverText] = useState('');
