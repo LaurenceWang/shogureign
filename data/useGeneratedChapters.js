@@ -38,6 +38,19 @@ export default function useGeneratedChapters() {
 			"difficulté": "",
 			"background": ""
 		},
+
+
+		{
+			"Name": "Se faire un ami",
+			"id": "d798b978b2eb492d93d525a34962f766",
+			"Person": "",
+			"Status": "",
+			"condition": "",
+			"date": "04",
+			"unit": ["e41df29e2d854cfa8e527a9baaf145d0","855e243f63ae4f5f8578cdb7c842d618","e66a60df142f4b69b7fb6af846f3c7f1","6eb3c303ad3f4751bb3b3da6884bfea4"],
+			"difficulté": "",
+			"background": ""
+		},
 	];
 
 

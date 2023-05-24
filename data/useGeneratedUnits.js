@@ -226,7 +226,7 @@ export default function useGeneratedUnits() {
 		{
 			"Name": "School",
 			"id": "855e243f63ae4f5f8578cdb7c842d618",
-			"card": ["1dd0102cd9b848858925f3e9899379ce", "685ef582acb344faaa4fe4b680acd0f8","e201fdaad5734c359a1910ac32886e56","1ac1fa6a2bdf4748b35d056e3bbe7a24","088b2294323c4352bb97ec2d21a743fc", "8a546bbe5ce94e67a67cfe3c94d36abf", "7b7bdb75779d4a439d16b86160b432a0", "4dfcbeeae33b4c6fb62360cd9c7e491b", "fe9293df5867473cb60560e3886d6dac", "3ec5a10e661b4c198e533f04f30f942b", "353fa0bebc01454b8ff1d0a7825885aa"],
+			"card": ["1dd0102cd9b848858925f3e9899379ce", "685ef582acb344faaa4fe4b680acd0f8","e201fdaad5734c359a1910ac32886e56","1ac1fa6a2bdf4748b35d056e3bbe7a24","088b2294323c4352bb97ec2d21a743fc", "8a546bbe5ce94e67a67cfe3c94d36abf", "7b7bdb75779d4a439d16b86160b432a0", "4dfcbeeae33b4c6fb62360cd9c7e491b", "fe9293df5867473cb60560e3886d6dac", "3ec5a10e661b4c198e533f04f30f942b", "353fa0bebc01454b8ff1d0a7825885aa", ],
 			"Person": "",
 			"Status": "",
 			"condition": {"in_school" : false},
@@ -267,14 +267,37 @@ export default function useGeneratedUnits() {
 			"background": ""
 		},
 
+
+		{
+			"Name": "Introduction_chap4",
+			"id": "e41df29e2d854cfa8e527a9baaf145d0",
+			"card": ["1fcb713a45364548832d4dca01a30011",],
+			"Person": "",
+			"Status": "",
+			"condition": {"chap4_intro":false},
+			"custom" : {"chap4_intro" :true},
+			"background": ""
+		  },
+
+		{
+			"Name": "inscription_club",
+			"id": "e66a60df142f4b69b7fb6af846f3c7f1",
+			"card": ["7de3a4265c90460db7e3b5eb2652de31","e22678755351489ca42872e4be81085d","ecf387925cbe4863871fe80d9a320a5d", "574a193376704ad4ba329c20cf50f9eb", "cff48315e817497f9e6a383e9b0ecace","b2365fcebf20406281495567b1ab1535"],
+			"Person": "",
+			"Status": "",
+			"condition": {"inscription_club" : false},
+			"custom" : {"inscription_club" : true},
+			"background": ""
+		},
+
 		{
 			"Name": "First_friend",
 			"id": "6eb3c303ad3f4751bb3b3da6884bfea4",
-			"card": ["a632b16867384d45ab0f0fc3c45861d7", "b2632f1abb374ab1990e0a77bb99b5e2", "9d0ca478a0ff453b8519b82944a81f4e", "ee137cbf80684423a224450bb2f827dc",  "005dce90775841168e676d1589b094fa", "5d8a229a4144468991f2a2ba33dc52d3"],
+			"card": ["a632b16867384d45ab0f0fc3c45861d7",  "68fd1abeb5cf49b8ab29145fb76b53da", "b2632f1abb374ab1990e0a77bb99b5e2"],
 			"Person": "",
 			"Status": "",
-			"condition": {"first_friend":false},
-			"custom" : {"first_friend":true},
+			"condition": {"first_friend":true,},
+			"custom" : {"first_friend":false},
 			"background": ""
 		},
 		
