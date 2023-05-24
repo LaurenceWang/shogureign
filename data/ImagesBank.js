@@ -30,6 +30,7 @@ const Imagesbank = {
     bad : "https://cdn-icons-png.flaticon.com/512/6711/6711656.png",
     taxi :"https://cdn-icons-png.flaticon.com/512/3357/3357912.png",
     train : "https://cdn-icons-png.flaticon.com/512/722/722831.png",
+    rain : "https://cdn-icons-png.flaticon.com/512/570/570651.png",
     metro : "https://cdn-icons-png.flaticon.com/512/4352/4352784.png",
     home : "https://cdn-icons-png.flaticon.com/512/4004/4004675.png",
     night : "https://cdn-icons-png.flaticon.com/512/187/187426.png",
