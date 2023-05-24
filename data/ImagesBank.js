@@ -68,6 +68,7 @@ const Imagesbank = {
     thief1 : "https://cdn-icons-png.flaticon.com/512/9436/9436488.png",
     thief2 : "https://cdn-icons-png.flaticon.com/512/7274/7274005.png",
     corridor : "https://cdn-icons-png.flaticon.com/512/8742/8742264.png",
+    school : "https://cdn-icons-png.flaticon.com/512/1033/1033285.png",
   };
   
   export default Imagesbank;

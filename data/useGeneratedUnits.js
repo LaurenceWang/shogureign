@@ -266,6 +266,17 @@ export default function useGeneratedUnits() {
 			"custom" : {"first_lesson" : false},
 			"background": ""
 		},
+
+		{
+			"Name": "First_friend",
+			"id": "6eb3c303ad3f4751bb3b3da6884bfea4",
+			"card": ["a632b16867384d45ab0f0fc3c45861d7", "b2632f1abb374ab1990e0a77bb99b5e2", "9d0ca478a0ff453b8519b82944a81f4e", "ee137cbf80684423a224450bb2f827dc",  "005dce90775841168e676d1589b094fa", "5d8a229a4144468991f2a2ba33dc52d3"],
+			"Person": "",
+			"Status": "",
+			"condition": {"first_friend":false},
+			"custom" : {"first_friend":true},
+			"background": ""
+		},
 		
 	];
   
