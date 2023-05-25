@@ -226,7 +226,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 				console.log("next id right dans useEffect " + next_id);
 			}
 
-			if (!isPlayableCard(newPC) && next_id == "") {
+			if (!hasPlayableCards(newPC) && next_id == "") {
 				let hasFoundPC = false
 				let WS = newWS;
 				let PC = newPC;
@@ -234,7 +234,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 					console.log("testing unit : " + getUnitById(ranNewPU[i]).Name);
 					WS = updateWorldState(newWS, traces[traces.length - 1].direction, ranNewPU[i]);
 					PC = updatePlayableCards(ranNewPU[i], WS, oldId);
-					if (isPlayableCard(PC)) {
+					if (hasPlayableCards(PC)) {
 						console.log("playable unit id : " + getUnitById(ranNewPU[i]).Name);
 						hasFoundPC = true;
 						newUnitId = ranNewPU[i];
@@ -249,6 +249,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 					//setEndChapitre(true);
 				}
 				else {
+					console.log("Found playable cards.");
 					console.log(newUnitId)
 					setworldSt(WS);
 					setIdMemory(newOldId);
@@ -292,11 +293,8 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 		//setCurrentCard(getCardById(unitCard[ran]));
 	}
 
-	function isPlayableCard(cards) {
-		if (cards.length != 0) {
-			return true;
-		}
-		return false;
+	function hasPlayableCards(cards) {
+		return cards.length != 0;
 	}
 
 
