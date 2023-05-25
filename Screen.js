@@ -199,8 +199,8 @@ export default function AnimatedStyleUpdateExample() {
   }
 
   useEffect(() => {
-    console.error("Chapter change. It is " + (lessonChapter ? "" : "not") + " a lesson");
-    if (lessonChapter) {
+    console.info("Chapter change. It is " + (lessonChapter ? "" : "not") + " a lesson");
+    if (lessonChapter && lessonKanji.length > 0) {
       // Create chapter & unit
       let chapter = generateLessonChapter();
       console.log("Generated chapter:");

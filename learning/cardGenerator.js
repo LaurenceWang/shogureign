@@ -67,8 +67,8 @@ const generateLessonTemplate = (index, description) => {
     "custom": {},
     "left_custom": {},
     "right_custom": {},
-    "left_next_card": "36f2fddae5f4434da9bc76f0763a28c2",
-    "right_next_card": "36f2fddae5f4434da9bc76f0763a28c2",
+    "left_next_card": "",
+    "right_next_card": "",
     "difficulté": "",
     "Kanji": "",
     "background": "#D6D6D6",
@@ -223,8 +223,8 @@ const generateLessonUnit = (kanjis) => {
     "card": cards.map(card => card["id"]),
     "Person": "",
     "Status": "",
-    "condition": {},
-    "custom": {},
+    "condition": { "lesson": false },
+    "custom": { "lesson": true },
     "background": ""
   };
   return { unit: unit, cards: cards };

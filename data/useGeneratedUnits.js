@@ -6,7 +6,7 @@ const Units = [
 		"Person": "",
 		"Status": "",
 		"condition": { "chap1_intro": false },
-		"custom": { "chap1_intro": true },
+		"custom": { "chap1_intro": true, "lesson": false },
 		"background": ""
 	},
 	{
@@ -138,7 +138,7 @@ const Units = [
 		"Person": "",
 		"Status": "",
 		"condition": { "chap2_intro": false },
-		"custom": { "chap2_intro": true },
+		"custom": { "chap2_intro": true, "lesson": false },
 		"background": ""
 	},
 
@@ -216,7 +216,7 @@ const Units = [
 		"Person": "",
 		"Status": "",
 		"condition": { "chap3_intro": false },
-		"custom": { "chap3_intro": true },
+		"custom": { "chap3_intro": true, "lesson": false },
 		"background": ""
 	},
 
