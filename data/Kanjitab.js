@@ -1065,6 +1065,29 @@ export default function useKanjiCards() {
       "Littéral": "négation - paix",
       "Traduction": "anxiété"
     },
+    
+    "先": {
+      "Niveau": "",
+      "WanikaniLevel": 4,
+      "Lecture": "saki / mazu / sen",
+      "Trad": "avant, moment dans le passé",
+      "Mnemotechnique": "",
+      "Combinaison": "先生 - sensei",
+      "Littéral": "avant - étudiant",
+      "Traduction": "professeur"
+    },
+    
+    "生": {
+      "Niveau": "",
+      "WanikaniLevel": 3,
+      "Lecture": "sei",
+      "Trad": "vie, soi-même, étudiant",
+      "Mnemotechnique": "",
+      "Combinaison": "(大)学生 - (dai)gakusei",
+      "Littéral": "(grand) apprendre étudiant",
+      "Traduction": "étudiant (en université)"
+    },
+
     "": {
       "Niveau": "",
       "WanikaniLevel": "",

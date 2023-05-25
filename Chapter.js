@@ -159,8 +159,8 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 
 		} else {
 
-
 			console.log("Chapter > ChapNum useEffect > Before setting everything up.");
+
 			let units = getChapterByIndex(chapNum).unit;
 			console.log("Units: " + units[0]);
 			//let units = getChapterByIndex(2).unit;

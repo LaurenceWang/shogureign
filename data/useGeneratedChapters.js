@@ -26,18 +26,44 @@ const Chapters = [
 		"background": ""
 	},
 
-	{
-		"Name": "Premier jour au lycée",
-		"id": "49131507fdce4d46a429008f5b97ab76",
-		"Person": "",
-		"Status": "",
-		"condition": "",
-		"date": "04",
-		"unit": ["c84330446f9040d8b0661785992984c6", "855e243f63ae4f5f8578cdb7c842d618", "15ded9ccd4704073a5bb31f4533e64bd", "dba4c5a89b364642a87f9b483154cd3c", "fdee85ecc6ac45b68c443898b7f287a8"],
-		"difficulté": "",
-		"background": ""
-	},
-];
+		{
+			"Name": "Premier jour au lycée",
+			"id": "49131507fdce4d46a429008f5b97ab76",
+			"Person": "",
+			"Status": "",
+			"condition": "",
+			"date": "04",
+			"unit": ["c84330446f9040d8b0661785992984c6", "855e243f63ae4f5f8578cdb7c842d618", "15ded9ccd4704073a5bb31f4533e64bd", "dba4c5a89b364642a87f9b483154cd3c","fdee85ecc6ac45b68c443898b7f287a8"],
+			"difficulté": "",
+			"background": ""
+		},
+
+
+		{
+			"Name": "Se faire un ami",
+			"id": "d798b978b2eb492d93d525a34962f766",
+			"Person": "",
+			"Status": "",
+			"condition": "",
+			"date": "04",
+			"unit": ["e41df29e2d854cfa8e527a9baaf145d0","855e243f63ae4f5f8578cdb7c842d618","e66a60df142f4b69b7fb6af846f3c7f1","6eb3c303ad3f4751bb3b3da6884bfea4"],
+			"difficulté": "",
+			"background": ""
+		},
+
+		{
+			"Name": "Perdre son portefeuille",
+			"id": "16ee0914d59f479690e0fa46b790be3b",
+			"Person": "",
+			"Status": "",
+			"condition": "",
+			"date": "04",
+			"unit": ["166896163b494c14b01908f38c933418", "855e243f63ae4f5f8578cdb7c842d618", "af1196e1fbfd477a8d06f20901387351", "07d1b181ba57465b9dc84160aa4a6155",  "8c18be6ca6d74215af5f62690eb78a34",],
+			"difficulté": "",
+			"background": ""
+		},
+	];
+
 
 console.log("Created chapters");
 
