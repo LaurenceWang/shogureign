@@ -1031,7 +1031,7 @@ export default function useKanjiCards() {
       "Littéral": "",
       "Traduction": ""
     },
-    
+
     "糖": {
       "Niveau": "",
       "WanikaniLevel": 33,
@@ -1043,7 +1043,7 @@ export default function useKanjiCards() {
       "Traduction": ""
     },
 
-     
+
     "塩": {
       "Niveau": "",
       "WanikaniLevel": 17,

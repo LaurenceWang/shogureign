@@ -1,5 +1,5 @@
-import useGeneratedUnits from "./data/useGeneratedUnits";
-import useGeneratedCards from "./data/useGeneratedCards";
+import { Units } from "./data/useGeneratedUnits";
+import { Cards } from "./data/useGeneratedCards";
 
 
 export default function worldState() {
@@ -16,8 +16,6 @@ export default function worldState() {
 
 	//;
 
-	const { Units } = useGeneratedUnits();
-	const { Cards } = useGeneratedCards();
 	let World;
 	Units.forEach(element => {
 		World = { ...World, ...element.condition, ...element.custom };
