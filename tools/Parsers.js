@@ -57,6 +57,14 @@ const statParser = (code) => {
   }
 }
 
+const testParser = (code) => {
+  switch (code) {
+    case "+": return true;
+    case "-": return false;
+    default: console.err(`testParser: Stat does not exist yet: ${code}`);
+  }
+}
+
 const moodParser = (code) => {
   switch (code) {
     case "+": return true;
