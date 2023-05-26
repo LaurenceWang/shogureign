@@ -200,33 +200,37 @@ export default function AnimatedStyleUpdateExample() {
 
   useEffect(() => {
     console.info("Chapter change. It is " + (lessonChapter ? "" : "not") + " a lesson");
-    if (lessonChapter && lessonKanji.length > 0) {
-      // Create chapter & unit
-      let chapter = generateLessonChapter();
-      console.log("Generated chapter:");
-      console.log(chapter);
-      Chapters.push(chapter);
+    if (lessonChapter) {
+      if (lessonKanji.length > 0) {
+        // Create chapter & unit
+        let chapter = generateLessonChapter();
+        console.log("Generated chapter:");
+        console.log(chapter);
+        Chapters.push(chapter);
 
-      let { cards, unit } = generateLessonUnit(lessonKanji);
-      Units.push(unit);
-      console.log("Generated unit:");
-      console.log(unit);
+        let { cards, unit } = generateLessonUnit(lessonKanji);
+        Units.push(unit);
+        console.log("Generated unit:");
+        console.log(unit);
 
-      for (let card of cards) {
-        Cards.push(card);
+        for (let card of cards) {
+          Cards.push(card);
+        }
+        console.log("Generated cards:");
+        console.log(cards);
+
+        console.log("Cards in the dictionary:");
+        for (let i = Cards.length - Config.lessonSize; i < Cards.length; i++) {
+          console.log(Cards[i]);
+        }
+
+        console.log("Chapitre leçon: ");
+        console.log(Chapters[Chapters.length - 1]);
+        setExtraChapterAdded(true);
+        setChapNum(Chapters.length - 1);
+      } else {
+        toggleLesson();
       }
-      console.log("Generated cards:");
-      console.log(cards);
-
-      console.log("Cards in the dictionary:");
-      for (let i = Cards.length - Config.lessonSize; i < Cards.length; i++) {
-        console.log(Cards[i]);
-      }
-
-      console.log("Chapitre leçon: ");
-      console.log(Chapters[Chapters.length - 1]);
-      setExtraChapterAdded(true);
-      setChapNum(Chapters.length - 1);
     } else {
       if (extraChapterAdded) {
         Chapters.pop();
