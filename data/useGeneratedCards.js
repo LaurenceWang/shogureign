@@ -3952,8 +3952,8 @@ const Cards = [
     "custom": {},
     "left_custom": {},
     "right_custom": {},
-    "left_next_card": "136e0e9acdde40b9a75166a96a8a3212",
-    "right_next_card": "4a2cd298fc3544bfbccbaf7cb5d33e6f",
+    "left_next_card": "",
+    "right_next_card": "",
     "difficulté": "",
     "Kanji": "",
     "background": "#E8E8E8",
@@ -3964,7 +3964,7 @@ const Cards = [
   {
     "Name": "Introduction_chap6_1",
     "id": "136e0e9acdde40b9a75166a96a8a3212",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "131aec7d466444539b385dc635661996",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
@@ -3975,7 +3975,7 @@ const Cards = [
     "onLeft": "+5B",
     "rightText": "Si c'est pour bosser les maths, j'accepte !",
     "onRight": "+5H",
-    "custom": { "brhome": true },
+    "custom": { },
     "left_custom": {},
     "right_custom": {},
     "left_next_card": "dbfb59a49c2044e3bde31161baca2df8",
@@ -3990,7 +3990,7 @@ const Cards = [
   {
     "Name": "Introduction_chap6_2",
     "id": "dbfb59a49c2044e3bde31161baca2df8",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "131aec7d466444539b385dc635661996",
     "Person": "brosûr",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4016,7 +4016,7 @@ const Cards = [
   {
     "Name": "Introduction_chap6_3",
     "id": "efe71d7de76d4f9b8875354fcb73ff93",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "131aec7d466444539b385dc635661996",
     "Person": "brosûr",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4027,11 +4027,11 @@ const Cards = [
     "onLeft": "",
     "rightText": "Je passe aux toilettes avant d'y aller",
     "onRight": "+5H",
-    "custom": { "in_school": false },
+    "custom": { },
     "left_custom": {},
     "right_custom": {},
-    "left_next_card": "a1f5ca1c005647d1ac97c17e3d83ac96",
-    "right_next_card": "a1f5ca1c005647d1ac97c17e3d83ac96",
+    "left_next_card": "",
+    "right_next_card": "",
     "difficulté": "",
     "Kanji": "",
     "background": "#ccc",
@@ -4042,7 +4042,7 @@ const Cards = [
   {
     "Name": "bro_house_welcome",
     "id": "43972aa6e987444a9bb5b1ce9e7fa658",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4060,7 +4060,7 @@ const Cards = [
     "right_next_card": "",
     "difficulté": "",
     "Kanji": "",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },
@@ -4068,7 +4068,7 @@ const Cards = [
   {
     "Name": "bro_house_direction_1",
     "id": "9c1b8c5b05644d7a9d3c613e71c6cf47",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4086,7 +4086,7 @@ const Cards = [
     "right_next_card": "fa83ce262ae34a648802ce0ab7f0c54d",
     "difficulté": "",
     "Kanji": "左, 友",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },
@@ -4094,7 +4094,7 @@ const Cards = [
   {
     "Name": "bro_house_direction_2",
     "id": "5466273a5c014116861927f65c7db233",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4112,7 +4112,7 @@ const Cards = [
     "right_next_card": "",
     "difficulté": "",
     "Kanji": "左, 友",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },
@@ -4120,7 +4120,7 @@ const Cards = [
   {
     "Name": "bro_house_direction_3",
     "id": "54d4c91369004fadae99280374c9db4c",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4138,7 +4138,7 @@ const Cards = [
     "right_next_card": "fa83ce262ae34a648802ce0ab7f0c54d",
     "difficulté": "",
     "Kanji": "左, 右",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },
@@ -4146,7 +4146,7 @@ const Cards = [
   {
     "Name": "bro_house_direction_4",
     "id": "2ba4d686740d4bcfb1dd73f81f779f63",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4164,7 +4164,7 @@ const Cards = [
     "right_next_card": "fa83ce262ae34a648802ce0ab7f0c54d",
     "difficulté": "",
     "Kanji": "左, 右",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },
@@ -4172,7 +4172,7 @@ const Cards = [
   {
     "Name": "bro_house_direction_5",
     "id": "62983c7f5d094ff6bec23d1844cbc325",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4190,7 +4190,7 @@ const Cards = [
     "right_next_card": "",
     "difficulté": "",
     "Kanji": "左, 友",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },
@@ -4198,7 +4198,7 @@ const Cards = [
   {
     "Name": "bro_house_direction_wrong",
     "id": "fa83ce262ae34a648802ce0ab7f0c54d",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4216,7 +4216,7 @@ const Cards = [
     "right_next_card": "",
     "difficulté": "",
     "Kanji": "左, 友",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },
@@ -4224,7 +4224,7 @@ const Cards = [
   {
     "Name": "bro_house_direction_6",
     "id": "16d4e9c9fe044ec79114a72ed2b6baae",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4239,10 +4239,10 @@ const Cards = [
     "left_custom": {},
     "right_custom": {},
     "left_next_card": "43972aa6e987444a9bb5b1ce9e7fa658",
-    "right_next_card": "",
+    "right_next_card": "2149b06caad04f798f871782b615adc3",
     "difficulté": "",
     "Kanji": "友, 山, 口, 田, 中",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },
@@ -4250,12 +4250,12 @@ const Cards = [
   {
     "Name": "bro_house_direction_7",
     "id": "2149b06caad04f798f871782b615adc3",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
     "character": "brhouse",
-    "condition": { "brhome_welcome": false, "brohouse_direction_6": true },
+    "condition": { "brhome_welcome": false },
     "question": "Pas de réponse, c’est sûrement l’autre maison",
     "leftText": "Partir en courant sonner à l’autre maison",
     "onLeft": "-5H",
@@ -4268,7 +4268,7 @@ const Cards = [
     "right_next_card": "43972aa6e987444a9bb5b1ce9e7fa658",
     "difficulté": "",
     "Kanji": "",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },
@@ -4276,12 +4276,12 @@ const Cards = [
   {
     "Name": "bro_house_activity_1",
     "id": "fb991f5f82124057b7dca709c1fbb11c",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
     "character": "brosûr",
-    "condition": { "brhome_welcome": true },
+    "condition": {  },
     "question": "Bon je sais qu’on est là pour bosser le projet mais tu veux pas faire un autre truc avant ?",
     "leftText": "On pourrait prendre un petit goûter ",
     "onLeft": "+10H",
@@ -4290,11 +4290,11 @@ const Cards = [
     "custom": {},
     "left_custom": {},
     "right_custom": {},
-    "left_next_card": "43972aa6e987444a9bb5b1ce9e7fa658",
-    "right_next_card": "43972aa6e987444a9bb5b1ce9e7fa658",
+    "left_next_card": "5b2449f822764dc69b5e10546b383260",
+    "right_next_card": "5b2449f822764dc69b5e10546b383260",
     "difficulté": "",
     "Kanji": "",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },
@@ -4302,7 +4302,7 @@ const Cards = [
   {
     "Name": "bro_house_activity_2",
     "id": "5b2449f822764dc69b5e10546b383260",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4320,7 +4320,7 @@ const Cards = [
     "right_next_card": "",
     "difficulté": "",
     "Kanji": "",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },
@@ -4328,7 +4328,7 @@ const Cards = [
   {
     "Name": "bro_house_activity_3",
     "id": "ed20bb02f0ae43f1a8224c425c9aa35f",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4346,7 +4346,7 @@ const Cards = [
     "right_next_card": "",
     "difficulté": "",
     "Kanji": "",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },
@@ -4354,7 +4354,7 @@ const Cards = [
   {
     "Name": "bro_house_activity_4",
     "id": "7c71b7ece0cb4f22a6baec049d5867b2",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4372,7 +4372,7 @@ const Cards = [
     "right_next_card": "",
     "difficulté": "",
     "Kanji": "",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },
@@ -4380,7 +4380,7 @@ const Cards = [
   {
     "Name": "bro_house_activity_5",
     "id": "c51296aa22e1474da8fe6f0cd2974e4a",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4394,11 +4394,11 @@ const Cards = [
     "custom": { "brhome_kanjis": true },
     "left_custom": {},
     "right_custom": {},
-    "left_next_card": "b7592c6ab8e04a6f83fedba9922cf352",
-    "right_next_card": "b7592c6ab8e04a6f83fedba9922cf352",
+    "left_next_card": "dbecb87dfa344af0a962ddbfb3e70209",
+    "right_next_card": "dbecb87dfa344af0a962ddbfb3e70209",
     "difficulté": "",
     "Kanji": "",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },
@@ -4406,7 +4406,7 @@ const Cards = [
   {
     "Name": "bro_house_activity_5_test_1",
     "id": "dbecb87dfa344af0a962ddbfb3e70209",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4424,7 +4424,7 @@ const Cards = [
     "right_next_card": "7994dabf005b451487a0c4fa96f0ba54",
     "difficulté": "",
     "Kanji": "右",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },
@@ -4432,7 +4432,7 @@ const Cards = [
   {
     "Name": "bro_house_activity_5_test_2_right",
     "id": "4c4b75968ccf4cc3ab5f53eace983051",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4450,7 +4450,7 @@ const Cards = [
     "right_next_card": "48b26fe14ec742cfadbd19c1c3a3a810",
     "difficulté": "",
     "Kanji": "山",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },
@@ -4458,7 +4458,7 @@ const Cards = [
   {
     "Name": "bro_house_activity_5_test_2_wrong",
     "id": "7994dabf005b451487a0c4fa96f0ba54",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4476,7 +4476,7 @@ const Cards = [
     "right_next_card": "48b26fe14ec742cfadbd19c1c3a3a810",
     "difficulté": "",
     "Kanji": "山,右",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },
@@ -4484,7 +4484,7 @@ const Cards = [
   {
     "Name": "bro_house_activity_5_test_3_right",
     "id": "48b26fe14ec742cfadbd19c1c3a3a810",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4502,7 +4502,7 @@ const Cards = [
     "right_next_card": "7458bde692ad4ab295cec61b4dadcbf9",
     "difficulté": "",
     "Kanji": "口",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },
@@ -4510,7 +4510,7 @@ const Cards = [
   {
     "Name": "bro_house_activity_5_test_3_wrong",
     "id": "7bc82bc1421041c5a67925d2ff09817c",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4528,7 +4528,7 @@ const Cards = [
     "right_next_card": "7458bde692ad4ab295cec61b4dadcbf9",
     "difficulté": "",
     "Kanji": "口, 山",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },
@@ -4536,7 +4536,7 @@ const Cards = [
   {
     "Name": "bro_house_activity_5_test_4_wrong",
     "id": "7458bde692ad4ab295cec61b4dadcbf9",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4554,7 +4554,7 @@ const Cards = [
     "right_next_card": "da69c05af4d4414b9ca0d23320d0c18b",
     "difficulté": "",
     "Kanji": "口, 中",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },
@@ -4562,7 +4562,7 @@ const Cards = [
   {
     "Name": "bro_house_activity_5_test_4_right",
     "id": "1d2bc105d1024e4da189f91c9f2d0444",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4580,7 +4580,7 @@ const Cards = [
     "right_next_card": "0db249199b06471b8ace1ff45b412c8c",
     "difficulté": "",
     "Kanji": "田, 中, 愛",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },
@@ -4588,7 +4588,7 @@ const Cards = [
   {
     "Name": "bro_house_activity_5_test_5_wrong",
     "id": "da69c05af4d4414b9ca0d23320d0c18b",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4606,7 +4606,7 @@ const Cards = [
     "right_next_card": "0db249199b06471b8ace1ff45b412c8c",
     "difficulté": "",
     "Kanji": "田, 中, 愛",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },
@@ -4614,7 +4614,7 @@ const Cards = [
   {
     "Name": "bro_house_activity_5_test_6_right",
     "id": "0db249199b06471b8ace1ff45b412c8c",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4632,7 +4632,7 @@ const Cards = [
     "right_next_card": "",
     "difficulté": "",
     "Kanji": "",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },
@@ -4640,7 +4640,7 @@ const Cards = [
   {
     "Name": "bro_house_activity_5_test_6_wrong",
     "id": "974b0cccac2f49289eac9d1a4abab0aa",
-    "Unit": "166896163b494c14b01908f38c933418",
+    "Unit": "188aef38c1534dc2b7e8981112096fa5",
     "Person": "",
     "Status": "",
     "card_type": "recurrent_card",
@@ -4658,7 +4658,7 @@ const Cards = [
     "right_next_card": "",
     "difficulté": "",
     "Kanji": "",
-    "background": "",
+    "background": "#ccc",
     "image": "",
     "itemId": ""
   },

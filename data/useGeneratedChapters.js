@@ -58,7 +58,22 @@ const Chapters = [
 		"Status": "",
 		"condition": "",
 		"date": "04",
+<<<<<<< HEAD
+		"unit": ["166896163b494c14b01908f38c933418", "9edd889e7d6e4a74bbc14a7fe9cca540", "af1196e1fbfd477a8d06f20901387351", "07d1b181ba57465b9dc84160aa4a6155", "8c18be6ca6d74215af5f62690eb78a34"],
+		"difficulté": "",
+		"background": ""
+	},
+	{
+		"Name": "Allez chez son brosûr",
+		"id": "61a9e4f957564abdb80549a56eb55570",
+		"Person": "",
+		"Status": "",
+		"condition": "",
+		"date": "04",
+		"unit": ["131aec7d466444539b385dc635661996","188aef38c1534dc2b7e8981112096fa5","40792c0ce8bc4f2ebbba674caea668f8"],
+=======
 		"unit": ["166896163b494c14b01908f38c933418", "855e243f63ae4f5f8578cdb7c842d618", "af1196e1fbfd477a8d06f20901387351", "07d1b181ba57465b9dc84160aa4a6155", "8c18be6ca6d74215af5f62690eb78a34",],
+>>>>>>> 568c7cf3bd91dcfd4841234b0431a922cc8d8618
 		"difficulté": "",
 		"background": ""
 	},

@@ -360,6 +360,42 @@ const Units = [
 		"background": ""
 	},
 
+	{
+		"Name": "Introduction_chap6",
+		"id": "131aec7d466444539b385dc635661996",
+		"card": ["136e0e9acdde40b9a75166a96a8a3212"],
+		"Person": "",
+		"Status": "",
+		"condition": { "brhome": false, "lesson": false },
+		"custom": {"brhome": true},
+		"background": ""
+	},
+
+
+
+	{
+		"Name": "bro_homme",
+		"id": "188aef38c1534dc2b7e8981112096fa5",
+		"card": ["43972aa6e987444a9bb5b1ce9e7fa658", "9c1b8c5b05644d7a9d3c613e71c6cf47", "5466273a5c014116861927f65c7db233",  "54d4c91369004fadae99280374c9db4c", "2ba4d686740d4bcfb1dd73f81f779f63", "62983c7f5d094ff6bec23d1844cbc325",  "fa83ce262ae34a648802ce0ab7f0c54d", "16d4e9c9fe044ec79114a72ed2b6baae",],
+		"Person": "",
+		"Status": "",
+		"condition": { },
+		"custom": {},
+		"background": ""
+	},
+
+
+	{
+		"Name": "bro_activity",
+		"id": "40792c0ce8bc4f2ebbba674caea668f8",
+		"card": ["fb991f5f82124057b7dca709c1fbb11c", "ed20bb02f0ae43f1a8224c425c9aa35f", "7c71b7ece0cb4f22a6baec049d5867b2", "c51296aa22e1474da8fe6f0cd2974e4a", "dbecb87dfa344af0a962ddbfb3e70209"],
+		"Person": "",
+		"Status": "",
+		"condition": { "bro_activity" : false, "brhome_welcome": true },
+		"custom": {"bro_activity" : true},
+		"background": ""
+	},
+
 
 
 ];
