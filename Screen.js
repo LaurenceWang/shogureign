@@ -252,10 +252,10 @@ export default function AnimatedStyleUpdateExample() {
       {showClearBtn && <Button onPress={() => clearSave(true)} title="------------ Clear game saving ------------" color="#eb5267" />}
       {showKanjiButton && <KanjiButton onPress={onStartKanji} />}
       {showKanjiMenu && <KanjiMenu data={kanji} onBack={onMenuReturn} />}
-      {showTrophyButton && <TrophyButton onPress={onStartTrophy} />}
+      {/* {showTrophyButton && <TrophyButton onPress={onStartTrophy} />}
       {showTrophyMenu && <TrophyMenu />}
       {showCreditsButton && <CreditsButton onPress={onStartCredits} />}
-      {showCreditsMenu && <CreditsMenu />}
+      {showCreditsMenu && <CreditsMenu />} */}
       {showStartButton && <StartButton onPress={onStartChapter} />}
       {showChapter && <Chapter chapNum={chapNum} endChap={toggleLesson} onGameOverScreen={onGameOverScreen} kanjiProgression={kanji} gameSave={gameSave} save={save} onBack={onMenuReturn} setQueuedLesson={startLesson} />}
       {showGameOverScreen && <GameOverScreen text={gameOverText} iconURI={gameOverIcon} />}
