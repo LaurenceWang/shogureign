@@ -204,6 +204,14 @@ export default function AnimatedStyleUpdateExample() {
       console.log("Trying to switch");
       if (lessonKanji.length > 0) {
         // Create chapter & unit
+        if (Chapters[Chapters.length - 1]["id"] === Config.lessonChapterId) {
+          Chapters.pop();
+        }
+
+        if (Units[Units.length - 1]["id"] === Config.lessonUnitId) {
+          Units.pop();
+        }
+
         let chapter = generateLessonChapter();
         console.log("Generated chapter:");
         console.log(chapter);
