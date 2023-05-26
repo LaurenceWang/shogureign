@@ -1,5 +1,4 @@
-export default function useGeneratedUnits() {
-	const Units = [
+const Units = [
 		{
 			"Name": "Introduction",
 			"id": "188b7fe299a045299d9ad38778b1c7a4",
@@ -134,16 +133,16 @@ export default function useGeneratedUnits() {
 			"background": ""
 		  },
 
-		  {
-			"Name": "Introduction_chap2",
-			"id": "68bad6fc747141d1beb35ee057858f67",
-			"card": ["66262f990e88413f9ed6c66ab83d5300", "76b5bfc9afb64c5babf9350ad8c81bb7",],
-			"Person": "",
-			"Status": "",
-			"condition": {"chap2_intro":false},
-			"custom" : {"chap2_intro" :true},
-			"background": ""
-		  },
+	{
+		"Name": "Introduction_chap2",
+		"id": "68bad6fc747141d1beb35ee057858f67",
+		"card": ["66262f990e88413f9ed6c66ab83d5300", "76b5bfc9afb64c5babf9350ad8c81bb7",],
+		"Person": "",
+		"Status": "",
+		"condition": { "chap2_intro": false },
+		"custom": { "chap2_intro": true, "lesson": false },
+		"background": ""
+	},
 
 		  {
 			"Name": "Hungry",
@@ -156,16 +155,16 @@ export default function useGeneratedUnits() {
 			"background": ""
 		  },
 
-		  {
-			"Name": "Library",
-			"id": "7d6c2f8046bb475a8f7a119e924a8452",
-			"card": ["a0da9bacb9c147ad946b90001d355e8f",],
-			"Person": "",
-			"Status": "",
-			"condition": {"library": true},
-			"custom" : {"library": false},
-			"background": ""
-		  },
+	{
+		"Name": "Library",
+		"id": "7d6c2f8046bb475a8f7a119e924a8452",
+		"card": ["a0da9bacb9c147ad946b90001d355e8f",],
+		"Person": "",
+		"Status": "",
+		"condition": { "library": true },
+		"custom": { "library": false },
+		"background": ""
+	},
 
 		  {
 			"Name": "Grocery_store",
@@ -178,50 +177,51 @@ export default function useGeneratedUnits() {
 			"background": ""
 		  },
 
-		  {
-			"Name": "Cook",
-			"id": "810d9da937e2464ab5b7145a73050996",
-			"card": ["6a113b437caf4e6f932c2cbfb4ca79a2","3f45c532bd6b4b42aaba448de4622380","7b75706741bd4c4c870bcc054c8144d8", "c6c217b1a8234df8935968191643463b", "dbfd37ef8d6c4093bc1cd494136e331b", "9b2377b9a26d45c6a907426ce6ef3e0e", "e6192d4857124e8288ba4a39ede033c1","6357f62be25d42d8b396047ada4fd65a","57de92128fac4aa283fa087b3483d702","5f39bf8a266e47349801f00ac76e65f2","f0a342bda52c49608eb5014ba73a866a","168ce3fa29374396a8ad4fcbbe893b2e", "c230055dc3634c05b2dbf4380993cd56"],
-			"Person": "",
-			"Status": "",
-			"condition": {"cook":true},
-			"custom" : {},
-			"background": ""
-		  },
 
-		  {
-			"Name": "end_chap2",
-			"id": "65ab3f62f9e348baafc9aacade75f447",
-			"card": ["4c6d457e8d0a4ed18dd53206fc14352d","381839ae509c4d3aa1367a5f2ed9f56e",],
-			"Person": "",
-			"Status": "",
-			"condition": {},
-			"custom" : {},
-			"background": ""
-		  },
+	{
+		"Name": "Cook",
+		"id": "810d9da937e2464ab5b7145a73050996",
+		"card": ["6a113b437caf4e6f932c2cbfb4ca79a2", "3f45c532bd6b4b42aaba448de4622380", "7b75706741bd4c4c870bcc054c8144d8", "c6c217b1a8234df8935968191643463b", "dbfd37ef8d6c4093bc1cd494136e331b", "9b2377b9a26d45c6a907426ce6ef3e0e", "e6192d4857124e8288ba4a39ede033c1", "6357f62be25d42d8b396047ada4fd65a", "57de92128fac4aa283fa087b3483d702", "5f39bf8a266e47349801f00ac76e65f2", "f0a342bda52c49608eb5014ba73a866a", "168ce3fa29374396a8ad4fcbbe893b2e", "c230055dc3634c05b2dbf4380993cd56"],
+		"Person": "",
+		"Status": "",
+		"condition": { "cook": true },
+		"custom": {},
+		"background": ""
+	},
 
-		{
-			"Name": "Crush",
-			"id": "7c00e48218bc42aea11107d0f21f90c3",
-			"card": ["685ef582acb344faaa4fe4b680acd0f8",],
-			"Person": "",
-			"Status": "",
-			"condition": {},
-			"custom" : {},
-			"background": ""
-		},
+	{
+		"Name": "end_chap2",
+		"id": "65ab3f62f9e348baafc9aacade75f447",
+		"card": ["4c6d457e8d0a4ed18dd53206fc14352d", "381839ae509c4d3aa1367a5f2ed9f56e",],
+		"Person": "",
+		"Status": "",
+		"condition": {},
+		"custom": {},
+		"background": ""
+	},
+
+	{
+		"Name": "Crush",
+		"id": "7c00e48218bc42aea11107d0f21f90c3",
+		"card": ["685ef582acb344faaa4fe4b680acd0f8",],
+		"Person": "",
+		"Status": "",
+		"condition": {},
+		"custom": {},
+		"background": ""
+	},
 
 
-		{
-			"Name": "Introduction_chap3",
-			"id": "c84330446f9040d8b0661785992984c6",
-			"card": ["0a7cfc9935bb4ab0a7aae8f3c2b946d1",],
-			"Person": "",
-			"Status": "",
-			"condition": {"chap3_intro":false},
-			"custom" : {"chap3_intro" :true},
-			"background": ""
-		},
+	{
+		"Name": "Introduction_chap3",
+		"id": "c84330446f9040d8b0661785992984c6",
+		"card": ["0a7cfc9935bb4ab0a7aae8f3c2b946d1",],
+		"Person": "",
+		"Status": "",
+		"condition": { "chap3_intro": false },
+		"custom": { "chap3_intro": true, "lesson": false },
+		"background": ""
+	},
 
 		{
 			"Name": "School",
@@ -234,27 +234,28 @@ export default function useGeneratedUnits() {
 			"background": ""
 		},
 
-		{
-			"Name": "Classroom",
-			"id": "15ded9ccd4704073a5bb31f4533e64bd",
-			"card": ["8b391439bae34fd786ed4712e60cfc7a",],
-			"Person": "",
-			"Status": "",
-			"condition": {"in_class":true},
-			"custom" : {},
-			"background": ""
-		},
 
-		{
-			"Name": "End_school",
-			"id": "fdee85ecc6ac45b68c443898b7f287a8",
-			"card": ["27d42ec53e2f4086a9fecb5d3c8519e1",],
-			"Person": "",
-			"Status": "",
-			"condition": {"end_school":true},
-			"custom" : {},
-			"background": ""
-		},
+	{
+		"Name": "Classroom",
+		"id": "15ded9ccd4704073a5bb31f4533e64bd",
+		"card": ["8b391439bae34fd786ed4712e60cfc7a",],
+		"Person": "",
+		"Status": "",
+		"condition": { "in_class": true },
+		"custom": {},
+		"background": ""
+	},
+
+	{
+		"Name": "End_school",
+		"id": "fdee85ecc6ac45b68c443898b7f287a8",
+		"card": ["27d42ec53e2f4086a9fecb5d3c8519e1",],
+		"Person": "",
+		"Status": "",
+		"condition": { "end_school": true },
+		"custom": {},
+		"background": ""
+	},
 
 		{
 			"Name": "First_lesson",
@@ -275,7 +276,7 @@ export default function useGeneratedUnits() {
 			"Person": "",
 			"Status": "",
 			"condition": {"chap4_intro":false},
-			"custom" : {"chap4_intro" :true},
+			"custom" : {"chap4_intro" :true, "lesson": false},
 			"background": ""
 		  },
 
@@ -308,7 +309,7 @@ export default function useGeneratedUnits() {
 			"Person": "",
 			"Status": "",
 			"condition": {"chap5_intro":false},
-			"custom" : {"chap5_intro":true, "lost_purse": true},
+			"custom" : {"chap5_intro":true, "lost_purse": true,"lesson": false},
 			"background": ""
 		},
 
@@ -362,29 +363,22 @@ export default function useGeneratedUnits() {
 
 		
 	];
-  
-	
-  
-	const getUnitByIndex = (index) => {
-	  return Units[index % Units.length];
-	};
 
-	const getUnitCardByIndex = (unitIndex, cardIndex) => {
-		return Units[unitIndex].card[cardIndex % (Units[unitIndex].card).length];
-	}
-	
+const getUnitByIndex = (index) => {
+	return Units[index % Units.length];
+};
 
-	const getUnitById = (id) => {
-		return Units.filter(function(Unit) {return (Unit.id == id);})[0];
-	};
+const getUnitCardByIndex = (unitIndex, cardIndex) => {
+	return Units[unitIndex].card[cardIndex % (Units[unitIndex].card).length];
+}
 
-;
+const getUnitById = (id) => {
+	return Units.filter(function (Unit) { return (Unit.id == id); })[0];
+};
 
-	return {
-	  Units,
-	  getUnitByIndex,
-	  getUnitCardByIndex,
-	  getUnitById,
-	};
-  }
-   
+export {
+	Units,
+	getUnitByIndex,
+	getUnitCardByIndex,
+	getUnitById,
+};

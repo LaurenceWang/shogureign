@@ -6,10 +6,10 @@ import PlaceholderBackCards from './PlaceholderBackCards';
 import Question from './Question';
 import PowerIndicators from './PowerIndicators';
 import PlaceholderBackStaticCard from './PlaceholderBackStaticCard';
-import useGeneratedCards from './data/useGeneratedCards';
+import { getCardById } from './data/useGeneratedCards';
 import useGeneratedMultCards from './data/useGeneratedMultCards';
-import useGeneratedChapters from './data/useGeneratedChapters';
-import useGeneratedUnits from './data/useGeneratedUnits';
+import { getChapterByIndex } from './data/useGeneratedChapters';
+import { getUnitById } from './data/useGeneratedUnits';
 import worldState from './worldState';
 
 import GameOver from './data/gameover';
@@ -19,14 +19,10 @@ import MultCards from './data/useGeneratedMultCards';
 import Parsers from './tools/Parsers';
 import { set } from 'react-native-reanimated';
 
-const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSave, save, onBack }) => {
+const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSave, save, onBack, setQueuedLesson }) => {
 	//const {getChapterbyId} = useGeneratedChapters();
-	const { getChapterByIndex } = useGeneratedChapters();
-	const { getCardById } = useGeneratedCards();
 	let { World } = worldState();
 	const [worldSt, setworldSt] = useState(World);
-
-	const { getUnitById } = useGeneratedUnits();
 
 	const [chapterUnit, setChapterUnit] = useState([]);
 	const [unitCards, setUnitCards] = useState([]);
@@ -163,22 +159,28 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 
 		} else {
 
+			console.log("Chapter > ChapNum useEffect > Before setting everything up.");
 
-			
 			let units = getChapterByIndex(chapNum).unit;
+			console.log("Units: " + units[0]);
 			//let units = getChapterByIndex(2).unit;
 			updatePlayableUnits();
-			const cards = getUnitById(units[0]).card;
+
+			let nextUnit = getUnitById(units[0]);
+			console.log("Next unit: " + nextUnit);
+			const cards = nextUnit.card;
 			setChapterCard([...cards]);
 			setCurrentUnitId(getChapterByIndex(chapNum).unit[0]);
-
+			console.log("Chapter > ChapNum useEffect > Using first unit.");
 
 			setShowQuestion(false);
 			setTimeout(() => {
-
-
-				setCurrentCard(getCardById(cards[0]));
-
+				console.log("Chapter > ChapNum useEffect > First card of the unit:");
+				console.log(cards[0]);
+				let card = getCardById(cards[0]);
+				console.log("Chapter > ChapNum useEffect > First card:");
+				console.log(card);
+				setCurrentCard(card);
 				setShowCard(false);
 			}, 100);
 
@@ -224,7 +226,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 				console.log("next id right dans useEffect " + next_id);
 			}
 
-			if (!isPlayableCard(newPC) && next_id == "") {
+			if (!hasPlayableCards(newPC) && next_id == "") {
 				let hasFoundPC = false
 				let WS = newWS;
 				let PC = newPC;
@@ -232,7 +234,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 					console.log("testing unit : " + getUnitById(ranNewPU[i]).Name);
 					WS = updateWorldState(newWS, traces[traces.length - 1].direction, ranNewPU[i]);
 					PC = updatePlayableCards(ranNewPU[i], WS, oldId);
-					if (isPlayableCard(PC)) {
+					if (hasPlayableCards(PC)) {
 						console.log("playable unit id : " + getUnitById(ranNewPU[i]).Name);
 						hasFoundPC = true;
 						newUnitId = ranNewPU[i];
@@ -242,10 +244,12 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 				}
 
 				if (hasFoundPC == false) {
-					endChap();
+					console.log("Not this end chap pls");
+					onEnd();
 					//setEndChapitre(true);
 				}
 				else {
+					console.log("Found playable cards.");
 					console.log(newUnitId)
 					setworldSt(WS);
 					setIdMemory(newOldId);
@@ -289,11 +293,8 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 		//setCurrentCard(getCardById(unitCard[ran]));
 	}
 
-	function isPlayableCard(cards) {
-		if (cards.length != 0) {
-			return true;
-		}
-		return false;
+	function hasPlayableCards(cards) {
+		return cards.length != 0;
 	}
 
 
@@ -307,10 +308,17 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 		return array;
 	}
 
+	function onEnd() {
+		let kanjis = getKanjisForLesson();
+		console.log("Kanjis for lesson: ");
+		console.log(kanjis);
+		setQueuedLesson(kanjis);
+		endChap();
+	}
 
 	useEffect(() => {
 		if (endChapitre == true) {
-			endChap();
+			onEnd();
 			console.log("----------------------------------------")
 
 			console.log("chapNum :" + chapNum)
@@ -349,8 +357,13 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 			units.splice(currentId, 1); // 2nd parameter means remove one item only
 		}*/
 
+		console.log("UpdatePlayableUnits > Units: " + units);
+
 		units.forEach(element => {
-			let conditions = getUnitById(element).condition;
+			console.log("Find by: " + element);
+			let unit = getUnitById(element);
+			console.log(unit);
+			let conditions = unit.condition;
 			if (comparaison(conditions, newWorld)) {
 				playableUnits[j] = element;
 				j++;
@@ -480,6 +493,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 			if (count > 0)
 				setKanjiWeight(kanjiWeightTmp);
 			setPendingKanjis(newUniqueKanjiList);
+			save(Config.kanjiPending, newUniqueKanjiList);
 		}
 	}
 
@@ -496,7 +510,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 
 	useEffect(() => {
 		console.log("useEffect (pending kanji) > cards since last lesson: " + cardsSinceLastLesson);
-		kanjiLesson = getKanjisForLesson();
+		// kanjiLesson = getKanjisForLesson();
 		console.debug("After get kanjis for lesson: new kanji weight > ");
 		console.debug(kanjiWeight);
 	}, [pendingKanjis, cardsSinceLastLesson]);
@@ -560,7 +574,8 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 		availableKanjis = pendingKanjis.filter(k => kanjiWeightTmp[k].lesson > 0);
 
 		// TODO: If you add new unencountered kanji, change this && to ||.
-		if (availableKanjis.length >= Config.lessonSize && cardsSinceLastLesson >= Config.minLessonInterval) {
+		// if (availableKanjis.length >= Config.lessonSize && cardsSinceLastLesson >= Config.minLessonInterval) {
+		if (availableKanjis.length >= Config.lessonSize) {
 			let kanjiForLesson = [];
 
 			// We have the choice between dealing with the list as a heap or a stack
@@ -589,6 +604,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 			setCardsSinceLastLesson(0);
 			return kanjiForLesson;
 		}
+		console.log("Not enough kanjis for a lesson?");
 		return [];
 	}
 

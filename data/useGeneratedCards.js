@@ -1,4 +1,6 @@
-export default function useGeneratedCards() {
+import Config from "../tools/Config";
+
+
   const Cards = [
     {
       "Name": "Introduction",
@@ -4672,9 +4674,15 @@ export default function useGeneratedCards() {
     return Cards.filter(function (Card) { return (Card.id == id); })[0];
   };
 
-  return {
+const showLastThree = () => {
+  console.log("Cards in the dictionary:");
+  for (let i = Cards.length - Config.lessonSize; i < Cards.length; i++) {
+    console.log(Cards[i]);
+  }
+}
+
+  export {
     Cards,
     getCardByIndex,
     getCardById,
   };
-}
