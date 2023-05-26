@@ -43,7 +43,7 @@ const KanjiButton = ({ onPress }) => {
 
 const styles = StyleSheet.create({
   wrapperBack: {
-    height: '20%',
+    height: '70%',
     width: '42%',
     borderRadius: 35,
     overflow: 'hidden',
@@ -70,8 +70,8 @@ const styles = StyleSheet.create({
     width: '90%',
     position: 'absolute',
     left: '5%'*/
-    height: '50%',
-    width: '50%',
+    height: 80,
+    width: 80,
   },
   shadow: {
     position: 'absolute',
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   text: {
-    //paddingTop: 133,
+    paddingTop: 20,
     //paddingLeft:33,
 
 
