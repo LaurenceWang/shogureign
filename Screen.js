@@ -201,6 +201,7 @@ export default function AnimatedStyleUpdateExample() {
   useEffect(() => {
     console.info("Chapter change. It is " + (lessonChapter ? "" : "not") + " a lesson");
     if (lessonChapter) {
+      console.log("Trying to switch");
       if (lessonKanji.length > 0) {
         // Create chapter & unit
         let chapter = generateLessonChapter();
@@ -230,6 +231,7 @@ export default function AnimatedStyleUpdateExample() {
         setChapNum(Chapters.length - 1);
       } else {
         toggleLesson();
+        increment(storyChapterNumber);
       }
     } else {
       if (extraChapterAdded) {

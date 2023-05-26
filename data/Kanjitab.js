@@ -187,7 +187,7 @@ export default function useKanjiCards() {
       "Lecture": "oo(kii)",
       "Trad": "grand",
       "Mnemotechnique": "",
-      "Combinaison": "oo(kii)",
+      "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
     },
@@ -197,7 +197,7 @@ export default function useKanjiCards() {
       "Lecture": "chii(sai)",
       "Trad": "petit",
       "Mnemotechnique": "",
-      "Combinaison": "chii(sai)",
+      "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
     },
@@ -360,6 +360,16 @@ export default function useKanjiCards() {
       "Combinaison": "花火 - hanabi",
       "Littéral": "fleur + feu",
       "Traduction": "feu d’artifices"
+    },
+    "傘": {
+      "Niveau": "",
+      "WanikaniLevel": 2,
+      "Lecture": "kasa",
+      "Trad": "parapluie",
+      "Mnemotechnique": "Ca ressemble à un parapluie !",
+      "Combinaison": "",
+      "Littéral": "",
+      "Traduction": ""
     },
     "金": {
       "Niveau": "",
@@ -1065,7 +1075,7 @@ export default function useKanjiCards() {
       "Littéral": "négation - paix",
       "Traduction": "anxiété"
     },
-    
+
     "先": {
       "Niveau": "",
       "WanikaniLevel": 4,
@@ -1076,7 +1086,7 @@ export default function useKanjiCards() {
       "Littéral": "avant - étudiant",
       "Traduction": "professeur"
     },
-    
+
     "生": {
       "Niveau": "",
       "WanikaniLevel": 3,

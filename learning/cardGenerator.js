@@ -103,7 +103,7 @@ const generateLessonCards = (kanjis) => {
 
     if (kanjiDictionaryData["Combinaison"].length > 0) {
       kanjiLessonCards.push(
-        generateLessonTemplate(2, "Combinaisons : \n" + kanjiDict[kanji]["Combinaison"]));
+        generateLessonTemplate(2, "Combinaisons : \n" + kanjiDict[kanji]["Combinaison"] + ": " + kanjiDict[kanji]["Traduction"]));
     }
   };
 
