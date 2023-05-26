@@ -88,7 +88,7 @@ const getChapterCardByIndex = (chapIndex, cardIndex) => {
 
 
 const getChapterUnit = (chapIndex, UnitIndex) => {
-	return Chapters[chapIndex].unit[UnitIndex % (Chapters[chapIndex].card).length];
+	return Chapters[chapIndex % Chapters.length].unit[UnitIndex % (Chapters[chapIndex].card).length];
 }
 
 const getChapterById = (id) => {
