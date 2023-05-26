@@ -1746,6 +1746,32 @@ import Config from "../tools/Config";
       "itemId": ""
     },
 
+    {
+      "Name": "atm",
+      "id": "7f9b4bbcfae44448accc3ffa8491f6ae",
+      "Unit": "023f6b2981ff4853826039b6e1845e62",
+      "Person": "p",
+      "Status": "",
+      "card_type": "",
+      "character": "money",
+      "condition": {},
+      "question": "Ah c'est une ATM",
+      "leftText": "Retirer 8000円",
+      "onLeft": "+15A",
+      "rightText": "Pas la peine j'ai déjà assez d'argent",
+      "onRight": "",
+      "custom": {},
+      "left_custom": {},
+      "right_custom": {},
+      "left_next_card": "",
+      "right_next_card": "",
+      "difficulté": "",
+      "Kanji": "",
+      "background": "#C2E0F8",
+      "image": "https://cdn-icons-png.flaticon.com/512/7630/7630510.png",
+      "itemId": ""
+    },
+
 
     {
       "Name": "street_rain",
