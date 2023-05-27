@@ -22,7 +22,7 @@ Using the Tinder-like concept, the game enables players to swipe event cards to 
 - Other :
   - Reanimated 2, from `Software Mansion` (https://www.reanimated2.com)
   - Images :
-    - ROARD Elia: for all of the different characters in the game
+    - ROARD Elia: for all of the different characters in the game and the poster
     - Flaticon: for all other icons, including but not limited to: the vending machine, the bills, the streets. (https://www.flaticon.com)
 
 ## Development
