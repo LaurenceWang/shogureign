@@ -4,6 +4,7 @@ import Card from './Card';
 import MultipleCard from './MultipleCard';
 import PlaceholderBackCards from './PlaceholderBackCards';
 import Question from './Question';
+import Name from './Name';
 import PowerIndicators from './PowerIndicators';
 import PlaceholderBackStaticCard from './PlaceholderBackStaticCard';
 import { getCardById } from './data/useGeneratedCards';
@@ -36,6 +37,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 	const [showCard, setShowCard] = useState(false);
 	const [showMultCard, setShowMultCard] = useState(false);
 	const [showQuestion, setShowQuestion] = useState(false);
+	const [showName, setShowName] = useState(false);
 	const [chapterCard, setChapterCard] = useState([]);
 
 	const [currentCard, setCurrentCard] = useState({});
@@ -146,6 +148,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 			setCurrentUnitId((gameSave.cc).Unit);
 
 			setShowQuestion(false);
+			setShowName(false);
 			setTimeout(() => {
 
 
@@ -174,6 +177,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 			console.log("Chapter > ChapNum useEffect > Using first unit.");
 
 			setShowQuestion(false);
+			setShowName(false);
 			setTimeout(() => {
 				console.log("Chapter > ChapNum useEffect > First card of the unit:");
 				console.log(cards[0]);
@@ -460,6 +464,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 			//setCurrentMultCard(MultCards[0]);
 			setTimeout(() => {
 				setShowQuestion(true);
+				setShowName(true);
 			}, 10);
 		}, timeout);
 	};
@@ -720,6 +725,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 
 	const createNewCard = (newPC, newUnitId, next_id) => {
 		setShowQuestion(false);
+		setShowName(false);
 		setTimeout(() => {
 			console.log("---------------------------------------")
 			console.log("create new card :")
@@ -794,6 +800,10 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 				)}
 
 			</View>
+			
+			<View style={styles.nameWrapper}>
+				<Name name={currentCard.character} showName={showName} />
+			</View>
 			<View style={styles.btnWrapper}>
 				{<Button title="Back" color="#FDA3AF" onPress={onBack} style={styles.btn} />}
 			</View>
@@ -822,7 +832,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	nameWrapper: {
-		height: 100,
+		height: 30,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
