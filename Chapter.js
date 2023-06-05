@@ -5,6 +5,7 @@ import MultipleCard from './MultipleCard';
 import PlaceholderBackCards from './PlaceholderBackCards';
 import Question from './Question';
 import Name from './Name';
+import Namesbank from './data/NamesBank';
 import PowerIndicators from './PowerIndicators';
 import PlaceholderBackStaticCard from './PlaceholderBackStaticCard';
 import { getCardById } from './data/useGeneratedCards';
@@ -802,12 +803,11 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 			</View>
 			
 			<View style={styles.nameWrapper}>
-				<Name name={currentCard.character} showName={showName} />
+				<Name name={Namesbank[currentCard.character]} showName={showName} />
 			</View>
 			<View style={styles.btnWrapper}>
 				{<Button title="Back" color="#FDA3AF" onPress={onBack} style={styles.btn} />}
 			</View>
-			{/* <View style={styles.nameWrapper} /> */}
 
 
 		</View>

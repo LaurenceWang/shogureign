@@ -374,8 +374,8 @@ export default function useKanjiCards() {
     "金": {
       "Niveau": "",
       "WanikaniLevel": 5,
-      "Lecture": "kin / métal",
-      "Trad": "or",
+      "Lecture": "kane / kin",
+      "Trad": "argent / or",
       "Mnemotechnique": "",
       "Combinaison": "",
       "Littéral": "",
@@ -477,6 +477,16 @@ export default function useKanjiCards() {
       "Lecture": "tomo",
       "Trad": "ami",
       "Mnemotechnique": "",
+      "Combinaison": "",
+      "Littéral": "",
+      "Traduction": ""
+    },
+    "悪": {
+      "Niveau": "",
+      "WanikaniLevel": 3,
+      "Lecture": "waru(i)",
+      "Trad": "mauvais",
+      "Mnemotechnique": "le kanji de coeur en bas",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -751,6 +761,46 @@ export default function useKanjiCards() {
       "Littéral": "",
       "Traduction": ""
     },
+    "売": {
+      "Niveau": "",
+      "WanikaniLevel": 6,
+      "Lecture": "u(ru) / bai ",
+      "Trad": "vendre",
+      "Mnemotechnique": "",
+      "Combinaison": "売り手 - U ri te",
+      "Littéral": "vendre + main",
+      "Traduction": "vendeur"
+    },
+    "買": {
+      "Niveau": "",
+      "WanikaniLevel": 6,
+      "Lecture": "ka(u) / bai ",
+      "Trad": "acheter",
+      "Mnemotechnique": "",
+      "Combinaison": "売買 - bai bai",
+      "Littéral": "vendre + acheter",
+      "Traduction": "échange commercial"
+    },
+    "走": {
+      "Niveau": "",
+      "WanikaniLevel": 6,
+      "Lecture": "hashi(ru)",
+      "Trad": "courir",
+      "Mnemotechnique": "",
+      "Combinaison": "",
+      "Littéral": "",
+      "Traduction": ""
+    },
+    "行": {
+      "Niveau": "",
+      "WanikaniLevel": 6,
+      "Lecture": "i(ku)",
+      "Trad": "aller",
+      "Mnemotechnique": "",
+      "Combinaison": "",
+      "Littéral": "",
+      "Traduction": ""
+    },
     "品": {
       "Niveau": "",
       "WanikaniLevel": 16,
@@ -910,6 +960,26 @@ export default function useKanjiCards() {
       "Combinaison": "映画 - eiga",
       "Littéral": "projection + dessin",
       "Traduction": "film"
+    },
+    "宅": {
+      "Niveau": "",
+      "WanikaniLevel": 6,
+      "Lecture": "taku",
+      "Trad": "sa maison / sa famille / soi-même",
+      "Mnemotechnique": "",
+      "Combinaison": "お宅 - otaku",
+      "Littéral": " ",
+      "Traduction": "otaku / sa maison / sa famille"
+    },
+    "宅": {
+      "Niveau": "",
+      "WanikaniLevel": 6,
+      "Lecture": "ie",
+      "Trad": "maison",
+      "Mnemotechnique": "",
+      "Combinaison": "",
+      "Littéral": " ",
+      "Traduction": ""
     },
     "音": {
       "Niveau": "",
@@ -1094,10 +1164,19 @@ export default function useKanjiCards() {
       "Trad": "vie, soi-même, étudiant",
       "Mnemotechnique": "",
       "Combinaison": "(大)学生 - (dai)gakusei",
-      "Littéral": "(grand) apprendre étudiant",
+      "Littéral": "(grand +) apprendre + étudiant",
       "Traduction": "étudiant (en université)"
     },
-
+    "校": {
+      "Niveau": "",
+      "WanikaniLevel": 8,
+      "Lecture": "kou",
+      "Trad": "école / examen",
+      "Mnemotechnique": "formé avec le kanji de l'arbre",
+      "Combinaison": "(大)学校 ",
+      "Littéral": "(grand +) apprendre + école",
+      "Traduction": "école (université)"
+    },
     "": {
       "Niveau": "",
       "WanikaniLevel": "",

@@ -14,7 +14,6 @@ const Imagesbank = {
   voisinshomme: "https://i.ibb.co/vkVgCBS/voisinh.png",
   voisinsfemme: "https://i.ibb.co/RSwt1zM/voisinF.png",
   enfantvoisin: "https://i.ibb.co/RN0m9Zq/voisine.png",
-  crush: "https://i.ibb.co/sKJZGz4/crush.png",
   vendeur: "https://i.ibb.co/Yt5K6J1/vendeur.png",
 
   chatvoisin: "https://cdn-icons-png.flaticon.com/512/9288/9288621.png",
