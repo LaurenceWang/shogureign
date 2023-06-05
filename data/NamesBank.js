@@ -47,7 +47,7 @@ const Namesbank = {
     restaurant : "食べる - ta be ru",
     sakura : "木",
     ticket : "",
-    directions: "どこ",
+    directions: "",
     question: "問だい - mon da i",
     television : "",
     kitchen : "",

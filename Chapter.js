@@ -21,6 +21,7 @@ import MultCards from './data/useGeneratedMultCards';
 import Parsers from './tools/Parsers';
 import { set } from 'react-native-reanimated';
 
+
 const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSave, save, onBack, setQueuedLesson }) => {
 	//const {getChapterbyId} = useGeneratedChapters();
 	let { World } = worldState();
@@ -672,6 +673,16 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 		}, 50);
 	}
 
+	const displayfeedback = (feedback) => {
+		if (feedback.good == 1) {
+			console.log(`GOOD`);
+			
+		}
+		else if(feedback.bad == 1){
+			console.log(`BAD`);
+		}
+	}
+
 	function updateTrace(currentId, chosenDirection) {
 		const data = [{ id: currentId, direction: chosenDirection }];
 		let currentTraces = [...traces, ...data];
@@ -682,21 +693,24 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 	const onChooseLeftAnswer = () => {
 		//console.debug("Current card: ");
 		//console.debug(currentCard);
-		const { moods, variations } = Parsers.cardParser(currentCard.onLeft);
+		const { moods, variations, feedback } = Parsers.cardParser(currentCard.onLeft);
 		updateTrace(currentCard.id, "left");
 		//updateWorldStateCard("left", currentCard.id);
 		//nextCardId = currentCard.left_next_card;
+		displayfeedback(feedback);
 		updateStats(moods, variations);
 	};
 
 	const onChooseRightAnswer = () => {
 		//console.debug("Current card: ");
 		//console.debug(currentCard);
-		const { moods, variations } = Parsers.cardParser(currentCard.onRight);
+		const { moods, variations, feedback } = Parsers.cardParser(currentCard.onRight);
+		displayfeedback(feedback);
 		updateTrace(currentCard.id, "right");
 
 		//updateWorldStateCard("right", currentCard.id);
 		//nextCardId = currentCard.right_next_card;
+		displayfeedback(feedback);
 		updateStats(moods, variations);
 	};
 
@@ -728,10 +742,6 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 		setShowQuestion(false);
 		setShowName(false);
 		setTimeout(() => {
-			console.log("---------------------------------------")
-			console.log("create new card :")
-
-			console.log("testest");
 			console.log(newPC)
 
 			console.log(newUnitId)
@@ -760,14 +770,16 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 				save(Config.curCardKey, getCardById(newPC[ran]));
 			}
 
-
+			
+			
 			setShowCard(false);
 		}, 100);
-
 		showNextCard(150);
 	};
 
-	return (
+	
+
+	  return (
 		<View style={styles.wrapper}>
 
 			<View style={styles.topWrapper}>
@@ -813,6 +825,7 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 		</View>
 	);
 }
+
 
 
 const styles = StyleSheet.create({
