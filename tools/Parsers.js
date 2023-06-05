@@ -6,14 +6,12 @@ const kanjiParser = (text) => {
 const cardParser = (text) => {
   const moods = { happy: [], sad: [] }
   const variations = { popularity: 0, money: 0, hygiene: 0, happiness: 0 }
-  const feedback = {good : 0, bad : 0}
 
   // If empty effect
   if (!text)
     return {
       moods: moods,
-      variations: variations,
-      feedback: feedback
+      variations: variations
     };
 
   // Parsing the card text
@@ -23,33 +21,29 @@ const cardParser = (text) => {
   if (data === null) {
     return {
       moods: moods,
-      variations: variations,
-      feedback: feedback
+      variations: variations
     }
   }
   data = data.map((effectText) => effectParser(effectText));
   console.debug("Data: ");
   console.debug(data);
-  
+
   for (let i = 0; i < data.length; i++) {
     // Sorting moods for animations
     console.debug("Effect: ");
     console.debug(data[i]);
     if (data[i]["mood"])
-      moods.happy.push(data[i]["stat"]);
-      if (data[i]["fb"] === "GOOD") feedback.good += 1;
+      moods.happy.push(data[i]["stat"])
     else
-      moods.sad.push(data[i]["stat"]);
-      if (data[i]["fb"] === "BAD") feedback.bad += 1; // Increment bad count
+      moods.sad.push(data[i]["stat"])
 
     // Effect : previous value +/- new value
     variations[data[i]["stat"]] = (data[i]["mood"] ? 1 : -1) * data[i]["value"];
-    console.log(feedback);
   }
+
   return {
     moods: moods,
-    variations: variations,
-    feedback: feedback
+    variations: variations
   };
 }
 
@@ -70,14 +64,6 @@ const testParser = (code) => {
     default: console.err(`testParser: Stat does not exist yet: ${code}`);
   }
 }
-
-/***const fbParser = (code) => {
-  switch (code) {
-    case "BAD": return "good";
-    case "GOOD": return "bad";
-    default: console.log(`feedback does not exist yet: ${code}`);
-  }
-} ***/
 
 const moodParser = (code) => {
   switch (code) {
