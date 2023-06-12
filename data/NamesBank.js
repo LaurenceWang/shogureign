@@ -48,6 +48,8 @@ const Namesbank = {
     sakura : "木",
     ticket : "",
     directions: "",
+    park: "園 - koen",
+    street: "",
     question: "問だい - mon da i",
     television : "",
     kitchen : "",
