@@ -7,6 +7,7 @@ import Question from './Question';
 import Name from './Name';
 import Namesbank from './data/NamesBank';
 import PowerIndicators from './PowerIndicators';
+import Feedback from './Feedback'
 import PlaceholderBackStaticCard from './PlaceholderBackStaticCard';
 import { getCardById } from './data/useGeneratedCards';
 import useGeneratedMultCards from './data/useGeneratedMultCards';
@@ -53,6 +54,8 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 	const [traces, setTraces] = useState([]);
 	const [testUnit, setTestUnit] = useState(0);
 	const [idMemory, setIdMemory] = useState([]);
+	const [isGood, setIsGood] = useState(false);
+	const [isBad, setIsBad] = useState(false);
 	let next_id = "";
 
 	const firstRun = useRef(true);
@@ -680,26 +683,21 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 	}
 
 	const onChooseLeftAnswer = () => {
-		//console.debug("Current card: ");
-		//console.debug(currentCard);
 		const { moods, variations } = Parsers.cardParser(currentCard.onLeft);
 		updateTrace(currentCard.id, "left");
-		//updateWorldStateCard("left", currentCard.id);
-		//nextCardId = currentCard.left_next_card;
+		setIsGood(currentCard.onLeft.indexOf("Y") !== -1);
+		setIsBad(currentCard.onLeft.indexOf("N") !== -1);
 		updateStats(moods, variations);
-	};
-
-	const onChooseRightAnswer = () => {
-		//console.debug("Current card: ");
-		//console.debug(currentCard);
+	  };
+	  
+	  const onChooseRightAnswer = () => {
 		const { moods, variations } = Parsers.cardParser(currentCard.onRight);
 		updateTrace(currentCard.id, "right");
-
-		//updateWorldStateCard("right", currentCard.id);
-		//nextCardId = currentCard.right_next_card;
+		
+		setIsGood(currentCard.onRight.indexOf("Y") !== -1);
+		setIsBad(currentCard.onRight.indexOf("N") !== -1);
 		updateStats(moods, variations);
-	};
-
+	  };
 
 	const onChooseWestAnswer = (kanji) => {
 		//updateTrace(currentCard.id, "west");
@@ -769,49 +767,52 @@ const Chapter = ({ chapNum, endChap, onGameOverScreen, kanjiProgression, gameSav
 
 	return (
 		<View style={styles.wrapper}>
-
-			<View style={styles.topWrapper}>
-				<PowerIndicators currentMood={currentMood} currentStats={currentStats} />
-			</View>
-			<View style={styles.questionWrapper}>
-				<Question question={currentCard.question} showQuestion={showQuestion} />
-			</View>
-			<View style={styles.cardWrapper}>
-				{showAnimatedReverseCard && <PlaceholderBackCards />}
-				{showReverseCard && <PlaceholderBackStaticCard />}
-				{showMultCard && <MultipleCard
-					onChooseWestAnswer={onChooseWestAnswer}
-					onChooseEastAnswer={onChooseEastAnswer}
-					onChooseNorthAnswer={onChooseNorthAnswer}
-					onChooseSouthAnswer={onChooseSouthAnswer}
-					westText={currentMultCard["westText"]}
-					eastText={currentMultCard["eastText"]}
-					northText={currentMultCard["northText"]}
-					southText={currentMultCard["southText"]}
-				/>}
-				{showCard && (
-					<Card
-						onChooseLeftAnswer={onChooseLeftAnswer}
-						onChooseRightAnswer={onChooseRightAnswer}
-						leftText={currentCard.leftText}
-						rightText={currentCard.rightText}
-						character={currentCard.character}
-						backgroundColor={currentCard.background}
-					/>
-				)}
-
-			</View>
+		  <View style={styles.topWrapper}>
+			<PowerIndicators currentMood={currentMood} currentStats={currentStats} />
+		  </View>
+		  <View style={styles.questionWrapper}>
+			<Question question={currentCard.question} showQuestion={showQuestion} />
+		  </View>
+		  <View style={styles.cardWrapper}>
+			{showAnimatedReverseCard && <PlaceholderBackCards />}
+			{showReverseCard && <PlaceholderBackStaticCard />}
+			{showMultCard && (
+			  <MultipleCard
+				onChooseWestAnswer={onChooseWestAnswer}
+				onChooseEastAnswer={onChooseEastAnswer}
+				onChooseNorthAnswer={onChooseNorthAnswer}
+				onChooseSouthAnswer={onChooseSouthAnswer}
+				westText={currentMultCard["westText"]}
+				eastText={currentMultCard["eastText"]}
+				northText={currentMultCard["northText"]}
+				southText={currentMultCard["southText"]}
+			  />
+			)}
+			{showCard && (
+			  <Card
+				onChooseLeftAnswer={onChooseLeftAnswer}
+				onChooseRightAnswer={onChooseRightAnswer}
+				leftText={currentCard.leftText}
+				rightText={currentCard.rightText}
+				character={currentCard.character}
+				backgroundColor={currentCard.background}
+			  />
+			)}
+		  </View>
+		  <View style={styles.fbWrapper}>
 			
-			<View style={styles.nameWrapper}>
-				<Name name={Namesbank[currentCard.character]} showName={showName} />
-			</View>
-			<View style={styles.btnWrapper}>
-				{<Button title="Back" color="#FDA3AF" onPress={onBack} style={styles.btn} />}
-			</View>
-
-
+		  {isGood && <Feedback isGood={true} isBad={false} />}
+        	{isBad && <Feedback isGood={false} isBad={true} />}
+			
+		  </View>
+		  <View style={styles.nameWrapper}>
+			<Name name={Namesbank[currentCard.character]} showName={showName} />
+		  </View>
+		  <View style={styles.btnWrapper}>
+			{<Button title="Back" color="#FDA3AF" onPress={onBack} style={styles.btn} />}
+		  </View>
 		</View>
-	);
+	  );
 }
 
 
@@ -833,6 +834,11 @@ const styles = StyleSheet.create({
 	},
 	nameWrapper: {
 		height: 30,
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	fbWrapper: {
+		height: 0,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
