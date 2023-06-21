@@ -6,7 +6,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 1,
       "Lecture": "ichi",
       "Trad": "un",
-      "Mnemotechnique": "Une barre horizontale. La pureté absolue. Vous êtes fasciné par la simplicité de ce symbole que vous vous fixez sur l’unique barre. Unique. Un.",
+      "Mnemotechnique": "Une barre horizontale. La pureté absolue.",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -16,7 +16,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 1,
       "Lecture": "ni",
       "Trad": "deux",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Duplication du kanji 一 (un). Le trait du dessus est légèrement plus court",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -26,7 +26,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 1,
       "Lecture": "san",
       "Trad": "trois",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Triplication du kanji 一 (un). Rajoute un trait de taille moyenne au dessus du kanji 二",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -36,7 +36,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 2,
       "Lecture": "yon / shi",
       "Trad": "quatre",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Le kanji bouche auquel on ajoute 2 petites dents. Les matheux pourraient y voir un PI... ",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -46,7 +46,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 2,
       "Lecture": "go",
       "Trad": "cinq",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "On note quelques similitudes avec la graphie du chiffre 5",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -56,7 +56,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 2,
       "Lecture": "roku",
       "Trad": "six",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "On ne dirait pas un peu une étoile ? Prox-six-ma du Centaure peut être ?",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -66,7 +66,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 1,
       "Lecture": "nana / shichi",
       "Trad": "sept",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Il suffit de tourner le téléphone à 180° et de le lire à nouveau, le vois tu ce 7 ?",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -76,7 +76,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 1,
       "Lecture": "hachi",
       "Trad": "huit",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "La base d'un sablier, et un sablier ressemble assurément à un 8",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -86,7 +86,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 1,
       "Lecture": "kyuu",
       "Trad": "neuf",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "On peut y voir un n comme pour Neuf",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -96,7 +96,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 1,
       "Lecture": "juu",
       "Trad": "dix",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Comme le 10 en chiffre romain, c'est une croix",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -106,7 +106,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 4,
       "Lecture": "hyaku",
       "Trad": "cent",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Rotation de 90°, tu le vois ce 100?",
       "Combinaison": "百八十 - hyakuhachijuu",
       "Littéral": "cent + huit + dix",
       "Traduction": 180
@@ -116,7 +116,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 1,
       "Lecture": "kuchi",
       "Trad": "bouche",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Une bouche de poisson chat grand ouverte (avec les petites moustaches qui dépassent !)",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -156,7 +156,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 2,
       "Lecture": "nichi / hi",
       "Trad": "jour / soleil",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Un jour = un tour de soleil",
       "Combinaison": "一月二日 - ichigatsu futsuka",
       "Littéral": "un + mois + deux + jour",
       "Traduction": "2 janvier"
@@ -166,7 +166,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 2,
       "Lecture": "gatsu / tsuki",
       "Trad": "mois / lune",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Un mois = un tour de lune",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -186,7 +186,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 1,
       "Lecture": "oo(kii)",
       "Trad": "grand",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Un homme bras et jambes écartés, il se fait grand",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -196,7 +196,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 2,
       "Lecture": "chii(sai)",
       "Trad": "petit",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Un homme bras et jambes rapprochés du corps, il se fait petit",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -216,7 +216,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 2,
       "Lecture": "hon / moto",
       "Trad": "livre / commencement",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Le kanji de l'arbre 木 coupé à la racine pour en faire un livre",
       "Combinaison": "日本 - nihon",
       "Littéral": "soleil + commencement",
       "Traduction": "Japon"
@@ -226,7 +226,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 2,
       "Lecture": "ki",
       "Trad": "arbre",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Un arbre assez imagé",
       "Combinaison": "林, 森 - hayashi, mori",
       "Littéral": "plusieurs fois arbre",
       "Traduction": "forêt"
@@ -256,7 +256,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 2,
       "Lecture": "migi",
       "Trad": "droite",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Lorsque l'on dit ‟droite‟ notre bouche (口) est grande ouverte",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -266,7 +266,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 2,
       "Lecture": "hidari",
       "Trad": "gauche",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Lorsque l'on dit ‟gauche‟ on ouvre moins grand la bouche que pour droite, s'il n'y a pas de 口 par défaut, c'est gauche",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -296,7 +296,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 1,
       "Lecture": "ue",
       "Trad": "au dessus",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "en prenant en référence le plus long trait horizontal, on est au dessus",
       "Combinaison": "上手 - jyouzu",
       "Littéral": "au dessus + main",
       "Traduction": "être doué dans qqch"
@@ -306,7 +306,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 1,
       "Lecture": "shita / moto",
       "Trad": "au dessous",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "en prenant en référence le plus long trait horizontal, on est au dessous",
       "Combinaison": "下手 - heta",
       "Littéral": "au dessous + main",
       "Traduction": "être mauvais dans qqch"
@@ -316,7 +316,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 1,
       "Lecture": "yama",
       "Trad": "montagne",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Oh la belle montagne à 3 sommets !",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -326,7 +326,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 1,
       "Lecture": "kawa",
       "Trad": "rivière",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Oh la belle rivière !",
       "Combinaison": "川上 - kawakami",
       "Littéral": "rivière + au dessus",
       "Traduction": "en amont de la rivière"
@@ -336,7 +336,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 4,
       "Lecture": "hana",
       "Trad": "fleur",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Surplombé par la clé de plante figurant aussi dans thé 茶 (cha) ",
       "Combinaison": "https://tangorin.com/kanji/%E8%8A%B1https://tangorin.com/kanji/%E8%A6%8B - hanami",
       "Littéral": "fleur + voir",
       "Traduction": "aller voir les fleurs de Sakura"
@@ -356,7 +356,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 2,
       "Lecture": "ka / bi",
       "Trad": "feu",
-      "Mnemotechnique": "on peut voir une flamme…",
+      "Mnemotechnique": "Sympa le petit feu de camp",
       "Combinaison": "花火 - hanabi",
       "Littéral": "fleur + feu",
       "Traduction": "feu d’artifices"

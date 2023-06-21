@@ -1385,7 +1385,7 @@ const Cards = [
     "left_next_card": "",
     "right_next_card": "",
     "difficulté": "",
-    "Kanji": "",
+    "Kanji": "犬",
     "background": "#EAEAEA",
     "image": "https://cdn-icons-png.flaticon.com/512/6616/6616252.png",
     "itemId": ""
@@ -1437,7 +1437,7 @@ const Cards = [
     "left_next_card": "dca682768c1d4e4083f7cfb55cbb6bd4",
     "right_next_card": "",
     "difficulté": "",
-    "Kanji": "",
+    "Kanji": "犬",
     "background": "#DADADA",
     "image": "https://cdn-icons-png.flaticon.com/512/2395/2395671.png",
     "itemId": ""
@@ -1462,7 +1462,7 @@ const Cards = [
     "left_next_card": "",
     "right_next_card": "",
     "difficulté": "",
-    "Kanji": "",
+    "Kanji": "犬",
     "background": "#E4A5A5",
     "image": "https://cdn-icons-png.flaticon.com/512/2395/2395600.png",
     "itemId": ""
