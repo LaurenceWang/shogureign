@@ -366,7 +366,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 2,
       "Lecture": "kasa",
       "Trad": "parapluie",
-      "Mnemotechnique": "Ca ressemble à un parapluie !",
+      "Mnemotechnique": "Ca ressemble à un parapluie ! Bon il doit être percé car il pleut dessous",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -406,7 +406,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 2,
       "Lecture": "ta",
       "Trad": "rizière",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "On voit bien 4 parcelles qui pourrait constituer une rizière",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -426,7 +426,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 1,
       "Lecture": "onna",
       "Trad": "femme",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "On voit une danseuse",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -436,7 +436,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 4,
       "Lecture": "otoko",
       "Trad": "homme",
-      "Mnemotechnique": "formé des kanji rizière + force",
+      "Mnemotechnique": "formé des kanjis rizière 田 et force 力",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -446,7 +446,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 2,
       "Lecture": "ko",
       "Trad": "enfant",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Jambes confondues, bras tendus, avec une casquette, on peut voir un enfant",
       "Combinaison": "女の子 - onnanoko",
       "Littéral": "femme + enfant",
       "Traduction": "fille"
@@ -456,7 +456,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 3,
       "Lecture": "haha",
       "Trad": "mère",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Une rizière mais le riz est couché",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -466,7 +466,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 3,
       "Lecture": "chichi",
       "Trad": "père",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Deux épées qui se croisent",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -476,7 +476,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 3,
       "Lecture": "tomo",
       "Trad": "ami",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Un homme les bras tendus qui protège un homme accroupi, vrai pote",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -546,7 +546,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 4,
       "Lecture": "kuruma / sha",
       "Trad": "voiture",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "On a ajouté une roue de chaque côté de la rizière et hop ça roule",
       "Combinaison": "電車 - densha",
       "Littéral": "électricité + voiture",
       "Traduction": "train"
@@ -566,7 +566,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 2,
       "Lecture": "naka",
       "Trad": "à l’intérieur",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Une épée plantée à l'intérieur dans un roc",
       "Combinaison": "中国",
       "Littéral": "intérieur + pays",
       "Traduction": "Chine"
@@ -646,7 +646,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 2,
       "Lecture": "yuu",
       "Trad": "soirée",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "Le kanji de jour deformé prenant la forme d'un croissant de lune (transition entre le jour et la nuit)",
       "Combinaison": "夕食- yuushoku",
       "Littéral": "soirée + nourriture",
       "Traduction": "repas du soir"
@@ -656,7 +656,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 3,
       "Lecture": "kata",
       "Trad": "direction",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "un homme qui court dans une direction",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -836,7 +836,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 5,
       "Lecture": "ame",
       "Trad": "pluie",
-      "Mnemotechnique": "oh il pleut !",
+      "Mnemotechnique": "On voit une fenêtre derrière laquelle la pluie fait rage",
       "Combinaison": "大雨 - ooame",
       "Littéral": "grand + pluie",
       "Traduction": "forte pluie"
@@ -886,7 +886,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 17,
       "Lecture": "ai",
       "Trad": "amour",
-      "Mnemotechnique": "on y retrouve le kanji de coeur (un peu tassé au centre)",
+      "Mnemotechnique": "on y retrouve le kanji de coeur",
       "Combinaison": "",
       "Littéral": "",
       "Traduction": ""
@@ -1056,7 +1056,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 2,
       "Lecture": "inu",
       "Trad": "chien",
-      "Mnemotechnique": "",
+      "Mnemotechnique": "La truffe et les babines d'un chien, il a même une tache sur le museau",
       "Combinaison": "子犬 - koinu",
       "Littéral": "enfant + chien",
       "Traduction": "chiot"
@@ -1076,7 +1076,7 @@ export default function useKanjiCards() {
       "WanikaniLevel": 8,
       "Lecture": "den",
       "Trad": "électricité",
-      "Mnemotechnique": "une rizière avec le kanji de pluie par dessus",
+      "Mnemotechnique": "une rizière surplombée par la pluie, l'orage n'est pas loin !",
       "Combinaison": "電話 - denwa",
       "Littéral": "électricité + parler",
       "Traduction": "téléphone"
