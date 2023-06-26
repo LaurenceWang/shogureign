@@ -64,6 +64,7 @@ const Imagesbank = {
     sleep : "https://cdn-icons-png.flaticon.com/512/4604/4604640.png",
     hungry : "https://cdn-icons-png.flaticon.com/512/5060/5060720.png",
     park: "https://cdn-icons-png.flaticon.com/512/6594/6594737.png",
+    car : "https://cdn-icons-png.flaticon.com/256/171/171240.png",
     street: "https://cdn-icons-png.flaticon.com/256/9508/9508568.png",
     emptyfridge : "https://cdn-icons-png.flaticon.com/512/3422/3422519.png",
     library : "https://cdn-icons-png.flaticon.com/512/3660/3660258.png",
